@@ -1,6 +1,8 @@
 import path from'path';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
+
 import babel from 'rollup-plugin-babel';
-import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import filesize from 'rollup-plugin-filesize';
 import { uglify } from 'rollup-plugin-uglify';

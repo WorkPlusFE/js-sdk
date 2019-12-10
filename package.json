@@ -1,25 +1,36 @@
 {
-  "name": "@w6s/sdk.js",
-  "version": "1.0.0",
+  "name": "@w6s/sdk",
+  "version": "0.0.1",
   "description": "WorkPlusFE JavaScript SDK.",
-  "main": "lib/@w6s/sdk.js.js",
-  "main:min": "lib/@w6s/sdk.js.min.js",
-  "module": "lib/@w6s/sdk.js.mjs",
+  "main": "lib/@w6s/sdk.js",
+  "main:min": "lib/@w6s/sdk.min.js",
+  "module": "lib/@w6s/sdk.mjs",
   "scripts": {
     "test": "ava test/index.js",
     "pretest": "npm run build",
     "build:common": "rollup -c",
     "build:prod": "cross-env NODE_ENV=production rollup -c",
     "build": "npm run build:common && npm run build:prod",
-    "watch": "rollup -c -w",
-    "prepublish": "npm test"
+    "watch": "rollup -c -w"
   },
-  "keywords": [],
+  "keywords": [
+    "WorkPlusFE",
+    "w6s",
+    "sdk"
+  ],
   "author": "WorkPlusFE",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
+    "@rollup/plugin-alias": "^2.2.0",
+    "@rollup/plugin-auto-install": "^2.0.0",
+    "@rollup/plugin-beep": "^0.1.2",
+    "@rollup/plugin-buble": "^0.20.0",
+    "@rollup/plugin-json": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^6.0.0",
+    "@rollup/plugin-replace": "^2.2.1",
+    "@rollup/pluginutils": "^3.0.0",
     "ava": "^0.17.0",
     "babel-eslint": "10.0.3",
     "babel-plugin-external-helpers": "^6.8.0",
@@ -30,11 +41,13 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-filesize": "^6.2.1",
     "rollup-plugin-istanbul": "^1.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.3",
     "rollup-watch": "4.3.1"
   },
   "engines": {
     "node": ">= 10.16.0"
+  },
+  "dependencies": {
+    "@w6s/codash": "1.1.0"
   }
 }

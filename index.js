@@ -1,3 +1,6 @@
 'use strict';
 
-export const a = {x: 1};
+const SDK = {
+    version: '0.0.1',
+    native: {},
+};
