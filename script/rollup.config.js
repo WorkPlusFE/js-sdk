@@ -1,30 +1,41 @@
 import path from'path';
 import nodeResolve from '@rollup/plugin-node-resolve';
-import replace from '@rollup/plugin-replace';
+// import replace from '@rollup/plugin-replace';
 
-import babel from 'rollup-plugin-babel';
+// import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import filesize from 'rollup-plugin-filesize';
 import { uglify } from 'rollup-plugin-uglify';
+import typescript from 'rollup-plugin-typescript2'
 
 const resolveFile = (filePath) => path.join(__dirname, '.', filePath);
 
 const env = process.env.NODE_ENV;
-const pkg = require('./package.json');
+const pkg = require('./package.json.js');
 const banner =
   '/*!\n' +
   ' * ' + pkg.name + '.js v' + pkg.version + '\n' +
   ' * (c) ' + new Date().getFullYear() + ' ' + pkg.author + '\n' +
   ' */\n';
 
+
+const plugins = [
+  typescript({
+    tsconfig: 'tsconfig.json',
+    include: ['*.ts+(|x)', '**/*.ts+(|x)', '../**/*.ts+(|x)'],
+  }),
+  nodeResolve(),
+  commonjs(),
+  // babel(),
+]
+
 const config = { 
-  input: './index.js',
-  plugins: [
-    nodeResolve(),
-    commonjs(),
-    babel(),
+  input: './index.ts',
+  plugins,
+  external: [
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
   ],
-  external: null,
   output: [{
     file: resolveFile(pkg['main']),
     format: 'umd',
