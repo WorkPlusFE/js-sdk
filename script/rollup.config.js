@@ -30,7 +30,7 @@ const plugins = [
 ]
 
 const config = { 
-  input: './index.ts',
+  input: './modules/index.ts',
   plugins,
   external: [
     ...Object.keys(pkg.dependencies || {}),

@@ -1,0 +1,9 @@
+# dependencies
+node_modules
+package.json
+
+# build
+script/*
+
+# dist
+lib/@w6s/*
