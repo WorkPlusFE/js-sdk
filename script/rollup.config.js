@@ -3,15 +3,16 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 // import replace from '@rollup/plugin-replace';
 
 // import babel from 'rollup-plugin-babel';
+// import alias from 'rollup-plugin-alias';
 import commonjs from 'rollup-plugin-commonjs';
 import filesize from 'rollup-plugin-filesize';
 import { uglify } from 'rollup-plugin-uglify';
 import typescript from 'rollup-plugin-typescript2'
 
-const resolveFile = (filePath) => path.join(__dirname, '.', filePath);
+const resolveFile = (filePath) => path.join(process.cwd(), '.', filePath);
 
 const env = process.env.NODE_ENV;
-const pkg = require('./package.json.js');
+const pkg = require('../package.json');
 const banner =
   '/*!\n' +
   ' * ' + pkg.name + '.js v' + pkg.version + '\n' +
@@ -21,7 +22,12 @@ const banner =
 
 const plugins = [
   typescript({
-    tsconfig: 'tsconfig.json',
+    tsconfig: 'tsconfig.build.json',
+    tsconfigOverride: {
+      noEmit: false,
+      declaration: true,
+      declarationDir: "dist/types",
+    },
     include: ['*.ts+(|x)', '**/*.ts+(|x)', '../**/*.ts+(|x)'],
   }),
   nodeResolve(),
