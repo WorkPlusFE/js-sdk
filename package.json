@@ -15,7 +15,10 @@
     "build:common": "rollup -c script/rollup.config.js",
     "build:prod": "cross-env NODE_ENV=production rollup -c script/rollup.config.js",
     "build": "rimraf lib/@w6s && npm run build:common && npm run build:prod",
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w",
+    "docs:generate": "ts-node -P tsconfig.commonjs.json scripts/doc.ts",
+    "docs:dev": "npm run docs:generate && vuepress dev docs",
+    "docs:build": "npm run docs:generate && vuepress build docs"
   },
   "keywords": [
     "WorkPlusFE",
