@@ -15,8 +15,7 @@
     "build:common": "rollup -c script/rollup.config.js",
     "build:prod": "cross-env NODE_ENV=production rollup -c script/rollup.config.js",
     "build": "rimraf lib/@w6s && npm run build:common && npm run build:prod",
-    "watch": "rollup -c -w",
-    "precommit": "npm run lint && git add ."
+    "watch": "rollup -c -w"
   },
   "keywords": [
     "WorkPlusFE",
@@ -65,5 +64,10 @@
   "engines": {
     "node": ">= 10.16.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && git add ."
+    }
+  }
 }
