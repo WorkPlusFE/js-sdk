@@ -7,7 +7,7 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import filesize from 'rollup-plugin-filesize';
 import { uglify } from 'rollup-plugin-uglify';
-import typescript from 'rollup-plugin-typescript2'
+import ts from 'rollup-plugin-typescript2'
 
 const resolveFile = (filePath) => path.join(process.cwd(), '.', filePath);
 
@@ -19,17 +19,23 @@ const banner =
   ' * (c) ' + new Date().getFullYear() + ' ' + pkg.author + '\n' +
   ' */\n';
 
+let hasTSChecked = false
+
+const tsPlugin = ts({
+  check: process.env.NODE_ENV === 'production' && !hasTSChecked,
+  tsconfig: 'tsconfig.json',
+  tsconfigOverride: {
+    compilerOptions: {
+      declaration: true,
+      declarationMap: false,
+      declarationDir: "/lib/@w6s/types",
+    },
+    exclude: ['test']
+  }
+})
 
 const plugins = [
-  typescript({
-    tsconfig: 'tsconfig.build.json',
-    tsconfigOverride: {
-      noEmit: false,
-      declaration: true,
-      declarationDir: "dist/types",
-    },
-    include: ['*.ts+(|x)', '**/*.ts+(|x)', '../**/*.ts+(|x)'],
-  }),
+  tsPlugin,
   nodeResolve(),
   commonjs(),
   // babel(),

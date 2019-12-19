@@ -14,7 +14,7 @@
     "pretest": "npm run build",
     "build:common": "rollup -c script/rollup.config.js",
     "build:prod": "cross-env NODE_ENV=production rollup -c script/rollup.config.js",
-    "build": "npm run build:common && npm run build:prod",
+    "build": "rimraf lib/@w6s && npm run build:common && npm run build:prod",
     "watch": "rollup -c -w",
     "precommit": "npm run lint && git add ."
   },
@@ -42,13 +42,13 @@
     "babel-eslint": "10.0.3",
     "babel-plugin-external-helpers": "^6.8.0",
     "babel-register": "^6.11.6",
-    "browser-env": "^3.3.0",
     "cross-env": "^6.0.3",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
     "rollup": "^1.27.13",
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -65,7 +65,5 @@
   "engines": {
     "node": ">= 10.16.0"
   },
-  "dependencies": {
-    "@w6s/codash": "1.1.0"
-  }
+  "dependencies": {}
 }
