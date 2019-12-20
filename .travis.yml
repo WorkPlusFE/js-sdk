@@ -15,3 +15,11 @@ script:
   - yarn lint
   - yarn build
   - yarn docs:build
+notifications:
+  slack:
+    if: branch = master
+  email:
+    recipients:
+      - hejianxian@foreverht.com
+    on_success: never
+    on_failure: always
