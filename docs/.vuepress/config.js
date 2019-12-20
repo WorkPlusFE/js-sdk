@@ -18,6 +18,7 @@ const generateChildren = () => {
 module.exports = {
   title: pkg.name,
   description: pkg.description,
+  base: '/sdk.js/',
   themeConfig: {
     nav: [{ text: 'Github', link: 'https://github.com/WorkPlusFE/sdk.js' }],
     sidebar: [
