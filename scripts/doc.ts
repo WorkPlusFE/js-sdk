@@ -11,7 +11,7 @@ const cleanDocs = (docPath = rootPath + '/docs/') => {
     if (path === '.vuepress') return;
     const stat = fs.statSync(curPath);
     if (stat.isDirectory()) {
-      clean(curPath + '/');
+      cleanDocs(curPath + '/');
       fs.rmdirSync(curPath);
     } else {
       fs.unlinkSync(curPath);
