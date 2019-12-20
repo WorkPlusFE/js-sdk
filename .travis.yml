@@ -1,0 +1,17 @@
+sudo: false
+cache:
+  directories:
+    - $HOME/.yarn-cache
+language: node_js
+node_js: stable
+os:
+  - osx
+branches:
+  only:
+    - master # build master branch only
+install:
+  - yarn
+script:
+  - yarn lint
+  - yarn build
+  - yarn docs:build
