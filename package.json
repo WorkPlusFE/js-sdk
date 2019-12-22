@@ -7,8 +7,8 @@
   "module": "lib/@w6s/sdk.mjs",
   "typings": "lib/@w6s/index.d.ts",
   "scripts": {
-    "lint:prettier": "prettier '{modules,test}/*.{js,jsx,ts,tsx,json}' --write",
-    "lint:fix": "eslint --fix 'modules/*.{js,jsx,ts,tsx,json}' --ext .ts,.tsx --fix",
+    "lint:prettier": "prettier '{modules,test}/**/*.{js,jsx,ts,tsx,json}' --write",
+    "lint:fix": "eslint --fix 'modules/**/*.{js,jsx,ts,tsx,json}' --ext .ts,.tsx --fix",
     "lint": "npm run lint:prettier && npm run lint:fix",
     "test": "jest --coverage",
     "pretest": "npm run build",

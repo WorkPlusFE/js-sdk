@@ -26,10 +26,19 @@ export function isPlainObject(wat: any): boolean {
 }
 
 /**
- * Checks whether given value's type is an object literal
+ * Checks whether given value's type is an array
  * @param wat A value to be checked.
  * @returns A boolean representing the result.
  */
 export function isArray(wat: any): boolean {
   return Object.prototype.toString.call(wat) === '[object Array]';
+}
+
+/**
+ * Checks whether given value's type is a function
+ * @param wat A value to be checked.
+ * @returns A boolean representing the result.
+ */
+export function isFunction(wat: any): boolean {
+  return Object.prototype.toString.call(wat) === '[object Function]';
 }

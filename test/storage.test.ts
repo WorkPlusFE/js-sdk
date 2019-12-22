@@ -1,4 +1,4 @@
-import { Storage } from '@modules/index';
+import { Storage } from 'index';
 
 // storage mocks
 const storageMock = function() {

@@ -42,7 +42,7 @@ const plugins = [
 ]
 
 const config = { 
-  input: './modules/index.ts',
+  input: './index.ts',
   plugins,
   external: [
     ...Object.keys(pkg.dependencies || {}),
