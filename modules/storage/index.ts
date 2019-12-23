@@ -1,23 +1,23 @@
 import { StorageOptions } from '../types/storage';
-import { isPrimitive, isArray, isPlainObject } from '../utils/is';
+import { isPrimitive, isArray, isPlainObject } from '../utils/shared/is';
 
 class WorkPlusStorage {
   /**
-   * storage 前缀，默认 "workplus"
+   * Storage 前缀，默认 "workplus"
    * @private
    * @memberof WorkPlusStorage
    */
   private _prefix = 'workplus';
 
   /**
-   * storage 前缀连接符，默认 "."
+   * Storage 前缀连接符，默认 "."
    * @private
    * @memberof WorkPlusStorage
    */
   private _connector = '.';
 
   /**
-   * storage 实例，localStorage 或者 sessionStorage
+   * Storage 实例，localStorage 或者 sessionStorage
    * @private
    * @memberof WorkPlusStorage
    */
@@ -39,31 +39,33 @@ class WorkPlusStorage {
   }
 
   /**
-   * Get the full prefix.
+   * 获取key前缀
    * @readonly
+   * @type {string}
    * @memberof WorkPlusStorage
    */
-  get _fullPrefix() {
+  get _fullPrefix(): string {
     return this._prefix + ':';
   }
 
   /**
-   * 获取完整的 key
+   * 获取完整的key
+   * @private
    * @param {string} key
-   * @returns
+   * @returns {string}
    * @memberof WorkPlusStorage
    */
-  private _getFullKey(key: string) {
+  private _getFullKey(key: string): string {
     return this._fullPrefix + key;
   }
 
   /**
-   * 获取 item
+   * 获取item
    * @param {string} key
    * @returns
    * @memberof WorkPlusStorage
    */
-  get(key: string) {
+  get(key: string): unknown {
     const fullKey = this._getFullKey(key);
     const value = this._storage.getItem(fullKey) ?? '';
     if (!this.hasKey(fullKey)) {
@@ -73,7 +75,7 @@ class WorkPlusStorage {
   }
 
   /**
-   * 检测 key 是否存在
+   * 检测key是否存在
    * @param {string} key
    * @returns {boolean}
    * @memberof WorkPlusStorage
@@ -91,12 +93,12 @@ class WorkPlusStorage {
   }
 
   /**
-   * 添加 item
+   * 添加item
    * @param {string} key
    * @param {*} source
    * @memberof WorkPlusStorage
    */
-  add(key: string, source: any) {
+  add(key: string, source: string): void {
     const fullKey = this._getFullKey(key);
     let value = source;
     if (isArray(source) || isPlainObject(source)) {
@@ -112,25 +114,25 @@ class WorkPlusStorage {
   }
 
   /**
-   * 删除 item
-   * @param {string} key 要删除的key
+   * 删除item
+   * @param {string} key
    * @memberof WorkPlusStorage
    */
-  remove(key: string) {
+  remove(key: string): void {
     const fullKey = this._getFullKey(key);
     this._storage?.removeItem(fullKey);
   }
 
   /**
-   * 清空 storage
+   * 清空Storage
    * @memberof WorkPlusStorage
    */
   clear(): void {
-    this.forEach((key, value) => this.remove(key));
+    this.forEach(key => this.remove(key));
   }
 
   /**
-   * 获取 item 的数量
+   * 获取item总数量
    * @returns {number}
    * @memberof WorkPlusStorage
    */
@@ -149,10 +151,10 @@ class WorkPlusStorage {
 
   /**
    * 遍历所有 item
-   * @param {(key: string, value: any) => void} callback
+   * @param {(key: string, value: unknown) => void} callback
    * @memberof WorkPlusStorage
    */
-  forEach(callback: (key: string, value: any) => void) {
+  forEach(callback: (key: string, value: unknown) => void): void {
     const storage = this._storage;
     const fullPrefix = this._fullPrefix;
     for (let i = 0; i < storage.length; i++) {

@@ -1,0 +1,18 @@
+import { SingleContactRes, ContactOption, SingleContactParams, ContactsParams, ContactsRes, EmployeesFromOrgParams, CurrentUserInfoParams, CurrentUserInfoRes, CurrentEmployeeInfoParams, CurrentEmployeeInfoRes, ShowUserChatViewByUserParams, ShowUserInfoByUsernameParams, OpenDiscussionByIdParams, SelectDiscussionMembersParams, SelectDiscussionMembersRes, SelectContactsCacheRes, GetUserInfoByUserIdParams, GetUserInfoByUserIdRes, ShowAppChatViewParams, ShowAppListByIdParams, SelectContactsParams } from '../types/contact';
+export declare function getSingleContact(options?: ContactOption<SingleContactParams, SingleContactRes>): Promise<SingleContactRes>;
+export declare function getContacts(options?: ContactOption<ContactsParams, ContactsRes>): Promise<ContactsRes>;
+export declare function getEmployeesFromCurrentOrg(options?: ContactOption<EmployeesFromOrgParams, CurrentEmployeeInfoRes>): Promise<CurrentEmployeeInfoRes>;
+export declare function getCurrentUserInfo(options?: ContactOption<CurrentUserInfoParams, CurrentUserInfoRes>): Promise<CurrentUserInfoRes>;
+export declare function getCurrentEmployeeInfo(options?: ContactOption<CurrentEmployeeInfoParams, CurrentEmployeeInfoRes>): Promise<CurrentEmployeeInfoRes>;
+export declare function showUserChatViewByUser(options?: ContactOption<ShowUserChatViewByUserParams, any>): Promise<any>;
+export declare function getMobileContacts(options?: ContactOption<[], any>): Promise<any>;
+export declare function getUserInfoByUserId(options?: ContactOption<GetUserInfoByUserIdParams, GetUserInfoByUserIdRes>): Promise<GetUserInfoByUserIdRes>;
+export declare function showUserInfoByUsername(options?: ContactOption<ShowUserInfoByUsernameParams, any>): Promise<any>;
+export declare function openDiscussionById(options?: ContactOption<OpenDiscussionByIdParams, any>): Promise<any>;
+export declare function createDiscussionChat(options?: ContactOption<[], any>): Promise<any>;
+export declare function showAppChatViewById(options?: ContactOption<ShowAppChatViewParams[], any>): Promise<any>;
+export declare function searchInApp(options?: ContactOption<[], any>): Promise<any>;
+export declare function showAppListById(options?: ContactOption<ShowAppListByIdParams, any>): Promise<any>;
+export declare function selectContacts(options?: ContactOption<SelectContactsParams, any>): Promise<any>;
+export declare function selectDiscussionMembers(options?: ContactOption<SelectDiscussionMembersParams, SelectDiscussionMembersRes>): Promise<SelectDiscussionMembersRes>;
+export declare function selectContactsCache(options?: ContactOption<[], SelectContactsCacheRes>): Promise<SelectContactsCacheRes>;

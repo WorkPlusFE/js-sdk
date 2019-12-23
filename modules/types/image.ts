@@ -1,4 +1,4 @@
-export interface TakePhotoResp {
+export interface TakePhoto {
   /** 压缩后图像存在本地的地址 */
   imageURL: string;
   /** 原图像存在本地的地址 */
@@ -20,18 +20,9 @@ export interface ImageOptions<D, S> {
   /** 传参 */
   data: D;
   /** 成功回调 */
-  success: (res: S) => void;
+  success?: (res: S) => void;
   /** 失败回调 */
-  fail: (err: any) => void;
-}
-
-export interface ImagesOptions {
-  /** 图片在本机的地址 */
-  imageKeys?: string[];
-  /** 成功回调 */
-  success?: (res: TakePhotoResp[]) => void;
-  /** 失败回调 */
-  fail?: (err: any) => void;
+  fail?: (err: void) => void;
 }
 
 export interface ShowImagesItem {
@@ -55,7 +46,7 @@ export interface ImageDataItem {
   imageData: string;
 }
 
-export interface TakePicture {
+export interface TakePictureArgs {
   /**
    * 表示是否进行裁剪:
    * true 进行裁剪返回，
@@ -64,16 +55,14 @@ export interface TakePicture {
   editable: boolean;
 }
 
-export interface TakePictureItem extends TakePhotoResp {
+export interface TakePicture extends TakePhoto {
   /** 返回后台的mediaId */
   mediaId: string;
 }
 
-export interface ChooseImages {
+export interface ChooseImages extends ImageKeys {
   /** 是否是多选，ture(多选)  fals(单选) */
   multiple: boolean;
-  /** 图片在本机的地址 */
-  imageKeys: string[];
   /** 是否对图像进行剪裁 true(剪裁)  false(不剪裁)  */
   editable: boolean;
   file_limit: {
@@ -93,4 +82,9 @@ export interface WaterMark {
   font_size: string;
   /** 水印颜色 */
   color: string;
+}
+
+export interface ImageKeys {
+  /** 图片在本机的地址 */
+  imageKeys: string[];
 }
