@@ -1,4 +1,4 @@
-export interface takePhotoResp {
+export interface TakePhotoResp {
     /** 压缩后图像存在本地的地址 */
     imageURL: string;
     /** 原图像存在本地的地址 */
@@ -26,7 +26,7 @@ export interface ImagesOptions {
     /** 图片在本机的地址 */
     imageKeys?: string[];
     /** 成功回调 */
-    success?: (res: takePhotoResp[]) => void;
+    success?: (res: TakePhotoResp[]) => void;
     /** 失败回调 */
     fail?: (err: any) => void;
 }
@@ -56,7 +56,7 @@ export interface TakePicture {
      * */
     editable: boolean;
 }
-export interface TakePictureItem extends takePhotoResp {
+export interface TakePictureItem extends TakePhotoResp {
     /** 返回后台的mediaId */
     mediaId: string;
 }

@@ -1,6 +1,6 @@
 import { SDKOptions } from '../types/sdk';
-import { detectInWorkPlus } from '../utils/platform';
-import { isFunction } from '../utils/is';
+import { detectInWorkPlus } from '../utils/shared/platform';
+import { isFunction } from '../utils/shared/is';
 
 class SDK {
   private _isReady = false;

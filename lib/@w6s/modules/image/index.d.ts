@@ -1,40 +1,40 @@
 /** 图像相关 API */
-import { takePhotoResp, ImageOptions, ImagesOptions, ShowImagesItem, SaveImageItem, ImageDataItem, TakePicture, TakePictureItem, ChooseImages, WaterMark } from '../types/image';
+import { TakePhotoResp, ImageOptions, ImagesOptions, ShowImagesItem, SaveImageItem, ImageDataItem, TakePicture, TakePictureItem, ChooseImages, WaterMark } from '../types/image';
 /**
  * 拍照返回
  * @description 拍照，压缩图片后直接返回图片
- * @param {ImageOptions<[], takePhotoResp>} [options]
+ * @param {ImageOptions<[], TakePhotoResp>} [options]
  * @returns
  */
-export declare function takePhoto(options?: ImageOptions<[], takePhotoResp>): Promise<takePhotoResp> | undefined;
+export declare function takePhoto(options?: ImageOptions<[], TakePhotoResp>): Promise<TakePhotoResp> | undefined;
 /**
  * 拍照返回并且可编辑
  * @description 拍照，截图返回
- * @param {ImageOptions<[], takePhotoResp>} [options]
+ * @param {ImageOptions<[], TakePhotoResp>} [options]
  * @returns
  */
-export declare function takePhotoWithEdit(options?: ImageOptions<[], takePhotoResp>): Promise<takePhotoResp> | undefined;
+export declare function takePhotoWithEdit(options?: ImageOptions<[], TakePhotoResp>): Promise<TakePhotoResp> | undefined;
 /**
  * 选择图片（单张）
  * @description 调用图片相册，选择图片并压缩返回
- * @param {ImageOptions<[], takePhotoResp>} [options]
+ * @param {ImageOptions<[], TakePhotoResp>} [options]
  * @returns
  */
-export declare function selectImage(options?: ImageOptions<[], takePhotoResp>): Promise<takePhotoResp> | undefined;
+export declare function selectImage(options?: ImageOptions<[], TakePhotoResp>): Promise<TakePhotoResp> | undefined;
 /**
  * 选择图片并截图返回（单张）
  * @description 调用图片相册，选择图片并截取返回
- * @param {ImageOptions<[], takePhotoResp>} [options]
+ * @param {ImageOptions<[], TakePhotoResp>} [options]
  * @returns
  */
-export declare function selectImageWithEdit(options?: ImageOptions<[], takePhotoResp>): Promise<takePhotoResp> | undefined;
+export declare function selectImageWithEdit(options?: ImageOptions<[], TakePhotoResp>): Promise<TakePhotoResp> | undefined;
 /**
  * 选择多张图片
  * @description 调用图片相册，选择多张图片并压缩返回，并且支持选过图片的传输
  * @param {ImagesOptions} [options]
  * @returns
  */
-export declare function selectImages(options?: ImagesOptions): Promise<takePhotoResp[]> | undefined;
+export declare function selectImages(options?: ImagesOptions): Promise<TakePhotoResp[]> | undefined;
 /**
  * 清除压缩后的图片
  * @description 拍照或选择照片后都会生成压缩图片，调用这个方法去清除

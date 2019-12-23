@@ -1,5 +1,5 @@
 import { StorageOptions } from '../types/storage';
-import { isPrimitive, isArray, isPlainObject } from '../utils/is';
+import { isPrimitive, isArray, isPlainObject } from '../utils/shared/is';
 
 class WorkPlusStorage {
   /**

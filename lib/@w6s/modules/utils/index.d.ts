@@ -1,4 +1,4 @@
-export * from './is';
+export * from './shared/is';
 /**
  * 休眠函数
  * @param time 时间，单位毫秒
