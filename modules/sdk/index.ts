@@ -27,7 +27,7 @@ class SDK {
     return true;
   }
 
-  _ready(fn?: Function) {
+  _ready(fn?: Function): void {
     document.addEventListener(
       'deviceready',
       () => {
@@ -39,23 +39,35 @@ class SDK {
     );
   }
 
-  static sendEvent<S, F>(
+  static sendEvent<A, S, F>(
     service: string,
     action: string,
-    data?: any[],
-    successFn?: (data: S) => void,
-    failedFn?: (data: F) => void,
-  ) {
-    if (successFn && failedFn && isFunction(successFn) && isFunction(failedFn)) {
-      cordova.exec(successFn, failedFn, service, action, data || []);
-    } else {
-      return new Promise((resolve: (res: S) => void, reject: (err: F) => any) => {
-        cordova.exec(resolve, reject, service, action);
-      });
-    }
+    args: Array<A>,
+    success?: (data: S) => void,
+    failed?: (err: F) => void,
+  ): Promise<S> {
+    return new Promise((resolve: (res: S) => void, reject: (err: F) => void) => {
+      cordova.exec(
+        function(res: S) {
+          if (success && isFunction(success)) {
+            success(res);
+          }
+          return resolve(res);
+        },
+        function(err: F) {
+          if (failed && isFunction(failed)) {
+            failed(err);
+          }
+          return reject(err);
+        },
+        service,
+        action,
+        args,
+      );
+    });
   }
 
-  get isReday() {
+  get isReday(): boolean {
     return this._isReady;
   }
 }

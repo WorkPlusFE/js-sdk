@@ -3,7 +3,7 @@
  * @param wat A value to be checked.
  * @returns A boolean representing the result.
  */
-export function isString(wat: any): boolean {
+export function isString(wat: unknown): boolean {
   return Object.prototype.toString.call(wat) === '[object String]';
 }
 
@@ -12,7 +12,7 @@ export function isString(wat: any): boolean {
  * @param wat A value to be checked.
  * @returns A boolean representing the result.
  */
-export function isPrimitive(wat: any): boolean {
+export function isPrimitive(wat: unknown): boolean {
   return wat === null || (typeof wat !== 'object' && typeof wat !== 'function');
 }
 
@@ -21,7 +21,7 @@ export function isPrimitive(wat: any): boolean {
  * @param wat A value to be checked.
  * @returns A boolean representing the result.
  */
-export function isPlainObject(wat: any): boolean {
+export function isPlainObject(wat: unknown): boolean {
   return Object.prototype.toString.call(wat) === '[object Object]';
 }
 
@@ -30,7 +30,7 @@ export function isPlainObject(wat: any): boolean {
  * @param wat A value to be checked.
  * @returns A boolean representing the result.
  */
-export function isArray(wat: any): boolean {
+export function isArray(wat: unknown): boolean {
   return Object.prototype.toString.call(wat) === '[object Array]';
 }
 
@@ -39,6 +39,6 @@ export function isArray(wat: any): boolean {
  * @param wat A value to be checked.
  * @returns A boolean representing the result.
  */
-export function isFunction(wat: any): boolean {
+export function isFunction(wat: unknown): boolean {
   return Object.prototype.toString.call(wat) === '[object Function]';
 }

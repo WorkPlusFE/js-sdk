@@ -4,7 +4,7 @@ declare class SDK {
     constructor(options: SDKOptions);
     init(options: SDKOptions): boolean;
     _ready(fn?: Function): void;
-    static sendEvent<S, F>(service: string, action: string, data?: any[], successFn?: (data: S) => void, failedFn?: (data: F) => void): Promise<S> | undefined;
+    static sendEvent<A, S, F>(service: string, action: string, args: Array<A>, success?: (data: S) => void, failed?: (err: F) => void): Promise<S>;
     get isReday(): boolean;
 }
 export default SDK;
