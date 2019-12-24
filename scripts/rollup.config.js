@@ -28,7 +28,7 @@ const tsPlugin = ts({
     compilerOptions: {
       declaration: true,
       declarationMap: false,
-      declarationDir: "/lib/@w6s/types",
+      declarationDir: "/dist/types",
     },
     exclude: ['test']
   }
@@ -42,7 +42,7 @@ const plugins = [
 ]
 
 const config = { 
-  input: './index.ts',
+  input: './modules/index.ts',
   plugins,
   external: [
     ...Object.keys(pkg.dependencies || {}),
