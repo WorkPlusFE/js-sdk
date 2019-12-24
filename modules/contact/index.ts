@@ -28,7 +28,7 @@ const SERVICE_KEY = 'WorkPlus_Contact';
 export function getSingleContact(
   options?: ContactOption<SingleContactParams, SingleContactRes>,
 ): Promise<SingleContactRes> {
-  return SDK.sendEvent<SingleContactParams, SingleContactRes, any>(
+  return SDK.sendEvent<SingleContactParams, SingleContactRes, unknown>(
     SERVICE_KEY,
     'getContact',
     options?.data ?? [],
@@ -40,7 +40,7 @@ export function getSingleContact(
 export function getContacts(
   options?: ContactOption<ContactsParams, ContactsRes>,
 ): Promise<ContactsRes> {
-  return SDK.sendEvent<ContactsParams, ContactsRes, any>(
+  return SDK.sendEvent<ContactsParams, ContactsRes, unknown>(
     SERVICE_KEY,
     'getContacts',
     options?.data ?? [],
@@ -52,7 +52,7 @@ export function getContacts(
 export function getEmployeesFromCurrentOrg(
   options?: ContactOption<EmployeesFromOrgParams, CurrentEmployeeInfoRes>,
 ): Promise<CurrentEmployeeInfoRes> {
-  return SDK.sendEvent<EmployeesFromOrgParams, CurrentEmployeeInfoRes, any>(
+  return SDK.sendEvent<EmployeesFromOrgParams, CurrentEmployeeInfoRes, unknown>(
     SERVICE_KEY,
     'getEmployeesFromCurrentOrg',
     options?.data ?? [],
@@ -64,7 +64,7 @@ export function getEmployeesFromCurrentOrg(
 export function getCurrentUserInfo(
   options?: ContactOption<CurrentUserInfoParams, CurrentUserInfoRes>,
 ): Promise<CurrentUserInfoRes> {
-  return SDK.sendEvent<CurrentUserInfoParams, CurrentUserInfoRes, any>(
+  return SDK.sendEvent<CurrentUserInfoParams, CurrentUserInfoRes, unknown>(
     SERVICE_KEY,
     'getCurrentUserInfo',
     options?.data ?? [],
@@ -76,7 +76,7 @@ export function getCurrentUserInfo(
 export function getCurrentEmployeeInfo(
   options?: ContactOption<CurrentEmployeeInfoParams, CurrentEmployeeInfoRes>,
 ): Promise<CurrentEmployeeInfoRes> {
-  return SDK.sendEvent<CurrentEmployeeInfoParams, CurrentEmployeeInfoRes, any>(
+  return SDK.sendEvent<CurrentEmployeeInfoParams, CurrentEmployeeInfoRes, unknown>(
     SERVICE_KEY,
     'getCurrentEmployeeInfo',
     options?.data ?? [],
@@ -86,9 +86,9 @@ export function getCurrentEmployeeInfo(
 }
 
 export function showUserChatViewByUser(
-  options?: ContactOption<ShowUserChatViewByUserParams, any>,
-): Promise<any> {
-  return SDK.sendEvent<ShowUserChatViewByUserParams, any, any>(
+  options?: ContactOption<ShowUserChatViewByUserParams, unknown>,
+): Promise<unknown> {
+  return SDK.sendEvent<ShowUserChatViewByUserParams, unknown, unknown>(
     SERVICE_KEY,
     'showUserChatViewByUser',
     options?.data ?? [],
@@ -97,8 +97,8 @@ export function showUserChatViewByUser(
   );
 }
 
-export function getMobileContacts(options?: ContactOption<[], any>): Promise<any> {
-  return SDK.sendEvent<[], any, any>(
+export function getMobileContacts(options?: ContactOption<[], unknown>): Promise<unknown> {
+  return SDK.sendEvent<[], unknown, unknown>(
     SERVICE_KEY,
     'getMobileContacts',
     options?.data ?? [],
@@ -110,7 +110,7 @@ export function getMobileContacts(options?: ContactOption<[], any>): Promise<any
 export function getUserInfoByUserId(
   options?: ContactOption<GetUserInfoByUserIdParams, GetUserInfoByUserIdRes>,
 ): Promise<GetUserInfoByUserIdRes> {
-  return SDK.sendEvent<GetUserInfoByUserIdParams, GetUserInfoByUserIdRes, any>(
+  return SDK.sendEvent<GetUserInfoByUserIdParams, GetUserInfoByUserIdRes, unknown>(
     SERVICE_KEY,
     'getUserInfoByUserId',
     options?.data ?? [],
@@ -120,9 +120,9 @@ export function getUserInfoByUserId(
 }
 
 export function showUserInfoByUsername(
-  options?: ContactOption<ShowUserInfoByUsernameParams, any>,
-): Promise<any> {
-  return SDK.sendEvent<ShowUserInfoByUsernameParams, any, any>(
+  options?: ContactOption<ShowUserInfoByUsernameParams, unknown>,
+): Promise<unknown> {
+  return SDK.sendEvent<ShowUserInfoByUsernameParams, unknown, unknown>(
     SERVICE_KEY,
     'showUserInfoByUsername',
     options?.data ?? [],
@@ -132,9 +132,9 @@ export function showUserInfoByUsername(
 }
 
 export function openDiscussionById(
-  options?: ContactOption<OpenDiscussionByIdParams, any>,
-): Promise<any> {
-  return SDK.sendEvent<OpenDiscussionByIdParams, any, any>(
+  options?: ContactOption<OpenDiscussionByIdParams, unknown>,
+): Promise<unknown> {
+  return SDK.sendEvent<OpenDiscussionByIdParams, unknown, unknown>(
     SERVICE_KEY,
     'openDiscussionById',
     options?.data ?? [],
@@ -143,8 +143,8 @@ export function openDiscussionById(
   );
 }
 
-export function createDiscussionChat(options?: ContactOption<[], any>): Promise<any> {
-  return SDK.sendEvent<[], any, any>(
+export function createDiscussionChat(options?: ContactOption<[], unknown>): Promise<unknown> {
+  return SDK.sendEvent<[], unknown, unknown>(
     SERVICE_KEY,
     'createDiscussionChat',
     options?.data ?? [],
@@ -154,9 +154,9 @@ export function createDiscussionChat(options?: ContactOption<[], any>): Promise<
 }
 
 export function showAppChatViewById(
-  options?: ContactOption<ShowAppChatViewParams[], any>,
-): Promise<any> {
-  return SDK.sendEvent<ShowAppChatViewParams[], any, any>(
+  options?: ContactOption<ShowAppChatViewParams[], unknown>,
+): Promise<unknown> {
+  return SDK.sendEvent<ShowAppChatViewParams[], unknown, unknown>(
     SERVICE_KEY,
     'showAppChatView',
     options?.data ?? [],
@@ -165,8 +165,8 @@ export function showAppChatViewById(
   );
 }
 
-export function searchInApp(options?: ContactOption<[], any>): Promise<any> {
-  return SDK.sendEvent<[], any, any>(
+export function searchInApp(options?: ContactOption<[], unknown>): Promise<unknown> {
+  return SDK.sendEvent<[], unknown, unknown>(
     SERVICE_KEY,
     'searchInApp',
     options?.data ?? [],
@@ -175,8 +175,10 @@ export function searchInApp(options?: ContactOption<[], any>): Promise<any> {
   );
 }
 
-export function showAppListById(options?: ContactOption<ShowAppListByIdParams, any>): Promise<any> {
-  return SDK.sendEvent<ShowAppListByIdParams, any, any>(
+export function showAppListById(
+  options?: ContactOption<ShowAppListByIdParams, unknown>,
+): Promise<unknown> {
+  return SDK.sendEvent<ShowAppListByIdParams, unknown, unknown>(
     SERVICE_KEY,
     'showAppListById',
     options?.data ?? [],
@@ -185,8 +187,10 @@ export function showAppListById(options?: ContactOption<ShowAppListByIdParams, a
   );
 }
 
-export function selectContacts(options?: ContactOption<SelectContactsParams, any>): Promise<any> {
-  return SDK.sendEvent<SelectContactsParams[], any, any>(
+export function selectContacts(
+  options?: ContactOption<SelectContactsParams, unknown>,
+): Promise<unknown> {
+  return SDK.sendEvent<SelectContactsParams, unknown, unknown>(
     SERVICE_KEY,
     'selectContacts',
     options?.data ?? [],
@@ -198,7 +202,7 @@ export function selectContacts(options?: ContactOption<SelectContactsParams, any
 export function selectDiscussionMembers(
   options?: ContactOption<SelectDiscussionMembersParams, SelectDiscussionMembersRes>,
 ): Promise<SelectDiscussionMembersRes> {
-  return SDK.sendEvent<SelectDiscussionMembersParams, SelectDiscussionMembersRes, any>(
+  return SDK.sendEvent<SelectDiscussionMembersParams, SelectDiscussionMembersRes, unknown>(
     SERVICE_KEY,
     'selectDiscussionMembers',
     options?.data ?? [],
@@ -210,7 +214,7 @@ export function selectDiscussionMembers(
 export function selectContactsCache(
   options?: ContactOption<[], SelectContactsCacheRes>,
 ): Promise<SelectContactsCacheRes> {
-  return SDK.sendEvent<[], SelectContactsCacheRes, any>(
+  return SDK.sendEvent<[], SelectContactsCacheRes, unknown>(
     SERVICE_KEY,
     'selectContactsCache',
     options?.data ?? [],
