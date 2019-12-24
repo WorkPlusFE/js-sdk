@@ -186,7 +186,7 @@ export function showAppListById(options?: ContactOption<ShowAppListByIdParams, a
 }
 
 export function selectContacts(options?: ContactOption<SelectContactsParams, any>): Promise<any> {
-  return SDK.sendEvent<SelectContactsParams[], any, any>(
+  return SDK.sendEvent<SelectContactsParams, any, any>(
     SERVICE_KEY,
     'selectContacts',
     options?.data ?? [],
