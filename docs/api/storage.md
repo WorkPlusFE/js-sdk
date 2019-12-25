@@ -1,4 +1,4 @@
-# Storage
+# 存储
 
 提供对 localStorage 及 sessionStorage 的封装，默认使用 `workplus.` 前缀作为命名空间， 使用如下：
 
