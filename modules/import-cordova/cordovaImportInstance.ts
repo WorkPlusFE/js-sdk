@@ -9,7 +9,7 @@ import {
   isiOSPlatform,
 } from './utils';
 
-export default class CordovaImportLib {
+export default class CordovaImportInstance {
   private config: ImportCordovaConfig;
   constructor(host?: string) {
     this.config = JSON.parse(JSON.stringify(config));

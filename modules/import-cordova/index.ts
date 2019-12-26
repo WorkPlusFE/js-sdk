@@ -1,5 +1,5 @@
 import { inWorkPlus, isValidHost, scriptGenerator } from './utils';
-import CordovaImportLib from './cordovaImportInstance';
+import CordovaImportInstance from './cordovaImportInstance';
 
 export default function cordovaImportInit(host?: string): void {
   try {
@@ -11,7 +11,7 @@ export default function cordovaImportInit(host?: string): void {
       }
     }
 
-    const lib = new CordovaImportLib(host);
+    const lib = new CordovaImportInstance(host);
     const importUri = lib.getImportUri();
     scriptGenerator(importUri);
   } catch (error) {
