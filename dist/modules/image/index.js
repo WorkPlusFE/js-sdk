@@ -1,7 +1,7 @@
 "use strict";
 /** 图像相关 API */
 Object.defineProperty(exports, "__esModule", { value: true });
-var sdk_1 = require("../sdk");
+var core = require("../core");
 var ServiceKey = 'WorkPlus_Image';
 /**
  * 拍照返回
@@ -11,7 +11,7 @@ var ServiceKey = 'WorkPlus_Image';
  */
 function takePhoto(options) {
     var _a, _b, _c, _d;
-    return sdk_1.default.sendEvent(ServiceKey, 'takePhoto', (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.data, (_b !== null && _b !== void 0 ? _b : [])), (_c = options) === null || _c === void 0 ? void 0 : _c.success, (_d = options) === null || _d === void 0 ? void 0 : _d.fail);
+    return core.exec(ServiceKey, 'takePhoto', (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.data, (_b !== null && _b !== void 0 ? _b : [])), (_c = options) === null || _c === void 0 ? void 0 : _c.success, (_d = options) === null || _d === void 0 ? void 0 : _d.fail);
 }
 exports.takePhoto = takePhoto;
 /**
@@ -22,7 +22,7 @@ exports.takePhoto = takePhoto;
  */
 function takePhotoWithEdit(options) {
     var _a, _b, _c, _d;
-    return sdk_1.default.sendEvent(ServiceKey, 'takePhotoWithEdit', (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.data, (_b !== null && _b !== void 0 ? _b : [])), (_c = options) === null || _c === void 0 ? void 0 : _c.success, (_d = options) === null || _d === void 0 ? void 0 : _d.fail);
+    return core.exec(ServiceKey, 'takePhotoWithEdit', (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.data, (_b !== null && _b !== void 0 ? _b : [])), (_c = options) === null || _c === void 0 ? void 0 : _c.success, (_d = options) === null || _d === void 0 ? void 0 : _d.fail);
 }
 exports.takePhotoWithEdit = takePhotoWithEdit;
 /**
@@ -33,7 +33,7 @@ exports.takePhotoWithEdit = takePhotoWithEdit;
  */
 function selectImage(options) {
     var _a, _b, _c, _d;
-    return sdk_1.default.sendEvent(ServiceKey, 'selectImage', (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.data, (_b !== null && _b !== void 0 ? _b : [])), (_c = options) === null || _c === void 0 ? void 0 : _c.success, (_d = options) === null || _d === void 0 ? void 0 : _d.fail);
+    return core.exec(ServiceKey, 'selectImage', (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.data, (_b !== null && _b !== void 0 ? _b : [])), (_c = options) === null || _c === void 0 ? void 0 : _c.success, (_d = options) === null || _d === void 0 ? void 0 : _d.fail);
 }
 exports.selectImage = selectImage;
 /**
@@ -44,7 +44,7 @@ exports.selectImage = selectImage;
  */
 function selectImageWithEdit(options) {
     var _a, _b, _c, _d;
-    return sdk_1.default.sendEvent(ServiceKey, 'selectImageWithEdit', (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.data, (_b !== null && _b !== void 0 ? _b : [])), (_c = options) === null || _c === void 0 ? void 0 : _c.success, (_d = options) === null || _d === void 0 ? void 0 : _d.fail);
+    return core.exec(ServiceKey, 'selectImageWithEdit', (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.data, (_b !== null && _b !== void 0 ? _b : [])), (_c = options) === null || _c === void 0 ? void 0 : _c.success, (_d = options) === null || _d === void 0 ? void 0 : _d.fail);
 }
 exports.selectImageWithEdit = selectImageWithEdit;
 /**
@@ -55,7 +55,7 @@ exports.selectImageWithEdit = selectImageWithEdit;
  */
 function selectImages(options) {
     var _a, _b;
-    return sdk_1.default.sendEvent(ServiceKey, 'selectImages', [{ imageKeys: options.data }], (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
+    return core.exec(ServiceKey, 'selectImages', [{ imageKeys: options.data }], (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
 }
 exports.selectImages = selectImages;
 /**
@@ -66,7 +66,7 @@ exports.selectImages = selectImages;
  */
 function cleanCompressImage(options) {
     var _a, _b, _c, _d;
-    return sdk_1.default.sendEvent(ServiceKey, 'cleanCompressImage', (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.data, (_b !== null && _b !== void 0 ? _b : [])), (_c = options) === null || _c === void 0 ? void 0 : _c.success, (_d = options) === null || _d === void 0 ? void 0 : _d.fail);
+    return core.exec(ServiceKey, 'cleanCompressImage', (_b = (_a = options) === null || _a === void 0 ? void 0 : _a.data, (_b !== null && _b !== void 0 ? _b : [])), (_c = options) === null || _c === void 0 ? void 0 : _c.success, (_d = options) === null || _d === void 0 ? void 0 : _d.fail);
 }
 exports.cleanCompressImage = cleanCompressImage;
 /**
@@ -77,7 +77,7 @@ exports.cleanCompressImage = cleanCompressImage;
  */
 function showImages(options) {
     var _a, _b;
-    return sdk_1.default.sendEvent(ServiceKey, 'showImages', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
+    return core.exec(ServiceKey, 'showImages', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
 }
 exports.showImages = showImages;
 /**
@@ -88,7 +88,7 @@ exports.showImages = showImages;
  */
 function saveImages(options) {
     var _a, _b;
-    return sdk_1.default.sendEvent(ServiceKey, 'saveImages', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
+    return core.exec(ServiceKey, 'saveImages', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
 }
 exports.saveImages = saveImages;
 /**
@@ -99,7 +99,7 @@ exports.saveImages = saveImages;
  */
 function actionForLongPressImage(options) {
     var _a, _b;
-    return sdk_1.default.sendEvent(ServiceKey, 'actionForLongPressImage', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
+    return core.exec(ServiceKey, 'actionForLongPressImage', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
 }
 exports.actionForLongPressImage = actionForLongPressImage;
 /**
@@ -110,7 +110,7 @@ exports.actionForLongPressImage = actionForLongPressImage;
  */
 function takePicture(options) {
     var _a, _b;
-    return sdk_1.default.sendEvent(ServiceKey, 'takePicture', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
+    return core.exec(ServiceKey, 'takePicture', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
 }
 exports.takePicture = takePicture;
 /**
@@ -123,7 +123,7 @@ exports.takePicture = takePicture;
  */
 function chooseImages(options) {
     var _a, _b;
-    return sdk_1.default.sendEvent(ServiceKey, 'chooseImages', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
+    return core.exec(ServiceKey, 'chooseImages', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
 }
 exports.chooseImages = chooseImages;
 /**
@@ -134,6 +134,6 @@ exports.chooseImages = chooseImages;
  */
 function takePictureAddWatermark(options) {
     var _a, _b;
-    return sdk_1.default.sendEvent(ServiceKey, 'takePictureAddWatermark', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
+    return core.exec(ServiceKey, 'takePictureAddWatermark', options.data, (_a = options) === null || _a === void 0 ? void 0 : _a.success, (_b = options) === null || _b === void 0 ? void 0 : _b.fail);
 }
 exports.takePictureAddWatermark = takePictureAddWatermark;

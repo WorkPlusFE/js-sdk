@@ -4,6 +4,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 var storage_1 = require("./storage");
+var core = require("./core");
 var SDKUtils = require("./utils");
 var SDKImage = require("./image");
 var SDKContact = require("./contact");
@@ -14,3 +15,6 @@ exports.Storage = storage_1.default;
 exports.utils = SDKUtils;
 exports.image = SDKImage;
 exports.contact = SDKContact;
+exports.init = core.init;
+exports.ready = core.ready;
+exports.exec = core.exec;

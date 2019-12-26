@@ -1,6 +1,6 @@
 /** 图像相关 API */
 
-import SDK from '../sdk';
+import * as core from '../core';
 import {
   TakePhoto,
   ImageOptions,
@@ -23,7 +23,7 @@ const ServiceKey = 'WorkPlus_Image';
  * @returns
  */
 export function takePhoto(options?: ImageOptions<[], TakePhoto>): Promise<TakePhoto> {
-  return SDK.sendEvent<[], TakePhoto, never>(
+  return core.exec<[], TakePhoto, never>(
     ServiceKey,
     'takePhoto',
     options?.data ?? [],
@@ -39,7 +39,7 @@ export function takePhoto(options?: ImageOptions<[], TakePhoto>): Promise<TakePh
  * @returns
  */
 export function takePhotoWithEdit(options?: ImageOptions<[], TakePhoto>): Promise<TakePhoto> {
-  return SDK.sendEvent<[], TakePhoto, void>(
+  return core.exec<[], TakePhoto, void>(
     ServiceKey,
     'takePhotoWithEdit',
     options?.data ?? [],
@@ -55,7 +55,7 @@ export function takePhotoWithEdit(options?: ImageOptions<[], TakePhoto>): Promis
  * @returns
  */
 export function selectImage(options?: ImageOptions<[], TakePhoto>): Promise<TakePhoto> {
-  return SDK.sendEvent<[], TakePhoto, never>(
+  return core.exec<[], TakePhoto, never>(
     ServiceKey,
     'selectImage',
     options?.data ?? [],
@@ -71,7 +71,7 @@ export function selectImage(options?: ImageOptions<[], TakePhoto>): Promise<Take
  * @returns
  */
 export function selectImageWithEdit(options?: ImageOptions<[], TakePhoto>): Promise<TakePhoto> {
-  return SDK.sendEvent<[], TakePhoto, never>(
+  return core.exec<[], TakePhoto, never>(
     ServiceKey,
     'selectImageWithEdit',
     options?.data ?? [],
@@ -87,7 +87,7 @@ export function selectImageWithEdit(options?: ImageOptions<[], TakePhoto>): Prom
  * @returns
  */
 export function selectImages(options: ImageOptions<string[], TakePhoto[]>): Promise<TakePhoto[]> {
-  return SDK.sendEvent<ImageKeys, TakePhoto[], never>(
+  return core.exec<ImageKeys, TakePhoto[], never>(
     ServiceKey,
     'selectImages',
     [{ imageKeys: options.data }],
@@ -103,7 +103,7 @@ export function selectImages(options: ImageOptions<string[], TakePhoto[]>): Prom
  * @returns {Promise<void>}
  */
 export function cleanCompressImage(options?: ImageOptions<[], void>): Promise<void> {
-  return SDK.sendEvent<[], void, void>(
+  return core.exec<[], void, void>(
     ServiceKey,
     'cleanCompressImage',
     options?.data ?? [],
@@ -119,7 +119,7 @@ export function cleanCompressImage(options?: ImageOptions<[], void>): Promise<vo
  * @returns {Promise<void>}
  */
 export function showImages(options: ImageOptions<ShowImagesItem[], void>): Promise<void> {
-  return SDK.sendEvent<ShowImagesItem, void, void>(
+  return core.exec<ShowImagesItem, void, void>(
     ServiceKey,
     'showImages',
     options.data,
@@ -135,7 +135,7 @@ export function showImages(options: ImageOptions<ShowImagesItem[], void>): Promi
  * @returns {Promise<void>}
  */
 export function saveImages(options: ImageOptions<SaveImageItem[], void>): Promise<void> {
-  return SDK.sendEvent<SaveImageItem, void, void>(
+  return core.exec<SaveImageItem, void, void>(
     ServiceKey,
     'saveImages',
     options.data,
@@ -153,7 +153,7 @@ export function saveImages(options: ImageOptions<SaveImageItem[], void>): Promis
 export function actionForLongPressImage(
   options: ImageOptions<ImageDataItem[], void>,
 ): Promise<void> {
-  return SDK.sendEvent<ImageDataItem, void, void>(
+  return core.exec<ImageDataItem, void, void>(
     ServiceKey,
     'actionForLongPressImage',
     options.data,
@@ -171,7 +171,7 @@ export function actionForLongPressImage(
 export function takePicture(
   options: ImageOptions<[TakePictureArgs], TakePicture>,
 ): Promise<TakePicture> {
-  return SDK.sendEvent<TakePictureArgs, TakePicture, void>(
+  return core.exec<TakePictureArgs, TakePicture, void>(
     ServiceKey,
     'takePicture',
     options.data,
@@ -191,7 +191,7 @@ export function takePicture(
 export function chooseImages(
   options: ImageOptions<[ChooseImages], TakePicture[]>,
 ): Promise<TakePicture[]> {
-  return SDK.sendEvent<ChooseImages, TakePicture[], void>(
+  return core.exec<ChooseImages, TakePicture[], void>(
     ServiceKey,
     'chooseImages',
     options.data,
@@ -207,7 +207,7 @@ export function chooseImages(
  * @returns {Promise<void>}
  */
 export function takePictureAddWatermark(options: ImageOptions<[WaterMark], void>): Promise<void> {
-  return SDK.sendEvent<WaterMark, void, void>(
+  return core.exec<WaterMark, void, void>(
     ServiceKey,
     'takePictureAddWatermark',
     options.data,

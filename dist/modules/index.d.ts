@@ -9,3 +9,6 @@ export declare const Storage: typeof SDKStorage;
 export declare const utils: typeof SDKUtils;
 export declare const image: typeof SDKImage;
 export declare const contact: typeof SDKContact;
+export declare const init: (options?: import("./types/sdk").SDKOptions | undefined) => boolean;
+export declare const ready: (fn?: Function | undefined) => Promise<void>;
+export declare const exec: <A, S, F>(service: string, action: string, args: A[], success?: ((data: S) => void) | undefined, fail?: ((err: F) => void) | undefined) => Promise<S>;
