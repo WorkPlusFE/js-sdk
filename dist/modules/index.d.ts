@@ -1,13 +1,13 @@
 import SDKStorage from './storage';
 import * as SDKUtils from './utils';
-import * as SDKImage from './image';
+import image from './image';
 import * as SDKContact from './contact';
 export * from './eventlistener';
 export declare const version = "0.0.1";
 export declare const native: {};
 export declare const Storage: typeof SDKStorage;
 export declare const utils: typeof SDKUtils;
-export declare const image: typeof SDKImage;
+export { image };
 export declare const contact: typeof SDKContact;
 export declare const init: (options?: import("./types/sdk").SDKOptions | undefined) => boolean;
 export declare const ready: (fn?: Function | undefined) => Promise<void>;
