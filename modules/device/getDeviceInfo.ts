@@ -1,4 +1,5 @@
 import * as core from "../core";
+import { WORKPLUS_DEVICE } from "../constants";
 import { DeviceOptions, DeviceInfoRes } from "../types/device";
 
 /**
@@ -9,7 +10,7 @@ import { DeviceOptions, DeviceInfoRes } from "../types/device";
  */
 export default function getDeviceInfo(options?: DeviceOptions<[], DeviceInfoRes>): Promise<DeviceInfoRes> {
   return core.exec<[], DeviceInfoRes, never>(
-    'WorkPlus_DeviceInfo',
+    WORKPLUS_DEVICE,
     'getDeviceInfo',
     options?.data ?? [],
     options?.success,

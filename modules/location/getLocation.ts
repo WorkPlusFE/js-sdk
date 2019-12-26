@@ -1,4 +1,5 @@
 import * as core from '../core';
+import { WORKPLUS_LOCATION } from "../constants";
 import { LocationOptions, getLocationRes } from '../types/location';
 
 /**
@@ -9,7 +10,7 @@ import { LocationOptions, getLocationRes } from '../types/location';
  */
 export default function takePhoto(options?: LocationOptions<[], getLocationRes>): Promise<getLocationRes> {
   return core.exec<[], getLocationRes, never>(
-    'WorkPlus_Location',
+    WORKPLUS_LOCATION,
     'getLocation',
     options?.data ?? [],
     options?.success,

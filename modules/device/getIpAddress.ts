@@ -1,4 +1,5 @@
 import * as core from "../core";
+import { WORKPLUS_DEVICE } from "../constants";
 import { DeviceOptions, IpAddressRes } from "../types/device";
 
 /**
@@ -9,7 +10,7 @@ import { DeviceOptions, IpAddressRes } from "../types/device";
  */
 export default function getIpAddress(options?: DeviceOptions<[], IpAddressRes>): Promise<IpAddressRes> {
   return core.exec<[], IpAddressRes, never>(
-    'WorkPlus_DeviceInfo',
+    WORKPLUS_DEVICE,
     'getIpAddress',
     options?.data ?? [],
     options?.success,

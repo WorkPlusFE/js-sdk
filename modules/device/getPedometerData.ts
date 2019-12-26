@@ -1,4 +1,5 @@
 import * as core from "../core";
+import { WORKPLUS_DEVICE } from "../constants";
 import { DeviceOptions, PedometerDataRes } from "../types/device";
 
 /**
@@ -9,7 +10,7 @@ import { DeviceOptions, PedometerDataRes } from "../types/device";
  */
 export default function getPedometerData(options?: DeviceOptions<[], PedometerDataRes>): Promise<PedometerDataRes> {
   return core.exec<[], PedometerDataRes, never>(
-    'WorkPlus_DeviceInfo',
+    WORKPLUS_DEVICE,
     'getPedometerData',
     options?.data ?? [],
     options?.success,
