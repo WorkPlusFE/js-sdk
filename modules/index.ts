@@ -3,7 +3,7 @@ import * as core from './core';
 import * as SDKUtils from './utils';
 import image from './image';
 import * as SDKContact from './contact';
-import SDKLocation from "./location";
+import SDKLocation from './location';
 import SDKDevice from './device';
 
 export * from './eventlistener';
@@ -19,3 +19,4 @@ export const device = SDKDevice;
 export const init = core.init;
 export const ready = core.ready;
 export const exec = core.exec;
+export const error = core.error;

@@ -8,6 +8,9 @@ class Core {
   /** cordova is loaded */
   private _ready = false;
 
+  /** error 回调函数 */
+  private _errorCallback!: Function;
+
   constructor() {
     this.init();
   }
@@ -52,10 +55,10 @@ class Core {
           'deviceready',
           () => {
             console.info('Cordova 注入成功');
+            this._isReday();
             if (fn && isFunction(fn)) {
               fn();
             }
-            this._isReday();
             clearTimeout(timer);
             resolve();
           },
@@ -63,6 +66,31 @@ class Core {
         );
       }
     });
+  }
+
+  /**
+   * 注册error函数, 在SDK发生错误/异常时执行
+   * @param {(err: unknown) => void} fn 回调函数
+   * @returns
+   * @memberof Core
+   */
+  error(fn: (err: unknown) => void): void {
+    if (!isFunction(fn)) {
+      console.error('error的传参必须是函数类型');
+      return;
+    }
+    this._errorCallback = fn;
+  }
+
+  /**
+   * 触发error回调函数
+   * @param {unknown} error 错误对象
+   * @memberof Core
+   */
+  onError(error: unknown): void {
+    if (this._errorCallback && isFunction(this._errorCallback)) {
+      this._errorCallback(error);
+    }
   }
 
   _isReday(): void {
@@ -78,6 +106,7 @@ const core = new Core();
 
 export const init = core.init;
 export const ready = core.ready;
+export const error = core.error;
 
 /**
  * 执行 Cordova 的事件调用
@@ -108,6 +137,7 @@ export const exec = function<A, S, F>(
           return resolve(res);
         },
         function(err: F) {
+          core.onError(`${service}.${action} 调用失败: ${err}`);
           if (fail && isFunction(fail)) {
             fail(err);
           }
@@ -118,6 +148,11 @@ export const exec = function<A, S, F>(
         args,
       );
     };
-    core.ready(execFn);
+
+    try {
+      core.ready(execFn);
+    } catch (error) {
+      core.onError(error);
+    }
   });
 };

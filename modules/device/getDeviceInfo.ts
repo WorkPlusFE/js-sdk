@@ -1,6 +1,6 @@
-import * as core from "../core";
-import { WORKPLUS_DEVICE } from "../constants";
-import { DeviceOptions, DeviceInfoRes } from "../types/device";
+import * as core from '../core';
+import { WORKPLUS_DEVICE } from '../constants';
+import { DeviceOptions, DeviceInfoRes } from '../types/device';
 
 /**
  * 获取设备信息
@@ -8,7 +8,9 @@ import { DeviceOptions, DeviceInfoRes } from "../types/device";
  * @param {DeviceOptions<[], DeviceInfoRes>} [options]
  * @returns {Promise<DeviceInfoRes>}
  */
-export default function getDeviceInfo(options?: DeviceOptions<[], DeviceInfoRes>): Promise<DeviceInfoRes> {
+export default function getDeviceInfo(
+  options?: DeviceOptions<[], DeviceInfoRes>,
+): Promise<DeviceInfoRes> {
   return core.exec<[], DeviceInfoRes, never>(
     WORKPLUS_DEVICE,
     'getDeviceInfo',

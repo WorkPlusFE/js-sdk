@@ -1,6 +1,6 @@
-import * as core from "../core";
-import { WORKPLUS_DEVICE } from "../constants";
-import { DeviceOptions, IpAddressRes } from "../types/device";
+import * as core from '../core';
+import { WORKPLUS_DEVICE } from '../constants';
+import { DeviceOptions, IpAddressRes } from '../types/device';
 
 /**
  * 获取IP地址
@@ -8,7 +8,9 @@ import { DeviceOptions, IpAddressRes } from "../types/device";
  * @param {DeviceOptions<[], IpAddressRes>} [options]
  * @returns {Promise<IpAddressRes>}
  */
-export default function getIpAddress(options?: DeviceOptions<[], IpAddressRes>): Promise<IpAddressRes> {
+export default function getIpAddress(
+  options?: DeviceOptions<[], IpAddressRes>,
+): Promise<IpAddressRes> {
   return core.exec<[], IpAddressRes, never>(
     WORKPLUS_DEVICE,
     'getIpAddress',
