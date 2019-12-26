@@ -1,7 +1,7 @@
 import { inWorkPlus, isValidHost, scriptGenerator } from './utils';
 import CordovaImportLib from './cordovaImportInstance';
 
-export const cordovaImportInit = function(host?: string): void {
+export default function cordovaImportInit(host?: string): void {
   try {
     if (!inWorkPlus()) return;
 
@@ -17,4 +17,4 @@ export const cordovaImportInit = function(host?: string): void {
   } catch (error) {
     throw new Error(error);
   }
-};
+}
