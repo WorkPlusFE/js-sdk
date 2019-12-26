@@ -7,7 +7,7 @@ export interface LocationOptions<D, S> {
   fail?: (err: void) => void;
 }
 
-export interface getLocationRes {
+export interface LocationRes {
   /** 经度 */
   longitude: number;
   /** 纬度 */
