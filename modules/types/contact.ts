@@ -6,7 +6,7 @@ export interface SingleContactParams {
 export interface ContactOption<D, R> {
   data: D[];
   success: (res: R) => void;
-  fail: (err: any) => void;
+  fail: (err: unknown) => void;
 }
 
 export interface SingleContactRes {
