@@ -8,3 +8,5 @@ export const WORKPLUS_CONTACT = 'WorkPlus_Contact';
 export const WORKPLUS_DEVICE = 'WorkPlus_DeviceInfo';
 /** 地理位置信息 */
 export const WORKPLUS_LOCATION = 'WorkPlus_Location';
+/** 事件日志 */
+export const WORKPLUS_EVENTLOG = 'WorkPlus_EventLog';

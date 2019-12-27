@@ -5,6 +5,7 @@ import image from './image';
 import * as SDKContact from './contact';
 import SDKLocation from "./location";
 import SDKDevice from './device';
+import SDKEventLog from './eventlog';
 
 export * from './eventlistener';
 
@@ -16,6 +17,7 @@ export { image };
 export const contact = SDKContact;
 export const location = SDKLocation;
 export const device = SDKDevice;
+export const eventlog = SDKEventLog;
 export const init = core.init;
 export const ready = core.ready;
 export const exec = core.exec;
