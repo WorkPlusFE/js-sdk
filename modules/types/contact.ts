@@ -33,7 +33,7 @@ export interface SingleContactRes {
   jobTitle: string;
   orgName: string;
   corpName: string;
-  positions: { [key: string]: any }[];
+  positions: { [key: string]: unknown }[];
 }
 
 export interface ContactsParams {
@@ -66,7 +66,7 @@ export interface SelectedContact {
   jobTitle: string;
   orgName: string;
   corpName: string;
-  positions: { [key: string]: any }[];
+  positions: { [key: string]: unknown }[];
 }
 
 export interface ContactsRes {
@@ -93,7 +93,7 @@ export interface ContactsRes {
   jobTitle: string;
   orgName: string;
   corpName: string;
-  positions: { [key: string]: any }[];
+  positions: { [key: string]: unknown }[];
 }
 
 export interface EmployeesFromOrgParams {
@@ -268,25 +268,25 @@ export interface ShowAppListByIdParams {
 export interface SelectContactsParams {
   filterSenior: number;
   maxCount: number;
-  selectedUsers: any[];
-  selectedEmployees: any[];
+  selectedUsers: unknown[];
+  selectedEmployees: unknown[];
 }
 
 export interface SelectContactsRes {
-  user: any[];
-  employee: any[];
+  user: unknown[];
+  employee: unknown[];
 }
 
 export interface SelectDiscussionMembersParams {
   discussion_id: string;
-  members_selected: any[];
+  members_selected: unknown[];
 }
 
 export interface SelectDiscussionMembersRes {
-  members: any[];
+  members: unknown[];
 }
 
 export interface SelectContactsCacheRes {
-  user: any[];
-  employee: any[];
+  user: unknown[];
+  employee: unknown[];
 }

@@ -3,7 +3,7 @@ import * as core from './core';
 import * as SDKUtils from './utils';
 import image from './image';
 import * as SDKContact from './contact';
-import SDKLocation from "./location";
+import SDKLocation from './location';
 import SDKDevice from './device';
 import SDKEventLog from './eventlog';
 
@@ -21,3 +21,5 @@ export const eventlog = SDKEventLog;
 export const init = core.init;
 export const ready = core.ready;
 export const exec = core.exec;
+export const execSync = core.execSync;
+export const error = core.error;

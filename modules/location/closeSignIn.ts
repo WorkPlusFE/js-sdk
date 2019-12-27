@@ -1,5 +1,5 @@
 import * as core from '../core';
-import { WORKPLUS_LOCATION } from "../constants";
+import { WORKPLUS_LOCATION } from '../constants';
 import { LocationOptions } from '../types/location';
 
 /**

@@ -1,6 +1,6 @@
-import getDeviceInfo from "./getDeviceInfo";
-import getIpAddress from "./getIpAddress";
-import getPedometerData from "./getPedometerData";
+import getDeviceInfo from './getDeviceInfo';
+import getIpAddress from './getIpAddress';
+import getPedometerData from './getPedometerData';
 
 export default {
   getDeviceInfo,

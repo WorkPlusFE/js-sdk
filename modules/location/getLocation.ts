@@ -1,5 +1,5 @@
 import * as core from '../core';
-import { WORKPLUS_LOCATION } from "../constants";
+import { WORKPLUS_LOCATION } from '../constants';
 import { LocationOptions, LocationRes } from '../types/location';
 
 /**
@@ -8,7 +8,9 @@ import { LocationOptions, LocationRes } from '../types/location';
  * @param {LocationOptions<[], LocationRes>} [options]
  * @returns
  */
-export default function takePhoto(options?: LocationOptions<[], LocationRes>): Promise<LocationRes> {
+export default function takePhoto(
+  options?: LocationOptions<[], LocationRes>,
+): Promise<LocationRes> {
   return core.exec<[], LocationRes, never>(
     WORKPLUS_LOCATION,
     'getLocation',
