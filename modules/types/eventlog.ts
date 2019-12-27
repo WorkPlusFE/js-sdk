@@ -4,7 +4,7 @@ export interface EventlogOptions<D, S> {
   /** 成功回调 */
   success?: (res: S) => void;
   /** 失败回调 */
-  fail?: (err: void) => void;
+  fail?: (err: unknown) => void;
 }
 
 export interface TodayUseDurationRes {
