@@ -19,4 +19,5 @@ export const device = SDKDevice;
 export const init = core.init;
 export const ready = core.ready;
 export const exec = core.exec;
+export const execSync = core.execSync;
 export const error = core.error;

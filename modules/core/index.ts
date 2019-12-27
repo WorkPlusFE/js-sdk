@@ -1,4 +1,4 @@
-import { SDKOptions } from '../types/sdk';
+import { CoreOptions } from '../types/core';
 import { detectInWorkPlus } from '../utils/shared/platform';
 import { isFunction } from '../utils/shared/is';
 
@@ -17,11 +17,11 @@ class Core {
 
   /**
    * 初始化配置项
-   * @param {SDKOptions} [options]
+   * @param {CoreOptions} [options]
    * @returns {boolean}
    * @memberof Core
    */
-  init(options?: SDKOptions): boolean {
+  init(options?: CoreOptions): boolean {
     if (!detectInWorkPlus()) {
       console.warn('当前非workplus环境，请检查重试');
       return false;
@@ -83,7 +83,7 @@ class Core {
   }
 
   /**
-   * 触发error回调函数
+   * 执行error回调函数
    * @param {unknown} error 错误对象
    * @memberof Core
    */
@@ -109,7 +109,7 @@ export const ready = core.ready;
 export const error = core.error;
 
 /**
- * 执行 Cordova 的事件调用
+ * 以异步的方式执行 Cordova 的事件，用于获取数据类型的 API
  * @template A 参数类型
  * @template S 成功回调的返回类型
  * @template F 失败回调的返回类型
@@ -120,7 +120,7 @@ export const error = core.error;
  * @param {(err: F) => void} [failed] 失败回调
  * @returns {Promise<S>}
  */
-export const exec = function<A, S, F>(
+export function exec<A, S, F>(
   service: string,
   action: string,
   args: Array<A>,
@@ -155,4 +155,25 @@ export const exec = function<A, S, F>(
       core.onError(error);
     }
   });
-};
+}
+
+/**
+ * 以同步的方式执行 Cordova 的事件, 用于某些永不触发回调的 API
+ * @template A
+ * @param {string} service 调用的服务类名
+ * @param {string} action  调用的方法名
+ * @param {Array<A>} args  调用的参数
+ */
+export function execSync<A>(service: string, action: string, args: Array<A>): void {
+  cordova.exec(
+    function(data) {
+      console.info(data);
+    },
+    function(err) {
+      core.onError(`${service}.${action} 调用失败: ${err}`);
+    },
+    service,
+    action,
+    args,
+  );
+}
