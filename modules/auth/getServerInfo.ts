@@ -11,7 +11,7 @@ import { AuthOption, GetServerInfoRes } from '../types/auth';
  */
 export default function getServerInfo(
   options?: AuthOption<void, GetServerInfoRes>,
-): Promise<getServerInfoRes> {
+): Promise<GetServerInfoRes> {
   return core.exec<void, GetServerInfoRes, unknown>(
     WORKPLUS_AUTH,
     'getServerInfo',
