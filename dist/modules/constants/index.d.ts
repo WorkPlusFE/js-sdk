@@ -7,6 +7,8 @@ export declare const WORKPLUS_CONTACT = "WorkPlus_Contact";
 export declare const WORKPLUS_AUTH = "WorkPlus_Auth";
 /** 网页 */
 export declare const WORKPLUS_WEBVIEW = "WorkPlus_Webview";
+/** 邮箱 */
+export declare const WORKPLUS_EMAIL = "WorkPlus_Email";
 /** 设备 */
 export declare const WORKPLUS_DEVICE = "WorkPlus_DeviceInfo";
 /** 地理位置信息 */

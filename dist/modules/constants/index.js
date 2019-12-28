@@ -9,6 +9,8 @@ exports.WORKPLUS_CONTACT = 'WorkPlus_Contact';
 exports.WORKPLUS_AUTH = 'WorkPlus_Auth';
 /** 网页 */
 exports.WORKPLUS_WEBVIEW = 'WorkPlus_Webview';
+/** 邮箱 */
+exports.WORKPLUS_EMAIL = 'WorkPlus_Email';
 /** 设备 */
 exports.WORKPLUS_DEVICE = 'WorkPlus_DeviceInfo';
 /** 地理位置信息 */
