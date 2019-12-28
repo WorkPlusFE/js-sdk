@@ -4,6 +4,8 @@
 export const WORKPLUS_IMAGE = 'WorkPlus_Image';
 /** 联系人 */
 export const WORKPLUS_CONTACT = 'WorkPlus_Contact';
+/** 认证 */
+export const WORKPLUS_AUTH = 'WorkPlus_Auth';
 /** 设备 */
 export const WORKPLUS_DEVICE = 'WorkPlus_DeviceInfo';
 /** 地理位置信息 */
