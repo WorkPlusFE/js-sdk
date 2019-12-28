@@ -1,4 +1,4 @@
-import { DeviceOptions, DeviceInfoRes } from "../types/device";
+import { DeviceOptions, DeviceInfoRes } from '../types/device';
 /**
  * 获取设备信息
  * @description 获取当前设备和 APP 的一些信息

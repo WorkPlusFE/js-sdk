@@ -1,5 +1,5 @@
 import * as core from '../core';
-import { WORKPLUS_FILE } from "../constants";
+import { WORKPLUS_FILE } from '../constants';
 import { FileOptions, FilePathParams } from '../types/file';
 
 /**

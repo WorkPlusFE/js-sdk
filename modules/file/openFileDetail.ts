@@ -1,5 +1,5 @@
 import * as core from '../core';
-import { WORKPLUS_FILE } from "../constants";
+import { WORKPLUS_FILE } from '../constants';
 import { FileOptions, ShowFileParams } from '../types/file';
 
 /**
@@ -8,7 +8,9 @@ import { FileOptions, ShowFileParams } from '../types/file';
  * @param {FileOptions<ShowFileParams[], void>} [options]
  * @returns {Promise<void>}
  */
-export default function openFileDetail(options?: FileOptions<ShowFileParams[], void>): Promise<void> {
+export default function openFileDetail(
+  options?: FileOptions<ShowFileParams[], void>,
+): Promise<void> {
   return core.exec<ShowFileParams, void, unknown>(
     WORKPLUS_FILE,
     'showFile',

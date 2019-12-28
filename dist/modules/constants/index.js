@@ -5,7 +5,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.WORKPLUS_IMAGE = 'WorkPlus_Image';
 /** 联系人 */
 exports.WORKPLUS_CONTACT = 'WorkPlus_Contact';
+/** 认证 */
+exports.WORKPLUS_AUTH = 'WorkPlus_Auth';
 /** 设备 */
 exports.WORKPLUS_DEVICE = 'WorkPlus_DeviceInfo';
 /** 地理位置信息 */
 exports.WORKPLUS_LOCATION = 'WorkPlus_Location';
+/** 事件日志 */
+exports.WORKPLUS_EVENTLOG = 'WorkPlus_EventLog';
+/** 文件 */
+exports.WORKPLUS_FILE = 'WorkPlus_Files';

@@ -1,4 +1,5 @@
 import SDKStorage from './storage';
+import * as core from './core';
 import * as SDKUtils from './utils';
 import image from './image';
 import * as SDKContact from './contact';
@@ -19,6 +20,12 @@ export declare const device: {
     getIpAddress: typeof import("./device/getIpAddress").default;
     getPedometerData: typeof import("./device/getPedometerData").default;
 };
-export declare const init: (options?: import("./types/sdk").SDKOptions | undefined) => boolean;
+export declare const eventlog: {
+    getEventLogs: typeof import("./eventlog/getEventLogs").default;
+    getTodayUseDuration: typeof import("./eventlog/getTodayUseDuration").default;
+};
+export declare const init: (options?: import("./types/core").CoreOptions | undefined) => boolean;
 export declare const ready: (fn?: Function | undefined) => Promise<void>;
-export declare const exec: <A, S, F>(service: string, action: string, args: A[], success?: ((data: S) => void) | undefined, fail?: ((err: F) => void) | undefined) => Promise<S>;
+export declare const exec: typeof core.exec;
+export declare const execSync: typeof core.execSync;
+export declare const error: (fn: (err: unknown) => void) => void;

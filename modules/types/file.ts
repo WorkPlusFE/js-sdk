@@ -33,7 +33,7 @@ type FileLimit = {
   single_select_size: number;
   /** 所有文件选择大小限制(byte),-1表示不限制 */
   total_select_size: number;
-}
+};
 
 export interface ChooseFilesParams {
   /** 单选, 多选 */
@@ -41,7 +41,7 @@ export interface ChooseFilesParams {
   /** 文件条件 */
   file_limit: FileLimit;
   /** 已选文件列表 filePath */
-  file_keys: string[]
+  file_keys: string[];
 }
 
 export interface ChooseFilesRes {

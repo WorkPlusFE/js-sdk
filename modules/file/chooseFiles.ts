@@ -1,5 +1,5 @@
 import * as core from '../core';
-import { WORKPLUS_FILE } from "../constants";
+import { WORKPLUS_FILE } from '../constants';
 import { FileOptions, ChooseFilesParams, ChooseFilesRes } from '../types/file';
 
 /**
@@ -8,7 +8,9 @@ import { FileOptions, ChooseFilesParams, ChooseFilesRes } from '../types/file';
  * @param {FileOptions<ChooseFilesParams[], ChooseFilesRes[]>} [options]
  * @returns {Promise<ChooseFilesRes[]>}
  */
-export default function chooseFiles(options?: FileOptions<ChooseFilesParams[], ChooseFilesRes[]>): Promise<ChooseFilesRes[]> {
+export default function chooseFiles(
+  options?: FileOptions<ChooseFilesParams[], ChooseFilesRes[]>,
+): Promise<ChooseFilesRes[]> {
   return core.exec<ChooseFilesParams, ChooseFilesRes[], unknown>(
     WORKPLUS_FILE,
     'chooseFiles',

@@ -1,5 +1,5 @@
 import * as core from '../core';
-import { WORKPLUS_FILE } from "../constants";
+import { WORKPLUS_FILE } from '../constants';
 import { FileOptions, OpenEmailAttachment } from '../types/file';
 
 /**
@@ -8,7 +8,9 @@ import { FileOptions, OpenEmailAttachment } from '../types/file';
  * @param {FileOptions<OpenEmailAttachment[], void>} [options]
  * @returns {Promise<void>}
  */
-export default function openEmailAttachment(options?: FileOptions<OpenEmailAttachment[], void>): Promise<void> {
+export default function openEmailAttachment(
+  options?: FileOptions<OpenEmailAttachment[], void>,
+): Promise<void> {
   return core.exec<OpenEmailAttachment, void, unknown>(
     WORKPLUS_FILE,
     'openEmailAttachment',
