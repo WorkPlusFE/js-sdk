@@ -1,12 +1,12 @@
 // This file is auto gererated by scripts/create-api.js
 import * as core from '../core';
-import { WebviewOption } from '../types/webview';
+import { WebviewOption, OpenLocalURLParams } from '../types/webview';
 import { WORKPLUS_WEBVIEW } from '../constants';
 
 export default function openLocalURL(
-  options?: WebviewOption<OpenLocalUrlParams, void>,
+  options?: WebviewOption<OpenLocalURLParams, void>,
 ): Promise<void> {
-  return core.exec<OpenLocalUrlParams, void, unknown>(
+  return core.exec<OpenLocalURLParams, void, unknown>(
     WORKPLUS_WEBVIEW,
     'openLocalURL',
     options?.data ?? [],

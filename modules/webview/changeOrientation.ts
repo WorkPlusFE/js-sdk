@@ -1,6 +1,6 @@
 // This file is auto gererated by scripts/create-api.js
 import * as core from '../core';
-import { WebviewOption } from '../types/webview';
+import { WebviewOption, ChangeOrientationParams } from '../types/webview';
 import { WORKPLUS_WEBVIEW } from '../constants';
 
 export default function changeOrientation(

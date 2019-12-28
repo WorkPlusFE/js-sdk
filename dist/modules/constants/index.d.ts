@@ -5,6 +5,8 @@ export declare const WORKPLUS_IMAGE = "WorkPlus_Image";
 export declare const WORKPLUS_CONTACT = "WorkPlus_Contact";
 /** 认证 */
 export declare const WORKPLUS_AUTH = "WorkPlus_Auth";
+/** 网页 */
+export declare const WORKPLUS_WEBVIEW = "WorkPlus_Webview";
 /** 设备 */
 export declare const WORKPLUS_DEVICE = "WorkPlus_DeviceInfo";
 /** 地理位置信息 */

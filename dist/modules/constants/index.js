@@ -7,6 +7,8 @@ exports.WORKPLUS_IMAGE = 'WorkPlus_Image';
 exports.WORKPLUS_CONTACT = 'WorkPlus_Contact';
 /** 认证 */
 exports.WORKPLUS_AUTH = 'WorkPlus_Auth';
+/** 网页 */
+exports.WORKPLUS_WEBVIEW = 'WorkPlus_Webview';
 /** 设备 */
 exports.WORKPLUS_DEVICE = 'WorkPlus_DeviceInfo';
 /** 地理位置信息 */
