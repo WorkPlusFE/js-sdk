@@ -8,6 +8,8 @@ export const WORKPLUS_CONTACT = 'WorkPlus_Contact';
 export const WORKPLUS_AUTH = 'WorkPlus_Auth';
 /** 网页 */
 export const WORKPLUS_WEBVIEW = 'WorkPlus_Webview';
+/** 邮箱 */
+export const WORKPLUS_EMAIL = 'WorkPlus_Email';
 /** 设备 */
 export const WORKPLUS_DEVICE = 'WorkPlus_DeviceInfo';
 /** 地理位置信息 */
