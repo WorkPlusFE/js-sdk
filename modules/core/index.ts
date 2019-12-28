@@ -1,6 +1,6 @@
 import { CoreOptions } from '../types/core';
-import { detectInWorkPlus } from '../utils/shared/platform';
-import { isFunction } from '../utils/shared/is';
+import { detectInWorkPlus } from '../shared/platform';
+import { isFunction } from '../shared/is';
 
 const TIME_OUT = 10000;
 

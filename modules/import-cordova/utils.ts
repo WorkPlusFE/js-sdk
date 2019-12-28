@@ -1,4 +1,4 @@
-import { isString } from '../utils/shared/is';
+import { isString } from '../shared/is';
 import { ImportCordovaConfig } from '../types/import-cordova';
 import config from './config';
 
