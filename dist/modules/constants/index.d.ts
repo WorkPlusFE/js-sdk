@@ -13,3 +13,5 @@ export declare const WORKPLUS_LOCATION = "WorkPlus_Location";
 export declare const WORKPLUS_EVENTLOG = "WorkPlus_EventLog";
 /** 文件 */
 export declare const WORKPLUS_FILE = "WorkPlus_Files";
+/** 网络 */
+export declare const WORKPLUS_NETWORK = "WorkPlus_NetInfo";

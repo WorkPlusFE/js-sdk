@@ -15,3 +15,5 @@ exports.WORKPLUS_LOCATION = 'WorkPlus_Location';
 exports.WORKPLUS_EVENTLOG = 'WorkPlus_EventLog';
 /** 文件 */
 exports.WORKPLUS_FILE = 'WorkPlus_Files';
+/** 网络 */
+exports.WORKPLUS_NETWORK = 'WorkPlus_NetInfo';

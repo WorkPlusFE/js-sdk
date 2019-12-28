@@ -24,6 +24,19 @@ export declare const eventlog: {
     getEventLogs: typeof import("./eventlog/getEventLogs").default;
     getTodayUseDuration: typeof import("./eventlog/getTodayUseDuration").default;
 };
+export declare const file: {
+    chooseFiles: typeof import("./file/chooseFiles").default;
+    getEmailAttachmentDir: typeof import("./file/getEmailAttachmentDir").default;
+    isFileExist: typeof import("./file/isFileExist").default;
+    openEmailAttachment: typeof import("./file/openEmailAttachment").default;
+    openFileDetail: typeof import("./file/openFileDetail").default;
+    readFile: typeof import("./file/readFile").default;
+    selectFile: typeof import("./file/selectFile").default;
+    selectFiles: typeof import("./file/selectFiles").default;
+};
+export declare const network: {
+    getWifiInfo: typeof import("./network/getWifiInfo").default;
+};
 export declare const init: (options?: import("./types/core").CoreOptions | undefined) => boolean;
 export declare const ready: (fn?: Function | undefined) => Promise<void>;
 export declare const exec: typeof core.exec;
