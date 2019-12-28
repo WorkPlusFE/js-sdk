@@ -6,6 +6,8 @@ import * as SDKContact from './contact';
 import SDKLocation from './location';
 import SDKDevice from './device';
 import SDKEventLog from './eventlog';
+import SDKFile from './file';
+import SDKNetwork from './network';
 
 export * from './eventlistener';
 
@@ -18,6 +20,8 @@ export const contact = SDKContact;
 export const location = SDKLocation;
 export const device = SDKDevice;
 export const eventlog = SDKEventLog;
+export const file = SDKFile;
+export const network = SDKNetwork;
 export const init = core.init;
 export const ready = core.ready;
 export const exec = core.exec;

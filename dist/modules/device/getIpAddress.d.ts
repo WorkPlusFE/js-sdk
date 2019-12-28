@@ -1,4 +1,4 @@
-import { DeviceOptions, IpAddressRes } from "../types/device";
+import { DeviceOptions, IpAddressRes } from '../types/device';
 /**
  * 获取IP地址
  * @description 获取当前连接状态下的IP地址

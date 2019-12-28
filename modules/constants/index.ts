@@ -12,3 +12,7 @@ export const WORKPLUS_DEVICE = 'WorkPlus_DeviceInfo';
 export const WORKPLUS_LOCATION = 'WorkPlus_Location';
 /** 事件日志 */
 export const WORKPLUS_EVENTLOG = 'WorkPlus_EventLog';
+/** 文件 */
+export const WORKPLUS_FILE = 'WorkPlus_Files';
+/** 网络 */
+export const WORKPLUS_NETWORK = 'WorkPlus_NetInfo';
