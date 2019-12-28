@@ -1,6 +1,6 @@
-import * as core from "../core";
-import { WORKPLUS_BARCODE_SCANNER } from "../constants";
-import { UitlOptions, ScannerParams } from "../types/util";
+import * as core from '../core';
+import { WORKPLUS_BARCODE_SCANNER } from '../constants';
+import { UitlOptions, ScannerParams } from '../types/util';
 
 /**
  * 扫描二维码
@@ -15,5 +15,5 @@ export default function scanner(options?: UitlOptions<ScannerParams[], void>): P
     options?.data ?? [],
     options?.success,
     options?.fail,
-  );  
+  );
 }
