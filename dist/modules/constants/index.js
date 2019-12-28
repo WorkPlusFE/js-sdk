@@ -11,6 +11,8 @@ exports.WORKPLUS_AUTH = 'WorkPlus_Auth';
 exports.WORKPLUS_WEBVIEW = 'WorkPlus_Webview';
 /** 邮箱 */
 exports.WORKPLUS_EMAIL = 'WorkPlus_Email';
+/** 支付 */
+exports.WORKPLUS_PAY = 'Workplus_Pay';
 /** 设备 */
 exports.WORKPLUS_DEVICE = 'WorkPlus_DeviceInfo';
 /** 地理位置信息 */
