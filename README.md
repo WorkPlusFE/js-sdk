@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://workplusfe.github.io/sdk.js/" target="_blank">
-    <img width="160" src="https://github.com/WorkPlusFE/sdk.js/blob/master/design/sdk-logo@2x.png?raw=true" alt="logo">
+    <img width="150" src="https://github.com/WorkPlusFE/sdk.js/blob/master/design/sdk-logo@2x.png?raw=true" alt="logo">
   </a>
 </p>
 
@@ -9,10 +9,6 @@
 </p>
 
 <h2 align="center">WorkPlusFE JavaScript SDK</h2>
-
-<h2 align="center">Usage</h2>
-
-# 概述
 
 WorkPlus SDK 为轻应用提供了 H5 调用原生控件的能力，帮助开发者高效使用拍照、定位等手机系统的能力，同时可以直接使用扫一扫、分享等特有的能力，带给轻应用接近原生代码的体验。此文档面向开发者介绍 WorkPlus
 SDK 如何使用及相关注意事项。
@@ -31,7 +27,7 @@ yarn add @w6s/sdk
 
 ## 调用接口
 
-WorkPlus SDK 分为整体加载和按需加载两种方式，并支持 callback 和 promise 的调用：
+WorkPlus SDK 分为整体加载和按需加载两种方式，并支持 `callback` 和 `Promise` 的调用：
 
 ```ts
 import * as w6s from '@w6s/sdk';  // 此方式为整体加载
@@ -60,7 +56,7 @@ getUserTicket({
 WorkPlus SDK 在调用失败会执行 error 函数，错误信息可以在返回的 error 参数中参看，下面为示例:
 
 ```ts
-w6a.error(function(error){
+w6s.error(function(error){
   alert('sdk error: ' + JSON.stringify(error));
 });
 ```
@@ -68,8 +64,8 @@ w6a.error(function(error){
 ## 通过 exec 和 execSync 执行 Cordova 调用
 
 ```ts
-// exec 适用于获取数据类的调用，属异步操作，它支持 callback 和 promise 的方式
-w6a.exec(
+// exec 适用于获取数据类的调用，属异步操作，它支持 callback 和 Promise 的方式
+w6s.exec(
   /** 调用服务类名 */
   'WorkPlus_Auth',
   /** 调用方法名 */
@@ -83,7 +79,7 @@ w6a.exec(
 );
 
 // execSync 适用于无数据返回类的调用，属同步操作
-w6a.execSync(
+w6s.execSync(
   /** 调用服务类名 */
   'WorkPlus_Auth',
   /** 调用方法名 */
