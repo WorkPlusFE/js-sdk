@@ -17,7 +17,8 @@
     "build": "rimraf dist && npm run build:common && npm run build:prod",
     "watch": "rollup -c -w",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "prepublishOnly": "npm run lint && npm run test"
   },
   "keywords": [
     "WorkPlusFE",
