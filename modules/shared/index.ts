@@ -1,4 +1,4 @@
-export * from './shared/is';
+export * from './is';
 
 /**
  * 休眠函数

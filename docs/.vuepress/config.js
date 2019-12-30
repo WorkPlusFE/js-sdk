@@ -15,30 +15,6 @@ const generateChildren = () => {
   return dirs;
 };
 
-
-function getModulesSidebar (pluginTitle, pluginIntro, officialPluginTitle) {
-  return [
-    {
-      title: pluginTitle,
-      collapsable: false,
-      children: [
-        ['', pluginIntro],
-        'using-a-plugin',
-        'writing-a-plugin',
-        'life-cycle',
-        'option-api',
-        'context-api'
-      ]
-    },
-    {
-      title: officialPluginTitle,
-      collapsable: false,
-      children: officalPlugins
-    }
-  ]
-}
-
-
 module.exports = {
   title: 'sdk.js',
   description: pkg.description,
@@ -70,7 +46,8 @@ function getApidebar (groupA) {
       children: [
         'image',
         'contact',
-        'storage'
+        'notification',
+        'storage',
       ]
     }
   ]

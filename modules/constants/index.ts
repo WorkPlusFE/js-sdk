@@ -24,3 +24,5 @@ export const WORKPLUS_EVENTLOG = 'WorkPlus_EventLog';
 export const WORKPLUS_FILE = 'WorkPlus_Files';
 /** 网络 */
 export const WORKPLUS_NETWORK = 'WorkPlus_NetInfo';
+/** 扫二维码 */
+export const WORKPLUS_BARCODE_SCANNER = 'WorkPlus_BarcodeScanner';

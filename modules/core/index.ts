@@ -1,8 +1,7 @@
 import { CoreOptions } from '../types/core';
-import { detectInWorkPlus } from '../utils/shared/platform';
-import { isFunction } from '../utils/shared/is';
-
-const TIME_OUT = 10000;
+import { detectInWorkPlus } from '../shared/platform';
+import { isFunction } from '../shared/is';
+import injectCordova from '../import-cordova';
 
 class Core {
   /** cordova is loaded */
@@ -23,11 +22,7 @@ class Core {
    */
   init(options?: CoreOptions): boolean {
     if (!detectInWorkPlus()) {
-      console.warn('当前非workplus环境，请检查重试');
-      return false;
-    }
-    if (sessionStorage.get('ready')) {
-      console.warn('已注入Cordova，无需重新实例化');
+      console.warn('检测当前非workplus环境，请重试');
       return false;
     }
     if (options && options.debug) {
@@ -43,14 +38,13 @@ class Core {
    * @returns
    */
   ready(fn?: Function): Promise<void> {
+    if (!window.cordova) {
+      injectCordova();
+    }
     return new Promise((resolve, reject) => {
       if (this.isReday) {
         resolve();
       } else {
-        const timer = setTimeout(() => {
-          console.warn('Cordova 注入异常');
-          reject();
-        }, TIME_OUT);
         document.addEventListener(
           'deviceready',
           () => {
@@ -59,7 +53,7 @@ class Core {
             if (fn && isFunction(fn)) {
               fn();
             }
-            clearTimeout(timer);
+            // clearTimeout(timer);
             resolve();
           },
           false,

@@ -6,6 +6,9 @@
   "main:min": "dist/sdk.min.js",
   "module": "dist/sdk.mjs",
   "typings": "dist/modules/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint:prettier": "prettier '{modules,test}/**/*.{js,jsx,ts,tsx,json}' --write",
     "lint:fix": "eslint --fix 'modules/**/*.{js,jsx,ts,tsx,json}' --ext .ts,.tsx --fix",
@@ -17,7 +20,8 @@
     "build": "rimraf dist && npm run build:common && npm run build:prod",
     "watch": "rollup -c -w",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "prepublishOnly": "npm run lint && npm run test"
   },
   "keywords": [
     "WorkPlusFE",
