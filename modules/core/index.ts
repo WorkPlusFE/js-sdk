@@ -4,12 +4,17 @@ import { isFunction } from '../shared/is';
 import injectCordova from '../import-cordova';
 import Logger from './logger';
 
+const EXEC_TIME_OUT = 5000;
+
 class Core {
   /** cordova is loaded */
   private _ready = false;
 
   /** logger */
   private _logger: Logger = new Logger();
+
+  /** timeout */
+  private _timeout!: number;
 
   /** error 回调函数 */
   private _errorCallback!: Function;
@@ -42,6 +47,8 @@ class Core {
       // 注入 Cordova
       injectCordova(options?.host);
     }
+
+    this._timeout = options?.timeout || EXEC_TIME_OUT;
 
     return true;
   }
@@ -109,6 +116,10 @@ class Core {
   get logger(): Logger {
     return this._logger;
   }
+
+  get timeout(): number {
+    return this._timeout;
+  }
 }
 
 const core = new Core();
@@ -140,9 +151,14 @@ export function exec<A, S, F>(
   return new Promise((resolve: (res: S) => void, reject: (err: F) => void) => {
     const callAPI = `${service}.${action}`;
     logger.warn(`准备调用 ${callAPI}`, callAPI);
+    const timer = setTimeout((err: F) => {
+      logger.warn(`${callAPI} 接口调用响应超时，请重试`);
+      reject(err);
+    }, core.timeout);
     const execFn = (): void => {
       cordova.exec(
         function(res: S) {
+          clearTimeout(timer);
           logger.warn(`${callAPI} 调用成功: ${JSON.stringify(res, null, 4)}`);
           if (success && isFunction(success)) {
             success(res);
@@ -150,6 +166,7 @@ export function exec<A, S, F>(
           return resolve(res);
         },
         function(err: F) {
+          clearTimeout(timer);
           logger.error(`${callAPI} 接口调用失败`);
           core.onError(`${callAPI} 调用失败: ${err}`);
           if (fail && isFunction(fail)) {
