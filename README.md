@@ -53,6 +53,18 @@ getUserTicket({
 });
 ```
 
+## 通过 init 接口进行 SDK 配置
+
+WorkPlus SDK 默认带有配置项，但也可以通过 init 接口来修改配置：
+
+```ts
+w6s.init({
+  debug: true,                    // 开启调试模式，默认false
+  timeout: 10000,                 // 设置接口响应超时时间，单位毫秒，默认 5s
+  host: '//workplus.io/'          // 配置Cordova文件来源
+})
+```
+
 ## 通过 error 接口处理失败验证
 
 WorkPlus SDK 在调用失败会执行 error 函数，错误信息可以在返回的 error 参数中参看，下面为示例:
