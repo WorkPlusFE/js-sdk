@@ -6,6 +6,9 @@
   "main:min": "dist/sdk.min.js",
   "module": "dist/sdk.mjs",
   "typings": "dist/modules/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint:prettier": "prettier '{modules,test}/**/*.{js,jsx,ts,tsx,json}' --write",
     "lint:fix": "eslint --fix 'modules/**/*.{js,jsx,ts,tsx,json}' --ext .ts,.tsx --fix",
