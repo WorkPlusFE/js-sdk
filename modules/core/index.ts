@@ -39,7 +39,8 @@ class Core {
     }
 
     if (!window.cordova && !this._isReday) {
-      injectCordova();
+      // 注入 Cordova
+      injectCordova(options?.host);
     }
 
     return true;
@@ -61,10 +62,10 @@ class Core {
           () => {
             this._logger.warn('Cordova 注入成功');
             this._isReday();
+            resolve();
             if (fn && isFunction(fn)) {
               fn();
             }
-            resolve();
           },
           false,
         );

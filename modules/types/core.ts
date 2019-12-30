@@ -1,9 +1,9 @@
 export interface CoreOptions {
-  /** use cache */
-  cache: boolean;
+  /** 调试模式 */
+  debug?: boolean;
 
-  /** use debug */
-  debug: boolean;
+  /** import-cordova 配置host */
+  host?: string;
 }
 
 /** 同步执行的传参 */
