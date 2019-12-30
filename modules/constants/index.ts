@@ -12,6 +12,8 @@ export const WORKPLUS_WEBVIEW = 'WorkPlus_Webview';
 export const WORKPLUS_EMAIL = 'WorkPlus_Email';
 /** 支付 */
 export const WORKPLUS_PAY = 'Workplus_Pay';
+/** 扫描二维码 */
+export const WORKPLUS_SCAN = 'WorkPlus_BarcodeScanner';
 /** 设备 */
 export const WORKPLUS_DEVICE = 'WorkPlus_DeviceInfo';
 /** 地理位置信息 */
