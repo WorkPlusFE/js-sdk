@@ -2,7 +2,7 @@
   "name": "@w6s/sdk",
   "version": "0.0.1",
   "description": "WorkPlusFE JavaScript SDK.",
-  "main": "dist/modules/index.js",
+  "main": "dist/modules/",
   "main:min": "dist/sdk.min.js",
   "module": "dist/sdk.mjs",
   "typings": "dist/modules/index.d.ts",

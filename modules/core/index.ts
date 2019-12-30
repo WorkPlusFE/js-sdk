@@ -1,11 +1,15 @@
 import { CoreOptions } from '../types/core';
-import { detectInWorkPlus } from '../shared/platform';
+import { detectInWorkPlus, isBrowser } from '../shared/platform';
 import { isFunction } from '../shared/is';
 import injectCordova from '../import-cordova';
+import Logger from './logger';
 
 class Core {
   /** cordova is loaded */
   private _ready = false;
+
+  /** logger */
+  private _logger: Logger = new Logger();
 
   /** error 回调函数 */
   private _errorCallback!: Function;
@@ -21,13 +25,23 @@ class Core {
    * @memberof Core
    */
   init(options?: CoreOptions): boolean {
-    if (!detectInWorkPlus()) {
-      console.warn('检测当前非workplus环境，请重试');
+    // 配置 logger
+    options?.debug ? this._logger.enable() : this._logger.disable();
+
+    if (!isBrowser()) {
+      this._logger.error('SDK 不支持非浏览器环境');
       return false;
     }
-    if (options && options.debug) {
-      // logger info
+
+    if (!detectInWorkPlus()) {
+      this._logger.warn('请在 WorkPlus APP 下打开页面');
+      return false;
     }
+
+    if (!window.cordova && !this._isReday) {
+      injectCordova();
+    }
+
     return true;
   }
 
@@ -38,22 +52,18 @@ class Core {
    * @returns
    */
   ready(fn?: Function): Promise<void> {
-    if (!window.cordova) {
-      injectCordova();
-    }
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       if (this.isReday) {
         resolve();
       } else {
         document.addEventListener(
           'deviceready',
           () => {
-            console.info('Cordova 注入成功');
+            this._logger.warn('Cordova 注入成功');
             this._isReday();
             if (fn && isFunction(fn)) {
               fn();
             }
-            // clearTimeout(timer);
             resolve();
           },
           false,
@@ -70,7 +80,7 @@ class Core {
    */
   error(fn: (err: unknown) => void): void {
     if (!isFunction(fn)) {
-      console.error('error的传参必须是函数类型');
+      this._logger.error('错误监听回调仅支持函数参数');
       return;
     }
     this._errorCallback = fn;
@@ -87,12 +97,16 @@ class Core {
     }
   }
 
-  _isReday(): void {
+  private _isReday(): void {
     this._ready = true;
   }
 
   get isReday(): boolean {
     return this._ready;
+  }
+
+  get logger(): Logger {
+    return this._logger;
   }
 }
 
@@ -101,6 +115,7 @@ const core = new Core();
 export const init = core.init;
 export const ready = core.ready;
 export const error = core.error;
+export const logger = core.logger;
 
 /**
  * 以异步的方式执行 Cordova 的事件，用于获取数据类型的 API
@@ -122,16 +137,20 @@ export function exec<A, S, F>(
   fail?: (err: F) => void,
 ): Promise<S> {
   return new Promise((resolve: (res: S) => void, reject: (err: F) => void) => {
+    const callAPI = `${service}.${action}`;
+    logger.warn(`准备调用 ${callAPI}`, callAPI);
     const execFn = (): void => {
       cordova.exec(
         function(res: S) {
+          logger.warn(`${callAPI} 调用成功: ${JSON.stringify(res, null, 4)}`);
           if (success && isFunction(success)) {
             success(res);
           }
           return resolve(res);
         },
         function(err: F) {
-          core.onError(`${service}.${action} 调用失败: ${err}`);
+          logger.error(`${callAPI} 接口调用失败`);
+          core.onError(`${callAPI} 调用失败: ${err}`);
           if (fail && isFunction(fail)) {
             fail(err);
           }
@@ -161,9 +180,10 @@ export function exec<A, S, F>(
 export function execSync<A>(service: string, action: string, args: Array<A>): void {
   cordova.exec(
     function(data) {
-      console.info(data);
+      logger.warn(JSON.stringify(data, null, 4));
     },
     function(err) {
+      logger.error(JSON.stringify(err, null, 4));
       core.onError(`${service}.${action} 调用失败: ${err}`);
     },
     service,
