@@ -7,7 +7,7 @@ export const WORKPLUS_CONTACT = 'WorkPlus_Contact';
 /** 认证 */
 export const WORKPLUS_AUTH = 'WorkPlus_Auth';
 /** 网页 */
-export const WORKPLUS_WEBVIEW = 'WorkPlus_Webview';
+export const WORKPLUS_WEBVIEW = 'WorkPlus_WebView';
 /** 邮箱 */
 export const WORKPLUS_EMAIL = 'WorkPlus_Email';
 /** 支付 */
