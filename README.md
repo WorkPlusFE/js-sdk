@@ -36,7 +36,7 @@ import * as w6s from '@w6s/sdk';  // 此方式为整体加载
 
 // promise 形式调用
 w6s.auth.getUserTicket().then(res => {
-  console.log(res.ticket);        // 获取 ticket
+  console.log(res.user_ticket);   // 获取 ticket
 }).catch();
 
 // 支持按需加载方式
@@ -45,7 +45,7 @@ import getUserTicket from '@w6s/sdk/dist/modules/auth/getUserTicket';
 // callback 形式调用
 getUserTicket({
   success: res => {
-    console.log(res.ticket);      // 获取 ticket
+    console.log(res.user_ticket); // 获取 ticket
   },
   fail: err => {
     console.log(err);             // 调用失败
@@ -101,4 +101,25 @@ w6s.execSync(
   /** 调用传参 */
   []
 );
+```
+
+## 配置 Mock 服务
+
+WorkPlus SDK 支持 Mock 的配置，如本地开发环境下，这将会非常有用。你可以通过像设置开发环境变量这样的操作，来决定是否开启 Mock:
+
+```ts
+w6s.init({
+  mock: true                      // 是否启用 Mock 服务
+  mockData: {                     // 定义 MockData
+    auth: {                       // 服务类名
+      getUserTicket() {           // 具体执行方法的回调
+        return { user_ticket: 'testmock' };
+      }
+    }
+  }
+});
+
+w6s.auth.getUserTicket().then(res => {
+  console.log(res.user_ticket);   // testmock
+});
 ```

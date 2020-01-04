@@ -25,7 +25,7 @@ export default class Logger {
     if (!this._enabled) {
       return;
     }
-    console.info(`${this._PREFIX}[Warn]: ${args.join(' ')}`);
+    console.warn(`${this._PREFIX}[Warn]: ${args.join(' ')}`);
   }
 
   public error(...args: unknown[]): void {

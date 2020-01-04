@@ -1,8 +1,9 @@
-import { CoreOptions } from '../types/core';
+import { CoreOptions, MockOptions } from '../types/core';
 import { detectInWorkPlus, isBrowser } from '../shared/platform';
 import { isFunction } from '../shared/is';
 import injectCordova from '../import-cordova';
 import Logger from './logger';
+import { services as mockServiceNames } from './mock-services';
 
 const EXEC_TIME_OUT = 5000;
 
@@ -14,7 +15,13 @@ class Core {
   private _logger: Logger = new Logger();
 
   /** timeout */
-  private _timeout!: number;
+  private _timeout: number = EXEC_TIME_OUT;
+
+  /** mock 配置 */
+  private _mock = false;
+
+  /** mock 数据 */
+  private _mockData: MockOptions = Object.create(null);
 
   /** error 回调函数 */
   private _errorCallback!: Function;
@@ -29,18 +36,19 @@ class Core {
    * @returns {boolean}
    * @memberof Core
    */
-  init(options?: CoreOptions): boolean {
+  public init = (options?: CoreOptions): void => {
     // 配置 logger
-    options?.debug ? this._logger.enable() : this._logger.disable();
+    if (!this._logger) {
+      this._logger = new Logger();
+    }
+    if (options?.debug) {
+      this._logger.enable();
+      this._logger.warn('当前 SDK 已开启调试模式');
+    }
 
     if (!isBrowser()) {
       this._logger.error('SDK 不支持非浏览器环境');
-      return false;
-    }
-
-    if (!detectInWorkPlus()) {
-      this._logger.warn('请在 WorkPlus APP 下打开页面');
-      return false;
+      return;
     }
 
     if (!window.cordova && !this._isReday) {
@@ -48,18 +56,28 @@ class Core {
       injectCordova(options?.host);
     }
 
+    // 设置超时
     this._timeout = options?.timeout || EXEC_TIME_OUT;
+    this._logger.warn(`当前 SDK 设置的超时时间为: ${this._timeout}ms`);
 
-    return true;
-  }
+    // 设置 Mock 服务
+    if (options?.mock) {
+      this._mock = options?.mock;
+      if (options?.mockData) {
+        this._mockData = options?.mockData;
+      }
+    } else if (!detectInWorkPlus()) {
+      this._logger.error('请在 WorkPlus APP 下打开页面');
+      return;
+    }
+  };
 
   /**
-   * The event fires when Cordova is fully loaded.
-   * @export
-   * @param {Function} [fn]
-   * @returns
+   * 在 Cordova 准备就绪时触发，api的调用需要保证在该回调函数触发后调用
+   * @param {Function} [fn] 回调函数
+   * @memberof Core
    */
-  ready(fn?: Function): Promise<void> {
+  public ready = (fn?: Function): Promise<void> => {
     return new Promise(resolve => {
       if (this.isReday) {
         resolve();
@@ -78,21 +96,20 @@ class Core {
         );
       }
     });
-  }
+  };
 
   /**
    * 注册error函数, 在SDK发生错误/异常时执行
-   * @param {(err: unknown) => void} fn 回调函数
-   * @returns
+   * @param {Function} [fn] 回调函数
    * @memberof Core
    */
-  error(fn: (err: unknown) => void): void {
+  public error = (fn: (err: unknown) => void): void => {
     if (!isFunction(fn)) {
       this._logger.error('错误监听回调仅支持函数参数');
       return;
     }
     this._errorCallback = fn;
-  }
+  };
 
   /**
    * 执行error回调函数
@@ -120,14 +137,44 @@ class Core {
   get timeout(): number {
     return this._timeout;
   }
+
+  get mock(): boolean {
+    return this._mock;
+  }
+
+  get mockData(): MockOptions {
+    return this._mockData;
+  }
 }
 
 const core = new Core();
-
 export const init = core.init;
 export const ready = core.ready;
 export const error = core.error;
 export const logger = core.logger;
+
+/**
+ * 执行 Mock 调用
+ * @param {string} service 调用的服务类名
+ * @param {string} action 调用的方法名
+ * @returns {boolean}
+ */
+function execByMock<S>(service: string, action: string): boolean | S {
+  const serviceName = mockServiceNames[service];
+  const mockService = core.mockData[serviceName];
+  if (mockService && mockService[action] && isFunction(mockService[action])) {
+    let res = Object.create(null);
+    logger.warn(`执行 ${service}.${action} Mock 调用`);
+    try {
+      res = mockService[action]();
+      logger.warn(`执行 ${service}.${action} Mock 返回结果: ${JSON.stringify(res, null, 4)}`);
+    } catch (error) {
+      logger.error(`执行 ${service}.${action} Mock 发生错误: ${JSON.stringify(error, null, 4)}`);
+    }
+    return res;
+  }
+  return false;
+}
 
 /**
  * 以异步的方式执行 Cordova 的事件，用于获取数据类型的 API
@@ -150,12 +197,12 @@ export function exec<A, S, F>(
 ): Promise<S> {
   return new Promise((resolve: (res: S) => void, reject: (err: F) => void) => {
     const callAPI = `${service}.${action}`;
-    logger.warn(`准备调用 ${callAPI}`, callAPI);
     const timer = setTimeout((err: F) => {
       logger.warn(`${callAPI} 接口调用响应超时，请重试`);
       reject(err);
     }, core.timeout);
     const execFn = (): void => {
+      logger.warn(`准备调用 ${callAPI}`);
       cordova.exec(
         function(res: S) {
           clearTimeout(timer);
@@ -181,6 +228,16 @@ export function exec<A, S, F>(
     };
 
     try {
+      // 优先执行 mock
+      if (core.mock) {
+        const mockRes = execByMock(service, action) as S;
+        if (mockRes) {
+          clearTimeout(timer);
+          resolve(mockRes);
+          return;
+        }
+      }
+
       core.ready(execFn);
     } catch (error) {
       core.onError(error);
