@@ -14,7 +14,7 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "typeRoots": ["node_modules/@types", "./typings"]
+    "typeRoots": ["node_modules/@types", "typings"]
   },
-  "include": ["modules", "test", "typings/cordova.ts", "typings/workplus.ts"]
+  "include": ["modules", "test", "typings"]
 }
