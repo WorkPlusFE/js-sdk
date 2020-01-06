@@ -74,7 +74,9 @@
   "engines": {
     "node": ">= 10.16.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "query-string": "^6.9.0"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint && git add ."
