@@ -1,18 +1,21 @@
 import * as core from '../core';
 import { WORKPLUS_IMAGE } from '../constants';
-import { TakePhoto, ImageOptions } from '../types/image';
+import { PhotoInfo } from '../types/image';
+import { ExecOptions } from '../types/core';
+
+export type TakePhotoOptions = ExecOptions<PhotoInfo, never>;
 
 /**
- * 拍照返回
- * @description 拍照，压缩图片后直接返回图片
- * @param {ImageOptions<[], TakePhoto>} [options]
- * @returns {Promise<TakePhoto>}
+ * 拍照
+ * @description 拍照后返回压缩图片
+ * @param {TakePhotoOptions} [options] cordova 传参
+ * @returns 图片对象
  */
-function takePhoto(options?: ImageOptions<[], TakePhoto>): Promise<TakePhoto> {
-  return core.exec<[], TakePhoto, never>(
+function takePhoto(options?: TakePhotoOptions): Promise<PhotoInfo> {
+  return core.exec<[], PhotoInfo, never>(
     WORKPLUS_IMAGE,
     'takePhoto',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );

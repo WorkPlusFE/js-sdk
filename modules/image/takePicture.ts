@@ -1,20 +1,28 @@
 import * as core from '../core';
 import { WORKPLUS_IMAGE } from '../constants';
-import { ImageOptions, TakePicture, TakePictureArgs } from '../types/image';
+import { PhotoInfoAndMediaId } from '../types/image';
+import { ExecOptions } from '../types/core';
+
+export interface PictureOptions extends ExecOptions<PhotoInfoAndMediaId, never> {
+  /** 返回是否进行裁剪: true 裁剪 false 不裁剪 */
+  editable: boolean;
+}
 
 /**
- * 新增拍照返回接口(返回带mediaId方式) (Workplus 3.1.3版本以上使用)
- * @description 新增接口，拍照返回，根据传入参数决定是否可以进行裁剪编辑, 同时会将图片上传后台，返回mediaId
- * @param {ImageOptions<[TakePictureArgs], TakePicture>} options
- * @returns {Promise<TakePicture>}
+ * 拍照返回，返回mediaId
+ * @description 拍照返回，根据传入参数决定是否可以进行裁剪编辑, 同时会将图片上传后台，返回mediaId
+ * @param {PictureOptions} options
+ * @returns {Promise<PhotoInfoAndMediaId>}
+ * @version 3.1.3以上版本支持
  */
-function takePicture(options: ImageOptions<[TakePictureArgs], TakePicture>): Promise<TakePicture> {
-  return core.exec<TakePictureArgs, TakePicture, void>(
+function takePicture(options: PictureOptions): Promise<PhotoInfoAndMediaId> {
+  const { success, fail, ...data } = options;
+  return core.exec<PictureOptions, PhotoInfoAndMediaId, never>(
     WORKPLUS_IMAGE,
     'takePicture',
-    options.data,
-    options?.success,
-    options?.fail,
+    [data],
+    success,
+    fail,
   );
 }
 
