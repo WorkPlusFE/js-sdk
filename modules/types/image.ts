@@ -1,3 +1,5 @@
+import { ExecOptions } from './core';
+
 export interface PhotoInfo {
   /** 压缩后图像存在本地的地址 */
   imageURL: string;
@@ -85,3 +87,5 @@ export interface ImageKeys {
   /** 图片在本机的地址 */
   imageKeys: string[];
 }
+
+export type PhotoInfoOptions = ExecOptions<PhotoInfo, never>;

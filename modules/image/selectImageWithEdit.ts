@@ -6,13 +6,14 @@ import { PhotoInfo } from '../types/image';
 export type ImageOptions = ExecOptions<PhotoInfo, never>;
 
 /**
- * 选择图片并截图返回（单张）
+ * 调起相册，选择图片并截图返回（单张）
  * @description 调用图片相册，选择图片并截取返回
- * @export
  * @param {ImageOptions} [options]
- * @returns {Promise<PhotoInfo>}
+ * @module image
+ * @type 异步
+ * @returns 图片信息
  */
-export function selectImageWithEdit(options?: ImageOptions): Promise<PhotoInfo> {
+function selectImageWithEdit(options?: ImageOptions): Promise<PhotoInfo> {
   return core.exec<[], PhotoInfo, never>(
     WORKPLUS_IMAGE,
     'selectImageWithEdit',

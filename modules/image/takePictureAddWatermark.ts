@@ -6,10 +6,12 @@ import { ExecOptions } from '@modules/types/core';
 export interface WaterMarkOptions extends WaterMark, ExecOptions<PhotoInfoAndMediaId, never> {}
 
 /**
- * 图片添加水印接口
+ * 调起拍照，并添加水印
  * @description 拍照生成水印图片返回
  * @param {WaterMarkOptions} options
- * @returns {Promise<PhotoInfoAndMediaId>}
+ * @module image
+ * @type 异步
+ * @returns 带有mediaId的图片信息
  * @version 3.6.0版本以上使用
  */
 function takePictureAddWatermark(options: WaterMarkOptions): Promise<PhotoInfoAndMediaId> {

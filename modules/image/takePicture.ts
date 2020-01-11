@@ -9,11 +9,13 @@ export interface PictureOptions extends ExecOptions<PhotoInfoAndMediaId, never> 
 }
 
 /**
- * 拍照返回，返回mediaId
+ * 调起拍照，返回mediaId的图片
  * @description 拍照返回，根据传入参数决定是否可以进行裁剪编辑, 同时会将图片上传后台，返回mediaId
  * @param {PictureOptions} options
- * @returns {Promise<PhotoInfoAndMediaId>}
+ * @module image
+ * @type 异步
  * @version 3.1.3以上版本支持
+ * @returns 带有mediaId的图片信息
  */
 function takePicture(options: PictureOptions): Promise<PhotoInfoAndMediaId> {
   const { success, fail, ...data } = options;

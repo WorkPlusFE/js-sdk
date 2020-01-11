@@ -3,17 +3,19 @@ import { WORKPLUS_IMAGE } from '../constants';
 import { ExecOptions } from '../types/core';
 import { PhotoInfo, ImageKeys } from '../types/image';
 
-export interface SelectImagesOptions extends ImageKeys, ExecOptions<PhotoInfo[], never> {}
+export type SelectImagesOptions = ImageKeys & ExecOptions<PhotoInfo[], void>;
 
 /**
- * 选择多张图片
+ * 调起相册，选择多张图片
  * @description 调用图片相册，选择多张图片并压缩返回，并且支持选过图片的传输
  * @param {SelectImagesOptions} options
- * @returns {Promise<PhotoInfo[]>}
+ * @module image
+ * @type 异步
+ * @returns 选择后的图片信息
  */
 function selectImages(options: SelectImagesOptions): Promise<PhotoInfo[]> {
   const { success, fail, ...data } = options;
-  return core.exec<ImageKeys, PhotoInfo[], never>(
+  return core.exec<ImageKeys, PhotoInfo[], void>(
     WORKPLUS_IMAGE,
     'selectImages',
     [data],
