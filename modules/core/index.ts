@@ -51,7 +51,7 @@ class Core {
       return;
     }
 
-    if (!window.cordova && !this._isReday) {
+    if (!window.cordova && !this.isReday) {
       // 注入 Cordova
       injectCordova(options?.host);
     }
@@ -86,7 +86,7 @@ class Core {
           'deviceready',
           () => {
             this._logger.warn('Cordova 注入成功');
-            this._isReday();
+            this._setReady(true);
             resolve();
             if (fn && isFunction(fn)) {
               fn();
@@ -122,8 +122,8 @@ class Core {
     }
   }
 
-  private _isReday(): void {
-    this._ready = true;
+  private _setReady(val: boolean): void {
+    this._ready = val;
   }
 
   get isReday(): boolean {
