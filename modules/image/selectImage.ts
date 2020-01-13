@@ -1,18 +1,22 @@
 import * as core from '../core';
 import { WORKPLUS_IMAGE } from '../constants';
-import { TakePhoto, ImageOptions } from '../types/image';
+import { ExecOptions } from '../types/core';
+import { PhotoInfo } from '../types/image';
+
+export type SelectImageOptions = ExecOptions<PhotoInfo, void>;
 
 /**
- * 选择图片（单张）
+ * 调起相册，选择图片（单张）
  * @description 调用图片相册，选择图片并压缩返回
- * @param {ImageOptions<[], TakePhoto>} [options]
- * @returns {Promise<TakePhoto>}
+ * @param {SelectImageOptions} [options]
+ * @module image
+ * @returns 图片信息
  */
-function selectImage(options?: ImageOptions<[], TakePhoto>): Promise<TakePhoto> {
-  return core.exec<[], TakePhoto, never>(
+function selectImage(options?: SelectImageOptions): Promise<PhotoInfo> {
+  return core.exec<[], PhotoInfo, void>(
     WORKPLUS_IMAGE,
     'selectImage',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );

@@ -1,4 +1,6 @@
-export interface TakePhoto {
+import { ExecOptions } from './core';
+
+export interface PhotoInfo {
   /** 压缩后图像存在本地的地址 */
   imageURL: string;
   /** 原图像存在本地的地址 */
@@ -46,16 +48,7 @@ export interface ImageDataItem {
   imageData: string;
 }
 
-export interface TakePictureArgs {
-  /**
-   * 表示是否进行裁剪:
-   * true 进行裁剪返回，
-   * false 不裁剪直接返回
-   * */
-  editable: boolean;
-}
-
-export interface TakePicture extends TakePhoto {
+export interface PhotoInfoAndMediaId extends PhotoInfo {
   /** 返回后台的mediaId */
   mediaId: string;
 }
@@ -82,9 +75,17 @@ export interface WaterMark {
   font_size: string;
   /** 水印颜色 */
   color: string;
+  /** 屏蔽水印，false:不屏蔽。true：屏蔽 */
+  mark_disable: boolean;
+  /** 水印添加时间：false：不添加。true：添加 */
+  time_enable: boolean;
+  /** 水印添加位置：false：不添加。true：添加 */
+  location_enable: boolean;
 }
 
 export interface ImageKeys {
   /** 图片在本机的地址 */
   imageKeys: string[];
 }
+
+export type PhotoInfoOptions = ExecOptions<PhotoInfo, never>;

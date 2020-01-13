@@ -8,7 +8,7 @@ import { LocationOptions } from '../types/location';
  * @param {LocationOptions<[], void>} [options]
  * @returns
  */
-export default function takePhoto(options?: LocationOptions<[], void>): Promise<void> {
+export default function PhotoInfo(options?: LocationOptions<[], void>): Promise<void> {
   return core.exec<[], void, never>(
     WORKPLUS_LOCATION,
     'disableOrgSignIn',

@@ -1,3 +1,4 @@
+import { parse, stringify } from 'query-string';
 import scanner from './scanner';
 import share from './share';
 import registerShakeListener from './registerShakeListener';
@@ -10,4 +11,6 @@ export default {
   registerShakeListener,
   unregisterShakeListener,
   wxShare,
+  parse,
+  stringify,
 };

@@ -51,7 +51,7 @@ class Core {
       return;
     }
 
-    if (!window.cordova && !this._isReday) {
+    if (!window.cordova && !this.isReday) {
       // 注入 Cordova
       injectCordova(options?.host);
     }
@@ -86,7 +86,7 @@ class Core {
           'deviceready',
           () => {
             this._logger.warn('Cordova 注入成功');
-            this._isReday();
+            this._setReady(true);
             resolve();
             if (fn && isFunction(fn)) {
               fn();
@@ -116,14 +116,14 @@ class Core {
    * @param {unknown} error 错误对象
    * @memberof Core
    */
-  onError(error: unknown): void {
+  public onError(error: unknown): void {
     if (this._errorCallback && isFunction(this._errorCallback)) {
       this._errorCallback(error);
     }
   }
 
-  private _isReday(): void {
-    this._ready = true;
+  private _setReady(val: boolean): void {
+    this._ready = val;
   }
 
   get isReday(): boolean {
@@ -246,13 +246,17 @@ export function exec<A, S, F>(
 }
 
 /**
- * 以同步的方式执行 Cordova 的事件, 用于某些永不触发回调的 API
+ * 以同步的方式执行 Cordova 的事件, 用于没有回调的API
+ * @export
  * @template A
  * @param {string} service 调用的服务类名
- * @param {string} action  调用的方法名
- * @param {Array<A>} args  调用的参数
+ * @param {string} action 调用的方法名
+ * @param {Array<A>} args 调用的参数
+ * @returns {void}
  */
 export function execSync<A>(service: string, action: string, args: Array<A>): void {
+  const callAPI = `${service}.${action}`;
+  logger.warn(`同步调用 ${callAPI}`);
   cordova.exec(
     function(data) {
       logger.warn(JSON.stringify(data, null, 4));

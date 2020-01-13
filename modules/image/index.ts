@@ -16,9 +16,9 @@ export default {
   takePhoto,
   /** 拍照返回并且可编辑 */
   takePhotoWithEdit,
-  /** 新增拍照返回接口(返回带mediaId方式) (Workplus 3.1.3版本以上使用) */
+  /** 拍照返回接口 */
   takePicture,
-  /** 图片添加水印接口(Workplus 3.6.0版本以上使用) */
+  /** 图片添加水印接口 */
   takePictureAddWatermark,
   /** 选择图片（单张） */
   selectImage,
@@ -28,9 +28,9 @@ export default {
   selectImageWithEdit,
   /** 传输图片地址，保存图片 */
   saveImages,
-  /** 批量预览图片(新增 position请求参数，在workplus3.1.3版本后使用) */
+  /** 批量预览图片 */
   showImages,
-  /** 新增选择图片接口(返回带mediaId方式)(Workplus 3.1.3版本以上使用) */
+  /** 新增选择图片接口 */
   chooseImages,
   /** 长按图片弹出框 */
   actionForLongPressImage,

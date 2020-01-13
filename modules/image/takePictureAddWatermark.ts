@@ -1,20 +1,27 @@
 import * as core from '../core';
 import { WORKPLUS_IMAGE } from '../constants';
-import { ImageOptions, WaterMark } from '../types/image';
+import { WaterMark, PhotoInfoAndMediaId } from '../types/image';
+import { ExecOptions } from '@modules/types/core';
+
+export interface WaterMarkOptions extends WaterMark, ExecOptions<PhotoInfoAndMediaId, never> {}
 
 /**
- * 图片添加水印接口(Workplus 3.6.0版本以上使用)
- * @description 拍照，生成水印图片返回
- * @param {ImageOptions<[WaterMark], void>} options
- * @returns {Promise<void>}
+ * 调起拍照，并添加水印
+ * @description 拍照生成水印图片返回
+ * @param {WaterMarkOptions} options
+ * @module image
+ * @type 异步
+ * @returns 带有mediaId的图片信息
+ * @version 3.6.0版本以上使用
  */
-function takePictureAddWatermark(options: ImageOptions<[WaterMark], void>): Promise<void> {
-  return core.exec<WaterMark, void, void>(
+function takePictureAddWatermark(options: WaterMarkOptions): Promise<PhotoInfoAndMediaId> {
+  const { success, fail, ...data } = options;
+  return core.exec<WaterMark, PhotoInfoAndMediaId, never>(
     WORKPLUS_IMAGE,
     'takePictureAddWatermark',
-    options.data,
-    options?.success,
-    options?.fail,
+    [data],
+    success,
+    fail,
   );
 }
 

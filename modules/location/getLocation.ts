@@ -8,7 +8,7 @@ import { LocationOptions, LocationRes } from '../types/location';
  * @param {LocationOptions<[], LocationRes>} [options]
  * @returns
  */
-export default function takePhoto(
+export default function PhotoInfo(
   options?: LocationOptions<[], LocationRes>,
 ): Promise<LocationRes> {
   return core.exec<[], LocationRes, never>(

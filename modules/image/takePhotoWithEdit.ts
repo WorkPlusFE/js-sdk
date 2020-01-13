@@ -1,18 +1,23 @@
 import * as core from '../core';
 import { WORKPLUS_IMAGE } from '../constants';
-import { TakePhoto, ImageOptions } from '../types/image';
+import { PhotoInfo } from '../types/image';
+import { ExecOptions } from '../types/core';
+
+export type TakePhotoOptions = ExecOptions<PhotoInfo, never>;
 
 /**
- * 拍照返回并且可编辑
- * @description 拍照，截图返回
- * @param {ImageOptions<[], TakePhoto>} [options]
- * @returns {Promise<TakePhoto>}
+ * 调起拍照，返回截图
+ * @description 拍照后返回截图
+ * @param {TakePhotoOptions} [options]
+ * @module image
+ * @type 异步
+ * @returns 图片信息
  */
-function takePhotoWithEdit(options?: ImageOptions<[], TakePhoto>): Promise<TakePhoto> {
-  return core.exec<[], TakePhoto, void>(
+function takePhotoWithEdit(options?: TakePhotoOptions): Promise<PhotoInfo> {
+  return core.exec<[], PhotoInfo, never>(
     WORKPLUS_IMAGE,
     'takePhotoWithEdit',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );

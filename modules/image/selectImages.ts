@@ -1,18 +1,24 @@
 import * as core from '../core';
 import { WORKPLUS_IMAGE } from '../constants';
-import { TakePhoto, ImageOptions, ImageKeys } from '../types/image';
+import { ExecOptions } from '../types/core';
+import { PhotoInfo, ImageKeys } from '../types/image';
+
+export type SelectImagesOptions = ImageKeys & ExecOptions<PhotoInfo[], void>;
 
 /**
- * 选择多张图片
+ * 调起相册，选择多张图片
  * @description 调用图片相册，选择多张图片并压缩返回，并且支持选过图片的传输
- * @param {ImageOptions<string[], TakePhoto[]>} options
- * @returns {Promise<TakePhoto[]>}
+ * @param {SelectImagesOptions} options
+ * @module image
+ * @type 异步
+ * @returns 选择后的图片信息
  */
-function selectImages(options: ImageOptions<string[], TakePhoto[]>): Promise<TakePhoto[]> {
-  return core.exec<ImageKeys, TakePhoto[], never>(
+function selectImages(options: SelectImagesOptions): Promise<PhotoInfo[]> {
+  const { success, fail, ...data } = options;
+  return core.exec<ImageKeys, PhotoInfo[], void>(
     WORKPLUS_IMAGE,
     'selectImages',
-    [{ imageKeys: options.data }],
+    [data],
     options?.success,
     options?.fail,
   );

@@ -15,11 +15,14 @@ export interface CoreOptions {
   mockData?: MockOptions;
 }
 
-/** 同步执行的传参 */
-export interface ExecSyncOptions<T> {
-  data: T;
-}
-
 export interface MockOptions {
   [key: string]: { [key: string]: Function };
+}
+
+/** Cordova 调用传参 */
+export interface ExecOptions<S, F> {
+  /** 成功回调 */
+  success?: (res: S) => void;
+  /** 失败回调 */
+  fail?: (err: F) => void;
 }

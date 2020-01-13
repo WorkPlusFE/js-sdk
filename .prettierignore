@@ -1,6 +1,7 @@
 # dependencies
 node_modules
 package.json
+**/*.md
 
 # build
 script/*
