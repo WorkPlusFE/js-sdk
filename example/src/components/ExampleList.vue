@@ -28,8 +28,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Cell, CellGroup } from 'vant';
-import * as sdk from '@w6s/sdk';
-import config from '@/config/config';
+import * as sdk from '../../../dist';
+import config from '../config/config';
 
 @Component({
   name: 'ExampleList',

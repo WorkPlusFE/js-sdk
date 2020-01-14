@@ -23,7 +23,7 @@ let hasTSChecked = false
 
 const tsPlugin = ts({
   check: process.env.NODE_ENV === 'production' && !hasTSChecked,
-  tsconfig: 'tsconfig.json',
+  tsconfig: './modules/tsconfig.json',
   tsconfigOverride: {
     compilerOptions: {
       declaration: true,

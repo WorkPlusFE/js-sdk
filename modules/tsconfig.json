@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@modules/*": ["./modules/*"],
-      "lib/*": ["./lib/*"]
-    },
     "moduleResolution": "node",
     "target": "es5",
     "module": "es2015",
@@ -14,7 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "typeRoots": ["node_modules/@types", "typings"]
+    "typeRoots": ["../node_modules/@types", "./**/*/typings"]
   },
-  "include": ["modules", "test", "typings"]
+  "include": ["**/*.ts", "**/*.tsx", "./**/*/typings"]
 }

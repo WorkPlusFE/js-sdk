@@ -40,7 +40,7 @@ w6s.auth.getUserTicket().then(res => {
 }).catch();
 
 // 支持按需加载方式
-import getUserTicket from '@w6s/sdk/dist/modules/auth/getUserTicket';
+import getUserTicket from '@w6s/sdk/auth/getUserTicket';
 
 // callback 形式调用
 getUserTicket({

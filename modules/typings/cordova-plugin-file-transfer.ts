@@ -6,8 +6,6 @@
 // Copyright (c) Microsoft Open Technologies Inc
 // Licensed under the MIT license
 
-/// <reference path="./cordova-plugin-file.ts" />
-
 /**
  * The FileTransfer object provides a way to upload files using an HTTP multi-part POST request,
  * and to download files as well.
@@ -29,12 +27,13 @@ interface FileTransfer {
    *                               Not recommended for production use. Supported on Android and iOS.
    */
   upload(
-      fileURL: string,
-      server: string,
-      successCallback: (result: FileUploadResult) => void,
-      errorCallback: (error: FileTransferError) => void,
-      options?: FileUploadOptions,
-      trustAllHosts?: boolean): void;
+    fileURL: string,
+    server: string,
+    successCallback: (result: FileUploadResult) => void,
+    errorCallback: (error: FileTransferError) => void,
+    options?: FileUploadOptions,
+    trustAllHosts?: boolean,
+  ): void;
   /**
    * downloads a file from server.
    * @param source            URL of the server to download the file, as encoded by encodeURI().
@@ -49,12 +48,13 @@ interface FileTransfer {
    *                               Not recommended for production use. Supported on Android and iOS.
    */
   download(
-      source: string,
-      target: string,
-      successCallback: (fileEntry: FileEntry) => void,
-      errorCallback: (error: FileTransferError) => void,
-      trustAllHosts?: boolean,
-      options?: FileDownloadOptions): void;
+    source: string,
+    target: string,
+    successCallback: (fileEntry: FileEntry) => void,
+    errorCallback: (error: FileTransferError) => void,
+    trustAllHosts?: boolean,
+    options?: FileDownloadOptions,
+  ): void;
   /**
    * Aborts an in-progress transfer. The onerror callback is passed a FileTransferError object
    * which has an error code of FileTransferError.ABORT_ERR.
@@ -62,7 +62,7 @@ interface FileTransfer {
   abort(): void;
 }
 
-declare var FileTransfer: {
+declare let FileTransfer: {
   new (): FileTransfer;
 };
 
@@ -89,11 +89,11 @@ interface FileUploadOptions {
   /** The mime type of the data to upload. Defaults to image/jpeg. */
   mimeType?: string;
   /** A set of optional key/value pairs to pass in the HTTP request. */
-  params?: Object;
+  params?: Record<string, any>;
   /** Whether to upload the data in chunked streaming mode. Defaults to true. */
   chunkedMode?: boolean;
   /** A map of header name/header values. Use an array to specify more than one value. */
-  headers?: Object;
+  headers?: Record<string, any>;
 }
 
 /** Optional parameters for download method. */
@@ -125,12 +125,19 @@ interface FileTransferError {
   exception: any;
 }
 
-declare var FileTransferError: {
+declare let FileTransferError: {
   /** Constructor for FileTransferError object */
-  new (code?: number, source?: string, target?: string, status?: number, body?: any, exception?: any): FileTransferError;
+  new (
+    code?: number,
+    source?: string,
+    target?: string,
+    status?: number,
+    body?: any,
+    exception?: any,
+  ): FileTransferError;
   FILE_NOT_FOUND_ERR: number;
   INVALID_URL_ERR: number;
   CONNECTION_ERR: number;
   ABORT_ERR: number;
   NOT_MODIFIED_ERR: number;
-}
+};

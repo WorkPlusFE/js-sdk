@@ -15,28 +15,33 @@ interface Window {
    * @param errorCallback     A callback that is called when errors happen, or when the request to obtain the filesystem is denied.
    */
   requestFileSystem(
-      type: LocalFileSystem,
-      size: number,
-      successCallback: (fileSystem: FileSystem) => void,
-      errorCallback?: (fileError: FileError) => void): void;
+    type: LocalFileSystem,
+    size: number,
+    successCallback: (fileSystem: FileSystem) => void,
+    errorCallback?: (fileError: FileError) => void,
+  ): void;
   /**
    * Look up file system Entry referred to by local URL.
    * @param string url       URL referring to a local file or directory
    * @param successCallback  invoked with Entry object corresponding to URL
    * @param errorCallback    invoked if error occurs retrieving file system entry
    */
-  resolveLocalFileSystemURL(url: string,
-      successCallback: (entry: Entry) => void,
-      errorCallback?: (error: FileError) => void): void;
+  resolveLocalFileSystemURL(
+    url: string,
+    successCallback: (entry: Entry) => void,
+    errorCallback?: (error: FileError) => void,
+  ): void;
   /**
    * Look up file system Entry referred to by local URI.
    * @param string uri       URI referring to a local file or directory
    * @param successCallback  invoked with Entry object corresponding to URI
    * @param errorCallback    invoked if error occurs retrieving file system entry
    */
-  resolveLocalFileSystemURI(uri: string,
-      successCallback: (entry: Entry) => void,
-      errorCallback?: (error: FileError) => void): void;
+  resolveLocalFileSystemURI(
+    uri: string,
+    successCallback: (entry: Entry) => void,
+    errorCallback?: (error: FileError) => void,
+  ): void;
   TEMPORARY: number;
   PERSISTENT: number;
 }
@@ -50,9 +55,9 @@ interface FileSystem {
 }
 
 /**
-* An abstract interface representing entries in a file system,
-* each of which may be a File or DirectoryEntry.
-*/
+ * An abstract interface representing entries in a file system,
+ * each of which may be a File or DirectoryEntry.
+ */
 interface Entry {
   /** Entry is a file. */
   isFile: boolean;
@@ -71,8 +76,9 @@ interface Entry {
    * @param errorCallback   A callback that is called when errors happen.
    */
   getMetadata(
-      successCallback: (metadata: Metadata) => void,
-      errorCallback?: (error: FileError) => void): void;
+    successCallback: (metadata: Metadata) => void,
+    errorCallback?: (error: FileError) => void,
+  ): void;
   /**
    * Move an entry to a different location on the file system. It is an error to try to:
    *     move a directory inside itself or to any child at any depth;move an entry into its parent if a name different from its current one isn't provided;
@@ -86,10 +92,12 @@ interface Entry {
    * @param successCallback A callback that is called with the Entry for the new location.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  moveTo(parent: DirectoryEntry,
-      newName?: string,
-      successCallback?: (entry: Entry) => void,
-      errorCallback?: (error: FileError) => void): void;
+  moveTo(
+    parent: DirectoryEntry,
+    newName?: string,
+    successCallback?: (entry: Entry) => void,
+    errorCallback?: (error: FileError) => void,
+  ): void;
   /**
    * Copy an entry to a different location on the file system. It is an error to try to:
    *     copy a directory inside itself or to any child at any depth;
@@ -105,10 +113,12 @@ interface Entry {
    * @param successCallback A callback that is called with the Entry for the new object.
    * @param errorCallback A callback that is called when errors happen.
    */
-  copyTo(parent: DirectoryEntry,
-      newName?: string,
-      successCallback?: (entry: Entry) => void,
-      errorCallback?: (error: FileError) => void): void;
+  copyTo(
+    parent: DirectoryEntry,
+    newName?: string,
+    successCallback?: (entry: Entry) => void,
+    errorCallback?: (error: FileError) => void,
+  ): void;
   /**
    * Returns a URL that can be used as the src attribute of a <video> or <audio> tag.
    * If that is not possible, construct a cdvfile:// URL.
@@ -125,15 +135,16 @@ interface Entry {
    * @param successCallback A callback that is called on success.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  remove(successCallback: () => void,
-      errorCallback?: (error: FileError) => void): void;
+  remove(successCallback: () => void, errorCallback?: (error: FileError) => void): void;
   /**
    * Look up the parent DirectoryEntry containing this Entry. If this Entry is the root of its filesystem, its parent is itself.
    * @param successCallback A callback that is called with the time of the last modification.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  getParent(successCallback: (entry: Entry) => void,
-      errorCallback?: (error: FileError) => void): void;
+  getParent(
+    successCallback: (entry: Entry) => void,
+    errorCallback?: (error: FileError) => void,
+  ): void;
 }
 
 /** This interface supplies information about the state of a file or directory. */
@@ -163,9 +174,12 @@ interface DirectoryEntry extends Entry {
    * @param successCallback A callback that is called to return the File selected or created.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  getFile(path: string, options?: Flags,
-      successCallback?: (entry: FileEntry) => void,
-      errorCallback?: (error: FileError) => void): void;
+  getFile(
+    path: string,
+    options?: Flags,
+    successCallback?: (entry: FileEntry) => void,
+    errorCallback?: (error: FileError) => void,
+  ): void;
   /**
    * Creates or looks up a directory.
    * @param path    Either an absolute path or a relative path from this DirectoryEntry
@@ -179,9 +193,12 @@ interface DirectoryEntry extends Entry {
    * @param successCallback A callback that is called to return the Directory selected or created.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  getDirectory(path: string, options?: Flags,
-      successCallback?: (entry: DirectoryEntry) => void,
-      errorCallback?: (error: FileError) => void): void;
+  getDirectory(
+    path: string,
+    options?: Flags,
+    successCallback?: (entry: DirectoryEntry) => void,
+    errorCallback?: (error: FileError) => void,
+  ): void;
   /**
    * Deletes a directory and all of its contents, if any. In the event of an error (e.g. trying
    * to delete a directory that contains a file that cannot be removed), some of the contents
@@ -189,14 +206,13 @@ interface DirectoryEntry extends Entry {
    * @param successCallback A callback that is called on success.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  removeRecursively(successCallback: () => void,
-      errorCallback?: (error: FileError) => void): void;
+  removeRecursively(successCallback: () => void, errorCallback?: (error: FileError) => void): void;
 }
 
 /**
-* This dictionary is used to supply arguments to methods
-* that look up or create files or directories.
-*/
+ * This dictionary is used to supply arguments to methods
+ * that look up or create files or directories.
+ */
 interface Flags {
   /** Used to indicate that the user wants to create a file or directory if it was not previously there. */
   create?: boolean;
@@ -205,14 +221,14 @@ interface Flags {
 }
 
 /**
-* This interface lets a user list files and directories in a directory. If there are
-* no additions to or deletions from a directory between the first and last call to
-* readEntries, and no errors occur, then:
-*     A series of calls to readEntries must return each entry in the directory exactly once.
-*     Once all entries have been returned, the next call to readEntries must produce an empty array.
-*     If not all entries have been returned, the array produced by readEntries must not be empty.
-*     The entries produced by readEntries must not include the directory itself ["."] or its parent [".."].
-*/
+ * This interface lets a user list files and directories in a directory. If there are
+ * no additions to or deletions from a directory between the first and last call to
+ * readEntries, and no errors occur, then:
+ *     A series of calls to readEntries must return each entry in the directory exactly once.
+ *     Once all entries have been returned, the next call to readEntries must produce an empty array.
+ *     If not all entries have been returned, the array produced by readEntries must not be empty.
+ *     The entries produced by readEntries must not include the directory itself ["."] or its parent [".."].
+ */
 interface DirectoryReader {
   /**
    * Read the next block of entries from this directory.
@@ -223,8 +239,9 @@ interface DirectoryReader {
    * @param errorCallback   A callback indicating that there was an error reading from the Directory.
    */
   readEntries(
-      successCallback: (entries: Entry[]) => void,
-      errorCallback?: (error: FileError) => void): void;
+    successCallback: (entries: Entry[]) => void,
+    errorCallback?: (error: FileError) => void,
+  ): void;
 }
 
 /** This interface represents a file on a file system. */
@@ -234,22 +251,22 @@ interface FileEntry extends Entry {
    * @param successCallback A callback that is called with the new FileWriter.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  createWriter(successCallback: (
-      writer: FileWriter) => void,
-      errorCallback?: (error: FileError) => void): void;
+  createWriter(
+    successCallback: (writer: FileWriter) => void,
+    errorCallback?: (error: FileError) => void,
+  ): void;
   /**
    * Returns a File that represents the current state of the file that this FileEntry represents.
    * @param successCallback A callback that is called with the File.
    * @param errorCallback   A callback that is called when errors happen.
    */
-  file(successCallback: (file: File) => void,
-      errorCallback?: (error: FileError) => void): void;
+  file(successCallback: (file: File) => void, errorCallback?: (error: FileError) => void): void;
 }
 
 /**
-* This interface provides methods to monitor the asynchronous writing of blobs
-* to disk using progress events and event handler attributes.
-*/
+ * This interface provides methods to monitor the asynchronous writing of blobs
+ * to disk using progress events and event handler attributes.
+ */
 interface FileSaver extends EventTarget {
   /** Terminate file operation */
   abort(): void;
@@ -278,9 +295,9 @@ interface FileSaver extends EventTarget {
 }
 
 /**
-* This interface expands on the FileSaver interface to allow for multiple write
-* actions, rather than just saving a single Blob.
-*/
+ * This interface expands on the FileSaver interface to allow for multiple write
+ * actions, rather than just saving a single Blob.
+ */
 interface FileWriter extends FileSaver {
   /**
    * The byte offset at which the next write to the file will occur. This always less or equal than length.
@@ -296,7 +313,7 @@ interface FileWriter extends FileSaver {
    * Write the supplied data to the file at position.
    * @param {Blob|string} data The blob to write.
    */
-  write(data: Blob|string): void;
+  write(data: Blob | string): void;
   /**
    * The file position at which the next write will occur.
    * @param offset If nonnegative, an absolute byte offset into the file.
@@ -312,10 +329,10 @@ interface FileWriter extends FileSaver {
 }
 
 /* FileWriter states */
-declare var FileWriter: {
+declare let FileWriter: {
   INIT: number;
   WRITING: number;
-  DONE: number
+  DONE: number;
 };
 
 interface FileError {
@@ -323,7 +340,7 @@ interface FileError {
   code: number;
 }
 
-declare var FileError: {
+declare let FileError: {
   new (code: number): FileError;
   NOT_FOUND_ERR: number;
   SECURITY_ERR: number;
@@ -340,39 +357,38 @@ declare var FileError: {
 };
 
 /*
-* Constants defined in fileSystemPaths
-*/
+ * Constants defined in fileSystemPaths
+ */
 interface Cordova {
   file: {
-      /* Read-only directory where the application is installed. */
-      applicationDirectory: string;
-      /* Root of app's private writable storage */
-      applicationStorageDirectory: string;
-      /* Where to put app-specific data files. */
-      dataDirectory: string;
-      /* Cached files that should survive app restarts. Apps should not rely on the OS to delete files in here. */
-      cacheDirectory: string;
-      /* Android: the application space on external storage. */
-      externalApplicationStorageDirectory: string;
-      /* Android: Where to put app-specific data files on external storage. */
-      externalDataDirectory: string;
-      /* Android: the application cache on external storage. */
-      externalCacheDirectory: string;
-      /* Android: the external storage (SD card) root. */
-      externalRootDirectory: string;
-      /* iOS: Temp directory that the OS can clear at will. */
-      tempDirectory: string;
-      /* iOS: Holds app-specific files that should be synced (e.g. to iCloud). */
-      syncedDataDirectory: string;
-      /* iOS: Files private to the app, but that are meaningful to other applciations (e.g. Office files) */
-      documentsDirectory: string;
-      /* BlackBerry10: Files globally available to all apps */
-      sharedDirectory: string
-  }
+    /* Read-only directory where the application is installed. */
+    applicationDirectory: string;
+    /* Root of app's private writable storage */
+    applicationStorageDirectory: string;
+    /* Where to put app-specific data files. */
+    dataDirectory: string;
+    /* Cached files that should survive app restarts. Apps should not rely on the OS to delete files in here. */
+    cacheDirectory: string;
+    /* Android: the application space on external storage. */
+    externalApplicationStorageDirectory: string;
+    /* Android: Where to put app-specific data files on external storage. */
+    externalDataDirectory: string;
+    /* Android: the application cache on external storage. */
+    externalCacheDirectory: string;
+    /* Android: the external storage (SD card) root. */
+    externalRootDirectory: string;
+    /* iOS: Temp directory that the OS can clear at will. */
+    tempDirectory: string;
+    /* iOS: Holds app-specific files that should be synced (e.g. to iCloud). */
+    syncedDataDirectory: string;
+    /* iOS: Files private to the app, but that are meaningful to other applciations (e.g. Office files) */
+    documentsDirectory: string;
+    /* BlackBerry10: Files globally available to all apps */
+    sharedDirectory: string;
+  };
 }
 
-
 declare enum LocalFileSystem {
-  PERSISTENT=1,
-  TEMPORARY=0
+  PERSISTENT = 1,
+  TEMPORARY = 0,
 }

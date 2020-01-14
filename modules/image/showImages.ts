@@ -1,6 +1,6 @@
 import * as core from '../core';
 import { WORKPLUS_IMAGE } from '../constants';
-import { ShowImagesItem } from '@modules/types/image';
+import { ShowImagesItem } from '../types/image';
 
 /**
  * 批量预览图片

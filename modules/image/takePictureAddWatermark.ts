@@ -1,7 +1,7 @@
 import * as core from '../core';
 import { WORKPLUS_IMAGE } from '../constants';
 import { WaterMark, PhotoInfoAndMediaId } from '../types/image';
-import { ExecOptions } from '@modules/types/core';
+import { ExecOptions } from '../types/core';
 
 export interface WaterMarkOptions extends WaterMark, ExecOptions<PhotoInfoAndMediaId, never> {}
 
