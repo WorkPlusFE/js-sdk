@@ -6,6 +6,6 @@ interface CordovaJsType {
 export interface ImportCordovaConfig {
   SDK_NAME: string;
   SDK_HOST: string | null;
-  cordovajs: any;
+  cordovajs: unknown;
   pcSDKUri: string;
 }

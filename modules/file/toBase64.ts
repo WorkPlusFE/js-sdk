@@ -10,31 +10,31 @@ interface ToBase64Options {
   fail?: Function;
 }
 
-const resolveLocalFileSystemURL = (fileUrl: string) =>
+const resolveLocalFileSystemURL = (fileUrl: string): Promise<FileEntry> =>
   new Promise((resolve, reject) => {
     window.resolveLocalFileSystemURL(
       fileUrl,
-      function(fileEntry: any) {
-        resolve(fileEntry);
+      function(fileEntry: Entry) {
+        resolve(fileEntry as FileEntry);
       },
-      function(err: any) {
+      function(err: FileError) {
         reject(err);
       },
     );
   });
 
-const resolveURI = (fileUrl: string) =>
+const resolveURI = (fileUrl: string): Promise<File> =>
   new Promise((resolve, reject) => {
     if (isAndroid()) {
       fileUrl = `file://${fileUrl}`;
     }
     resolveLocalFileSystemURL(fileUrl)
-      .then((fileEntry: any) => {
+      .then(fileEntry => {
         fileEntry.file(
-          function(file: any) {
+          function(file: File) {
             resolve(file);
           },
-          function(err: any) {
+          function(err: unknown) {
             reject(err);
           },
         );
@@ -44,10 +44,10 @@ const resolveURI = (fileUrl: string) =>
       });
   });
 
-const readDataUrl = (file: any) =>
-  new Promise((resolve, reject) => {
+const readDataUrl = (file: File): Promise<unknown> =>
+  new Promise(resolve => {
     const reader = new FileReader();
-    reader.onloadend = (evt: any) => {
+    reader.onloadend = (evt: unknown): void => {
       resolve(evt);
     };
     reader.readAsDataURL(file);
@@ -58,16 +58,16 @@ const readDataUrl = (file: any) =>
  * @param {ToBase64Options} options
  * @returns
  */
-export default function toBase64(options: ToBase64Options) {
+export default function toBase64(options: ToBase64Options): Promise<unknown> {
   return resolveURI(options.filePath)
     .then(readDataUrl)
-    .then(function(result) {
+    .then(function(result: unknown) {
       if (options.success && isFunction(options.success)) {
         options.success(result);
       }
       return Promise.resolve(result);
     })
-    .catch(function(err) {
+    .catch(function(err: unknown) {
       if (options.fail && isFunction(options.fail)) {
         options.fail(err);
       }

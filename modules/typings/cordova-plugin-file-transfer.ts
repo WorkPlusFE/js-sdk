@@ -75,7 +75,7 @@ interface FileUploadResult {
   /** The HTTP response returned by the server. */
   response: string;
   /** The HTTP response headers by the server. Currently supported on iOS only.*/
-  headers: any;
+  headers: unknown;
 }
 
 /** Optional parameters for upload method. */
@@ -89,11 +89,11 @@ interface FileUploadOptions {
   /** The mime type of the data to upload. Defaults to image/jpeg. */
   mimeType?: string;
   /** A set of optional key/value pairs to pass in the HTTP request. */
-  params?: Record<string, any>;
+  params?: Record<string, unknown>;
   /** Whether to upload the data in chunked streaming mode. Defaults to true. */
   chunkedMode?: boolean;
   /** A map of header name/header values. Use an array to specify more than one value. */
-  headers?: Record<string, any>;
+  headers?: Record<string, unknown>;
 }
 
 /** Optional parameters for download method. */
@@ -122,7 +122,7 @@ interface FileTransferError {
   /* Response body. This attribute is only available when a response is received from the HTTP connection. */
   body: string;
   /* Exception that is thrown by native code */
-  exception: any;
+  exception: unknown;
 }
 
 declare let FileTransferError: {
@@ -132,8 +132,8 @@ declare let FileTransferError: {
     source?: string,
     target?: string,
     status?: number,
-    body?: any,
-    exception?: any,
+    body?: unknown,
+    exception?: unknown,
   ): FileTransferError;
   FILE_NOT_FOUND_ERR: number;
   INVALID_URL_ERR: number;

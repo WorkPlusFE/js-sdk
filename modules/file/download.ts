@@ -1,6 +1,6 @@
 type DownloadOptions = {
   headers: {
-    [p: string]: any;
+    [p: string]: unknown;
   };
 };
 
@@ -24,14 +24,14 @@ interface Download {
  * @param {Download} options
  * @returns
  */
-export default function FileDownload(options: Download) {
+export default function FileDownload(options: Download): Promise<unknown> {
   return new Promise((resolve, reject) => {
-    const fileTransfer = new (window as any).FileTransfer();
-    const successCallback = (entry: any) => {
+    const fileTransfer = new FileTransfer();
+    const successCallback = (entry: unknown): void => {
       options?.success(entry);
       resolve(entry);
     };
-    const errorCallback = (error: any) => {
+    const errorCallback = (error: unknown): void => {
       options?.fail(error);
       reject(error);
     };

@@ -19,8 +19,8 @@ function selectImages(options: SelectImagesOptions): Promise<PhotoInfo[]> {
     WORKPLUS_IMAGE,
     'selectImages',
     [data],
-    options?.success,
-    options?.fail,
+    success,
+    fail,
   );
 }
 

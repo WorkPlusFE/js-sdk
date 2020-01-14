@@ -18,9 +18,9 @@ class FileUpload {
     this.fileUploadOptions = options;
   }
 
-  upload(options: UploadOptions) {
+  upload(options: UploadOptions): Promise<FileUploadResult> {
     return new Promise((resolve, reject) => {
-      const success = (res: any) => {
+      const success = (res: FileUploadResult): void => {
         if (res.responseCode === 200) {
           if (options.success && isFunction(options.success)) {
             options.success(res);
@@ -29,13 +29,13 @@ class FileUpload {
         }
         return reject(res);
       };
-      const failure = (err: any) => {
+      const failure = (err: FileTransferError): void => {
         if (options.fail && isFunction(options.fail)) {
           options.fail(err);
         }
         reject(err);
       };
-      this.fileTransferInstance.onprogress = (progressEvent: any) => {
+      this.fileTransferInstance.onprogress = (progressEvent: ProgressEvent): void => {
         const { loaded, total } = progressEvent;
         if (options.progress && isFunction(options.progress)) {
           options.progress(loaded, total);
@@ -52,7 +52,7 @@ class FileUpload {
       );
     });
   }
-  abort() {
+  abort(): void {
     this.fileTransferInstance.abort();
   }
 }
