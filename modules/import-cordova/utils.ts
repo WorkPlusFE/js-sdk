@@ -1,5 +1,5 @@
 import { isString } from '../shared/is';
-import { ImportCordovaConfig } from '../types/import-cordova';
+import { ImportCordovaConfig, Platform } from '../types/import-cordova';
 import config from './config';
 
 // 是否为 https 模式
@@ -13,8 +13,10 @@ export const isAndroidPlatform = (userAgent: string): boolean => userAgent.index
 export const isX5Webview = (userAgent?: string): boolean =>
   /x5webkit|mqqbrowser|tbs/.test(userAgent as string);
 
-export const getCordovaJsUriByPlatform = (config: ImportCordovaConfig, platform: string): string =>
-  `${config.SDK_HOST}${config.cordovajs[platform]}`;
+export const getCordovaJsUriByPlatform = (
+  config: ImportCordovaConfig,
+  platform: Platform,
+): string => `${config.SDK_HOST}${config.cordovajs[platform]}`;
 
 export const inWorkPlus = (): boolean => navigator.userAgent.indexOf('workplus') > -1;
 

@@ -1,4 +1,4 @@
-import { ImportCordovaConfig } from '../types/import-cordova';
+import { ImportCordovaConfig, Platform } from '../types/import-cordova';
 import config from './config';
 import {
   getCordovaJsUriByPlatform,
@@ -42,7 +42,7 @@ export default class CordovaImportInstance {
     return false;
   }
 
-  getCurrentPlatformByUserAgent(): string {
+  getCurrentPlatformByUserAgent(): Platform {
     if (isiOSPlatform(this.userAgent)) {
       return 'iOS';
     }
