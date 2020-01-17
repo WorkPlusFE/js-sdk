@@ -79,8 +79,10 @@ class Core {
    */
   public ready = (fn?: Function): Promise<void> => {
     return new Promise(resolve => {
+      const run = () => fn && isFunction(fn) && fn();
       if (this.isReday) {
         resolve();
+        run();
       } else {
         document.addEventListener(
           'deviceready',
@@ -88,9 +90,7 @@ class Core {
             this._logger.warn('Cordova 注入成功');
             this._setReady(true);
             resolve();
-            if (fn && isFunction(fn)) {
-              fn();
-            }
+            run();
           },
           false,
         );
