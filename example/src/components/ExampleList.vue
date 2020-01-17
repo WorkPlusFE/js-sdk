@@ -1,25 +1,33 @@
 <template>
-  <div class="example_list">
-    <div
-      v-for="category in sdkConfig"
-      :key="category.name"
-      class="category_item"
-    >
+  <div class="api-list">
+    <div v-for="(service, index) in apis" :key="index" class="api-list__item">
       <van-cell
-        :title="category.name"
-        is-link
-        :arrow-direction="category.showApi ? 'down' : ''"
-        @click="toggleShowApi(category)"
-      ></van-cell>
-      <div class="api_list" v-if="category.showApi">
-        <van-cell-group>
-          <van-cell
-            v-for="api in category.api"
-            :key="api.name"
-            :title="api.name"
-            @click="toExecPage(category, api)"
-          ></van-cell>
-        </van-cell-group>
+        :title="service.title"
+        :arrow-direction="service.active ? 'down' : ''"
+        @click="toggle(index)"
+      >
+        <div class="api" slot="title">
+          <span class="api-title">{{ service.title }}</span>
+          <span class="api-module">{{ service.module }}</span>
+        </div>
+        <van-icon slot="right-icon" class="api-icon" :name="service.icon" size="20" />
+      </van-cell>
+      <div class="api_list">
+        <transition name="van-fade">
+          <van-cell-group v-show="service.active">
+            <van-cell
+              v-for="api in service.apis"
+              :key="api.title"
+              @click="toExecPage(service.module, api.action)"
+            >
+              <template slot="title">
+                <span class="custom-title">{{ api.module }}</span>
+                <span>{{ api.title }}</span>
+              </template>
+              <van-icon slot="right-icon" name="arrow" style="line-height: inherit;" />
+            </van-cell>
+          </van-cell-group>
+        </transition>
       </div>
     </div>
   </div>
@@ -27,48 +35,63 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Cell, CellGroup } from 'vant';
-import * as sdk from '../../../dist';
-import config from '../config/config';
+import { Cell, CellGroup, Icon } from 'vant';
+import apis from '../api';
 
 @Component({
   name: 'ExampleList',
   components: {
+    [Icon.name]: Icon,
     [Cell.name]: Cell,
     [CellGroup.name]: CellGroup,
   },
 })
 export default class ExampleList extends Vue {
-  /* data */
-  private sdkConfig = config
-
   /* life cycle */
 
-  /* method */
-  private toggleShowApi(category: Common.PlainObject) {
-    // eslint-disable-next-line no-param-reassign
-    category.showApi = !category.showApi;
-  }
+  private apis = apis;
 
-  private toExecPage(category: Common.PlainObject, api: Common.PlainObject) {
+  /* method */
+  private toExecPage(service: string, action: string) {
     this.$router.push({
-      path: '/api',
-      query: {
-        category: category.name,
-        api: api.api_key,
-        params: api.params,
+      name: 'api',
+      params: {
+        service,
+        action,
       },
     });
   }
-}
 
+  toggle(index: number) {
+    this.apis[index].active = !this.apis[index].active;
+  }
+}
 </script>
 
 
 <style lang="scss" scoped>
-.example_list {
-  .category_item {
+.api-list {
+  &__item {
     margin-bottom: 10px;
+  }
+}
+
+.api {
+  display: flex;
+  align-items: center;
+  color: $color-black;
+  height: 24px;
+  line-height: 24px;
+
+  * + * {
+    margin-left: 10px;
+  }
+
+  &-title {
+    font-weight: bold;
+  }
+
+  &-module {
   }
 }
 </style>

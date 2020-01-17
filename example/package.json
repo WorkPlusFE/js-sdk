@@ -8,12 +8,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@w6s/sdk": "^0.0.1",
+    "@w6s/sdk": "^0.1.2",
     "core-js": "^3.4.4",
     "normalize.css": "^8.0.1",
     "vant": "^2.4.1",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
+    "vue-clipboard2": "^0.3.1",
+    "vue-highlightjs": "^1.3.3",
     "vue-property-decorator": "^8.3.0",
     "vue-router": "^3.1.3",
     "vuex": "^3.1.2"

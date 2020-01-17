@@ -1,0 +1,70 @@
+// 主题色
+$color-primary: #1a98ff;
+$color-primary-light: #bdaa73;
+$color-primary-dark: #a88929;
+
+// 交互色
+$color-primary-hover: $color-primary-light;
+$color-primary-active: $color-primary-dark;
+
+// 辅助色
+$color-white: #ffffff;
+$color-success: #446f58;
+$color-warning: #fac258;
+$color-danger: #e24900;
+$color-tip: #ca4404;
+
+// 中性色黑
+$color-black: #222222;
+$color-light-black: #324057;
+$color-extra-light-black: #475669;
+
+// 中性色灰
+$color-gray: #999999;
+$color-light-gray: #7f7f7f;
+$color-extra-light-gray: #eff2f7;
+
+// 功能性颜色
+$color-border: $color-gray;
+$color-line: #979797;
+$color-font: $color-black;
+$color-label: #7c7c7c;
+$color-content: #4c4c4c;
+$color-note: #888888;
+$color-disabled: #888888;
+$color-placeholder: #cccccc;
+$color-placeholder-dark: #666666;
+$color-background: #f4f4f4;
+$color-desc: rgba(69, 90, 100, 0.6);
+
+// 会员等级
+$level_1: #ccd3bb;
+$level_2: #e0a343;
+$level_3: #b15b21;
+$level_4: #891b20;
+$level_5: #4c6062;
+
+// order
+$color-undone: $color-success;
+$color-done: $color-danger;
+
+// button
+$button-border: #ebedf0 !default;
+
+// box-shadow
+$box-shadow-base: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+// font-family
+$font-family: '-apple-system', 'system-ui', 'BlinkMacSystemFont', 'Helvetica Neue', 'PingFang SC',
+  'Hiragino Sans GB', 'Microsoft YaHei', 'Arial', 'sans-serif';
+
+// font-weight
+$font-thin: 200;
+$font-light: 300;
+$font-normal: 400;
+$font-medium: 500;
+$font-semibold: 600;
+
+$font-size-mini: 10px;
+$font-size-small: 14px;
+$font-size-normal: 16px;
