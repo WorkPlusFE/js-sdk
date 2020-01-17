@@ -10,7 +10,6 @@ export type TakePhotoOptions = ExecOptions<PhotoInfo, never>;
  * @description 拍照后返回截图
  * @param {TakePhotoOptions} [options]
  * @module image
- * @type 异步
  * @returns 图片信息
  */
 function takePhotoWithEdit(options?: TakePhotoOptions): Promise<PhotoInfo> {

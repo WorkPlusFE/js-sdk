@@ -7,7 +7,6 @@ import { ShowImagesItem } from '../types/image';
  * @description 传输图片地址，预览图片
  * @param {ShowImagesItem} options
  * @module image
- * @type 同步
  * @version 3.1.3版本以上
  */
 function showImages(options: ShowImagesItem): void {

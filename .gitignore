@@ -36,6 +36,10 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+# Build directory
 docs/.vuepress/dist/
-
 dist
+
+# Editor directories and files
+.idea
+.vscode

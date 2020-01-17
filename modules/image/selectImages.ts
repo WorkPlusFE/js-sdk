@@ -10,7 +10,6 @@ export type SelectImagesOptions = ImageKeys & ExecOptions<PhotoInfo[], void>;
  * @description 调用图片相册，选择多张图片并压缩返回，并且支持选过图片的传输
  * @param {SelectImagesOptions} options
  * @module image
- * @type 异步
  * @returns 选择后的图片信息
  */
 function selectImages(options: SelectImagesOptions): Promise<PhotoInfo[]> {

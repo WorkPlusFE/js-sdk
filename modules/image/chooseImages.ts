@@ -12,7 +12,6 @@ export type ChooseImagesOptions = ChooseImages & ExecOptions<PhotoInfoAndMediaId
  * 选择完后会进行后台上传，返回值中带有上传后的mediaId
  * @param {ChooseImagesOptions>} options
  * @module image
- * @type 异步
  * @version 3.1.3版本以上
  * @returns 带有mediaId的图片信息
  */

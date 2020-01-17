@@ -7,7 +7,6 @@ import { PhotoInfo, PhotoInfoOptions } from '../types/image';
  * @description 调起摄像头拍照后，返回图片
  * @param {PhotoInfoOptions} [options] cordova 传参
  * @module image
- * @type 异步
  * @returns 图片信息
  */
 function takePhoto(options?: PhotoInfoOptions): Promise<PhotoInfo> {

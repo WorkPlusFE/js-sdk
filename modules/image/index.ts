@@ -1,7 +1,7 @@
 import takePhoto from './takePhoto';
 import takePhotoWithEdit from './takePhotoWithEdit';
 import takePicture from './takePicture';
-import takePictureAddWatermark from './takePictureAddWatermark';
+import takePhotoAndAddWaterMark from './takePhotoAndAddWaterMark';
 import selectImage from './selectImage';
 import selectImages from './selectImages';
 import selectImageWithEdit from './selectImageWithEdit';
@@ -19,7 +19,7 @@ export default {
   /** 拍照返回接口 */
   takePicture,
   /** 图片添加水印接口 */
-  takePictureAddWatermark,
+  takePhotoAndAddWaterMark,
   /** 选择图片（单张） */
   selectImage,
   /** 选择图片（多张） */

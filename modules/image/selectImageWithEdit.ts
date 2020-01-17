@@ -10,7 +10,6 @@ export type ImageOptions = ExecOptions<PhotoInfo, never>;
  * @description 调用图片相册，选择图片并截取返回
  * @param {ImageOptions} [options]
  * @module image
- * @type 异步
  * @returns 图片信息
  */
 function selectImageWithEdit(options?: ImageOptions): Promise<PhotoInfo> {
