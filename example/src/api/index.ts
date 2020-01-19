@@ -1,7 +1,7 @@
 import Image from './image';
-// import Webview from './webview';
+import Webview from './webview';
 
-export default [Image] as {
+export default [Image, Webview] as {
   title: string;
   module: string;
   active: boolean;

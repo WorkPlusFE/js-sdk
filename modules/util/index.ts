@@ -1,9 +1,9 @@
 import { parse, stringify } from 'query-string';
 import scanner from './scanner';
-import share from './share';
-import registerShakeListener from './registerShakeListener';
-import unregisterShakeListener from './unregisterShakeListener';
-import wxShare from './wxShare';
+import share from '../webview/share';
+import registerShakeListener from '../webview/registerShakeListener';
+import unregisterShakeListener from '../webview/unregisterShakeListener';
+import wxShare from '../webview/wxShare';
 
 export default {
   scanner,

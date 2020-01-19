@@ -1,14 +1,18 @@
-// This file is auto gererated by scripts/create-api.js
 import * as core from '../core';
-import { WebviewOption } from '../types/webview';
+import { ExecOptions } from '../types/core';
 import { WORKPLUS_WEBVIEW } from '../constants';
 
-export default function exit(options?: WebviewOption<void, void>): Promise<void> {
-  return core.exec<void, void, unknown>(
-    WORKPLUS_WEBVIEW,
-    'exit',
-    options?.data ?? [],
-    options?.success,
-    options?.fail,
-  );
+export type ExitOptions = ExecOptions<void, void>;
+
+/**
+ * 退出webview
+ * @description 关闭整个webview
+ * @param {ExitOptions} [options]
+ * @module webview
+ * @returns 无
+ */
+function exit(options?: ExitOptions): Promise<void> {
+  return core.exec<void, void, void>(WORKPLUS_WEBVIEW, 'exit', [], options?.success, options?.fail);
 }
+
+export default exit;

@@ -6,6 +6,7 @@ export default {
   apis: [
     {
       title: '打开WorkPlus里已有的html',
+      description: '传入相对地址，打开WorkPlus里已有的网页',
       action: 'openLocalURL',
       params: {
         localURL: '',
@@ -13,16 +14,18 @@ export default {
     },
     {
       title: '打开一个网页',
+      description: '传入地址，打开WorkPlus网页',
       action: 'openWebView',
       params: {
-        url: '打开的网址url',
-        title: '打开网页的标题',
-        use_android_webview: true, // 是否使用 android 原生 webview 打开, 否则使用workplus 订制的 webview
-        display_mode: 'FULL_SCREEN', // 全屏打开 webview(即不包含原生标题栏), 默认非全屏
+        url: 'https://www.baidu.com',
+        title: '百度',
+        use_android_webview: true,
+        display_mode: '',
       },
     },
     {
       title: '锁定网页顶部栏',
+      description: '锁定顶部栏，使得顶部栏按钮无效，参数为字符串lock和unlock',
       action: 'navigation',
       params: {
         lock: true,
@@ -30,16 +33,23 @@ export default {
     },
     {
       title: '更换左侧按钮动作',
+      description: '设置左侧按钮回调，传入一个全局的JS函数名',
       action: 'leftButton',
-      params: {},
+      params: {
+        method: 'back',
+      },
     },
     {
       title: '更换右侧按钮动作',
+      description: '更换右侧按钮，参数为一个选项列表',
       action: 'rightButtons',
-      params: {},
+      params: {
+        items: [{ icon: -1, title: '完成', action: 'js', value: 'rightButtons' }],
+      },
     },
     {
       title: '更换头部title',
+      description: '更换webview的导航栏标题',
       action: 'title',
       params: {
         title: '标题',
@@ -47,33 +57,38 @@ export default {
     },
     {
       title: '清除左侧按钮',
+      description: '清除左侧按钮',
       action: 'clearLeftButton',
       params: {},
     },
     {
       title: '清除右侧按钮',
+      description: '清除右侧按钮',
       action: 'clearRightButtons',
       params: {},
     },
     {
       title: '退出webview',
+      description: '退出webview',
       action: 'exit',
       params: {},
     },
     {
       title: '弹出分享对话框',
+      description: '弹出分享对话框，跳转分享',
       action: 'share',
       params: {
         url: 'http://www.baidu.com',
         title: '百度一下',
-        cover_media_id: '分享图标mediaId',
+        cover_media_id: '',
         scope: 0,
-        summary: 'abc',
-        dicrectly: 'w6s_contact',
+        summary: '点击打开百度首页',
+        // dicrectly: '',
       },
     },
     {
       title: '跳转到workkplus特定页面',
+      description: '跳转到workkplus特定页面',
       action: 'toActivity',
       params: {
         activity: 'toMain',
@@ -86,29 +101,24 @@ export default {
     },
     {
       title: '是否隐藏或显示左侧的按钮和关闭字样',
+      description: '是否隐藏或显示左侧的按钮和关闭字样',
       action: 'visibleLeftButton',
       params: {
-        showBack: true,
+        showBack: false,
         showClose: true,
       },
     },
     {
       title: '更换左侧侧按钮和定义动作',
+      description: '更换左侧的按钮动作',
       action: 'changeLeftButton',
       params: {
-        data: [
-          {
-            disable: 'false',
-            icon: '图标',
-            title: '标题',
-            action: '动作 list等',
-            value: '',
-          },
-        ],
+        items: [{ icon: -1, title: '返回', action: 'js', value: 'back' }],
       },
     },
     {
       title: '控制屏幕旋转',
+      description: '根据参数控制屏幕横屏显示或者竖屏显示',
       action: 'changeOrientation',
       params: {
         landscape: true,
@@ -117,27 +127,38 @@ export default {
     },
     {
       title: '添加水印',
+      description: '给页面添加水印',
       action: 'addWaterMask',
       params: {
-        textColor: '#000000', // 字体颜色
-        orgId: 'XXX', // 组织id，传值则以这个组织下的雇员名显示内容，可不传，默认当前组织
-        alpha: 1.0, // 水印文字透明度 0-1.0之间，可不传， 默认1.0
-        verticalPadding: 40, // 水印文字上下的垂直高度（密度），可不传，默认40
-        fontSize: 16, // 字体大小，可不传，默认16
+        textColor: '#000000',
+        orgId: 'XXX',
+        alpha: 1.0,
+        verticalPadding: 40,
+        fontSize: 16,
       },
     },
     {
       title: '移除水印',
+      description: '移除水印',
       action: 'removeWaterMask',
       params: {},
     },
     {
       title: '注册摇一摇监听',
+      description:
+        '前端需要实现全局 onWorkplusShake() 方法, 在该处执行自己的业务, 摇一摇后将在该方法回调',
       action: 'registerShakeListener',
       params: {},
     },
     {
+      title: '注销摇一摇监听',
+      description: '注销摇一摇监听',
+      action: 'unregisterShakeListener',
+      params: {},
+    },
+    {
       title: '微信分享(会话/朋友圈)',
+      description: '根据接口直接调起微信分享页面',
       action: 'wxShare',
       params: {
         app_id: 'wx63f4a539bf345965',
@@ -151,6 +172,7 @@ export default {
     },
     {
       title: '语音转文本',
+      description: '语音转文本',
       action: 'voiceToText',
       params: {},
     },

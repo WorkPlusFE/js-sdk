@@ -1,36 +1,42 @@
-export interface WebviewOption<D, R> {
-  data: D[];
-  success: (res: R) => void;
-  fail: (err: unknown) => void;
-}
-
 export interface OpenLocalURLParams {
   /** 打开本地所在的html文件地址 */
   localURL: string;
 }
 
 export interface OpenWebViewParams {
+  /** 打开的网址url */
   url: string;
+  /** 打开网页的标题 */
   title: string;
-  /** 是否使用 android 原生 webview 打开, 否则使用workplus 订制的 webview */
+  /** 是否使用 android 原生 webview 打开, 否则使用workplus 订制的 webview，3.1.3以上版本支持 */
   use_android_webview: boolean;
   /** 全屏打开 webview(即不包含原生标题栏), 默认非全屏 */
-  display_mode?: string;
+  display_mode?: 'FULL_SCREEN' | '';
 }
 
+/** 锁定网页顶部栏的传参 */
 export type NavigationParams = 'lock' | 'unlock';
 
-export interface RightButtonsParams {
+/** 更换右侧的按钮动作 */
+export interface ButtonsItem {
+  /** 按钮是否可用, 3.1.3版本以上支持 */
   disable: string;
+  /** 图标 */
   icon: string;
+  /** 标题 */
   title: string;
+  /** 动作 list等 */
   action: string;
+  /** 某个可在全局范围使用的js方法 */
   value: string;
 }
 
 export interface ShareParams {
+  /** 链接 */
   url: string;
+  /** 标题 */
   title: string;
+  /** 分享图标mediaId */
   cover_media_id: string;
   /** 该字段是用于显示范围, 0 只显示内部分享的操作, 包括"发送给", "分享到圈子", 1则显示全部 */
   scope: 0 | 1;
@@ -41,25 +47,25 @@ export interface ShareParams {
 }
 
 export interface ToActivityParams {
+  /** 原生activity */
   activity: string;
+  /** 用户id */
   client_id: string;
+  /** 跳转地址 */
   next_url: string;
+  /** 访问token */
   access_token: string;
+  /** 用户注册username */
   username: string;
+  /** 用户名字 */
   name: string;
 }
 
 export interface VisibleLeftButtonParams {
-  showBack: 'true' | 'false';
-  showClose: 'true' | 'false';
-}
-
-export interface ChangeLeftButtonParams {
-  disable: string;
-  icon: string;
-  title: string;
-  action: string;
-  value: string;
+  /** 是否显示返回图标 */
+  showBack: boolean;
+  /** 是否显示关闭图标 */
+  showClose: boolean;
 }
 
 export interface ChangeOrientationParams {
@@ -95,15 +101,18 @@ export interface WxShareParams {
   thumb: string;
   /** 0 为聊天界面 1为朋友圈 */
   scene: number;
+  /** 分享内容 */
   data: WxShareData;
 }
 
 interface WxShareData {
+  /** 分享的链接 */
   url?: string;
+  /** 分享的图片链接或者是base64 */
   image?: string;
 }
 
 export interface VoiceToTextRes {
-  /**语音转出的文本 */
+  /** 语音转出的文本 */
   message: string;
 }

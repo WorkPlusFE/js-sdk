@@ -1,14 +1,24 @@
-// This file is auto gererated by scripts/create-api.js
 import * as core from '../core';
-import { WebviewOption } from '../types/webview';
+import { ExecOptions } from '../types/core';
 import { WORKPLUS_WEBVIEW } from '../constants';
 
-export default function clearLeftButton(options?: WebviewOption<void, void>): Promise<void> {
-  return core.exec<void, void, unknown>(
+export type ClearLeftButtonOptions = ExecOptions<void, void>;
+
+/**
+ * 清除左侧按钮
+ * @description 清除左侧按钮事件和显示
+ * @param {ClearLeftButtonOptions} [options]
+ * @module webview
+ * @returns 无
+ */
+function clearLeftButton(options?: ClearLeftButtonOptions): Promise<void> {
+  return core.exec<[], void, void>(
     WORKPLUS_WEBVIEW,
     'clearLeftButton',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );
 }
+
+export default clearLeftButton;

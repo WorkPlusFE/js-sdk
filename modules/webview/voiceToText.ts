@@ -1,16 +1,25 @@
-// This file is auto gererated by scripts/create-api.js
 import * as core from '../core';
-import { WebviewOption, VoiceToTextRes } from '../types/webview';
 import { WORKPLUS_WEBVIEW } from '../constants';
+import { ExecOptions } from '../types/core';
+import { VoiceToTextRes } from '../types/webview';
 
-export default function voiceToText(
-  options?: WebviewOption<void, VoiceToTextRes>,
-): Promise<VoiceToTextRes> {
-  return core.exec<void, VoiceToTextRes, unknown>(
+export type VoiceToTextOptions = ExecOptions<VoiceToTextRes, void>;
+
+/**
+ * 语音转文本
+ * @description 语音转文本
+ * @param {VoiceToTextOptions} [options]
+ * @module webview
+ * @returns {Promise<VoiceToTextRes>}
+ */
+function voiceToText(options?: VoiceToTextOptions): Promise<VoiceToTextRes> {
+  return core.exec<void, VoiceToTextRes, void>(
     WORKPLUS_WEBVIEW,
     'voiceToText',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );
 }
+
+export default voiceToText;

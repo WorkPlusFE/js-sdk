@@ -79,7 +79,7 @@ class Core {
    */
   public ready = (fn?: Function): Promise<void> => {
     return new Promise(resolve => {
-      const run = () => fn && isFunction(fn) && fn();
+      const run = (): void => fn && isFunction(fn) && fn();
       if (this.isReday) {
         resolve();
         run();

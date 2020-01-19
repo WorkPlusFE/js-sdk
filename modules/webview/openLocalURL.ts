@@ -1,16 +1,26 @@
-// This file is auto gererated by scripts/create-api.js
 import * as core from '../core';
-import { WebviewOption, OpenLocalURLParams } from '../types/webview';
 import { WORKPLUS_WEBVIEW } from '../constants';
+import { ExecOptions } from '../types/core';
+import { OpenLocalURLParams } from '../types/webview';
 
-export default function openLocalURL(
-  options?: WebviewOption<OpenLocalURLParams, void>,
-): Promise<void> {
-  return core.exec<OpenLocalURLParams, void, unknown>(
+export type OpenLocalURLOptions = OpenLocalURLParams & ExecOptions<void, void>;
+
+/**
+ * 打开WorkPlus里已有的html
+ * @description 传入相对地址，打开WorkPlus里已有的网页
+ * @param {OpenLocalURLOptions} [options]
+ * @module webview
+ * @returns 无
+ */
+function openLocalURL(options: OpenLocalURLOptions): Promise<void> {
+  const { success, fail, ...data } = options;
+  return core.exec<OpenLocalURLParams, void, void>(
     WORKPLUS_WEBVIEW,
     'openLocalURL',
-    options?.data ?? [],
-    options?.success,
-    options?.fail,
+    [data],
+    success,
+    fail,
   );
 }
+
+export default openLocalURL;

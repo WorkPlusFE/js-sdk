@@ -1,14 +1,24 @@
-// This file is auto gererated by scripts/create-api.js
 import * as core from '../core';
-import { WebviewOption } from '../types/webview';
 import { WORKPLUS_WEBVIEW } from '../constants';
+import { ExecOptions } from '../types/core';
 
-export default function removeWaterMask(options?: WebviewOption<void, void>): Promise<void> {
-  return core.exec<void, void, unknown>(
+export type RemoveWaterMask = ExecOptions<void, void>;
+
+/**
+ * 移除水印
+ * @description 移除水印
+ * @param {RemoveWaterMask} [options]
+ * @module webview
+ * @returns 无
+ */
+function removeWaterMask(options?: RemoveWaterMask): Promise<void> {
+  return core.exec<[], void, void>(
     WORKPLUS_WEBVIEW,
     'removeWaterMask',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );
 }
+
+export default removeWaterMask;

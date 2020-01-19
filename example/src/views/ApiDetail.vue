@@ -74,6 +74,7 @@ export default class ExampleList extends Vue {
   /** life cycle */
   mounted() {
     this.setOptions(this.action);
+    sdk.webview.title({ title: this.options.title });
   }
 
   /** method */

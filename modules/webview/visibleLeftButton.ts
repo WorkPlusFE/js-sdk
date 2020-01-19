@@ -1,16 +1,26 @@
-// This file is auto gererated by scripts/create-api.js
 import * as core from '../core';
-import { WebviewOption, VisibleLeftButtonParams } from '../types/webview';
 import { WORKPLUS_WEBVIEW } from '../constants';
+import { ExecOptions } from '../types/core';
+import { VisibleLeftButtonParams } from '../types/webview';
 
-export default function visibleLeftButton(
-  options?: WebviewOption<VisibleLeftButtonParams, void>,
-): Promise<void> {
-  return core.exec<VisibleLeftButtonParams, void, unknown>(
+export type VisibleLeftButtonOptions = VisibleLeftButtonParams & ExecOptions<void, void>;
+
+/**
+ * 是否隐藏或显示左侧的按钮和关闭字样
+ * @description 是否隐藏或显示左侧的按钮和关闭字样
+ * @param {VisibleLeftButtonOptions} options
+ * @module webview
+ * @returns 无
+ */
+function visibleLeftButton(options: VisibleLeftButtonOptions): Promise<void> {
+  const { success, fail, ...params } = options;
+  return core.exec<VisibleLeftButtonParams, void, void>(
     WORKPLUS_WEBVIEW,
     'visibleLeftButton',
-    options?.data ?? [],
-    options?.success,
-    options?.fail,
+    [params],
+    success,
+    fail,
   );
 }
+
+export default visibleLeftButton;

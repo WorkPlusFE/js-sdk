@@ -26,3 +26,6 @@ export interface ExecOptions<S, F> {
   /** 失败回调 */
   fail?: (err: F) => void;
 }
+
+/** 无返回 */
+export type NotParamsOptions = ExecOptions<void, void>;

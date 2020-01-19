@@ -10,6 +10,7 @@ import Network from './network';
 import Util from './util';
 import Email from './email';
 import Auth from './auth';
+import Webview from './webview';
 
 export * from './eventlistener';
 
@@ -39,6 +40,8 @@ export const util = Util;
 export const email = Email;
 /** 认证接口 */
 export const auth = Auth;
+/** 网页接口 */
+export const webview = Webview;
 
 /** WrokPlus SDK 初始化配置 */
 export const init = core.init;
