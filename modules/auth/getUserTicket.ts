@@ -1,21 +1,22 @@
 import * as core from '../core';
 import { WORKPLUS_AUTH } from '../constants';
-import { AuthOption, GetUserTicketRes } from '../types/auth';
+import { ExecOptions } from '../types/core';
+import { GetUserTicketRes } from '../types/auth';
+
+export type UserTicketOptions = ExecOptions<GetUserTicketRes, void>;
 
 /**
- * 获取临时ticket接口
- *
- * @export
- * @param {AuthOption<void, GetUserTicketRes>} [options]
- * @returns
+ * 获取临时ticket
+ * @description 为当前登录用户获取一个临时性的ticket
+ * @param {UserTicketOptions} [options]
+ * @module auth
+ * @returns ticket
  */
-export default function getUserTicket(
-  options?: AuthOption<void, GetUserTicketRes>,
-): Promise<GetUserTicketRes> {
-  return core.exec<void, GetUserTicketRes, unknown>(
+export default function getUserTicket(options?: UserTicketOptions): Promise<GetUserTicketRes> {
+  return core.exec<[], GetUserTicketRes, void>(
     WORKPLUS_AUTH,
     'getUserTicket',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );

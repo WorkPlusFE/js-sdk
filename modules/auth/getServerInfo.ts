@@ -1,21 +1,22 @@
 import * as core from '../core';
 import { WORKPLUS_AUTH } from '../constants';
-import { AuthOption, GetServerInfoRes } from '../types/auth';
+import { ExecOptions } from '../types/core';
+import { GetServerInfoRes } from '../types/auth';
+
+export type ServerInfoOptions = ExecOptions<GetServerInfoRes, void>;
 
 /**
  * 获取当前app请求后台api地址
- *
- * @export
- * @param {AuthOption<void, GetServerInfoRes>} [options]
- * @returns
+ * @description 获取当前app请求后台api地址
+ * @param {ServerInfoOptions} [options]
+ * @module auth
+ * @returns api_url
  */
-export default function getServerInfo(
-  options?: AuthOption<void, GetServerInfoRes>,
-): Promise<GetServerInfoRes> {
-  return core.exec<void, GetServerInfoRes, unknown>(
+export default function getServerInfo(options?: ServerInfoOptions): Promise<GetServerInfoRes> {
+  return core.exec<[], GetServerInfoRes, void>(
     WORKPLUS_AUTH,
     'getServerInfo',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );

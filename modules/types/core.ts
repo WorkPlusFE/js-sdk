@@ -28,4 +28,4 @@ export interface ExecOptions<S, F> {
 }
 
 /** 无返回 */
-export type NotParamsOptions = ExecOptions<void, void>;
+export type NotResOptions = ExecOptions<void, void>;

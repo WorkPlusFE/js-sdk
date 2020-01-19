@@ -9,7 +9,7 @@ import File from './file';
 import Network from './network';
 import Util from './util';
 import Email from './email';
-import Auth from './auth';
+import * as Auth from './auth';
 import Webview from './webview';
 
 export * from './eventlistener';

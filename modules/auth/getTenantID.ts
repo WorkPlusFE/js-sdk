@@ -1,21 +1,22 @@
 import * as core from '../core';
 import { WORKPLUS_AUTH } from '../constants';
-import { AuthOption, GetTenantIDRes } from '../types/auth';
+import { ExecOptions } from '../types/core';
+import { GetTenantIDRes } from '../types/auth';
+
+export type TenantIdOptions = ExecOptions<GetTenantIDRes, void>;
 
 /**
  * 获取当前租户id，即域id
- *
- * @export
- * @param {AuthOption<void, GetTenantIDRes>} [options]
- * @returns
+ * @description 获取当前租户id，即域id
+ * @param {TenantIdOptions} [options]
+ * @module auth
+ * @returns 域ID
  */
-export default function getTenantID(
-  options?: AuthOption<void, GetTenantIDRes>,
-): Promise<GetTenantIDRes> {
-  return core.exec<void, GetTenantIDRes, unknown>(
+export default function getTenantID(options?: TenantIdOptions): Promise<GetTenantIDRes> {
+  return core.exec<void, GetTenantIDRes, void>(
     WORKPLUS_AUTH,
     'getTenantID',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );
