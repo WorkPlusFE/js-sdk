@@ -1,8 +1,9 @@
 import Image from './image';
 import Webview from './webview';
 import Auth from './auth';
+import Location from './location';
 
-export default [Image, Webview, Auth] as {
+export default [Image, Webview, Auth, Location] as {
   title: string;
   module: string;
   active: boolean;

@@ -2,7 +2,7 @@ import WPStorage from './storage';
 import * as core from './core';
 import Image from './image';
 import Contact from './contact';
-import Location from './location';
+import * as Location from './location';
 import Device from './device';
 import EventLog from './eventlog';
 import File from './file';
