@@ -8,7 +8,7 @@ import EventLog from './eventlog';
 import File from './file';
 import Network from './network';
 import Util from './util';
-import Email from './email';
+import * as Email from './email';
 import * as Auth from './auth';
 import Webview from './webview';
 

@@ -1,14 +1,22 @@
-// This file is auto gererated by scripts/create-api.js
 import * as core from '../core';
-import { EmailOption } from '../types/email';
 import { WORKPLUS_EMAIL } from '../constants';
+import { NotResOptions } from '../types/core';
 
-export default function openEmail(options?: EmailOption<void, void>): Promise<void> {
-  return core.exec<void, void, unknown>(
+/**
+ * 打开邮箱
+ * @description 跳转到我的邮箱，未登陆就跳转到登陆页
+ * @param {NotResOptions} [options]
+ * @module email
+ * @returns 无
+ */
+function openEmail(options?: NotResOptions): Promise<void> {
+  return core.exec<[], void, void>(
     WORKPLUS_EMAIL,
     'openEmail',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );
 }
+
+export default openEmail;

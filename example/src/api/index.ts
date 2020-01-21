@@ -2,8 +2,9 @@ import Image from './image';
 import Webview from './webview';
 import Auth from './auth';
 import Location from './location';
+import Email from './email';
 
-export default [Image, Webview, Auth, Location] as {
+export default [Image, Webview, Auth, Location, Email] as {
   title: string;
   module: string;
   active: boolean;
