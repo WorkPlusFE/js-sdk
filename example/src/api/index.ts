@@ -3,16 +3,21 @@ import Webview from './webview';
 import Auth from './auth';
 import Location from './location';
 import Email from './email';
+import Network from './network';
 
-export default [Image, Webview, Auth, Location, Email] as {
+interface ApiModule {
   title: string;
   module: string;
   active: boolean;
   icon: string;
-  apis: {
-    title: string;
-    action: string;
-    description: string;
-    params: Common.PlainObject;
-  }[];
-}[];
+  apis: ApiItem[];
+}
+
+interface ApiItem {
+  title: string;
+  action: string;
+  description: string;
+  params: Common.PlainObject;
+}
+
+export default [Image, Webview, Auth, Location, Email, Network] as ApiModule[];
