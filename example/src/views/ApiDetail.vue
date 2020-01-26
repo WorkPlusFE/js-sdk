@@ -86,9 +86,15 @@ export default class ExampleList extends Vue {
         this.res = JSON.stringify(res, null, 4);
       },
       fail: (err: unknown) => {
-        this.res = JSON.stringify(err);
+        this.res = `调用失败：${err}`;
       },
     });
+    // .then((res: unknown) => {
+    //   this.res = JSON.stringify(res, null, 4);
+    // })
+    // .catch((err: string) => {
+    //   this.res = `调用失败：${err}`;
+    // });
   }
 
   onCopy() {

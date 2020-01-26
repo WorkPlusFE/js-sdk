@@ -19,6 +19,7 @@ function selectImageWithEdit(options?: ImageOptions): Promise<PhotoInfo> {
     [],
     options?.success,
     options?.fail,
+    false,
   );
 }
 

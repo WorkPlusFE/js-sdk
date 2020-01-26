@@ -186,6 +186,7 @@ function execByMock<S>(service: string, action: string): boolean | S {
  * @param {Array<A>} args 调用的参数
  * @param {(data: S) => void} [success] 成功回调
  * @param {(err: F) => void} [failed] 失败回调
+ * @param {boolean} setTimer 是否启用超时
  * @returns {Promise<S>}
  */
 export function exec<A, S, F>(
@@ -194,18 +195,27 @@ export function exec<A, S, F>(
   args: Array<A>,
   success?: (data: S) => void,
   fail?: (err: F) => void,
+  setTimer = true,
 ): Promise<S> {
   return new Promise((resolve: (res: S) => void, reject: (err: F) => void) => {
     const callAPI = `${service}.${action}`;
-    const timer = setTimeout((err: F) => {
-      logger.warn(`${callAPI} 接口调用响应超时，请重试`);
-      reject(err);
-    }, core.timeout);
+    const timer = setTimer
+      ? setTimeout((err = '接口调用超时') => {
+          logger.warn(`${callAPI} 接口调用响应超时，请重试`);
+          if (fail && isFunction(fail)) {
+            fail(err);
+          }
+          reject(err);
+        }, core.timeout)
+      : 0;
+    const removeTimer = (): void => {
+      timer && clearTimeout(timer);
+    };
     const execFn = (): void => {
       logger.warn(`准备调用 ${callAPI}`);
       cordova.exec(
         function(res: S) {
-          clearTimeout(timer);
+          removeTimer();
           logger.warn(`${callAPI} 调用成功: ${JSON.stringify(res, null, 4)}`);
           if (success && isFunction(success)) {
             success(res);
@@ -213,7 +223,7 @@ export function exec<A, S, F>(
           return resolve(res);
         },
         function(err: F) {
-          clearTimeout(timer);
+          removeTimer();
           logger.error(`${callAPI} 接口调用失败`);
           core.onError(`${callAPI} 调用失败: ${err}`);
           if (fail && isFunction(fail)) {
@@ -232,7 +242,7 @@ export function exec<A, S, F>(
       if (core.mock) {
         const mockRes = execByMock(service, action) as S;
         if (mockRes) {
-          clearTimeout(timer);
+          removeTimer();
           resolve(mockRes);
           return;
         }

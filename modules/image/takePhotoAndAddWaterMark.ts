@@ -21,6 +21,7 @@ function takePhotoAndAddWaterMark(options: WaterMarkOptions): Promise<PhotoInfoA
     [data],
     success,
     fail,
+    false,
   );
 }
 

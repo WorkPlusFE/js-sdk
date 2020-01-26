@@ -20,6 +20,7 @@ function selectImages(options: SelectImagesOptions): Promise<PhotoInfo[]> {
     [data],
     success,
     fail,
+    false,
   );
 }
 

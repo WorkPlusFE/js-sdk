@@ -19,6 +19,7 @@ function takePhotoWithEdit(options?: TakePhotoOptions): Promise<PhotoInfo> {
     [],
     options?.success,
     options?.fail,
+    false,
   );
 }
 

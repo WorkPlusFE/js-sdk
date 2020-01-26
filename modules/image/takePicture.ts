@@ -24,6 +24,7 @@ function takePicture(options: PictureOptions): Promise<PhotoInfoAndMediaId> {
     [data],
     success,
     fail,
+    false,
   );
 }
 

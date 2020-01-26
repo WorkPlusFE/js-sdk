@@ -16,6 +16,7 @@ function takePhoto(options?: PhotoInfoOptions): Promise<PhotoInfo> {
     [],
     options?.success,
     options?.fail,
+    false,
   );
 }
 

@@ -19,6 +19,7 @@ function selectImage(options?: SelectImageOptions): Promise<PhotoInfo> {
     [],
     options?.success,
     options?.fail,
+    false,
   );
 }
 

@@ -23,6 +23,7 @@ function chooseImages(options: ChooseImagesOptions): Promise<PhotoInfoAndMediaId
     [data],
     success,
     fail,
+    false,
   );
 }
 
