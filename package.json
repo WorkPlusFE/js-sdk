@@ -76,7 +76,12 @@
     "node": ">= 10.16.0"
   },
   "dependencies": {
-    "query-string": "^6.9.0"
+    "@chenfengyuan/vue-qrcode": "^1.0.2",
+    "@vuepress/plugin-back-to-top": "^1.5.2",
+    "element-ui": "^2.13.2",
+    "moment": "^2.27.0",
+    "query-string": "^6.9.0",
+    "vuepress-plugin-code-copy": "^1.0.6"
   },
   "husky": {
     "hooks": {

@@ -16,33 +16,61 @@ const generateChildren = () => {
 };
 
 module.exports = {
-  title: 'sdk.js',
+  title: 'js-sdk',
   description: pkg.description,
-  base: '/sdk.js/',
+  base: '/js-sdk/',
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
   themeConfig: {
+    logo: '/sdk-logo@3x.png',
     nav: [
       { text: '快速开始', link: '/quick-start' },
-      { text: 'API文档', link: '/api/' },
+      { text: 'API文档', link: '/api/image.html' },
       { text: '常见问题', link: '/qa' },
       { text: '更新日志', link: '/changelog' },
-      { text: 'Github', link: 'https://github.com/WorkPlusFE/sdk.js' }
+      { text: 'Github', link: 'https://github.com/WorkPlusFE/js-sdk' }
     ],
     sidebar: {
       '/api/': getApidebar('API文档'),
     },
-    displayAllHeaders: true,
-  },
-};
+    lastUpdated: '上次编辑于', 
 
+    docsRepo: 'WorkPlusFE/js-sdk',
+    docsDir: 'docs',
+    docsBranch: 'master',
+    editLinks: true,
+    editLinkText: '帮助我们完善此文档'
+  },
+  plugins: [
+    '@vuepress/back-to-top',
+    ['vuepress-plugin-code-copy', {
+      align: 'top',
+      successText: '复制成功',
+      color: '#1A98FF',
+      staticIcon: false,
+      backgroundColor: '#FFFFFF'
+    }],
+    [
+      '@vuepress/last-updated',
+      {
+        transformer: (timestamp, lang) => {
+          // 不要忘了安装 moment
+          const moment = require('moment');
+          moment.locale(lang);
+          return moment(timestamp).format('YYYY-MM-DD HH:mm:ss');
+        }
+      }
+    ]
+  ]
+};
 
 function getApidebar (groupA) {
   return [
     {
       title: groupA,
       collapsable: false,
+      sidebarDepth: 1,
       children: [
         'image',
         'contact',

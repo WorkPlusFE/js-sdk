@@ -1,0 +1,75 @@
+@import '~prismjs/themes/prism.css';
+
+.home .hero img {
+  max-height 220px
+}
+
+h1 {
+  font-size: 2.0rem
+}
+
+h2 {
+  font-size: 1.6rem
+}
+
+
+table {
+  border-collapse collapse
+  word-wrap break-word
+  margin-bottom 20px
+  table-layout auto
+  display table
+  text-align left
+  width 100%
+  font-size 16px
+
+  th {
+    background #F6F7F9
+    border 0
+    padding 0.9em 1em
+  }
+
+  tr {
+    border-top 0
+    border-bottom 1px solid #DEE0E3
+  }
+
+  td {
+    background #ffffff
+    font-size 14px
+    border 0
+    padding 0.9em 1em
+  }
+  
+  tr:last-child {
+    border 0
+  }
+
+  thead tr {
+    border 0
+  }
+}
+
+.theme-default-content pre code, 
+.theme-default-content pre[class*="language-"] code {
+  color #333333
+}
+
+div[class~="language-js"]:before {
+  content ''
+}
+
+.code-copy {
+  height 0
+  position absolute
+  top 0
+  right 0
+  svg {
+    width 20px
+    height 20px
+  }
+  > span {
+    color #1A98FF
+    right 34px
+  }
+}
