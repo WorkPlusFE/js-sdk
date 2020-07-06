@@ -44,13 +44,6 @@ module.exports = {
   },
   plugins: [
     '@vuepress/back-to-top',
-    ['vuepress-plugin-code-copy', {
-      align: 'top',
-      successText: '复制成功',
-      color: '#1A98FF',
-      staticIcon: false,
-      backgroundColor: '#FFFFFF'
-    }],
     [
       '@vuepress/last-updated',
       {

@@ -2,7 +2,7 @@
 
 ## 拍照
 
-打开手机相机进行拍照，并返回照片地址，包括压缩后的。 <Qrcode/>
+打开手机相机进行拍照，并返回照片地址，包括压缩后的。
 
 **使用说明**
 
@@ -10,6 +10,8 @@
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
+
+<CodeWrapper fn="image.takePhoto">
 
 ```js
 // normal
@@ -21,6 +23,7 @@ w6s.image.takePhoto({
 // promise
 w6s.image.takePhoto().then(function success() {}, function fail() {});
 ```
+</CodeWrapper>
 
 **返回数据**
 
@@ -32,7 +35,7 @@ w6s.image.takePhoto().then(function success() {}, function fail() {});
 
 ## 拍照并编辑
 
-拍照后可对图片进行编辑，例如涂鸦或裁剪。<Qrcode/>
+拍照后可对图片进行编辑，例如涂鸦或裁剪。
 
 **使用说明**
 
@@ -62,7 +65,7 @@ w6s.image.takePhotoWithEdit().then(function success() {}, function fail() {});
 
 ## 选择单张图片
 
-调用图片相册，选择图片（单张）并压缩返回。 <Qrcode/>
+调用图片相册，选择图片（单张）并压缩返回。 
 
 **使用说明**
 
@@ -92,7 +95,7 @@ w6s.image.selectImage().then(function success() {}, function fail() {});
 
 ## 选择单张图片并截图返回
 
-调用图片相册，选择图片并截取返回。 <Qrcode/>
+调用图片相册，选择图片并截取返回。 
 
 **使用说明**
 
@@ -121,7 +124,7 @@ w6s.image.selectImageWithEdit().then(function success() {}, function fail() {});
 
 ## 选择多张图片
 
-调用图片相册，选择多张图片并压缩返回，并且支持传入已选图片进行复选。 <Qrcode/>
+调用图片相册，选择多张图片并压缩返回，并且支持传入已选图片进行复选。 
 
 **使用说明**
 
@@ -132,12 +135,17 @@ w6s.image.selectImageWithEdit().then(function success() {}, function fail() {});
 ```js
 // normal
 w6s.image.selectImages({
+  imageKeys: ['file://本机的地址'],
+  medias: 1,
   success: function(res) {},
   fail: function(err) {},
 });
 
 // promise
-w6s.image.selectImages().then(function success() {}, function fail() {});
+w6s.image.selectImages({
+  imageKeys: ['file://本机的地址'],
+  medias: 1,
+}).then(function success() {}, function fail() {});
 ```
 
 **参数说明**

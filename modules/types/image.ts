@@ -86,6 +86,8 @@ export interface WaterMark {
 export interface ImageKeys {
   /** 图片在本机的地址 */
   imageKeys: string[];
+  /** 相册选择时，默认只可选择图片， 传入 1 表示需支持视频选择 */
+  medias: number;
 }
 
 export type PhotoInfoOptions = ExecOptions<PhotoInfo, never>;

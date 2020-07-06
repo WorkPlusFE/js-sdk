@@ -1,6 +1,7 @@
 import Element from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import VueQrcode from '@chenfengyuan/vue-qrcode';
+import Prism from 'vue-prism-component';
+import CodeWrapper from '@w6s/vuepress-code-wrapper';
 
 export default ({
   Vue,
@@ -9,5 +10,5 @@ export default ({
   siteData
 }) => {
   Vue.use(Element);
-  Vue.component(VueQrcode.name, VueQrcode);
+  Vue.use(CodeWrapper, { host: 'https://sdk.workplus.io/js-sdk' });
 }
