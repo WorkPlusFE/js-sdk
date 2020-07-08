@@ -66,9 +66,18 @@ function getApidebar (groupA) {
       sidebarDepth: 1,
       children: [
         'overview',
-        'image',
         'contact',
+        'auth',
+        'image',
+        'file',
+        'webview',
+        'device',
+        'app',
+        'network',
+        'location',
+        'email',
         'notification',
+        'shared',
         'storage',
       ]
     }

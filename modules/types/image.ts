@@ -29,18 +29,20 @@ export interface ImageOptions<D, S> {
 
 export interface ShowImagesItem {
   /** 图片在本机的地址 */
-  urls: string[];
+  urls?: string[];
   /** 图片的mediaId */
-  medias: string[];
-  /** 表示从第几张打开 */
-  position: string;
+  medias?: string[];
+  /** 表示从第几张打开，0表示第一张 */
+  position?: string | number;
 }
 
 export interface SaveImageItem {
   /** 图片mediaId */
-  mediaId: string[];
+  mediaId?: string[];
   /** 图片url地址 */
-  url: string;
+  url?: string;
+  /** base64数据 */
+  imageData?: string;
 }
 
 export interface ImageDataItem {
@@ -53,18 +55,20 @@ export interface PhotoInfoAndMediaId extends PhotoInfo {
   mediaId: string;
 }
 
-export interface ChooseImages extends ImageKeys {
+export interface ChooseImages {
   /** 是否是多选，ture(多选)  fals(单选) */
   multiple: boolean;
   /** 是否对图像进行剪裁 true(剪裁)  false(不剪裁)  */
-  editable: boolean;
-  file_limit: {
+  editable?: boolean;
+  /** 图片在本机的地址 */
+  imageKeys?: string[];
+  file_limit?: {
     /** 多选时数量的限制 */
-    max_select_count: number;
+    max_select_count?: number;
     /** 单个文件选择大小限制(byte), -1表示不限制 */
-    single_select_size: number;
+    single_select_size?: number;
     /** 所有文件选择大小限制(byte), -1表示不限制 */
-    total_select_size: number;
+    total_select_size?: number;
   };
 }
 
@@ -72,7 +76,7 @@ export interface WaterMark {
   /** 水印内容 */
   content: string;
   /** 水印字号大小 */
-  font_size: string;
+  font_size: number | string;
   /** 水印颜色 */
   color: string;
   /** 屏蔽水印，false:不屏蔽。true：屏蔽 */
@@ -85,9 +89,9 @@ export interface WaterMark {
 
 export interface ImageKeys {
   /** 图片在本机的地址 */
-  imageKeys: string[];
+  imageKeys?: string[];
   /** 相册选择时，默认只可选择图片， 传入 1 表示需支持视频选择 */
-  medias: number;
+  medias?: number | string;
 }
 
 export type PhotoInfoOptions = ExecOptions<PhotoInfo, never>;

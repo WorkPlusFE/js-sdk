@@ -3,8 +3,8 @@ import { WORKPLUS_IMAGE } from '../constants';
 import { ShowImagesItem } from '../types/image';
 
 /**
- * 批量预览图片
- * @description 传输图片地址，预览图片
+ * 图片预览
+ * @description 传输图片地址，预览图片，支持传入 position 表示从第几张开始预览
  * @param {ShowImagesItem} options
  * @module image
  * @version 3.1.3版本以上

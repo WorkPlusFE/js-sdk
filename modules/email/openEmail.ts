@@ -16,6 +16,7 @@ function openEmail(options?: NotResOptions): Promise<void> {
     [],
     options?.success,
     options?.fail,
+    false,
   );
 }
 

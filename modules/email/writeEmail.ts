@@ -20,6 +20,7 @@ function writeEmail(options: WriteEmailOptions): Promise<void> {
     [params],
     success,
     fail,
+    false,
   );
 }
 
