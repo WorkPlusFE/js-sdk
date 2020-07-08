@@ -2,21 +2,21 @@
   <div class="demo-pages">
     <div class="demo">
       <img class="demo__logo" src="@/assets/logo.png" />
-      <h2 class="demo__title">WorkPlus SDK 能力展示</h2>
+      <h2 class="demo__title">WorkPlus JS-SDK 功能展示</h2>
       <p class="demo__desc">
-        本应用只是对相关接口功能进行展示，具体的参数和说明，请以官方文档为准。带 *
-        号的例子，需要添加额外的参数才可执行。注意：部分接口只能在特定的包内执行。
+        本应用只是对相关接口功能进行展示，具体的参数和说明详见官方 <a href="javascript:;">开发文档</a>。
       </p>
     </div>
     <div class="demo-example">
       <example-list></example-list>
     </div>
-  </div>
+</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ExampleList from '@/components/ExampleList.vue';
+import * as sdk from '../../../dist/';
 
 @Component({
   name: 'Home',
@@ -25,25 +25,34 @@ import ExampleList from '@/components/ExampleList.vue';
   },
 })
 export default class Home extends Vue {
-  /* data */
-  /* life cycle */
-  /* method */
+  beforeMount() {
+    sdk.webview.title({ title: 'WorkPlus JS-SDK' });
+  }
 }
 </script>
 
 
 <style lang="scss" scoped>
 .demo-pages {
-  padding: 20px;
+  padding: 15px;
+}
+
+a {
+  color: $color-primary;
 }
 
 .demo {
   text-align: center;
+  padding-bottom: 10px;
+
+  h2 {
+    margin-bottom: 0;
+  }
 
   &__logo {
-    width: 120px;
-    height: 120px;
-    margin-top: 40px;
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
   }
 
   &__title {

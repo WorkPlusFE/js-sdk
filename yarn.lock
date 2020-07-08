@@ -1904,10 +1904,10 @@
     vuepress-plugin-container "^2.0.2"
     vuepress-plugin-smooth-scroll "^0.0.3"
 
-"@w6s/vuepress-code-wrapper@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.npm.taobao.org/@w6s/vuepress-code-wrapper/download/@w6s/vuepress-code-wrapper-1.1.0.tgz#8e34120bfe9adedf96188c142c04e1b6a97a9cde"
-  integrity sha1-jjQSC/6a3t+WGIwULAThtql6nN4=
+"@w6s/vuepress-code-wrapper@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.npm.taobao.org/@w6s/vuepress-code-wrapper/download/@w6s/vuepress-code-wrapper-1.1.1.tgz?cache=0&sync_timestamp=1594135688050&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40w6s%2Fvuepress-code-wrapper%2Fdownload%2F%40w6s%2Fvuepress-code-wrapper-1.1.1.tgz#6914fa45187fa0905e8d9f248e0862ad15ed9246"
+  integrity sha1-aRT6RRh/oJBejZ8kjghirRXtkkY=
   dependencies:
     "@chenfengyuan/vue-qrcode" "^1.0.2"
     element-ui "^2.13.2"

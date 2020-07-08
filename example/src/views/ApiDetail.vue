@@ -38,7 +38,7 @@
         <pre v-highlightjs="res"><code class="javascript"></code></pre>
       </van-panel>
       <van-button class="api-detail__exec" type="info" block @click="handleExec">
-        执行
+        点击运行
       </van-button>
     </div>
   </div>
@@ -47,7 +47,7 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import { Button, Field, Panel, Toast } from 'vant';
-import * as sdk from '../../../dist';
+import * as sdk from '../../../dist/';
 import config from '../api';
 
 @Component({
@@ -89,12 +89,6 @@ export default class ExampleList extends Vue {
         this.res = `调用失败：${err}`;
       },
     });
-    // .then((res: unknown) => {
-    //   this.res = JSON.stringify(res, null, 4);
-    // })
-    // .catch((err: string) => {
-    //   this.res = `调用失败：${err}`;
-    // });
   }
 
   onCopy() {
@@ -178,7 +172,7 @@ export default class ExampleList extends Vue {
 <style lang="scss" scoped>
 .api-detail {
   position: relative;
-  padding: 20px;
+  padding: 15px;
   height: inherit;
 
   &__desc {
@@ -207,7 +201,7 @@ export default class ExampleList extends Vue {
 }
 
 .api-detail__exec {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .api-detail__code-format {
@@ -215,7 +209,7 @@ export default class ExampleList extends Vue {
 }
 
 .van-panel + .van-panel {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .van-panel__content {

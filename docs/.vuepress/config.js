@@ -26,7 +26,7 @@ module.exports = {
     logo: '/sdk-logo@3x.png',
     nav: [
       { text: '快速开始', link: '/quick-start' },
-      { text: 'API文档', link: '/api/image.html' },
+      { text: 'API文档', link: '/api/overview.html' },
       { text: '常见问题', link: '/qa' },
       { text: '更新日志', link: '/changelog' },
       { text: 'Github', link: 'https://github.com/WorkPlusFE/js-sdk' }
@@ -65,6 +65,7 @@ function getApidebar (groupA) {
       collapsable: false,
       sidebarDepth: 1,
       children: [
+        'overview',
         'image',
         'contact',
         'notification',

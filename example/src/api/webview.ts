@@ -2,7 +2,7 @@ export default {
   title: '网页',
   module: 'webview',
   active: false,
-  icon: 'graphic',
+  icon: 'other-pay',
   apis: [
     {
       title: '打开WorkPlus里已有的html',

@@ -4,30 +4,29 @@
       <van-cell
         :title="service.title"
         :arrow-direction="service.active ? 'down' : ''"
+        :class="{ actived: service.active }"
         @click="toggle(index)"
       >
         <div class="api" slot="title">
           <span class="api-title">{{ service.title }}</span>
           <span class="api-module">{{ service.module }}</span>
         </div>
-        <van-icon slot="right-icon" class="api-icon" :name="service.icon" size="20" />
+        <van-icon slot="right-icon" class="api-icon" :name="service.icon" size="24" />
       </van-cell>
       <div class="api_list">
-        <transition name="van-fade">
-          <van-cell-group v-show="service.active">
-            <van-cell
-              v-for="api in service.apis"
-              :key="api.title"
-              @click="toExecPage(service.module, api.action)"
-            >
-              <template slot="title">
-                <span class="custom-title">{{ api.module }}</span>
-                <span>{{ api.title }}</span>
-              </template>
-              <van-icon slot="right-icon" name="arrow" style="line-height: inherit;" />
-            </van-cell>
-          </van-cell-group>
-        </transition>
+        <van-cell-group v-show="service.active">
+          <van-cell
+            v-for="api in service.apis"
+            :key="api.title"
+            @click="toExecPage(service.module, api.action)"
+          >
+            <template slot="title">
+              <span class="custom-title">{{ api.module }}</span>
+              <span>{{ api.title }}</span>
+            </template>
+            <van-icon slot="right-icon" name="arrow" style="line-height: inherit;" />
+          </van-cell>
+        </van-cell-group>
       </div>
     </div>
   </div>
@@ -73,6 +72,15 @@ export default class ExampleList extends Vue {
 .api-list {
   &__item {
     margin-bottom: 10px;
+    > .van-cell:after {
+      display: none;
+    }
+    .actived {
+      color: $color-light-gray;
+      .api {
+        color: $color-light-gray;
+      }
+    }
   }
 }
 
@@ -80,8 +88,8 @@ export default class ExampleList extends Vue {
   display: flex;
   align-items: center;
   color: $color-black;
-  height: 24px;
-  line-height: 24px;
+  height: 36px;
+  line-height: 36px;
 
   * + * {
     margin-left: 10px;
@@ -91,7 +99,10 @@ export default class ExampleList extends Vue {
     font-weight: bold;
   }
 
-  &-module {
+  &-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

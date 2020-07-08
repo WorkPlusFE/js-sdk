@@ -4,7 +4,7 @@ export default {
   title: '图像',
   module: 'image',
   active: false,
-  icon: 'photograph',
+  icon: 'photo-o',
   apis: [
     {
       title: '拍照返回',

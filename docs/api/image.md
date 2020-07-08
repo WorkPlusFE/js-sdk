@@ -43,6 +43,8 @@ w6s.image.takePhoto().then(function success() {}, function fail() {});
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
+<CodeWrapper fn="image.takePhotoWithEdit">
+
 ```js
 // normal
 w6s.image.takePhotoWithEdit({
@@ -53,6 +55,7 @@ w6s.image.takePhotoWithEdit({
 // promise
 w6s.image.takePhotoWithEdit().then(function success() {}, function fail() {});
 ```
+</CodeWrapper>
 
 **返回数据**
 
@@ -73,6 +76,8 @@ w6s.image.takePhotoWithEdit().then(function success() {}, function fail() {});
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
+<CodeWrapper fn="image.selectImage">
+
 ```js
 // normal
 w6s.image.selectImage({
@@ -83,6 +88,7 @@ w6s.image.selectImage({
 // promise
 w6s.image.selectImage().then(function success() {}, function fail() {});
 ```
+</CodeWrapper>
 
 **返回数据**
 
@@ -103,6 +109,8 @@ w6s.image.selectImage().then(function success() {}, function fail() {});
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
+<CodeWrapper fn="image.selectImageWithEdit">
+
 ```js
 // normal
 w6s.image.selectImageWithEdit({
@@ -113,6 +121,7 @@ w6s.image.selectImageWithEdit({
 // promise
 w6s.image.selectImageWithEdit().then(function success() {}, function fail() {});
 ```
+</CodeWrapper>
 
 **返回数据**
 
@@ -132,6 +141,8 @@ w6s.image.selectImageWithEdit().then(function success() {}, function fail() {});
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
+<CodeWrapper fn="image.selectImages">
+
 ```js
 // normal
 w6s.image.selectImages({
@@ -147,6 +158,7 @@ w6s.image.selectImages({
   medias: 1,
 }).then(function success() {}, function fail() {});
 ```
+</CodeWrapper>
 
 **参数说明**
 
@@ -165,13 +177,15 @@ w6s.image.selectImages({
 
 ## 清除压缩后的图片
 
-拍照或选择照片后都会生成压缩图片，调用这个方法去清除。
+拍照或选择照片后都会生成压缩图片，可调用该方法进行清除。
 
 **使用说明**
 
 | 客户端   | Android | iOS  |
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
+
+<CodeWrapper :qrcode="false">
 
 ```js
 // normal
@@ -183,6 +197,7 @@ w6s.image.cleanCompressImage({
 // promise
 w6s.image.cleanCompressImage().then(function success() {}, function fail() {});
 ```
+</CodeWrapper>
 
 ## 图片预览 <Badge text="v3.1.3+" type="warning" />
 
@@ -194,6 +209,8 @@ w6s.image.cleanCompressImage().then(function success() {}, function fail() {});
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
+<CodeWrapper fn="image.showImages">
+
 ```js
 // normal
 w6s.image.showImages({
@@ -204,6 +221,7 @@ w6s.image.showImages({
 // promise
 w6s.image.showImages().then(function success() {}, function fail() {});
 ```
+</CodeWrapper>
 
 **参数说明**
 
@@ -224,6 +242,8 @@ w6s.image.showImages().then(function success() {}, function fail() {});
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
+<CodeWrapper fn="image.saveImages">
+
 ```js
 // normal
 w6s.image.saveImages({
@@ -234,6 +254,7 @@ w6s.image.saveImages({
 // promise
 w6s.image.saveImages().then(function success() {}, function fail() {});
 ```
+</CodeWrapper>
 
 **参数说明**
 
@@ -256,6 +277,8 @@ w6s.image.saveImages().then(function success() {}, function fail() {});
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
+<CodeWrapper fn="image.actionForLongPressImage">
+
 ```js
 // normal
 w6s.image.actionForLongPressImage({
@@ -266,6 +289,7 @@ w6s.image.actionForLongPressImage({
 // promise
 w6s.image.actionForLongPressImage().then(function success() {}, function fail() {});
 ```
+</CodeWrapper>
 
 **参数说明**
 
@@ -284,6 +308,8 @@ w6s.image.actionForLongPressImage().then(function success() {}, function fail() 
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
+<CodeWrapper fn="image.takePicture">
+
 ```js
 // normal
 w6s.image.takePicture({
@@ -294,12 +320,134 @@ w6s.image.takePicture({
 // promise
 w6s.image.takePicture().then(function success() {}, function fail() {});
 ```
+</CodeWrapper>
 
 **参数说明**
 
 | 参数 | 类型 | 说明|
 | - | - | - |
 | editable | Boolean | 是否进行裁剪，true 表示需要裁剪，false 即反之 |
+
+**返回数据**
+
+| 参数 | 说明 |
+| - | - | 
+| mediaId | 上传媒体中心后返回的媒体id |
+| imageURL | 压缩后图像存在本地的地址  |
+| key | 原图像存在本地的地址  |
+| imageInfo | 图片的基本信息，包括 height（高度）、width（宽度） 及 size（大小）  |
+
+
+## 选择图片并自动上传 <Badge text="v3.1.3+" type="warning" />
+
+调用手机相册，支持图片多选及单选，支持编辑剪裁(仅限于单选)，并且支持图片复选，选择完后会自动上传到媒体中心并返回相应的媒体id。
+
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持    | 支持 |
+
+<CodeWrapper fn="image.chooseImages">
+
+```js
+// normal
+w6s.image.chooseImages({
+  multiple: false,
+  imageKeys: ['file://图片本机地址'],
+  editable: true,
+  file_limit: {
+    max_select_count: 10,
+    single_select_size: -1,
+    total_select_size: -1,
+  },
+  success: function(res) {},
+  fail: function(err) {},
+});
+
+// promise
+w6s.image.chooseImages({
+  multiple: false,
+  imageKeys: ['file://图片本机地址'],
+  editable: true,
+  file_limit: {
+    max_select_count: 10,
+    single_select_size: -1,
+    total_select_size: -1,
+  },
+}).then(function success() {}, function fail() {});
+```
+</CodeWrapper>
+
+**参数说明**
+
+| 参数 | 类型 | 说明|
+| - | - | - |
+| multiple | Boolean | 图片多选，设置为 false，即为单选 |
+| imageKeys | Array[string] | 图片在本机的地址，用于图片复选，非必须 |
+| editable | Boolean | 是否可对图片进行裁剪，仅在单选`multiple: false`时有效 |
+| file_limit.max_select_count | Number | 多选时数量的限制 |
+| file_limit.single_select_size | Number | 单个文件选择大小限制(byte), -1表示不限制 |
+| file_limit.total_select_size | Number | 所有文件选择大小限制(byte), -1表示不限制 |
+
+**返回数据**
+
+| 参数 | 说明 |
+| - | - | 
+| mediaId | 上传媒体中心后返回的媒体id |
+| imageURL | 压缩后图像存在本地的地址  |
+| key | 原图像存在本地的地址  |
+| imageInfo | 图片的基本信息，包括 height（高度）、width（宽度） 及 size（大小）  |
+
+
+
+## 图片添加水印
+
+调起手机相册进行拍照，生成水印图片并返回。
+
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持    | 支持 |
+
+<CodeWrapper fn="image.takePhotoAndAddWaterMark">
+
+```js
+// normal
+w6s.image.takePhotoAndAddWaterMark({
+  content: 'test',
+  font_size: '14',
+  color: '#FF5858',
+  mark_disable: false,
+  time_enable: true,
+  location_enable: true,
+  success: function(res) {},
+  fail: function(err) {},
+});
+
+// promise
+w6s.image.takePhotoAndAddWaterMark({
+  content: 'test',
+  font_size: '14',
+  color: '#FF5858',
+  mark_disable: false,
+  time_enable: true,
+  location_enable: true,
+}).then(function success() {}, function fail() {});
+```
+</CodeWrapper>
+
+**参数说明**
+
+| 参数 | 类型 | 说明|
+| - | - | - |
+| content | String | 水印内容 |
+| font_size | Number|String | 水印字号大小 |
+| color | String | 水印字体颜色，仅支持[HEX](https://www.color-hex.com/)颜色码 |
+| mark_disable | Boolean | 屏蔽水印，false：不屏蔽，true：屏蔽 |
+| time_enable | Boolean | 水印添加时间，false：不添加，true：添加 |
+| location_enable | Boolean | 水印添加位置，false：不添加，true：添加 |
 
 **返回数据**
 
