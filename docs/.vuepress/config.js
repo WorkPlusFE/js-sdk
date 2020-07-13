@@ -76,6 +76,8 @@ function getApidebar (groupA) {
         'network',
         'location',
         'email',
+        'pay',
+        'eventListener',
         'notification',
         'shared',
         'storage',

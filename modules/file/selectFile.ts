@@ -17,5 +17,6 @@ export default function selectFile(
     options?.data ?? [],
     options?.success,
     options?.fail,
+    false,
   );
 }
