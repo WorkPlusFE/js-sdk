@@ -55,7 +55,7 @@ export interface PhotoInfoAndMediaId extends PhotoInfo {
   mediaId: string;
 }
 
-export interface ChooseImages {
+export interface ChooseImagesParams {
   /** 是否是多选，ture(多选)  fals(单选) */
   multiple: boolean;
   /** 是否对图像进行剪裁 true(剪裁)  false(不剪裁)  */
@@ -72,19 +72,36 @@ export interface ChooseImages {
   };
 }
 
+export interface ChooseImages {
+  /** 是否是多选，ture(多选)  fals(单选) */
+  multiple: boolean;
+  /** 是否对图像进行剪裁 true(剪裁)  false(不剪裁)  */
+  editable?: boolean;
+  /** 图片在本机的地址 */
+  imageKeys?: string[];
+  fileLimit?: {
+    /** 多选时数量的限制 */
+    maxSelectCount?: number;
+    /** 单个文件选择大小限制(byte), -1表示不限制 */
+    singleSelectSize?: number;
+    /** 所有文件选择大小限制(byte), -1表示不限制 */
+    totalSelectSize?: number;
+  };
+}
+
 export interface WaterMark {
   /** 水印内容 */
   content: string;
   /** 水印字号大小 */
-  font_size: number | string;
+  fontSize: number | string;
   /** 水印颜色 */
   color: string;
   /** 屏蔽水印，false:不屏蔽。true：屏蔽 */
-  mark_disable: boolean;
+  markDisable: boolean;
   /** 水印添加时间：false：不添加。true：添加 */
-  time_enable: boolean;
+  timeEnable: boolean;
   /** 水印添加位置：false：不添加。true：添加 */
-  location_enable: boolean;
+  locationEnable: boolean;
 }
 
 export interface ImageKeys {

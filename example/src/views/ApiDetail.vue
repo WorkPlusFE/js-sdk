@@ -8,24 +8,9 @@
         <p class="api-detail__desc">{{ description }}</p>
       </van-panel>
 
-      <van-panel>
-        <div slot="header" class="code-panel van-hairline--bottom">
-          <span class="code-panel__title">示例代码</span>
-          <span
-            class="code-panel__action"
-            v-clipboard:copy="code"
-            v-clipboard:success="onCopy"
-            v-clipboard:error="onError"
-          >
-            复制
-          </span>
-        </div>
-        <pre v-highlightjs="code"><code class="javascript"></code></pre>
-      </van-panel>
-
       <van-panel v-if="res">
         <div slot="header" class="code-panel van-hairline--bottom">
-          <span class="code-panel__title">执行结果</span>
+          <span class="code-panel__title">返回数据</span>
           <span
             class="code-panel__action"
             v-clipboard:copy="res"
@@ -140,30 +125,6 @@ export default class ExampleList extends Vue {
 
   get argsStr() {
     return JSON.stringify(this.args || {}, null, 4);
-  }
-
-  get code(): string {
-    const code =
-      'w6s.' +
-      this.service +
-      '.' +
-      this.action +
-      '(' +
-      this.argsStr +
-      ')' +
-      '\n' +
-      '  .then(res => {' +
-      '\n' +
-      '    console.log(res);' +
-      '\n' +
-      '  })' +
-      '\n' +
-      '  .catch(err => {' +
-      '\n' +
-      '    console.log(err);' +
-      '\n' +
-      '  });';
-    return code;
   }
 }
 </script>

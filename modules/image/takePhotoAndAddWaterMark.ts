@@ -5,6 +5,15 @@ import { ExecOptions } from '../types/core';
 
 export interface WaterMarkOptions extends WaterMark, ExecOptions<PhotoInfoAndMediaId, never> {}
 
+export interface WaterMarkParams {
+  content: string;
+  color: string;
+  font_size: number | string;
+  mark_disable: boolean;
+  time_enable: boolean;
+  location_enable: boolean;
+}
+
 /**
  * 调起拍照，并添加水印
  * @description 拍照生成水印图片返回
@@ -15,10 +24,19 @@ export interface WaterMarkOptions extends WaterMark, ExecOptions<PhotoInfoAndMed
  */
 function takePhotoAndAddWaterMark(options: WaterMarkOptions): Promise<PhotoInfoAndMediaId> {
   const { success, fail, ...data } = options;
-  return core.exec<WaterMark, PhotoInfoAndMediaId, never>(
+  const params = {
+    content: data.content,
+    font_size: data.fontSize,
+    color: data.color,
+    mark_disable: data.markDisable,
+    time_enable: data.timeEnable,
+    location_enable: data.locationEnable,
+  };
+
+  return core.exec<WaterMarkParams, PhotoInfoAndMediaId, never>(
     WORKPLUS_IMAGE,
     'takePhotoAndAddWaterMark',
-    [data],
+    [params],
     success,
     fail,
     false,

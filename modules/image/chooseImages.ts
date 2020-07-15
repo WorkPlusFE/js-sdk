@@ -1,7 +1,7 @@
 import * as core from '../core';
 import { WORKPLUS_IMAGE } from '../constants';
 import { ExecOptions } from '../types/core';
-import { PhotoInfoAndMediaId, ChooseImages } from '../types/image';
+import { PhotoInfoAndMediaId, ChooseImages, ChooseImagesParams } from '../types/image';
 
 export type ChooseImagesOptions = ChooseImages & ExecOptions<PhotoInfoAndMediaId[], void>;
 
@@ -17,10 +17,20 @@ export type ChooseImagesOptions = ChooseImages & ExecOptions<PhotoInfoAndMediaId
  */
 function chooseImages(options: ChooseImagesOptions): Promise<PhotoInfoAndMediaId[]> {
   const { success, fail, ...data } = options;
-  return core.exec<ChooseImages, PhotoInfoAndMediaId[], void>(
+  const params = {
+    multiple: data.multiple,
+    imageKeys: data.imageKeys,
+    file_limit: {
+      max_select_count: data.fileLimit?.maxSelectCount || 9,
+      single_select_size: data.fileLimit?.singleSelectSize || -1,
+      total_select_size: data.fileLimit?.totalSelectSize || -1,
+    },
+  };
+
+  return core.exec<ChooseImagesParams, PhotoInfoAndMediaId[], void>(
     WORKPLUS_IMAGE,
     'chooseImages',
-    [data],
+    [params],
     success,
     fail,
     false,

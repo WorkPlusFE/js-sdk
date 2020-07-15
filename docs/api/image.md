@@ -31,7 +31,7 @@ w6s.image.takePhoto({
 
 ## 拍照并编辑
 <!-- OK -->
-拍照后可对图片进行编辑，例如涂鸦或裁剪。
+拍照后可对图片进行编辑裁剪。
 
 **使用说明**
 
@@ -162,7 +162,7 @@ w6s.image.selectImages({
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
-<CodeWrapper :qrcode="false">
+<CodeWrapper fn="image.cleanCompressImage">
 
 ```js
 w6s.image.cleanCompressImage({
@@ -321,10 +321,10 @@ w6s.image.chooseImages({
   multiple: false,
   imageKeys: ['file://图片本机地址'],
   editable: true,
-  file_limit: {
-    max_select_count: 10,
-    single_select_size: -1,
-    total_select_size: -1,
+  fileLimit: {
+    maxSelectCount: 10,
+    singleSelectSize: -1,
+    totalSelectSize: -1,
   },
   success: function(res) {},
   fail: function(err) {},
@@ -336,12 +336,12 @@ w6s.image.chooseImages({
 
 | 参数 | 类型 | 说明|
 | - | - | - |
-| multiple | Boolean | 图片多选，设置为 false，即为单选 |
+| multiple | Boolean | 图片多选，设置为 false，即为单选，默认为 true |
 | imageKeys | Array[string] | 非必须，图片在本机的地址，用于图片复选，非必须 |
-| editable | Boolean | 是否可对图片进行裁剪，仅在单选`multiple: false`时有效 |
-| file_limit.max_select_count | Number |  非必须，多选时数量的限制，默认为 9 |
-| file_limit.single_select_size | Number | 非必须，单个文件选择大小限制(byte), -1表示不限制，默认为-1 |
-| file_limit.total_select_size | Number | 非必须，所有文件选择大小限制(byte), -1表示不限制，默认为-1 |
+| editable | Boolean | 是否可对图片进行裁剪，仅在单选`multiple: false`时有效，默认为 true |
+| fileLimit.maxSelectCount | Number |  非必须，多选时数量的限制，默认为 9 |
+| fileLimit.singleSelectSize | Number | 非必须，单个文件选择大小限制(byte), -1表示不限制，默认为-1 |
+| fileLimit.totalSelectSize | Number | 非必须，所有文件选择大小限制(byte), -1表示不限制，默认为-1 |
 
 **返回数据**
 
@@ -368,11 +368,11 @@ w6s.image.chooseImages({
 ```js
 w6s.image.takePhotoAndAddWaterMark({
   content: 'test',
-  font_size: 14,
+  fontSize: 14,
   color: '#FF5858',
-  mark_disable: false,
-  time_enable: true,
-  location_enable: true,
+  markDisable: false,
+  timeEnable: true,
+  locationEnable: true,
   success: function(res) {},
   fail: function(err) {},
 });
@@ -384,11 +384,11 @@ w6s.image.takePhotoAndAddWaterMark({
 | 参数 | 类型 | 说明|
 | - | - | - |
 | content | String | 水印内容 |
-| font_size | Number \| String | 水印字号大小 |
+| fontSize | Number \| String | 水印字号大小 |
 | color | String | 水印字体颜色，仅支持[HEX](https://www.color-hex.com/)颜色码 |
-| mark_disable | Boolean | 非必须，屏蔽水印 |
-| time_enable | Boolean | 非必须，水印添加时间 |
-| location_enable | Boolean | 非必须，水印添加位置信息 |
+| markDisable | Boolean | 非必须，屏蔽水印 |
+| timeEnable | Boolean | 非必须，水印添加时间 |
+| locationEnable | Boolean | 非必须，水印添加位置信息 |
 
 **返回数据**
 
