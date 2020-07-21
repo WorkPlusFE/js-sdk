@@ -4,6 +4,8 @@ import Auth from './auth';
 import Location from './location';
 import Email from './email';
 import Network from './network';
+import Device from './device';
+import Contact from './contact';
 
 interface ApiModule {
   title: string;
@@ -20,4 +22,4 @@ interface ApiItem {
   params: Common.PlainObject;
 }
 
-export default [Image, Webview, Auth, Location, Email, Network] as ApiModule[];
+export default [Image, Webview, Auth, Location, Email, Network, Device, Contact] as ApiModule[];
