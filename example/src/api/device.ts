@@ -23,6 +23,6 @@ export default {
       description: '获取设备当天凌晨0点至当前时间的运动数据。',
       action: 'getPedometerData',
       params: {},
-    }
+    },
   ],
 };
