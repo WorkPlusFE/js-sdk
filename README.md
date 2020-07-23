@@ -43,7 +43,7 @@ w6s.auth.getUserTicket({
 });
 ```
 
-如果是以`script`标签引入，可以使用下方官方CDN链接，也可以下载[SDK资源]()自行进行部署。
+二、如果是以`script`标签引入，可以使用下方官方CDN链接，也可以下载[SDK资源]()自行进行部署。
 
 ```html
 <script src=""></script>
@@ -55,4 +55,4 @@ w6s.auth.getUserTicket({
 
 MIT.
 
-若文档内容有错漏或在线例子无法正常运行，欢迎给我们提[issues](https://github.com/WorkPlusFE/js-sdk/issues/new)！！;
+🐛若文档内容有错漏或在线例子无法正常运行，欢迎给我们提[issues](https://github.com/WorkPlusFE/js-sdk/issues/new)，我们会尽快修复！
