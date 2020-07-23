@@ -1,17 +1,16 @@
-/** 邮箱 */
+/** 设备 */
 
 export default {
   title: '设备',
   module: 'device',
   active: false,
-  icon: 'envelop-o',
+  icon: 'device',
   apis: [
     {
       title: '获取IP地址',
       description: '获取手机设备当前连接网络的IP地址。',
       action: 'getIpAddress',
-      params: {
-      },
+      params: {},
     },
     {
       title: '获取设备信息',
