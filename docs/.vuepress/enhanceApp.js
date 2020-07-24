@@ -4,7 +4,7 @@ import Prism from 'vue-prism-component';
 import CodeWrapper from '@w6s/vuepress-code-wrapper';
 
 const host = process.env.NODE_ENV === 'production' ?
-  'https://sdk.workplus.io/js-sdk' :
+  'https://js-sdk.workplus.io/demo' :
   'http://172.16.1.66:8081';
 
 export default ({

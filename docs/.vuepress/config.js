@@ -16,7 +16,7 @@ const generateChildren = () => {
 };
 
 module.exports = {
-  title: 'js-sdk',
+  title: 'WorkPlus 开放平台',
   description: pkg.description,
   base: '/js-sdk/',
   head: [
@@ -26,10 +26,10 @@ module.exports = {
     logo: '/sdk-logo@3x.png',
     nav: [
       { text: '快速开始', link: '/quick-start' },
-      { text: 'API文档', link: '/api/overview.html' },
+      { text: 'JS-SDK 接口文档', link: '/api/overview.html' },
+      { text: '开发工具', link: '/dev-tools' },
       { text: '常见问题', link: '/qa' },
       { text: '更新日志', link: '/changelog' },
-      { text: 'Github', link: 'https://github.com/WorkPlusFE/js-sdk' }
     ],
     sidebar: {
       '/api/': getApidebar('API文档'),

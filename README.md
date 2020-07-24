@@ -16,7 +16,7 @@ WorkPlus JS-SDK 为`H5轻应用`提供了调用原生控件的能力，帮助开
 * 🎉 10+个模块，基本满足绝大部分场景；
 
 
-### 安装及使用
+## 安装及使用
 
 一、基于`npm`包的方式引入：
 
@@ -51,8 +51,8 @@ w6s.auth.getUserTicket({
 
 [相关资源说明请看这里]()
 
-### License
+## License
 
 MIT.
 
-🐛若文档内容有错漏或在线例子无法正常运行，欢迎给我们提[issues](https://github.com/WorkPlusFE/js-sdk/issues/new)，我们会尽快修复！
+🐛 若文档内容有错漏或在线例子无法正常运行，欢迎给我们提[issues](https://github.com/WorkPlusFE/js-sdk/issues/new)，我们会尽快修复！
