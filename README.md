@@ -53,6 +53,6 @@ w6s.auth.getUserTicket({
 
 ## License
 
-MIT.
+MIT. 最终解析权归[恒拓高科](http://foreverht.com/)所有。
 
 🐛 若文档内容有错漏或在线例子无法正常运行，欢迎给我们提[issues](https://github.com/WorkPlusFE/js-sdk/issues/new)，我们会尽快修复！
