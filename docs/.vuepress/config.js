@@ -25,7 +25,7 @@ module.exports = {
   themeConfig: {
     logo: '/sdk-logo@3x.png',
     nav: [
-      { text: '快速开始', link: '/quick-start' },
+      { text: '快速开始', link: '/quick-start/create.html' },
       { text: 'JS-SDK 接口文档', link: '/api/overview.html' },
       { text: '开发工具', link: '/dev-tools' },
       { text: '常见问题', link: '/qa' },
@@ -33,6 +33,7 @@ module.exports = {
     ],
     sidebar: {
       '/api/': getApidebar('API文档'),
+      '/quick-start/': getQuickStartbar('快速开始'),
     },
     lastUpdated: '上次编辑于', 
 
@@ -40,7 +41,9 @@ module.exports = {
     docsDir: 'docs',
     docsBranch: 'master',
     editLinks: true,
-    editLinkText: '帮助我们完善此文档'
+    editLinkText: '帮助我们完善此文档',
+
+    smoothScroll: true,
   },
   plugins: [
     '@vuepress/back-to-top',
@@ -58,10 +61,10 @@ module.exports = {
   ]
 };
 
-function getApidebar (groupA) {
+function getApidebar (group) {
   return [
     {
-      title: groupA,
+      title: group,
       collapsable: false,
       sidebarDepth: 1,
       children: [
@@ -81,6 +84,23 @@ function getApidebar (groupA) {
         'notification',
         'shared',
         'storage',
+      ]
+    }
+  ]
+}
+
+function getQuickStartbar (group) {
+  return [
+    {
+      title: group,
+      collapsable: false,
+      sidebarDepth: 2,
+      children: [
+        'create',
+        'offline',
+        'sso',
+        'debug',
+        'isv',
       ]
     }
   ]
