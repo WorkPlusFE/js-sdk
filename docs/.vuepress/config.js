@@ -25,15 +25,15 @@ module.exports = {
   themeConfig: {
     logo: '/sdk-logo@3x.png',
     nav: [
-      { text: '快速开始', link: '/quick-start/create.html' },
-      { text: 'JS-SDK 接口文档', link: '/api/overview.html' },
+      { text: '轻应用', link: '/quick-start/create.html' },
+      { text: 'JS-SDK', link: '/api/overview.html' },
+      { text: 'API 文档', link: 'https://apidocs3.workplus.io/' },
       { text: '开发工具', link: '/dev-tools' },
       { text: '常见问题', link: '/qa' },
-      { text: '更新日志', link: '/changelog' },
     ],
     sidebar: {
-      '/api/': getApidebar('API文档'),
-      '/quick-start/': getQuickStartbar('快速开始'),
+      '/api/': getApidebar('JS-SDK'),
+      '/quick-start/': getQuickStartbar('轻应用'),
     },
     lastUpdated: '上次编辑于', 
 
@@ -61,14 +61,22 @@ module.exports = {
   ]
 };
 
-function getApidebar (group) {
+function getApidebar () {
   return [
     {
-      title: group,
+      title: '概述',
       collapsable: false,
       sidebarDepth: 1,
       children: [
         'overview',
+        'changelog',
+      ]
+    },
+    {
+      title: '方法列表',
+      collapsable: false,
+      sidebarDepth: 1,
+      children: [
         'contact',
         'auth',
         'image',
@@ -92,15 +100,29 @@ function getApidebar (group) {
 function getQuickStartbar (group) {
   return [
     {
-      title: group,
+      title: '轻应用',
       collapsable: false,
       sidebarDepth: 2,
       children: [
         'create',
         'offline',
-        'sso',
-        'debug',
         'isv',
+      ]
+    }, {
+      title: '平台接入',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: [
+        'sso',
+        'notify',
+        'workbench',
+      ]
+    }, {
+      title: '调试',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: [
+        'debug',
       ]
     }
   ]
