@@ -1,153 +1,61 @@
-# 认证
+# 身份认证
 
-## 获取临时 Ticket
+身份认证目前包含用户单点登录接口。
 
-为当前登录用户获取一个临时性的 Ticket。
+## 单点登录
 
-**使用说明**
+第三方应用在接入 WorkPlus 平台时，往往需要和 WorkPlus 用户系统集成。
 
-| 客户端   | Android | iOS  |
-| -------- | ------- | ---- |
-| 支持情况 | 支持  | 支持 |
+目前 WorkPlus 实现单点登录的机制如下：
 
-<CodeWrapper fn="auth.getUserTicket">
+1. 客户端打开第三方应用时，先以当前登录用户生成用户 Ticket，之后在跳转时会带上该 Ticket 参数；
+2. 第三方应用根据 Ticket 参数，验证该 Ticket，如该 Ticket 有效，会返回关联的用户信息。
 
-```js
-w6s.auth.getUserTicket({
-  success: function(res) {},
-  fail: function(err) {},
-});
-```
-</CodeWrapper>
-
-**返回数据**
-
-| 参数 | 说明 |
-| - | - | 
-| user_ticket | 申请到的用户 Ticket |
-
-## 获取 Api 地址
-
-获取当前 App 请求的后台 api 地址。
-
-**使用说明**
-
-| 客户端   | Android | iOS  |
-| -------- | ------- | ---- |
-| 支持情况 | 支持  | 支持 |
-
-<CodeWrapper fn="auth.getServerInfo">
+### 验证用户 Ticket
 
 ```js
-w6s.auth.getServerInfo({
-  success: function(res) {},
-  fail: function(err) {},
-});
+GET /v1/tickets/{ticket}?access_token={access_token}
 ```
-</CodeWrapper>
 
-**返回数据**
+**请求头部：**
 
-| 参数 | 说明 |
-| - | - | 
-| api_url | App 后台 api 地址 |
+|请求头|说明 |
+|---|---|
+| Content-Type |application/json|
 
-## 退出登录
+**请求参数：**
 
-通过轻应用告知当前 accessToken 过期，WorkPlus 将退出当前登录状态。
+| 字段| 类型 | 是否必填|说明|
+|---|---|---|---|
+|ticket |String|Y|用户ticket|
+|access_token|String|Y|访问令牌|
 
-::: warning 警告
-从 H5 的角度，强制退出登录，是属于比较容易让用户产生误解的行为，请慎用该方法！！
-:::
+**返回数据：**
 
-**使用说明**
+| 字段        | 类型     | 说明             |
+| --------- | ------ | -------------- |
+| client_id | String | 该ticket所属的用户标识 |
+| domain_id | String | 该ticket所属的域标识  |
+| org_id    | String | 该ticket所属的组织标识 |
+| device_id | String | 该ticket所属的设备标识 |
 
-| 客户端   | Android | iOS  |
-| -------- | ------- | ---- |
-| 支持情况 | 支持  | 支持 |
-
-<CodeWrapper fn="auth.onAccessTokenOverdue">
-
-```js
-w6s.auth.onAccessTokenOverdue();
+**成功返回值：**
+```json
+{
+  "status": 0, 
+  "message": "Everything is ok.", 
+  "result": {
+    "domain_id": "atwork", 
+    "client_id": "a86e83a26bee5d5c", 
+    "org_id": "85df0e64", 
+    "device_id": "test10fdfd0111"
+  }
+}
 ```
-</CodeWrapper>
 
-## 获取当前的租户id
+**错误返回值：**
 
-获取当前租户id，即域id。
-
-**使用说明**
-
-| 客户端   | Android | iOS  |
-| -------- | ------- | ---- |
-| 支持情况 | 支持  | 支持 |
-
-<CodeWrapper fn="auth.getTenantID">
-
-```js
-w6s.auth.getTenantID({
-  success: function(res) {},
-  fail: function(err) {},
-});
-```
-</CodeWrapper>
-
-**返回数据**
-
-| 参数 | 说明 |
-| - | - | 
-| domain_id | 当前的域id |
-| tenant_id | 当前的域id(2.0版本的字段) |
-
-## 人脸识别
-
-唤起人脸识别验证，具体 SDK 以应用的打包配置为准
-
-> 非默认功能，需要定制
-
-**使用说明**
-
-| 客户端   | Android | iOS  |
-| -------- | ------- | ---- |
-| 支持情况 | 支持  | 支持 |
-
-<CodeWrapper fn="auth.faceBizValid">
-
-```js
-w6s.auth.faceBizValid();
-```
-</CodeWrapper>
-
-
-## 获取签名信息
-
-针对特定的平台获取签名信息。
-
-> 非默认功能，需要定制
-
-**使用说明**
-
-| 客户端   | Android | iOS  |
-| -------- | ------- | ---- |
-| 支持情况 | 支持  | 支持 |
-
-<CodeWrapper fn="auth.getSignature">
-
-```js
-w6s.auth.getSignature({
-  success: function(res) {},
-  fail: function(err) {},
-});
-```
-</CodeWrapper>
-
-**返回数据**
-
-| 参数 | 说明 |
-| - | - | 
-| channel_id |  |
-| signature |  |
-| nonce |  |
-| timestamp |  |
-
+| status | message |说明|
+|---|---|---|
+| 10015 |ticket expired.|ticket已过期.|
+| 10016 |ticket not found.|ticket不存在.|

@@ -25,15 +25,16 @@ module.exports = {
   themeConfig: {
     logo: '/sdk-logo@3x.png',
     nav: [
-      { text: '轻应用', link: '/quick-start/create.html' },
-      { text: 'JS-SDK', link: '/api/overview.html' },
-      { text: 'API 文档', link: 'https://apidocs3.workplus.io/' },
+      { text: '轻应用', link: '/light-app/create.html' },
+      { text: 'JS-SDK', link: '/js-sdk/overview.html' },
+      { text: 'API 文档', link: '/api/overview.html' },
       { text: '开发工具', link: '/dev-tools' },
       { text: '常见问题', link: '/qa' },
     ],
     sidebar: {
-      '/api/': getApidebar('JS-SDK'),
-      '/quick-start/': getQuickStartbar('轻应用'),
+      '/light-app/': getLightAppBar(),
+      '/js-sdk/': getJsSdkBar(),
+      '/api/': getApiBar(),
     },
     lastUpdated: '上次编辑于', 
 
@@ -61,7 +62,7 @@ module.exports = {
   ]
 };
 
-function getApidebar () {
+function getJsSdkBar () {
   return [
     {
       title: '概述',
@@ -97,7 +98,7 @@ function getApidebar () {
   ]
 }
 
-function getQuickStartbar (group) {
+function getLightAppBar (group) {
   return [
     {
       title: '轻应用',
@@ -123,6 +124,63 @@ function getQuickStartbar (group) {
       sidebarDepth: 2,
       children: [
         'debug',
+      ]
+    }
+  ]
+}
+
+function getApiBar () {
+  return [
+    {
+      title: 'WorkPlus API',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: [
+        'overview',
+        'getStart',
+        'callback',
+        'response',
+        'errorCode',
+      ]
+    }, {
+      title: 'API 列表',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: [
+        'auth',
+        'users',
+        {
+          title: '组织架构',
+          collapsable: false,
+          sidebarDepth: 2,
+          path: '/api/organizations/employee',
+          children: [
+            '/api/organizations/employee',
+            '/api/organizations/org',
+          ]
+        },
+        {
+          title: '媒体',
+          collapsable: false,
+          sidebarDepth: 2,
+          path: '/api/medias/query',
+          children: [
+            '/api/medias/query',
+            '/api/medias/vfs',
+            '/api/medias/translator',
+          ]
+        },
+        {
+          title: '应用',
+          collapsable: false,
+          sidebarDepth: 2,
+          path: '/api/app/mbox',
+          children: [
+            '/api/app/mbox',
+            '/api/app/scope',
+            '/api/app/template',
+          ]
+        },
       ]
     }
   ]
