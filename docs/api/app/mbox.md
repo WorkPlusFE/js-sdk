@@ -60,7 +60,7 @@ POST /v1/apps/mbox?access_token={access_token}&source_type={source_type}&for_all
 **文本示例：**
 
 <details>
-<summary>点击查看示例</summary>
+<summary>点击查看文本示例</summary>
 
 ```json
 {
@@ -82,7 +82,7 @@ POST /v1/apps/mbox?access_token={access_token}&source_type={source_type}&for_all
 **图片示例：**
 
 <details>
-<summary>点击查看示例</summary>
+<summary>点击查看图片示例</summary>
 
 ```json
 {
@@ -108,7 +108,7 @@ POST /v1/apps/mbox?access_token={access_token}&source_type={source_type}&for_all
 **文件示例：**
 
 <details>
-<summary>点击查看示例</summary>
+<summary>点击查看文件示例</summary>
 
 ```json
 {
@@ -132,7 +132,7 @@ POST /v1/apps/mbox?access_token={access_token}&source_type={source_type}&for_all
 **图文示例：**
 
 <details>
-<summary>点击查看示例</summary>
+<summary>点击查看图文示例</summary>
 
 ```json
 {
@@ -164,7 +164,7 @@ POST /v1/apps/mbox?access_token={access_token}&source_type={source_type}&for_all
 **模板消息--根据模板ID：**
 
 <details>
-<summary>点击查看示例</summary>
+<summary>点击查看模板消息示例</summary>
 
 ```json
 {
@@ -302,6 +302,9 @@ POST /v1/apps/mbox/{deliveryId}/confirm?access_token={access_token}
 
 **返回数据：**
 
+<details>
+<summary>点击查看返回数据</summary>
+
 ```json
 {
   "status": 0,
@@ -344,6 +347,7 @@ POST /v1/apps/mbox/{deliveryId}/confirm?access_token={access_token}
   "operation": "CONFIRMED"
 }
 ```
+</details>
 
 **错误返回值：**
 

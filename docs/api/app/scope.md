@@ -30,6 +30,9 @@ GET /v1/apps/{appId}/scope-views?access_token={access_token}&org_id={org_id}&sou
 
 **返回数据：**
 
+<details>
+<summary>点击查看返回数据</summary>
+
 ```json
 {
   "status": 0, 
@@ -57,6 +60,7 @@ GET /v1/apps/{appId}/scope-views?access_token={access_token}&org_id={org_id}&sou
   ]
 }
 ```
+</details>
 
 **错误返回值：**
 
@@ -92,6 +96,9 @@ GET /v1/apps/{appId}/admins?access_token={access_token}&name={name}&source_type=
 ```
 
 **返回数据：**
+
+<details>
+<summary>点击查看返回数据</summary>
 
 ```json
 {
@@ -150,6 +157,7 @@ GET /v1/apps/{appId}/admins?access_token={access_token}&name={name}&source_type=
   }
 }
 ```
+</details>
 
 **错误返回值：**
 
@@ -187,6 +195,9 @@ GET /v1/apps/{appId}/super-admins?access_token={access_token}&name={name}&source
 
 **返回数据：**
 
+<details>
+<summary>点击查看返回数据</summary>
+
 ```json
 {
   "status": 0, 
@@ -244,6 +255,7 @@ GET /v1/apps/{appId}/super-admins?access_token={access_token}&name={name}&source
   }
 }
 ```
+</details>
 
 **错误返回值：**
 

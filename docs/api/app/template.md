@@ -29,6 +29,9 @@ GET /v1/templates?access_token={access_token}&kw={kw}&skip={skip}&limit={limit}
 
 **返回数据：**
 
+<details>
+<summary>点击查看返回数据</summary>
+
 ::: v-pre
 ```json
 {
@@ -87,6 +90,7 @@ GET /v1/templates?access_token={access_token}&kw={kw}&skip={skip}&limit={limit}
 }
 ```
 :::
+</details>
 
 **错误返回值：**
 
@@ -155,6 +159,9 @@ POST /v1/templates?access_token={access_token}&app_id={app_id}&source_type={sour
 
 **返回数据：**
 
+<details>
+<summary>点击查看返回数据</summary>
+
 ::: v-pre
 ```json
 {
@@ -194,6 +201,7 @@ POST /v1/templates?access_token={access_token}&app_id={app_id}&source_type={sour
 }
 ```
 :::
+</details>
 
 **错误返回值：**
 
@@ -266,6 +274,9 @@ POST /v1/templates/{templateId}?access_token={access_token}&app_id={app_id}&sour
 
 **返回数据：**
 
+<details>
+<summary>点击查看返回数据</summary>
+
 ::: v-pre
 ```json
 {
@@ -305,6 +316,7 @@ POST /v1/templates/{templateId}?access_token={access_token}&app_id={app_id}&sour
 }
 ```
 :::
+</details>
 
 **错误返回值：**
 
@@ -348,6 +360,9 @@ GET /v1/templates/{templateId}?access_token={access_token}
 
 **返回数据：**
 
+<details>
+<summary>点击查看返回数据</summary>
+
 ::: v-pre
 ```json
 {
@@ -387,6 +402,7 @@ GET /v1/templates/{templateId}?access_token={access_token}
 }
 ```
 :::
+</details>
 
 **错误返回值：**
 
@@ -431,6 +447,9 @@ POST /v1/apps/mbox?access_token={access_token}
 ```
 
 **模板消息：**
+
+<details>
+<summary>点击查看模板消息</summary>
 
 ```json
 {
@@ -479,6 +498,7 @@ POST /v1/apps/mbox?access_token={access_token}
   ]
 }
 ```
+</details>
 
 **返回数据：**
 
@@ -494,6 +514,9 @@ POST /v1/apps/mbox?access_token={access_token}
 | client_ids | List&lt;String&gt; | 消息推送的对象标记 |
 
 **返回示例：**
+
+<details>
+<summary>点击查看返回示例</summary>
 
 ```json
 {
@@ -518,6 +541,7 @@ POST /v1/apps/mbox?access_token={access_token}
   }
 }
 ```
+</details>
 
 **错误返回值：**
 
