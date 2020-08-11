@@ -18,7 +18,8 @@ const generateChildren = () => {
 module.exports = {
   title: 'WorkPlus 开放平台',
   description: pkg.description,
-  base: '/js-sdk/',
+  base: '/v4/',
+  dest: 'docs/.vuepress/v4',
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
@@ -36,13 +37,15 @@ module.exports = {
       '/js-sdk/': getJsSdkBar(),
       '/api/': getApiBar(),
     },
-    lastUpdated: '上次编辑于', 
 
     docsRepo: 'WorkPlusFE/js-sdk',
     docsDir: 'docs',
     docsBranch: 'master',
+
     editLinks: true,
     editLinkText: '帮助我们完善此文档',
+
+    lastUpdated: '上次编辑于', 
 
     smoothScroll: true,
   },

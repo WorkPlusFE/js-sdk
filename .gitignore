@@ -38,6 +38,7 @@ jspm_packages
 
 # Build directory
 docs/.vuepress/dist/
+docs/.vuepress/v4/
 dist
 
 # Editor directories and files

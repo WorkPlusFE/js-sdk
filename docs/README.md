@@ -1,1 +1,1 @@
-# js-sdk
+# WorkPlus 开放平台

@@ -11,7 +11,7 @@
 如下图，带红星的字段表示必填，如果没有`应用分类`，点击`创建分类`进行创建即可。
 
 <p class="w6s-image">
-  <img src="/app/base1.png" alt="基本信息" width="80%">
+  <img :src="$withBase('/app/base1.png')" alt="基本信息" width="80%">
 </p>
 
 ### 应用启动地址
@@ -19,7 +19,7 @@
 如下图，启动地址为必填项。
 
 <p class="w6s-image">
-  <img src="/app/base2.png" alt="启动地址" width="80%">
+  <img :src="$withBase('/app/base2.png')" alt="启动地址" width="80%">
 </p>
 
 应用启动地址，是比较重要的设置，目前提供3个平台的设置，包括`苹果`、`安卓`及`PC客户端`，其中`苹果`和`安卓`的设置是一样，而`PC客户端`的相对少一些。以下是各字段的各端支持说明：
@@ -99,25 +99,29 @@ https://test-app.workplus.io?v=1.2.0
 通常开发轻应用，都需要设定`普通用户`及`管理员`的角色，通过平台提供的应用相关**API接口**，即可获取到应用对应的角色人员。
 
 <p class="w6s-image">
-  <img src="/app/base3.png" alt="使用范围" width="70%">
+  <img :src="$withBase('/app/base3.png')" alt="使用范围" width="70%">
 </p>
 
 ### 创建应用入口
 
 应用入口又名快捷入口，一个应用可以创建多个快捷入口，相关设置跟上面提到的`基本信息`及`启动地址`一致。
 
-![创建应用入口](/app/base4.png)
+<p class="w6s-image">
+  <img :src="$withBase('/app/base4.png')" alt="创建应用入口" width="70%">
+</p>
 
 ### * 消息模版
 
-![消息模版](/app/base5.png)
+<p class="w6s-image">
+  <img :src="$withBase('/app/base5.png')" alt="消息模版" width="70%">
+</p>
 
 ## 添加 ISV 应用
 
 登录管理后台，选择并进入对应的组织，然后点击`应用管理`菜单，从右上角的`添加`按钮，选择`ISV应用`。打开后，将列出可以购买的 ISV 应用，点击获取按钮后会弹出对应的应用信息资料框，然后勾选进行获取即可。
 
 <p class="w6s-image">
-  <img src="/app/isv.png" alt="ISV 应用" width="100%">
+  <img :src="$withBase('/app/isv.png')" alt="ISV 应用" width="100%">
 </p>
 
 获取成功后，可以在应用管理列表找到该应用，但并不能马上使用，还需给应用设置使用权限，参考[应用权限](#应用权限)。

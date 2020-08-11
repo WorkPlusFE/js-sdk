@@ -7,7 +7,7 @@
 发布离线应用，需要对前端资源包进行压缩，格式规定为`zip`。除了格式要求，资源的目录也同样有要求，以下面例子为例：
 
 <p class="w6s-image">
-  <img src="/app/offline-files.png" alt="离线资源" width="70%">
+  <img :src="$withBase('/app/offline-files.png')" alt="离线资源" width="70%">
 </p>
 
 正确的做法是，选中`mobile`文件夹进行压缩，而不是全选 mobile 内所有文件进行压缩。压缩包生成后，上传即可。

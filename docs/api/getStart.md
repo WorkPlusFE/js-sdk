@@ -13,7 +13,7 @@ WorkPlus 平台作为企业移动应用的统一入口，提供了用户身份�
 登录管理后台并创建应用。创建成功后，可以在应用管理列表，找到对应的应用，点击会弹出下图的信息框，AppKey 及 AppSecret 分别对应图中的`应用KEY`及`应用SECRET`。
 
 <p class="w6s-image">
-  <img src="/api/appKeys.png" alt="获取 AppKey 及 AppSecret" width="60%">
+  <img :src="$withBase('/api/appKeys.png')" alt="获取 AppKey 及 AppSecret" width="60%">
 </p>
 
 ## 获取 AccessToken
