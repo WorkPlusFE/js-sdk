@@ -24,7 +24,7 @@ WorkPlus 平台作为企业移动应用的统一入口，提供了用户身份�
 POST https://demo-api.workplus.io/v1/token
 ```
 
-> 实际 API 接口地址，以所部署环境为准
+> 实际 API 接口地址，以所部署环境为准。
 
 **请求头部：**
 

@@ -22,46 +22,54 @@
 | 分类卡片      | 后台         | 第三方业务   |
 | 自定义卡片    | 后台         | 无           |
 
-## 工作台卡片设置
-
-工作台的基础定义在`WorkPlus后台管理`系统中，请参阅相关文档或登录系统使用参数，此为略过
-
 ## 常用卡片说明
 
 ### 搜索卡片
 
+<p class="w6s-image">
+  <img :src="$withBase('/widget/SEARCH.png')" alt="搜索卡片" width="50%">
+</p>
+
 > 搜索卡片无第三方业务数据
 
-* 搜索卡片的的所有数据来源于后台，无需调用客户系统的数据;
-* 大小固定
-* 搜索卡片包含搜索功能及右边的扫一扫功能，不可定制其它功能
-
+* 搜索卡片的的所有数据来源于后台，无需调用客户系统的数据；
+* 大小固定；
+* 搜索卡片包含搜索功能及右边的扫一扫功能，不可定制其它功能。
 
 ### Banner卡片
 
+<p class="w6s-image">
+  <img :src="$withBase('/widget/BANNER.png')" alt="Banner卡片" width="50%">
+</p>
+
 > Banner卡片无第三方业务数据
 
-* 无需调用业务数据接口
-* 大小固定
-* Banner卡片的广告定义也在后台中进行定义
-
+* 无需调用业务数据接口；
+* 大小固定；
+* Banner卡片的广告定义也在后台中进行定义；
 
 ### 常用应用卡片
 
+<p class="w6s-image">
+  <img :src="$withBase('/widget/SHORTCUT.png')" alt="常用应用卡片" width="50%">
+</p>
+
 > 常用应用卡片无第三方业务数据
 
-* 常用应用卡片的逻辑是对应用的相关编辑
-* 无需调用业务数据接口
-* 大小固定
-
+* 常用应用卡片的逻辑是对应用的相关编辑；
+* 无需调用业务数据接口；
+* 大小固定；
 
 ### 快捷方式入口卡片
 
-* 是否显示标题，内容个数，样式由后台API决定及返回
-* 快捷方式支持红点显示规则（参见红点规则文档 )
-* 调用业务系统数据，渲染UI
+* 是否显示标题，内容个数，样式由后台 API 决定及返回；
+* 快捷方式支持红点显示规则（参见[应用红点](/light-app/notify.md))；
+* 调用业务系统数据，渲染 UI。
 
-#### 业务数据返回参考
+**业务数据返回参考：**
+
+<details>
+<summary>点击查看业务数据详情</summary>
 
 ```js
 {
@@ -96,17 +104,18 @@
   }
 }
 ```
+</details>
 
-#### 元素说明 
+**字段说明：**
 
-##### Items 元素说明
+`items`元素说明：
 
-每个`Item`代表快捷方式中的一个显示内容：
+每个`item`代表快捷方式中的一个显示内容：
 
 |    属性         | 值类型              | 描述                                       |
 | ----------- | ------------------- | ------------------------------------------ |
 | show_type   |                     | Icon：图标  number: 数字                   |
-| number      | 字符                | 仅show_type为number时有效                  |
+| number      |                 | 仅show_type为number时有效                  |
 | title       | 字符                | 标题内容                                   |
 | icon_type   | Url、MediaId，Inner | 图标类型，仅在show_type为icon时有效        |
 | icon_value  |                     | 图标值，仅在show_type为icon时有效          |
@@ -119,7 +128,10 @@
 - 是否显示标题，内容个数，样式由后台API决定及返回
 - 调用业务系统数据，渲染UI
 
-#### 业务数据返回参考
+**业务数据返回参考：**
+
+<details>
+<summary>点击查看业务数据详情</summary>
 
 ```js
 {
@@ -146,10 +158,11 @@
 	}
 }
 ```
+</details>
 
-#### 元素说明 
+**字段说明：** 
 
-##### items 元素说明
+`items`元素说明：
 
 |   属性          | 值   | 描述       |
 | ----------- | ---- | ---------- |
@@ -162,6 +175,11 @@
 | icon_value  |                     | 图标值，仅在show_type为icon时有效(列表卡片2才支持)          |
 
 ### 新闻卡片
+
+**业务数据返回参考：**
+
+<details>
+<summary>点击查看业务数据详情</summary>
 
 ```js
 {
@@ -191,10 +209,11 @@
   }
 }
 ```
+</details>
 
-#### 元素说明 
+**字段说明：** 
 
-##### items 元素说明
+`items`元素说明：
 
 | 属性            | 值                  | 描述       |
 | ----------- | ------------------- | ---------- |
@@ -215,37 +234,62 @@
 
 ### 自定义卡片
 
-* 自定义卡片的数据来源于后台
-* 本身无业务内容
+> 自定义卡片内容主要通过`H5页面`进行展示。
 
-#### URL参数说明 
+* 自定义卡片的数据来源于后台；
+* 本身无业务内容。
 
-##### 示例：http://xxxx.html?custom\_height=300&custom\_scale=0.5&open\_with_out=true
+**URL 参数说明：**
+
+自定义卡片在初始化时，会加载 H5页面，但卡片本身无法提前知道卡片内容的高度等信息，允许通过以`URL参数`的形式来告知客户端，如下:
+
+```js
+http://xxxx.html?custom_height=300&custom_scale=0.5&open_with_out=true
+```
 
 |     属性        | 类型                  | 描述       |
-| --------------------  | ------------------- | -------------------     |
-| custom_height(可传)           | 浮点型               | 自定义卡片高度      |
-| custom_scale(可传)            | 浮点型               | 自定义卡片高度相对宽的比例 (传scale优选选用，与height互斥)|
-| open\_with_out(可传)   |布尔值           | 是否打开新的页面跳转链接   |
+| --------------------  | ------------------- | -------------------     | 
+| custom_height   | 浮点型     | 自定义卡片高度      |
+| custom_scale  | 浮点型      | 自定义卡片高度相对宽的比例 (传 scale 优选选用，与 height 互斥)|
+| open_with_out   |布尔值     | 是否打开新的页面跳转链接   |
 
+除了上述属性，同样支持带入其他参数，详情查看[参数支持](/light-app/workbench.md#参数支持)。
+
+::: warning 关于自定义卡片
+毫无疑问，自定义卡片是最灵活的，因为一切都通过`H5页面`进行展示，一个卡片就是一个`WebView`；但也因为该原因，会产生一些问题及约束：
+
+* 性能不如原生卡片；
+* 网络不稳定时，可能会导致卡片无法正常展示，白屏等；
+* 卡片高度可能会存在偏差，导致卡片内容展示不完整；
+* 不支持使用`js-sdk`能力；
+* 不支持离线资源。
+:::
 
 ## 参数支持
 
 对于工作台中的任意 URL，用户可配置参数支持，以下为支持的参数：
 
-|                   | 描述            | 备注               |
-| ----------------- | --------------- | ------------------ |
-| {{userId}}        | 当前登录用户 ID |                    |
-| {{username}}      | 当前登录用户 名 |                    |
-| {{username/name}} | 用户名/中文名   |                    |
-| {{domainId}}        | 域名 ID |                    |
-| {{orgCode}}        | 当前组织code |                    |
-| {{ticket}}        | ticket值        |                    |
-| {{language}}      | 当前语言设计    | 简中、繁中，英三种 |
+::: v-pre
+|   字段              | 描述            | 
+| ----------------- | --------------- | 
+| {{userId}}        | 当前登录`用户ID` |
+| {{username}}      | 当前登录`用户名` |
+| {{username/name}} | 用户名/中文名   |
+| {{domainId}}        | 域ID |
+| {{orgCode}}        | 当前`组织code`，也是`orgId` |
+| {{ticket}}        | 临时`ticket`值  | 
+| {{language}}      | 当前应用的语言版本，如`en`、`zh-CN`  | 
+:::
 
 如：
 
-`http://data.com?usernmae={{username}}`会被替换为`http://data.com?usename=dfadsa-dsafdsa-dfsa`。
+::: v-pre
+```js
+http://data.com?usernmae={{username}}
+// 会被替换成：
+http://data.com?usename=foo
+```
+:::
 
 ### 国际化
 
@@ -253,108 +297,15 @@
 
 ### 红点规则 
 
-对于支持红点的卡片类型（当前为快捷卡片），相关红点配置请参考红点相关文档。
+对于支持红点的卡片类型（当前为快捷卡片），相关红点配置请参考[应用红点](/light-app/notify.md)。
 
-## 附录一 系统行为值
+## 系统行为值
 
-当工作台中的`event_type`定义为**System**时，其点击行为，将会是 WorkPlus 内置的一些行为：
+当工作台中的`event_type`定义为`System`时，其点击行为，将会是 WorkPlus 内置的一些行为：
 
-| 值            | 系统行为 | 备注 |
+| 值            | 系统行为 | 描述 |
 | ------------- | -------- | ---- |
-| CREATE_GROUP  | 创建群聊 |      |
-| QRCODE_SCAN   | 扫一扫   |      |
-| BING_MESSAGE  | 必应消息 |      |
-| VOICE_MEETING | 语音视频 |      |
-
-
-## 附录二  返回示例
-
-> 快捷方式返回参考
-
-```js
-{
-	status: 0,
-	result: {
-		items: [{
-				show_type: "number",
-				number: "",
-				title: "11111111111哈哈哈哈哈哈哈哈哈哈哈哈哈哈",
-				event_type: "url",
-				event_value: "http://www.163.com",
-				date_time: 0
-			},
-			{
-				show_type: "number",
-				number: "708111111111",
-				title: "待付金额待付金额待付金额",
-				event_type: "url",
-				event_value: "http://www.baidu.com",
-				date_time: 0
-			},
-			{
-				show_type: "number",
-				number: "哈哈哈",
-				title: "支付成功",
-				event_type: "url",
-				event_value: "http://workplus.io",
-				date_time: 0
-			},
-			{
-				show_type: "number",
-				number: "不行",
-				title: "我不想要了，可以退不12133",
-				event_type: "url",
-				event_value: "http://bing.com",
-				date_time: 0
-			},
-			{
-				show_type: "number",
-				number: "8081",
-				title: "哈哈哈哈哈哈哈哈哈哈身上",
-				event_type: "url",
-				event_value: "http://bing.com",
-				date_time: 0
-			}
-		]
-	}
-}
-```
-
-> 列表&新闻返回示例
-
-```js
-{
-	status: 0,
-	result: {
-		items: [{
-				title: "电子申报系统权限申请",
-				event_type: "url",
-				event_value: "http://bpmnew.workapps.io/mobile/?fullScreen=1",
-				date_time: "2018/12/13",
-				source: "申请人：刘文清"
-			},
-			{
-				title: "来自王梓的员工休假申请",
-				event_type: "url",
-				event_value: "http://bpmnew.workapps.io/mobile/?fullScreen=1",
-				date_time: "2018/12/11",
-				source: "上一审批人：程伟"
-			},
-			{
-				title: "公文签报-信息部组织架构调整-20181212",
-				event_type: "url",
-				event_value: "http://bpmnew.workapps.io/mobile/?fullScreen=1",
-				date_time: "2018/12/12",
-				source: "申请人：李苗苗"
-			},
-			{
-				title: "来自张清的员工离职申请",
-				event_type: "url",
-				event_value: "http://bpmnew.workapps.io/mobile/?fullScreen=1",
-				date_time: "2018/12/13",
-				source: "申请人：张清"
-			}
-		]
-	}
-}
-```
+| CREATE_GROUP  | 创建群聊 | 打开创建群聊的页面 |
+| QRCODE_SCAN   | 扫一扫   |  打开应用的扫一扫页面   |
+| BING_MESSAGE  | 必应消息 | 打开必应消息页面  |
+| VOICE_MEETING | 语音视频 | 打开音视频功能  |

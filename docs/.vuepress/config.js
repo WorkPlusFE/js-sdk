@@ -19,7 +19,7 @@ module.exports = {
   title: 'WorkPlus 开放平台',
   description: pkg.description,
   base: '/v4/',
-  dest: 'docs/.vuepress/v4',
+  dest: 'docs/.vuepress/dist',
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
@@ -47,7 +47,7 @@ module.exports = {
 
     lastUpdated: '上次编辑于', 
 
-    smoothScroll: true,
+    smoothScroll: false,
   },
   plugins: [
     '@vuepress/back-to-top',
@@ -110,7 +110,7 @@ function getLightAppBar (group) {
       children: [
         'create',
         'offline',
-        'isv',
+        // 'isv',
       ]
     }, {
       title: '平台接入',

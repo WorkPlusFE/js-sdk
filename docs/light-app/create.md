@@ -48,7 +48,7 @@
 
 #### 消息通知提醒源
 
-该设置，适用于需要做红点提示的应用，例如审批类的轻应用，支持显示`红点`、`数字`及`图标`，具体文档，请查看[红点、数字及图标](/light-app/notify.md)。
+该设置，适用于需要做红点提示的应用，例如审批类的轻应用，支持显示`红点`、`数字`及`图标`，具体文档，请查看[应用红点](/light-app/notify.md)。
 
 #### 启动地址
 
@@ -56,7 +56,7 @@
 
 ```js
 // 设置启动地址如下：
-https://test-app.workplus.io?ticket={ticket}&language={language}
+https://test-app.workplus.io?ticket={{ticket}}&language={{language}}
 
 // 当应用启动时，ticket及language会根据当前用户信息及语言进行填充：
 https://test-app.workplus.io?ticket=demo-ticket&language=en
@@ -72,6 +72,12 @@ https://test-app.workplus.io?ticket=demo-ticket&language=en
 | domainId | 打开应用时，用户所在的域id |
 | language | 应用的语言类型 |
 | username | 用户的 username |  
+
+::: tip 关于占位符
+因为`PC客户端`默认使用下划线的命名方式设置参数的`key`值，具体原因可以查看[单点登录-获取用户信息](/light-app/sso#pc-客户端)，为了保持一致性，请统一使用下划线的`key`值，如：
+
+`?user_id={userId}&domain_id={domainId}`。
+:::
 
 除了设置占位符来获取用户信息，通常为了避免缓存，上架新版本时，可以尝试在启动地址后加入版本信息参数，如下：
 
@@ -99,7 +105,7 @@ https://test-app.workplus.io?v=1.2.0
 通常开发轻应用，都需要设定`普通用户`及`管理员`的角色，通过平台提供的应用相关**API接口**，即可获取到应用对应的角色人员。
 
 <p class="w6s-image">
-  <img :src="$withBase('/app/base3.png')" alt="使用范围" width="70%">
+  <img :src="$withBase('/app/base3.png')" alt="使用范围" width="80%">
 </p>
 
 ### 创建应用入口
@@ -107,21 +113,25 @@ https://test-app.workplus.io?v=1.2.0
 应用入口又名快捷入口，一个应用可以创建多个快捷入口，相关设置跟上面提到的`基本信息`及`启动地址`一致。
 
 <p class="w6s-image">
-  <img :src="$withBase('/app/base4.png')" alt="创建应用入口" width="70%">
+  <img :src="$withBase('/app/base4.png')" alt="创建应用入口" width="100%">
 </p>
 
-### * 消息模版
+### 消息模版
+
+模版消息是一种特殊的消息类型，可以在管理后台进行可视化编辑，保存成功后，可以获得对应的`模板ID`。
 
 <p class="w6s-image">
-  <img :src="$withBase('/app/base5.png')" alt="消息模版" width="70%">
+  <img :src="$withBase('/app/base5.png')" alt="消息模版" width="100%">
 </p>
+
+可以根据实际需求，设定不同的模版消息，具体使用方式，请查看[模板消息](/api/app/template.md)。
 
 ## 添加 ISV 应用
 
 登录管理后台，选择并进入对应的组织，然后点击`应用管理`菜单，从右上角的`添加`按钮，选择`ISV应用`。打开后，将列出可以购买的 ISV 应用，点击获取按钮后会弹出对应的应用信息资料框，然后勾选进行获取即可。
 
 <p class="w6s-image">
-  <img :src="$withBase('/app/isv.png')" alt="ISV 应用" width="100%">
+  <img :src="$withBase('/app/isv.png')" alt="ISV 应用" width="70%">
 </p>
 
 获取成功后，可以在应用管理列表找到该应用，但并不能马上使用，还需给应用设置使用权限，参考[应用权限](#应用权限)。

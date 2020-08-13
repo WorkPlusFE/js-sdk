@@ -1,8 +1,4 @@
-# 身份认证
-
-身份认证目前包含用户单点登录接口。
-
-## 单点登录
+# 单点登录
 
 第三方应用在接入 WorkPlus 平台时，往往需要和 WorkPlus 用户系统集成。
 
@@ -11,7 +7,11 @@
 1. 客户端打开第三方应用时，先以当前登录用户生成用户 Ticket，之后在跳转时会带上该 Ticket 参数；
 2. 第三方应用根据 Ticket 参数，验证该 Ticket，如该 Ticket 有效，会返回关联的用户信息。
 
-### 验证用户 Ticket
+::: tip 提示
+`access_token`的获取方式，请查看 [接入流程-获取 AccessToken](/api/getStart.md#获取-accesstoken)。
+:::
+
+## 验证用户 Ticket
 
 ```js
 GET /v1/tickets/{ticket}?access_token={access_token}
