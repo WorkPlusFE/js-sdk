@@ -11,8 +11,7 @@ import Util from './util';
 import * as Email from './email';
 import * as Auth from './auth';
 import Webview from './webview';
-
-export * from './eventlistener';
+import bindBackButtonEvent from './eventlistener/backbutton';
 
 /** WorkPlus SDK 版本 */
 export const version = '0.0.1';
@@ -53,3 +52,6 @@ export const exec = core.exec;
 export const execSync = core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 export const error = core.error;
+
+/** 绑定安卓物理返回按钮事件 */
+export { bindBackButtonEvent };
