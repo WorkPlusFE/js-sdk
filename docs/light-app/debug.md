@@ -18,9 +18,9 @@
 
 > 不同厂商的安卓设备，打开`开发者选项`页面的方式可能不一样，可参考手机的操作手册或查询网络
 
-<p style="text-align: center">
+<p style="text-align: left">
   <img :src="$withBase('/debug/dev-x5.png')" alt="图1" width="250">
-  <p style="text-align: center">
+  <p style="text-align: left">
     <i>图-1</i>
   </p>
 </p>
@@ -32,18 +32,18 @@
 * 打开 Chrome 浏览器，在地址栏中输入`chrome://inspect/#devices`；
 * 如果调试模式开启成功，可以在页面看到打开应用的相关信息；
 
-<p style="text-align: center">
+<p style="text-align: left">
   <img :src="$withBase('/debug/dev-inspect.png')" alt="图2" width="400">
-  <p style="text-align: center">
+  <p style="text-align: left">
     <i>图-2</i>
   </p>
 </p>
 
 * 点击应用信息下方的`inspect`，将会自动打开 Chrome 的调试页面，该页面首次打开较慢，如果出现白屏或者404错误的，请尝试切换到更好的网络或使用翻墙工具。
 
-<p style="text-align: center">
+<p style="text-align: left">
   <img :src="$withBase('/debug/dev-debug.png')" alt="图3" width="400">
-  <p style="text-align: center">
+  <p style="text-align: left">
     <i>图-3</i>
   </p>
 </p>

@@ -26,11 +26,15 @@
 
 ### 搜索卡片
 
-<p class="w6s-image">
-  <img :src="$withBase('/widget/SEARCH.png')" alt="搜索卡片" width="50%">
-</p>
-
 > 搜索卡片无第三方业务数据
+
+<el-popover
+  placement="right"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/SEARCH.png')" alt="搜索卡片" width="100%">
+  <el-button type="primary" size="small" slot="reference">点击预览</el-button>
+</el-popover>
 
 * 搜索卡片的的所有数据来源于后台，无需调用客户系统的数据；
 * 大小固定；
@@ -38,11 +42,15 @@
 
 ### Banner卡片
 
-<p class="w6s-image">
-  <img :src="$withBase('/widget/BANNER.png')" alt="Banner卡片" width="50%">
-</p>
-
 > Banner卡片无第三方业务数据
+
+<el-popover
+  placement="right"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/BANNER.png')" alt="Banner卡片" width="100%">
+  <el-button type="primary" size="small" slot="reference">点击预览</el-button>
+</el-popover>
 
 * 无需调用业务数据接口；
 * 大小固定；
@@ -50,17 +58,39 @@
 
 ### 常用应用卡片
 
-<p class="w6s-image">
-  <img :src="$withBase('/widget/SHORTCUT.png')" alt="常用应用卡片" width="50%">
-</p>
-
 > 常用应用卡片无第三方业务数据
+
+<el-popover
+  placement="right"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/SHORTCUT.png')" alt="常用应用卡片" width="100%">
+  <el-button type="primary" size="small" slot="reference">点击预览</el-button>
+</el-popover>
 
 * 常用应用卡片的逻辑是对应用的相关编辑；
 * 无需调用业务数据接口；
 * 大小固定；
 
 ### 快捷方式入口卡片
+
+> 该卡片有两种风格
+
+<el-popover
+  placement="top"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/SHORTCUT_1.png')" alt="快捷方式入口卡片1" width="100%">
+  <el-button type="primary" size="small" slot="reference">快捷方式入口卡片-1</el-button>
+</el-popover>
+
+<el-popover
+  placement="top"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/SHORTCUT_2_1.png')" alt="快捷方式入口卡片2" width="100%">
+  <el-button type="primary" size="small" slot="reference">快捷方式入口卡片-2</el-button>
+</el-popover>
 
 * 是否显示标题，内容个数，样式由后台 API 决定及返回；
 * 快捷方式支持红点显示规则（参见[应用红点](/light-app/notify.md))；
@@ -112,20 +142,38 @@
 
 每个`item`代表快捷方式中的一个显示内容：
 
-|    属性         | 值类型              | 描述                                       |
-| ----------- | ------------------- | ------------------------------------------ |
-| show_type   |                     | Icon：图标  number: 数字                   |
-| number      |                 | 仅show_type为number时有效                  |
-| title       | 字符                | 标题内容                                   |
-| icon_type   | Url、MediaId，Inner | 图标类型，仅在show_type为icon时有效        |
-| icon_value  |                     | 图标值，仅在show_type为icon时有效          |
-| event_type  |                     | 点击事件                                   |
-| event_value |                     | 事件值                                     |
-| tip_url     |                     | 红点规则URL，客户端会从此URL请求红点的逻辑 |
+|    属性       | 描述      |
+| ----------- |  -------- |
+| show_type   |  Icon：图标，number: 数字     |
+| number      |  仅 show_type 为 number 时有效    |
+| title       |  标题内容    |
+| icon_type   |  图标类型，仅在 show_type 为 icon 时有效，值为 `Url`、`MediaId`、`Inner`   |
+| icon_value  |  图标值，仅在 show_type 为 icon 时有效 |
+| event_type  |  点击事件  |
+| event_value |  事件值    |
+| tip_url     |  红点规则 URL，客户端会从此 URL 请求红点的逻辑 |
 
 ### 列表卡片
 
-- 是否显示标题，内容个数，样式由后台API决定及返回
+> 该卡片有两种风格
+
+<el-popover
+  placement="top"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/LIST_1.png')" alt="列表卡片1" width="100%">
+  <el-button type="primary" size="small" slot="reference">列表卡片-1</el-button>
+</el-popover>
+
+<el-popover
+  placement="top"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/LIST_2.png')" alt="列表卡片2" width="100%">
+  <el-button type="primary" size="small" slot="reference">列表卡片-2</el-button>
+</el-popover>
+
+- 是否显示标题，内容个数，样式由后台 API 决定及返回
 - 调用业务系统数据，渲染UI
 
 **业务数据返回参考：**
@@ -164,17 +212,51 @@
 
 `items`元素说明：
 
-|   属性          | 值   | 描述       |
-| ----------- | ---- | ---------- |
-| title       |      | 列表主内容 |
-| datetime    | 字符 | 时间值     |
-| source      |      | 来源       |
-| event_type  |      | 事件类型   |
-| event_value |      | 事件值     |
-| icon_type   | Url、MediaId，Inner | 图标类型，仅在show_type为icon时有效(列表卡片2才支持)        |
-| icon_value  |                     | 图标值，仅在show_type为icon时有效(列表卡片2才支持)          |
+|   属性       | 描述       |
+| ----------- | ---------- |
+| title       | 列表主内容 |
+| datetime    | 时间值     |
+| source      | 来源       |
+| event_type  | 事件类型   |
+| event_value | 事件值     |
+| icon_type   | 图标类型，仅在 show_type 为 icon 时有效(列表卡片2才支持)，值为 `Url`、`MediaId`、`Inner`   |
+| icon_value  | 图标值，仅在 show_type 为 icon 时有效(列表卡片2才支持)          |
 
 ### 新闻卡片
+
+> 该卡片有四种风格
+
+<el-popover
+  placement="top"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/NEWS_1.png')" alt="新闻卡片1" width="100%">
+  <el-button type="primary" size="small" slot="reference">新闻卡片-1</el-button>
+</el-popover>
+
+<el-popover
+  placement="top"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/NEWS_2.png')" alt="新闻卡片2" width="100%">
+  <el-button type="primary" size="small" slot="reference">新闻卡片-2</el-button>
+</el-popover>
+
+<el-popover
+  placement="top"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/NEWS_3.png')" alt="新闻卡片3" width="100%">
+  <el-button type="primary" size="small" slot="reference">新闻卡片-3</el-button>
+</el-popover>
+
+<el-popover
+  placement="top"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/NEWS_4.png')" alt="新闻卡片4" width="100%">
+  <el-button type="primary" size="small" slot="reference">新闻卡片-4</el-button>
+</el-popover>
 
 **业务数据返回参考：**
 
@@ -215,18 +297,28 @@
 
 `items`元素说明：
 
-| 属性            | 值                  | 描述       |
-| ----------- | ------------------- | ---------- |
-| title       |                     | 新闻主标题 |
-| sub_title   |                     | 新闻子标题 |
-| date_time   |                     | 新闻时间   |
-| source      |                     | 新闻来源   |
-| event_type  | Url/System          | 事件类型   |
-| event_value |                     | 点击事件值 |
-| icon_type   | Url、MediaId，Inner | 图标类型   |
-| icon_value  |                     | 图标值     |
+| 属性     | 描述       |
+| ------ | ----- |
+| title       |  新闻主标题 |
+| sub_title   |   新闻子标题 |
+| date_time   |   新闻时间   |
+| source      |   新闻来源   |
+| event_type  | 事件类型，值为 `Url`、`System` |
+| event_value |  点击事件值 |
+| icon_type   | 图标类型，值为 `Url`、`MediaId`、`Inner` |
+| icon_value  |    图标值   |
 
 ### 分类卡片
+
+> 分类卡片适用于组合多个列表数据
+
+<el-popover
+  placement="top"
+  width="400"
+  trigger="click">
+  <img :src="$withBase('/widget/CATEGORY_1.png')" alt="分类卡片" width="100%">
+  <el-button type="primary" size="small" slot="reference">点击预览</el-button>
+</el-popover>
 
 * 分类卡片本身无业务数据，来源于后台数据；
 * 每个分类的内容才调用业务数据；

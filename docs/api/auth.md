@@ -4,8 +4,8 @@
 
 目前 WorkPlus 实现单点登录的机制如下：
 
-1. 客户端打开第三方应用时，先以当前登录用户生成用户 Ticket，之后在跳转时会带上该 Ticket 参数；
-2. 第三方应用根据 Ticket 参数，验证该 Ticket，如该 Ticket 有效，会返回关联的用户信息。
+1. 客户端打开第三方应用时，第三方应用可以通过`js-sdk`或从`url`上获得临时 Ticket；
+2. 第三方应用根据 Ticket 参数，验证该 Ticket，如该 Ticket 有效，则返回关联的用户信息。
 
 ::: tip 提示
 `access_token`的获取方式，请查看 [接入流程-获取 AccessToken](/api/getStart.md#获取-accesstoken)。
