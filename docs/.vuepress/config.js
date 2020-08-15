@@ -27,7 +27,7 @@ module.exports = {
     logo: '/sdk-logo@3x.png',
     nav: [
       { text: '轻应用', link: '/light-app/create.html' },
-      { text: 'JS-SDK', link: '/js-sdk/overview.html' },
+      { text: 'JS-SDK', link: '/js-sdk/overview/start.html' },
       { text: 'API 文档', link: '/api/overview.html' },
       { text: '开发工具', link: '/dev-tools' },
       { text: '常见问题', link: '/qa' },
@@ -68,12 +68,17 @@ module.exports = {
 function getJsSdkBar () {
   return [
     {
-      title: '概述',
+      title: 'JS-SDK',
       collapsable: false,
       sidebarDepth: 1,
       children: [
-        'overview',
-        'changelog',
+        '/js-sdk/overview/start',
+        '/js-sdk/overview/usage',
+        '/js-sdk/overview/auth',
+        '/js-sdk/overview/urlScheme',
+        '/js-sdk/overview/demo',
+        '/js-sdk/overview/origin',
+        '/js-sdk/overview/changelog',
       ]
     },
     {
@@ -135,7 +140,7 @@ function getLightAppBar (group) {
 function getApiBar () {
   return [
     {
-      title: 'WorkPlus API',
+      title: 'API 文档',
       collapsable: false,
       sidebarDepth: 2,
       children: [
@@ -146,7 +151,7 @@ function getApiBar () {
         'errorCode',
       ]
     }, {
-      title: 'API 列表',
+      title: '接口列表',
       collapsable: false,
       sidebarDepth: 2,
       children: [
