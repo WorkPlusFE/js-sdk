@@ -18,7 +18,7 @@ table {
   word-wrap break-word
   margin-bottom 20px
   table-layout auto
-  display table
+  display table !important
   text-align left
   width 100%
   font-size 16px
@@ -31,7 +31,7 @@ table {
 
   tr {
     border-top 0
-    border-bottom 1px solid #DEE0E3
+    border-bottom 1px solid var(--border-color)
   }
 
   td {
@@ -50,9 +50,9 @@ table {
   }
 }
 
-.theme-default-content pre code, 
-.theme-default-content pre[class*="language-"] code {
-  color #333333
+.content__default pre code, 
+.content__default pre[class*="language-"] code {
+  color #333333 !important
 }
 
 div[class~="language-js"]:before {
@@ -72,4 +72,16 @@ div[class~="language-js"]:before {
     color #1A98FF
     right 34px
   }
+}
+
+
+.page-title {
+  display none !important
+}
+.theme-reco-content.content__default {
+  padding-top 1rem !important
+}
+
+::-webkit-scrollbar {
+  width 0 !important
 }

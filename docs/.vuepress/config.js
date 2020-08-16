@@ -23,8 +23,9 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
+  theme: 'reco',
   themeConfig: {
-    logo: '/sdk-logo@3x.png',
+    logo: '/logo.png',
     nav: [
       { text: '轻应用', link: '/light-app/create.html' },
       { text: 'JS-SDK', link: '/js-sdk/overview/start.html' },
@@ -48,9 +49,10 @@ module.exports = {
     lastUpdated: '上次编辑于', 
 
     smoothScroll: false,
+
+    codeTheme: 'solarizedlight',
   },
   plugins: [
-    '@vuepress/back-to-top',
     [
       '@vuepress/last-updated',
       {

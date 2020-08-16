@@ -83,7 +83,8 @@
     "moment": "^2.27.0",
     "query-string": "^6.9.0",
     "vue-prism-component": "^1.2.0",
-    "vuepress-plugin-code-copy": "^1.0.6"
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "vuepress-theme-reco": "^1.5.5"
   },
   "husky": {
     "hooks": {
