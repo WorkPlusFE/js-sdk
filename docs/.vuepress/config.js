@@ -24,7 +24,7 @@ module.exports = {
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
   themeConfig: {
-    logo: '/sdk-logo@3x.png',
+    logo: '/logo.png',
     nav: [
       { text: '轻应用', link: '/light-app/' },
       { text: 'JS-SDK', link: '/js-sdk/' },
@@ -51,6 +51,7 @@ module.exports = {
   },
   plugins: [
     '@vuepress/back-to-top',
+    'fulltext-search',
     [
       '@vuepress/last-updated',
       {

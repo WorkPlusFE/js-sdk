@@ -81,9 +81,7 @@
     "@w6s/vuepress-code-wrapper": "1.1.2",
     "element-ui": "^2.13.2",
     "moment": "^2.27.0",
-    "query-string": "^6.9.0",
-    "vue-prism-component": "^1.2.0",
-    "vuepress-plugin-code-copy": "^1.0.6"
+    "query-string": "^6.9.0"
   },
   "husky": {
     "hooks": {

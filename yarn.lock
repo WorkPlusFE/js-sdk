@@ -10786,11 +10786,6 @@ vue-loader@^15.7.1:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-prism-component@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npm.taobao.org/vue-prism-component/download/vue-prism-component-1.2.0.tgz#406252e16979def13b5d28827d95b2b6dc647825"
-  integrity sha1-QGJS4Wl53vE7XSiCfZWyttxkeCU=
-
 vue-router@^3.1.3:
   version "3.3.4"
   resolved "https://registry.npm.taobao.org/vue-router/download/vue-router-3.3.4.tgz?cache=0&sync_timestamp=1592476684972&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-router%2Fdownload%2Fvue-router-3.3.4.tgz#4e38abc34a11c41b6c3d8244449a2e363ba6250b"
@@ -10848,11 +10843,6 @@ vuepress-html-webpack-plugin@^3.2.0:
     tapable "^1.0.0"
     toposort "^1.0.0"
     util.promisify "1.0.0"
-
-vuepress-plugin-code-copy@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npm.taobao.org/vuepress-plugin-code-copy/download/vuepress-plugin-code-copy-1.0.6.tgz#6431dab764b48b5b203e4936d98b1943651ce4ad"
-  integrity sha1-ZDHat2S0i1sgPkk22YsZQ2Uc5K0=
 
 vuepress-plugin-container@^2.0.2:
   version "2.1.4"
