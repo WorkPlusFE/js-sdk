@@ -26,9 +26,9 @@ module.exports = {
   themeConfig: {
     logo: '/sdk-logo@3x.png',
     nav: [
-      { text: '轻应用', link: '/light-app/create.html' },
-      { text: 'JS-SDK', link: '/js-sdk/overview/start.html' },
-      { text: 'API 文档', link: '/api/overview.html' },
+      { text: '轻应用', link: '/light-app/' },
+      { text: 'JS-SDK', link: '/js-sdk/' },
+      { text: 'API 文档', link: '/api/' },
       { text: '开发工具', link: '/dev-tools' },
       { text: '常见问题', link: '/qa' },
     ],
@@ -72,7 +72,7 @@ function getJsSdkBar () {
       collapsable: false,
       sidebarDepth: 1,
       children: [
-        '/js-sdk/overview/start',
+        '/js-sdk/',
         '/js-sdk/overview/usage',
         '/js-sdk/overview/auth',
         '/js-sdk/overview/urlScheme',
@@ -113,7 +113,7 @@ function getLightAppBar (group) {
       collapsable: false,
       sidebarDepth: 2,
       children: [
-        'create',
+        '',
         'offline',
         // 'isv',
       ]
@@ -144,7 +144,7 @@ function getApiBar () {
       collapsable: false,
       sidebarDepth: 2,
       children: [
-        'overview',
+        '',
         'getStart',
         'callback',
         'response',
