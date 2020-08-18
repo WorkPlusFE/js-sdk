@@ -34,7 +34,7 @@ export default class Home extends Vue {
 
 <style lang="scss" scoped>
 .demo-pages {
-  padding: 15px;
+  padding: 0;
 }
 
 a {
@@ -43,20 +43,23 @@ a {
 
 .demo {
   text-align: center;
-  padding-bottom: 10px;
+  padding: 10px 15px 20px 15px;
+  background: $color-dark;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
 
   h2 {
     margin-bottom: 0;
   }
 
   &__logo {
-    width: 100px;
-    height: 100px;
-    margin-top: 30px;
+    width: 75px;
+    height: 75px;
+    margin-top: 20px;
   }
 
   &__title {
-    color: $color-primary;
+    color: $color-white;
+    font-weight: normal;
   }
 
   &__desc {

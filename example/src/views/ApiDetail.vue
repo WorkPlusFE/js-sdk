@@ -32,7 +32,7 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import { Button, Field, Panel, Toast } from 'vant';
-import * as sdk from '../../../dist/';
+import * as sdk from '../../../dist';
 import config from '../api';
 
 @Component({
