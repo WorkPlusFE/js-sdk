@@ -51,7 +51,7 @@ module.exports = {
   },
   plugins: [
     '@vuepress/back-to-top',
-    'fulltext-search',
+    '@vuepress/medium-zoom',
     [
       '@vuepress/last-updated',
       {
@@ -62,7 +62,7 @@ module.exports = {
           return moment(timestamp).format('YYYY-MM-DD HH:mm:ss');
         }
       }
-    ]
+    ],
   ]
 };
 
