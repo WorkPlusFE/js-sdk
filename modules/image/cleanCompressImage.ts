@@ -8,11 +8,7 @@ import { WORKPLUS_IMAGE } from '../constants';
  * @returns 无
  */
 function cleanCompressImage(): void {
-  return core.execSync(
-    WORKPLUS_IMAGE,
-    'cleanCompressImage',
-    [],
-  );
+  return core.execSync(WORKPLUS_IMAGE, 'cleanCompressImage', []);
 }
 
 export default cleanCompressImage;
