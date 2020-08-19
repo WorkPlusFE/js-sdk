@@ -5,5 +5,5 @@ export default {
   module: 'event',
   active: false,
   icon: 'photo-o',
-  apis: []
-}
+  apis: [],
+};

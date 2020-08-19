@@ -44,7 +44,9 @@ export default {
       description: '更换右侧按钮，参数为一个选项列表',
       action: 'rightButtons',
       params: {
-        items: [{ icon: -1, title: '完成', action: 'js', value: 'rightButtons' }],
+        items: [{
+          icon: -1, title: '完成', action: 'js', value: 'rightButtons',
+        }],
       },
     },
     {
@@ -113,7 +115,9 @@ export default {
       description: '更换左侧的按钮动作',
       action: 'changeLeftButton',
       params: {
-        items: [{ icon: -1, title: '返回', action: 'js', value: 'back' }],
+        items: [{
+          icon: -1, title: '返回', action: 'js', value: 'back',
+        }],
       },
     },
     {

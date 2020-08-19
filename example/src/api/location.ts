@@ -11,6 +11,6 @@ export default {
       description: '返回手机设备当前的地理位置信息',
       action: 'getLocation',
       params: {},
-    }
+    },
   ],
 };

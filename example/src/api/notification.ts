@@ -30,5 +30,5 @@ export default {
     description: '',
     action: 'actionSheet',
     params: {},
-  }]
-}
+  }],
+};

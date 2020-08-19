@@ -10,5 +10,5 @@ export default {
     description: '',
     action: 'scanner',
     params: {},
-  }]
-}
+  }],
+};

@@ -11,7 +11,12 @@
           <span class="api-title">{{ service.title }}</span>
           <span class="api-module">{{ service.module }}</span>
         </div>
-        <van-icon slot="right-icon" class="api-icon" :name="service.active ? 'arrow-up' : 'arrow-down'" size="18" />
+        <van-icon
+          slot="right-icon"
+          class="api-icon"
+          :name="service.active ? 'arrow-up' : 'arrow-down'"
+          size="18"
+        />
       </van-cell>
       <div class="api_list">
         <van-cell-group v-show="service.active">

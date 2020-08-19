@@ -5,5 +5,5 @@ export default {
   module: 'app',
   active: false,
   icon: 'photo-o',
-  apis: []
-}
+  apis: [],
+};

@@ -50,5 +50,5 @@ export default {
     description: '转 Base64。',
     action: 'toBase64',
     params: {},
-  }]
-}
+  }],
+};

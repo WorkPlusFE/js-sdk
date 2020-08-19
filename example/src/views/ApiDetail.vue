@@ -30,9 +30,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
-import { Button, Field, Panel, Toast } from 'vant';
-import * as sdk from '../../../dist';
+import {
+  Component, Vue, Prop, Watch,
+} from 'vue-property-decorator';
+import {
+  Button, Field, Panel, Toast,
+} from 'vant';
+import * as sdk from '../../../dist/';
 import config from '../api';
 
 @Component({
@@ -48,12 +52,14 @@ export default class ExampleList extends Vue {
 
   /** data */
   actives = ['code'];
+
   options = {
     title: '',
     description: '',
     action: '',
     params: {},
   };
+
   res = '';
 
   /** life cycle */
@@ -88,9 +94,7 @@ export default class ExampleList extends Vue {
 
   @Watch('$route.params.action')
   setOptions(action: string) {
-    const service = config.find(s => {
-      return s.module === this.service;
-    });
+    const service = config.find(s => s.module === this.service);
     if (!service) {
       this.options.title = '';
       this.options.description = '';
@@ -98,9 +102,7 @@ export default class ExampleList extends Vue {
       this.options.action = action;
       return;
     }
-    const options = service.apis.find(a => {
-      return a.action === action;
-    });
+    const options = service.apis.find(a => a.action === action);
     if (options) {
       this.options = options;
     }

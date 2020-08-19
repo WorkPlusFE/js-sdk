@@ -6,11 +6,11 @@ import Email from './email';
 import Network from './network';
 import Device from './device';
 import Contact from './contact';
-import File from "./file";
-import App from "./app";
-import Notification from "./notification";
-import Event from "./event";
-import Util from "./utils";
+import File from './file';
+import App from './app';
+import Notification from './notification';
+import Event from './event';
+import Util from './utils';
 
 interface ApiModule {
   title: string;

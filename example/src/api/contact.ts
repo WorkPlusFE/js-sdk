@@ -80,14 +80,14 @@ export default {
       action: 'openDiscussionById',
       params: {
         discussionId: '0629aad170784c9e810985c443fb0bd6',
-        body_type : 'SHARE',
+        body_type: 'SHARE',
         body: {
-          display_avatar: "媒体id",
+          display_avatar: '媒体id',
           share_type: 'LINK',
           share_message: {
             avatar: 'http://www.icon',
             digest: '这里显示摘要',
-            url: 'www.baidu.com'
+            url: 'www.baidu.com',
           },
         },
       },
@@ -107,7 +107,7 @@ export default {
         appId: 'eb66ba3d-1d83-4104-8119-c6fc3b12cdca',
         domainId: 'workplus',
         orgId: '37a2ef9f-8683-4369-ae7b-121cea149d05',
-        sessionType : 'service'
+        sessionType: 'service',
       },
     },
     {
