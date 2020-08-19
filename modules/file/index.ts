@@ -6,7 +6,6 @@ import openFileDetail from './openFileDetail';
 import readFile from './readFile';
 import selectFile from './selectFile';
 import selectFiles from './selectFiles';
-import toBase64 from './toBase64';
 import upload from './upload';
 import download from './download';
 
@@ -19,7 +18,6 @@ export default {
   readFile,
   selectFile,
   selectFiles,
-  toBase64,
   upload,
   download,
 };
