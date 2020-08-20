@@ -11,17 +11,10 @@ export default {
       action: 'getUserTicket',
       params: {},
     },
-
     {
-      title: '获取 Api 地址',
-      description: '获取当前 App 请求的后台 api 地址。',
-      action: 'getServerInfo',
-      params: {},
-    },
-    {
-      title: '获取租户 ID',
-      description: '获取当前租户 id，即域 id',
-      action: 'getTenantID',
+      title: '生物认证',
+      description: '需要设备具备指纹或者FACE_ID解锁功能，解锁后触发回调，适用于对安全性要求较高的操作。',
+      action: 'biometric',
       params: {},
     },
   ],
