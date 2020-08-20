@@ -5,5 +5,10 @@ export default {
   module: 'app',
   active: false,
   icon: 'photo-o',
-  apis: [],
+  apis: [{
+    title: '路由跳转',
+    description: '根据参数跳转到指定的 App。',
+    action: 'route',
+    params: {},
+  }],
 };

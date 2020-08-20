@@ -28,3 +28,5 @@ export const WORKPLUS_NETWORK = 'WorkPlus_NetInfo';
 export const WORKPLUS_BARCODE_SCANNER = 'WorkPlus_BarcodeScanner';
 /** 轻应用 */
 export const WORKPLUS_LIGHT_APP = 'WorkPlus_LightApp';
+/** 公有云 */
+export const WORKPLUS_PUBLIC_CLOUND  = 'WorkPlus_PublicClound';

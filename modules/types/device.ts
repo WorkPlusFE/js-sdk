@@ -41,3 +41,16 @@ export interface PedometerDataRes {
   /** 如果当前设备计步器不可用，返回-10001 */
   code?: number;
 }
+
+export interface AppInfoRes {
+  /** 应用当前版本 version code */
+  version_code: string;
+  /** 应用当前版本名称 */
+  version_name: string;
+  /** 应用名 */
+  app_name: string;
+  /** 应用包名/bundleId */
+  bundle_id: string;
+  /** 应用图标 */
+  app_icon: string;
+}

@@ -24,5 +24,11 @@ export default {
       action: 'getPedometerData',
       params: {},
     },
+    {
+      title: '获取 App 信息',
+      description: '获取 WorkPlus App 版本等信息。',
+      action: 'getAppInfo',
+      params: {},
+    },
   ],
 };

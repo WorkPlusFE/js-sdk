@@ -1,7 +1,6 @@
 # 设备
 
 ## 获取 IP 地址
-<!-- OK -->
 获取手机设备当前连接网络的 IP 地址。
 
 **使用说明**
@@ -28,7 +27,6 @@ w6s.device.getIpAddress({
 | ipAddress | 手机连接网络的ip地址  |
 
 ## 获取设备信息
-<!-- OK -->
 获取当前设备和 WorkPlus 的一些信息。
 
 **使用说明**
@@ -61,8 +59,7 @@ w6s.device.getDeviceInfo({
 | channel_vendor | Apple or ？|
 
 
-## 获取运动数据 <Badge text="v3.12.1+" type="warning" />
-<!-- OK -->
+## 获取运动数据 <Badge text="v3.12.1+" type="success" />
 获取设备当天凌晨 0 点至当前时间的运动数据。
 
 **使用说明**
@@ -92,3 +89,32 @@ w6s.device.getPedometerData({
 该接口无法获取其他设备的步数，例如运动手环。
 :::
 
+## 获取 App 信息
+
+获取 WorkPlus App 版本等信息。
+
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持  | 支持 |
+
+<CodeWrapper fn="device.getAppInfo">
+
+```js
+w6s.device.getAppInfo({
+  success: function(res) {},
+  fail: function(err) {},
+});
+```
+</CodeWrapper>
+
+**返回数据**
+
+| 参数 | 说明 |
+| - | - | 
+| version_code | 应用当前版本 Version Code  |
+| version_name | 应用当前版本名称  |
+| app_name | 应用名 |
+| bundle_id | 应用包名/bundleId |
+| app_icon | 应用图标，为 base64 字符串 |
