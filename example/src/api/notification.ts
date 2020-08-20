@@ -1,7 +1,7 @@
 // 提示框
 
 export default {
-  title: '通知',
+  title: '* 通知',
   module: 'notification',
   active: false,
   icon: 'photo-o',

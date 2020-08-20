@@ -192,7 +192,7 @@ w6s.image.actionForLongPressImage({
 | - | - | - |
 | imageData | String | base64数据 |
 
-## 转 Base64
+## * 转 Base64
 
 将本地图片转换成 Base64字符串。
 
@@ -206,10 +206,10 @@ w6s.image.actionForLongPressImage({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="file.toBase64">
+<CodeWrapper fn="image.toBase64">
 
 ```js
-w6s.file.toBase64({
+w6s.image.toBase64({
   filePath: 'file://图片本地地址',
   success: function(res) {},
   fail: function(err) {},

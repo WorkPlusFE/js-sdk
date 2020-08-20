@@ -1,23 +1,18 @@
 import chooseFiles from './chooseFiles';
-import getEmailAttachmentDir from './getEmailAttachmentDir';
 import isFileExist from './isFileExist';
-import openEmailAttachment from './openEmailAttachment';
 import openFileDetail from './openFileDetail';
 import readFile from './readFile';
-import selectFile from './selectFile';
-import selectFiles from './selectFiles';
-import upload from './upload';
 import download from './download';
 
 export default {
+  /** 选择文件 */
   chooseFiles,
-  getEmailAttachmentDir,
+  /** 判断文件是否存在 */
   isFileExist,
-  openEmailAttachment,
+  /** 打开文件详情 */
   openFileDetail,
+  /** 本地打开文件 */
   readFile,
-  selectFile,
-  selectFiles,
-  upload,
+  /** 文件下载 */
   download,
 };

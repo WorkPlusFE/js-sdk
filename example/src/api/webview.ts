@@ -1,5 +1,5 @@
 export default {
-  title: '网页',
+  title: '* 网页',
   module: 'webview',
   active: false,
   icon: 'other-pay',

@@ -87,10 +87,10 @@ function getJsSdkBar () {
       collapsable: false,
       sidebarDepth: 1,
       children: [
-        'contact',
         'auth',
         'image',
         'file',
+        'contact',
         'webview',
         'device',
         'app',

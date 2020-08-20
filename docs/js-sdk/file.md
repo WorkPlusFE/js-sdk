@@ -1,60 +1,8 @@
 # 文件
 
-## 单选文件
+## 选择文件
 
-打开 WorkPlus 文件选择管理器，选择单个文件并返回。
-
-**使用说明**
-
-| 客户端   | Android | iOS  |
-| -------- | ------- | ---- |
-| 支持情况 | 支持  | 支持 |
-
-<CodeWrapper fn="file.selectFile">
-
-```js
-w6s.file.selectFile({
-  success: function(res) {},
-  fail: function(err) {},
-});
-```
-</CodeWrapper>
-
-**返回数据**
-
-| 参数 | 说明 |
-| - | - | 
-| filePath | 文件在本机的路径  |
-
-## 多选文件
-
-打开 WorkPlus 文件选择管理器，选择多个文件并返回。
-
-**使用说明**
-
-| 客户端   | Android | iOS  |
-| -------- | ------- | ---- |
-| 支持情况 | 支持  | 支持 |
-
-<CodeWrapper fn="file.selectFiles">
-
-```js
-w6s.file.selectFiles({
-  success: function(res) {},
-  fail: function(err) {},
-});
-```
-</CodeWrapper>
-
-**返回数据**
-
-| 参数 | 说明 |
-| - | - | 
-| filePath | 文件在本机的路径  |
-
-## 文件选择并自动上传
-
-打开 WorkPlus 文件选择管理器，根据参数状态决定单选或多选文件，并上传该文件到后台，返回值带 mediaId。
+打开 WorkPlus 文件选择管理器，支持单选或多选，并自动上传文件到后台媒体中心，返回对应 mediaId。
 
 **使用说明**
 
@@ -83,11 +31,11 @@ w6s.file.chooseFiles({
 
 | 参数 | 类型 | 说明|
 | - | - | - |
-| multiple | Boolean | 单选或多选 |
+| multiple | Boolean | 是否为多选 |
 | file_keys | Array[String] | 已选文件本地地址数组，用于复选 |
-| file_limit.max_select_count | Number | 多选时数量的限制，默认为 9 |
-| file_limit.single_select_size | Number | 单个文件选择大小限制(byte),-1表示不限制，默认为 -1 |
-| file_limit.total_select_size | Number | 所有文件选择大小限制(byte),-1表示不限制，默认为 -1 |
+| file_limit.max_select_count | Number | 非必须，多选时数量的限制，默认为 9 |
+| file_limit.single_select_size | Number | 非必须，单个文件选择大小限制(byte),-1表示不限制，默认为 -1 |
+| file_limit.total_select_size | Number | 非必须，所有文件选择大小限制(byte),-1表示不限制，默认为 -1 |
 
 **返回数据**
 
@@ -194,19 +142,8 @@ w6s.file.isFileExist({
 | - | - | 
 | exist | Boolean, 表示文件是否存在  |
 
-## 文件上传 wip
-
-
-## 文件下载 wip
-
-
-## 转 Base64
-
-将本地图片转换成 Base64字符串。
-
-::: tip 提示
-通常我们通过拍照或者打开相册来获取图片，而图片的访问地址都是本地绝对路径，基于 Webview 的安全机制，本地路径放到 `<img>` src 里，并不能显示出来，此时可以通过该方法把图片转换成 Base64 来使用。
-:::
+## * 文件下载
+下载文件到本地，可以在 WorkPlus 文件选择器中看到。
 
 **使用说明**
 
@@ -214,14 +151,10 @@ w6s.file.isFileExist({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="file.toBase64">
+<CodeWrapper fn="file.download">
 
 ```js
-w6s.file.toBase64({
-  filePath: 'file://图片本地地址',
-  success: function(res) {},
-  fail: function(err) {},
-});
+w6s.file.download();
 ```
 </CodeWrapper>
 
@@ -229,7 +162,6 @@ w6s.file.toBase64({
 
 | 参数 | 类型 | 说明|
 | - | - | - |
-| filePath | String | 图片本地地址 |
 
 **返回数据**
 

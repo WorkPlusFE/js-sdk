@@ -6,18 +6,8 @@ export default {
   active: false,
   icon: 'photo-o',
   apis: [{
-    title: '单选文件',
-    description: '打开 WorkPlus 文件选择管理器，选择单个文件并返回。',
-    action: 'selectFile',
-    params: {},
-  }, {
-    title: '多选文件',
-    description: '打开 WorkPlus 文件选择管理器，选择多个文件并返回。',
-    action: 'selectFiles',
-    params: {},
-  }, {
-    title: '文件选择并自动上传',
-    description: '打开 WorkPlus 文件选择管理器，根据参数状态决定单选或多选文件，并上传该文件到后台，返回值带 mediaId。',
+    title: '选择文件',
+    description: '打开 WorkPlus 文件选择管理器，支持单选或多选，并自动上传文件到后台媒体中心，返回对应 mediaId。',
     action: 'chooseFiles',
     params: {},
   }, {
@@ -36,19 +26,9 @@ export default {
     action: 'isFileExist',
     params: {},
   }, {
-    title: '文件上传 WIP',
-    description: '文件上传。',
-    action: 'upload',
-    params: {},
-  }, {
-    title: '文件下载 WIP',
+    title: '[Custom]文件下载',
     description: '文件下载。',
     action: 'download',
-    params: {},
-  }, {
-    title: '转 Base64 WIP',
-    description: '转 Base64。',
-    action: 'toBase64',
     params: {},
   }],
 };

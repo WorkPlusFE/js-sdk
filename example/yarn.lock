@@ -8683,6 +8683,18 @@ vary@~1.1.2:
   resolved "https://registry.npm.taobao.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
+vconsole-webpack-plugin@^1.4.0:
+  version "1.5.2"
+  resolved "https://registry.npm.taobao.org/vconsole-webpack-plugin/download/vconsole-webpack-plugin-1.5.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvconsole-webpack-plugin%2Fdownload%2Fvconsole-webpack-plugin-1.5.2.tgz#4c25b6cc51add03bb4e1562c4d3653431c89af60"
+  integrity sha1-TCW2zFGt0Du04VYsTTZTQxyJr2A=
+  dependencies:
+    vconsole "^3.3.4"
+
+vconsole@^3.3.4:
+  version "3.3.4"
+  resolved "https://registry.npm.taobao.org/vconsole/download/vconsole-3.3.4.tgz#a7dacd8887b3d3e902e8d18425cda56c34e77f51"
+  integrity sha1-p9rNiIez0+kC6NGEJc2lbDTnf1E=
+
 vendors@^1.0.0:
   version "1.0.3"
   resolved "https://registry.npm.taobao.org/vendors/download/vendors-1.0.3.tgz#a6467781abd366217c050f8202e7e50cc9eef8c0"
@@ -8706,6 +8718,13 @@ vue-class-component@^7.0.2, vue-class-component@^7.1.0:
   version "7.1.0"
   resolved "https://registry.npm.taobao.org/vue-class-component/download/vue-class-component-7.1.0.tgz#b33efcb10e17236d684f70b1e96f1946ec793e87"
   integrity sha1-sz78sQ4XI21oT3Cx6W8ZRux5Poc=
+
+vue-cli-plugin-vconsole@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/vue-cli-plugin-vconsole/download/vue-cli-plugin-vconsole-1.0.1.tgz#7f039a61557f98e2d7aba5f7dcbeab2b26308b71"
+  integrity sha1-fwOaYVV/mOLXq6X33L6rKyYwi3E=
+  dependencies:
+    vconsole-webpack-plugin "^1.4.0"
 
 vue-clipboard2@^0.3.1:
   version "0.3.1"

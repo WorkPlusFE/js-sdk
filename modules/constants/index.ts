@@ -26,3 +26,5 @@ export const WORKPLUS_FILE = 'WorkPlus_Files';
 export const WORKPLUS_NETWORK = 'WorkPlus_NetInfo';
 /** 扫二维码 */
 export const WORKPLUS_BARCODE_SCANNER = 'WorkPlus_BarcodeScanner';
+/** 轻应用 */
+export const WORKPLUS_LIGHT_APP = 'WorkPlus_LightApp';
