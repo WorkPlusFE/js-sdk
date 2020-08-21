@@ -31,4 +31,4 @@ export const WORKPLUS_LIGHT_APP = 'WorkPlus_LightApp';
 /** 公有云 */
 export const WORKPLUS_PUBLIC_CLOUND = 'WorkPlus_PublicClound';
 /** 应用市场 */
-export const WORKPLUS_APP_STORE = 'WorkPlus_AppStore'; 
+export const WORKPLUS_APP_STORE = 'WorkPlus_AppStore';

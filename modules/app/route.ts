@@ -12,7 +12,7 @@ export type AppRouteOptions = AppRouteParams & ExecOptions<AppRouteRes, void>;
  * @module app
  * @version 3.18.0
  */
-export default function biometric(options: AppRouteOptions): Promise<AppRouteRes> {
+export default function route(options: AppRouteOptions): Promise<AppRouteRes> {
   const { success, fail, ...data } = options;
   const params: AppRouteOriginParams = {
     scheme_url: data.schemeUrl,
