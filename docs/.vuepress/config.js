@@ -99,9 +99,9 @@ function getJsSdkBar () {
         'email',
         'pay',
         'eventListener',
-        'notification',
+        // 'notification',
         'shared',
-        'storage',
+        // 'storage',
       ]
     }
   ]

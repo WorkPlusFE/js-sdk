@@ -6,6 +6,7 @@
           <span class="code-panel__title">接口描述</span>
         </div>
         <p class="api-detail__desc">{{ description }}</p>
+        <p class="api-detail__desc">{{ args }}</p>
       </van-panel>
 
       <van-panel v-if="res">
@@ -75,9 +76,11 @@ export default class ExampleList extends Vue {
       ...this.args,
       success: (res: unknown) => {
         this.res = JSON.stringify(res, null, 4);
+        console.log(this.res);
       },
       fail: (err: unknown) => {
         this.res = `调用失败：${err}`;
+        console.log(err);
       },
     });
   }

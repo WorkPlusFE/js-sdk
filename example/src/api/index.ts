@@ -38,7 +38,7 @@ export default [
   Device,
   App,
   Util,
-  Notification,
-  Event,
+  // Notification,
+  // Event,
   Email,
 ] as ApiModule[];
