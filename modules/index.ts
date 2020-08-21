@@ -12,6 +12,7 @@ import * as Email from './email';
 import * as Auth from './auth';
 import Webview from './webview';
 import * as Eventlistener from './eventlistener';
+import * as App from './app';
 
 /** WorkPlus SDK 版本 */
 export const version = '0.0.1';
@@ -43,6 +44,8 @@ export const auth = Auth;
 export const webview = Webview;
 /** 网页事件 */
 export const event = Eventlistener;
+/** 应用 */
+export const app = App;
 
 /** WrokPlus SDK 初始化配置 */
 export const init = core.init;

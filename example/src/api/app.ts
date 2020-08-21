@@ -4,11 +4,12 @@ export default {
   title: '* 应用',
   module: 'app',
   active: false,
-  icon: 'photo-o',
   apis: [{
     title: '路由跳转',
-    description: '根据参数跳转到指定的 App。',
+    description: '根据参数跳转到指定的 App，只在 schemeUrl 为 workplus:// 才有效。',
     action: 'route',
-    params: {},
+    params: {
+      schemeUrl: 'workplus://meeting?type=zoom&action=join',
+    },
   }],
 };
