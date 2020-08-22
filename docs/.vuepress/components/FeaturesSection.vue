@@ -3,7 +3,7 @@
     <section class="wish yesterday">
       <div class="wish-inner">
         <div class="img-wrapper">
-          <img src="./images/001.svg" alt="">
+          <img src="./images/04.svg" alt="">
         </div>
         <div class="text-wrapper">
           <h1>{{ features[0].title }}</h1>
@@ -19,7 +19,7 @@
           <p class="description">{{ features[1].details }}</p>
         </div>
         <div class="img-wrapper">
-          <img src="./images/002.svg" alt="">
+          <img src="./images/02.svg" alt="">
         </div>
       </div>
     </section>
@@ -27,7 +27,7 @@
     <section class="wish tomorrow">
       <div class="wish-inner">
         <div class="img-wrapper">
-          <img src="./images/003.svg" alt="">
+          <img src="./images/03.svg" alt="">
         </div>
         <div class="text-wrapper">
           <h1>{{ features[2].title }}</h1>
@@ -67,7 +67,7 @@ export default {
   section{
     &.wish {
       &.yesterday, &.tomorrow {
-        background: rgba(27,31,35,0.05);
+        background: rgba(27,31,35, 0.02);
       }
       overflow: hidden;
       .wish-inner {
