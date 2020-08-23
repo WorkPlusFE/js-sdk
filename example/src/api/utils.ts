@@ -10,5 +10,10 @@ export default {
     description: '',
     action: 'scanner',
     params: {},
-  }],
+  }, {
+    title: '语音转文本',
+    description: '语音转文本',
+    action: 'voiceToText',
+    params: {},
+  },],
 };

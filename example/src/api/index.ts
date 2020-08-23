@@ -8,9 +8,12 @@ import Device from './device';
 import Contact from './contact';
 import File from './file';
 import App from './app';
-import Notification from './notification';
-import Event from './event';
+// import Notification from './notification';
+// import Event from './event';
 import Util from './utils';
+import User from "./user";
+import Session from "./session";
+import Header from './header';
 
 interface ApiModule {
   title: string;
@@ -29,10 +32,13 @@ interface ApiItem {
 
 export default [
   Auth,
+  User,
   Image,
   File,
   Contact,
   Webview,
+  Header,
+  Session,
   Location,
   Network,
   Device,

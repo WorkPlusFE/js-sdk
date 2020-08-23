@@ -1,4 +1,3 @@
-import WPStorage from './storage';
 import * as core from './core';
 import Image from './image';
 import Contact from './contact';
@@ -17,13 +16,35 @@ import * as App from './app';
 /** WorkPlus SDK 版本 */
 export const version = '0.0.1';
 export const native = {};
-/** WorkPlus SDK 提供的 Storage */
-export const Storage = WPStorage;
 
 /** 图像接口 */
 export const image = Image;
+
+
 /** 联系人接口 */
-export const contact = Contact;
+export const contact = Contact.contact;
+/** 用户接口 */
+export const user = Contact.user;
+/** 聊天会话接口 */
+export const session = Contact.session;
+
+/** 应用 */
+export const app = {
+  ...App,
+  ...Contact.app,
+};
+
+/** 网页接口 */
+export const webview = Webview.webview;
+/** 网页头部接口 */
+export const header = Webview.header;
+
+/** 工具类接口 */
+export const util = {
+  ...Webview.util,
+  ...Util,
+};
+
 /** 地理位置接口 */
 export const location = Location;
 /** 设备信息接口 */
@@ -34,18 +55,12 @@ export const eventlog = EventLog;
 export const file = File;
 /** 网络信息接口 */
 export const network = Network;
-/** 工具类接口 */
-export const util = Util;
 /** 邮箱接口 */
 export const email = Email;
 /** 认证接口 */
 export const auth = Auth;
-/** 网页接口 */
-export const webview = Webview;
 /** 网页事件 */
 export const event = Eventlistener;
-/** 应用 */
-export const app = App;
 
 /** WrokPlus SDK 初始化配置 */
 export const init = core.init;

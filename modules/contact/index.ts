@@ -9,29 +9,37 @@ import getUserInfoByUserId from './getUserInfoByUserId';
 import showUserInfoByUsername from './showUserInfoByUsername';
 import openDiscussionById from './openDiscussionById';
 import createDiscussionChat from './createDiscussionChat';
-import showAppChatViewById from './showAppChatViewById';
-import searchInApp from './searchInApp';
-import showAppListById from './showAppListById';
 import selectContacts from './selectContacts';
 import selectDiscussionMembers from './selectDiscussionMembers';
-import selectContactsCache from './selectContactsCache';
 
+import searchInApp from './searchInApp';
+import showAppChatViewById from './showAppChatViewById';
+import showAppListById from './showAppListById';
+
+// contact模块将会被拆分成3个模块，包括 用户user、联系人contact、聊天session及应用app
 export default {
-  getSingleContact,
-  getContacts,
-  getEmployeesFromCurrentOrg,
-  getCurrentUserInfo,
-  getMobileContacts,
-  showUserChatViewByUser,
-  getCurrentEmployeeInfo,
-  getUserInfoByUserId,
-  showUserInfoByUsername,
-  openDiscussionById,
-  createDiscussionChat,
-  showAppChatViewById,
-  searchInApp,
-  showAppListById,
-  selectContacts,
-  selectDiscussionMembers,
-  selectContactsCache,
+  contact: {
+    getSingleContact,
+    getContacts,
+    getEmployeesFromCurrentOrg,
+    selectContacts,
+    getMobileContacts,
+  },
+  user: {
+    getCurrentUserInfo,
+    getCurrentEmployeeInfo,
+    getUserInfoByUserId,
+    showUserInfoByUsername,
+  },
+  session: {
+    showUserChatViewByUser,
+    openDiscussionById,
+    createDiscussionChat,
+    selectDiscussionMembers,
+  },
+  app: {
+    searchInApp,
+    showAppChatViewById,
+    showAppListById,
+  },
 };

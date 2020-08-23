@@ -88,10 +88,13 @@ function getJsSdkBar () {
       sidebarDepth: 1,
       children: [
         'auth',
+        'user',
         'image',
         'file',
         'contact',
         'webview',
+        'header',
+        'session',
         'device',
         'app',
         'network',
