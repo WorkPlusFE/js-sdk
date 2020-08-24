@@ -20,7 +20,6 @@ export const native = {};
 /** 图像接口 */
 export const image = Image;
 
-
 /** 联系人接口 */
 export const contact = Contact.contact;
 /** 用户接口 */

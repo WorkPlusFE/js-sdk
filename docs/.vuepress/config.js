@@ -27,8 +27,9 @@ module.exports = {
     logo: '/logo.png',
     nav: [
       { text: '轻应用', link: '/light-app/' },
-      { text: 'JS-SDK', link: '/js-sdk/' },
       { text: 'API 文档', link: '/api/' },
+      { text: 'JS-SDK', link: '/js-sdk/' },
+      { text: 'Cordova 文档', link: 'https://open.workplus.io/cordova/' },
       { text: '开发工具', link: '/dev-tools' },
       { text: '常见问题', link: '/qa' },
     ],
