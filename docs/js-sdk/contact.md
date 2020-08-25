@@ -64,6 +64,34 @@ w6s.contact.getContacts({
 
 打开`当前组织`的联系人列表，选择多个联系人，返回雇员信息。
 
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持  | 支持 |
+
+<CodeWrapper fn="contact.getEmployeesFromCurrentOrg">
+
+```js
+w6s.contact.getEmployeesFromCurrentOrg({
+  hideMe: true,
+  filterSenior: 1,
+  selectedEmpList: ['联系人列表信息，用于复选'],
+  success: function(res) {},
+  fail: function(err) {},
+});
+```
+</CodeWrapper>
+
+**参数说明**
+
+| 参数 | 类型 | 说明|
+| - | - | - |
+| hideMe |  Boolean | 表示在选择联系人的时候，是否显示自己 |
+| filterSenior | Number | 1 表示过滤高管, 0 表示不过滤 | 
+| selectedEmpList | Array | 非必须，雇员列表信息，用于复选 | 
+
+
 ## 打开通用选择人员界面 <Badge text="v3.6.0+" type="warning" />
 
 该接口打开通用的选择界面，此界面能选择组织内的雇员信息, 用户的星标联系人等。
@@ -122,6 +150,21 @@ w6s.contact.selectContacts({
 <CodeWrapper fn="contact.getMobileContacts">
 
 ```js
-w6s.contact.getMobileContacts();
+w6s.contact.getMobileContacts(
+  success: function(res) {},
+  fail: function(err) {},
+);
 ```
 </CodeWrapper>
+
+返回的数据会以英文字母拆分：
+
+```js
+{
+  "a": {"name":"allin(联系人名称)", "tel":"123456(联系方式)"}
+  "b": [{"name":"ball(联系人名称)", "tel":"135xxx(联系方式)"},
+       {"name":"boy(联系人名称)", "tel":"137xxx(联系方式)"}, 
+        ...],
+  ...
+}
+```

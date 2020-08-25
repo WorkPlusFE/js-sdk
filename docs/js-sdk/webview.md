@@ -102,17 +102,160 @@ w6s.webview.share({
 
 根据参数控制屏幕横屏显示或者竖屏显示。
 
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持  | 支持 |
+
+<CodeWrapper fn="webview.changeOrientation">
+
+```js
+w6s.webview.changeOrientation({
+  landscape: true,
+  lock: true,
+});
+```
+</CodeWrapper>
+
+**参数说明**
+
+| 参数 | 类型 | 说明|
+| - | - | - |
+| landscape | Boolean | 表示横屏或者竖屏，非必须 |
+| lock | Boolean | 表示锁定当前横屏或者竖屏的状态, false 表示 app 随用户系统设置来控制旋转，默认是 false |
+
 ## 添加水印
 
 给页面添加水印。
 
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持  | 支持 |
+
+<CodeWrapper fn="webview.addWaterMask">
+
+```js
+w6s.webview.addWaterMask({
+  textColor: '#000000',
+  orgId: 'xxxid',
+  alpha: 1.0,
+  verticalPadding: 40,
+  fontSize: 16,
+});
+```
+</CodeWrapper>
+
+**参数说明**
+
+| 参数 | 类型 | 说明|
+| - | - | - |
+| textColor | String | 字体颜色 |
+| orgId | String | 组织id，传值则以这个组织下的雇员名显示内容，可不传，默认当前组织 |
+| alpha | Number | 水印文字透明度 0-1.0之间，可不传， 默认1.0 |
+| verticalPadding | Number | 水印文字上下的垂直高度（密度），可不传，默认40 |
+| fontSize | Number | 字体大小，可不传，默认16 |
+
 ## 移除水印
+
+给页面移除水印。
+
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持  | 支持 |
+
+<CodeWrapper fn="webview.removeWaterMask">
+
+```js
+w6s.webview.removeWaterMask();
+```
+</CodeWrapper>
+
 
 ## 注册摇一摇监听
 
+注册摇一摇监听。
+
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持  | 支持 |
+
+<CodeWrapper fn="webview.registerShakeListener">
+
+```js
+w6s.webview.registerShakeListener();
+```
+</CodeWrapper>
+
+前端需要实现`onWorkplusShake()`方法, 在该处执行自己的业务, 摇一摇后将在该方法回调。
+
+::: warning onWorkplusShake
+该方法必须为全局方法，并且方法名不可以转换。
+:::
+
+
 ## 注销摇一摇监听
+
+注销摇一摇监听。
+
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持  | 支持 |
+
+<CodeWrapper fn="webview.unregisterShakeListener">
+
+```js
+w6s.webview.unregisterShakeListener();
+```
+</CodeWrapper>
+
 
 ## 微信分享(会话/朋友圈)
 
 根据接口直接调起微信分享页面。
 
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持  | 支持 |
+
+<CodeWrapper fn="webview.wxShare">
+
+```js
+w6s.webview.wxShare({
+  app_id: 'wx63f4a539bf345965',
+  title: '这是一个标题',
+  type : 'webpage',
+  description: '这是概要',
+  thumb: 'base64://xxxxx==',
+  scene: 0,
+  data: { 'url': 'https://workplus.io' }
+});
+```
+</CodeWrapper>
+
+**参数说明**
+
+| 参数 | 类型 | 说明|
+| - | - | - |
+| app_id | String | 微信的`AppId` |
+| title | String | 分享的标题 |
+| type | String | 分享的消息类型，webpage(网页链接), image(图片) |
+| description | String | 描述 |
+| thumb | String | 缩略图数据，为 base64 |
+| scene | Number | 0 为聊天界面 1为朋友圈 |
+| data | Object | {'url': 'www.workplus.io'} or {'image': 'base64://AAAAAA=='} |
+
+`data`参数的值，请注意:
+
+* type 为`webpage`时，url 字段为分享的链接；
+* type 为`image`时，image 为分享的图片链接或者是 base64。

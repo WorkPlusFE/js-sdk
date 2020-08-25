@@ -1,6 +1,5 @@
 import * as core from '../core';
 import { ContactOption } from '../types/contact';
-
 import { WORKPLUS_CONTACT } from '../constants';
 
 /**
