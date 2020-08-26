@@ -12,6 +12,7 @@ import rightButtons from './rightButtons';
 import title from './title';
 import visibleLeftButton from './visibleLeftButton';
 import voiceToText from './voiceToText';
+import copyText from './copyText';
 import share from './share';
 import wxShare from './wxShare';
 import registerShakeListener from './registerShakeListener';
@@ -41,6 +42,8 @@ export default {
   util: {
     /** 语音转文本 */
     voiceToText,
+    /** 复制文本 */
+    copyText,
   },
   header: {
     /** 更换左侧按钮和定义动作 */

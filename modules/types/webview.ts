@@ -116,3 +116,8 @@ export interface VoiceToTextRes {
   /** 语音转出的文本 */
   message: string;
 }
+
+export interface CopyTextParams {
+  /** 要复制的文本 */
+  text: string;
+}
