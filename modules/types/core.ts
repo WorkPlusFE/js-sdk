@@ -19,11 +19,11 @@ export interface MockOptions {
   [key: string]: { [key: string]: Function };
 }
 
-interface CordovaJsUri {
+export interface CordovaJsUri {
   /** iOS cordova.js 的完整地址 */
-  iOS: string;
+  iOS?: string;
   /** 安卓 cordova.js 的完整地址 */
-  android: string;
+  android?: string;
 }
 
 /** Cordova 调用传参 */

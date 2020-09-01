@@ -1,12 +1,12 @@
 import { inWorkPlus, scriptGenerator } from './utils';
-import { ImportCordovaConfig } from '../types/import-cordova';
+import { ImportCordovaOptions } from '../types/import-cordova';
 import CordovaImportInstance from './cordovaImportInstance';
 
-export default function cordovaImportInit(config: ImportCordovaConfig): void {
+export default function cordovaImportInit(options?: ImportCordovaOptions): void {
   try {
     if (!inWorkPlus()) return;
 
-    const lib = new CordovaImportInstance(config);
+    const lib = new CordovaImportInstance(options);
     const importUri = lib.getImportUri();
     scriptGenerator(importUri);
   } catch (error) {

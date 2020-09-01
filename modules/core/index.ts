@@ -53,7 +53,7 @@ class Core {
 
     if (!window.cordova && !this.isReday) {
       // 注入 Cordova
-      injectCordova(options?.host);
+      injectCordova(options?.cordovajs);
     }
 
     // 设置超时

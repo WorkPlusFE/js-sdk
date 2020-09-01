@@ -6,3 +6,8 @@ export interface ImportCordovaConfig {
 }
 
 export type Platform = 'iOS' | 'android' | 'local';
+
+export interface ImportCordovaOptions {
+  iOS?: string;
+  android?: string;
+}

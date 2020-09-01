@@ -1,4 +1,4 @@
-import { ImportCordovaConfig, Platform } from '../types/import-cordova';
+import { ImportCordovaConfig, ImportCordovaOptions, Platform } from '../types/import-cordova';
 import config from './config';
 import {
   getCordovaJsUriByPlatform,
@@ -11,8 +11,8 @@ import {
 
 export default class CordovaImportInstance {
   private config: ImportCordovaConfig;
-  constructor(options: ImportCordovaConfig) {
-    this.config = Object.assign(JSON.parse(JSON.stringify(config)), options);
+  constructor(options?: ImportCordovaOptions) {
+    this.config = Object.assign(JSON.parse(JSON.stringify(config)), { cordovajs: { ...options } });
   }
 
   get userAgent(): string {
