@@ -127,7 +127,9 @@ function getLightAppBar (group) {
       collapsable: false,
       sidebarDepth: 2,
       children: [
+        'noun',
         'sso',
+        'message',
         'notify',
         'workbench',
       ]
