@@ -31,7 +31,9 @@ export default class CordovaImportInstance {
     if (this.mustUseHttpModel()) {
       const httpUri = getCordovaJsUriByPlatform(this.config, platform);
       if (!httpUri && process.env.NODE_ENV === 'development') {
-        console.warn('当前应用环境适合使 http(s):// 方式加载 cordova.js，请设置对应平台的 cordova.js 访问地址！');
+        console.warn(
+          '当前应用环境适合使 http(s):// 方式加载 cordova.js，请设置对应平台的 cordova.js 访问地址！',
+        );
       }
       if (httpUri) return httpUri;
     }
