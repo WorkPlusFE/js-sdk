@@ -1,17 +1,12 @@
-import { inWorkPlus, isValidHost, scriptGenerator } from './utils';
+import { inWorkPlus, scriptGenerator } from './utils';
+import { ImportCordovaConfig } from '../types/import-cordova';
 import CordovaImportInstance from './cordovaImportInstance';
 
-export default function cordovaImportInit(host?: string): void {
+export default function cordovaImportInit(config: ImportCordovaConfig): void {
   try {
     if (!inWorkPlus()) return;
 
-    if (host) {
-      if (!isValidHost(host)) {
-        throw new Error('Please enter a valid host, such as //workplus.io/');
-      }
-    }
-
-    const lib = new CordovaImportInstance(host);
+    const lib = new CordovaImportInstance(config);
     const importUri = lib.getImportUri();
     scriptGenerator(importUri);
   } catch (error) {

@@ -2,8 +2,8 @@ export interface CoreOptions {
   /** 调试模式 */
   debug?: boolean;
 
-  /** import-cordova 配置host */
-  host?: string;
+  /** 配置 cordovajs 不同平台的访问地址 */
+  cordovajs?: CordovaJsUri;
 
   /** 接口超时时间，单位毫秒 */
   timeout?: number;
@@ -17,6 +17,13 @@ export interface CoreOptions {
 
 export interface MockOptions {
   [key: string]: { [key: string]: Function };
+}
+
+interface CordovaJsUri {
+  /** iOS cordova.js 的完整地址 */
+  iOS: string;
+  /** 安卓 cordova.js 的完整地址 */
+  android: string;
 }
 
 /** Cordova 调用传参 */

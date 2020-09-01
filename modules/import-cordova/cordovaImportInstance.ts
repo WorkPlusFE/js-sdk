@@ -11,9 +11,8 @@ import {
 
 export default class CordovaImportInstance {
   private config: ImportCordovaConfig;
-  constructor(host?: string) {
-    this.config = JSON.parse(JSON.stringify(config));
-    this.config.SDK_HOST = host || config.SDK_HOST;
+  constructor(options: ImportCordovaConfig) {
+    this.config = Object.assign(JSON.parse(JSON.stringify(config)), options);
   }
 
   get userAgent(): string {
@@ -23,14 +22,18 @@ export default class CordovaImportInstance {
   /**
    * 返回注入的地址
    *
-   * 默认使用 local模式，当检测到是 https协议 (安卓) 或在 iframe 中打开时，强制使用 http 模式
+   * 默认使用 local模式，
+   * 当检测到是 https协议 (安卓) 或在 iframe 中打开时，
+   * 若iOS或安卓的 cordovajs 地址存在，强制使用 http 模式
    */
   getImportUri(): string {
-    // 以 es模块 初始化的情况下，不传人 SDK_HOST，默认只需要支持 local
-    if (this.mustUseHttpModel() && this.config.SDK_HOST) {
-      const platform = this.getCurrentPlatformByUserAgent();
-
-      return getCordovaJsUriByPlatform(this.config, platform);
+    const platform = this.getCurrentPlatformByUserAgent();
+    if (this.mustUseHttpModel()) {
+      const httpUri = getCordovaJsUriByPlatform(this.config, platform);
+      if (!httpUri && process.env.NODE_ENV === 'development') {
+        console.warn('当前应用环境适合使 http(s):// 方式加载 cordova.js，请设置对应平台的 cordova.js 访问地址！');
+      }
+      if (httpUri) return httpUri;
     }
 
     return this.config.cordovajs.local;
