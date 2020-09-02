@@ -5,22 +5,22 @@
 
 通过使用 WorkPlus JS-SDK，轻应用开发者可高效地使用拍照、选择照片、位置等手机系统的能力，同时可以直接使用分享、扫一扫及选择人员等定制能力，为用户提供更优质的应用使用体验。
 
-[点击查看文档](https://open.workplus.io/v4/js-sdk/)
+[查看 JS-SDK 文档](https://open.workplus.io/v4/js-sdk/)
 
 特性：
 
-* 📦 开箱即用，`cordova.js`智能注入，支持模拟数据；
+* 📦 开箱即用，`cordova.js`自动注入，支持数据模拟；
 * 📎 所有方法无须等待`deviceready`，支持`Promise`及`callback`的调用方式;
-* ⚙️ 支持直接`script`标签引入，支持基于`webpack`等工具的按需引入；
+* ⚙️ 支持`script`标签直接引入，支持基于`webpack`等工具的按需引入；
 * 🔒 基于`TypeScript`编写，质量优良、提示完善；
-* 🎉 10+个模块，轻松应付各种业务需求。
+* 🎉 内含 10+ 个功能模块，轻松应付各种业务需求。
 
 ## 安装及使用
 
 一、基于`npm`包的方式引入：
 
 ```sh
-npm install @w6s/sdk --save
+npm install @w6s/sdk --save # yarn add @w6s/sdk
 ```
 
 使用：
@@ -42,7 +42,7 @@ w6s.auth.getUserTicket({
 });
 ```
 
-如果需要以`script`标签直接引入，相关资源说明请看[这里]()
+如果需要以`script`标签直接引入，相关资源说明请看[这里]()。
 
 ## License
 
