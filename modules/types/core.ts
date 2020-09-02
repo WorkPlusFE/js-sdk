@@ -5,6 +5,9 @@ export interface CoreOptions {
   /** 配置 cordovajs 不同平台的访问地址 */
   cordovajs?: CordovaJsUri;
 
+  /** 若为true， 将强制以 http 的方式注入 cordovajs */
+  useHttp?: boolean;
+
   /** 接口超时时间，单位毫秒 */
   timeout?: number;
 

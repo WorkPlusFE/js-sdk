@@ -2,6 +2,7 @@ export interface ImportCordovaConfig {
   cordovajs: {
     [key in Platform]: string;
   };
+  useHttp: boolean;
   pcSDKUri: string;
 }
 

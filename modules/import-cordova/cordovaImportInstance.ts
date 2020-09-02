@@ -11,8 +11,13 @@ import {
 
 export default class CordovaImportInstance {
   private config: ImportCordovaConfig;
-  constructor(options?: ImportCordovaOptions) {
-    this.config = Object.assign(JSON.parse(JSON.stringify(config)), { cordovajs: { ...options } });
+  constructor(options?: ImportCordovaOptions, useHttp?: boolean) {
+    this.config = Object.assign(JSON.parse(JSON.stringify(config)), {
+      cordovajs: {
+        ...options,
+      },
+      useHttp,
+    });
   }
 
   get userAgent(): string {
@@ -28,7 +33,7 @@ export default class CordovaImportInstance {
    */
   getImportUri(): string {
     const platform = this.getCurrentPlatformByUserAgent();
-    if (this.mustUseHttpModel()) {
+    if (this.mustUseHttpModel() || this.config.useHttp) {
       const httpUri = getCordovaJsUriByPlatform(this.config, platform);
       if (!httpUri && process.env.NODE_ENV === 'development') {
         console.warn(

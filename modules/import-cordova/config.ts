@@ -9,6 +9,9 @@ const config: ImportCordovaConfig = {
     android: '',
   },
 
+  // 是否使用 http 模式，若为 true，将强制使用 http 模式
+  useHttp: false,
+
   // =.=!
   pcSDKUri: '',
 };
