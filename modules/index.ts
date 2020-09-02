@@ -14,7 +14,7 @@ import * as Eventlistener from './eventlistener';
 import * as App from './app';
 
 /** WorkPlus SDK 版本 */
-export const version = '0.0.1';
+export const version = '__VERSION__';
 export const native = {};
 
 /** 图像接口 */

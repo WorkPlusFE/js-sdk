@@ -10,7 +10,7 @@
 特性：
 
 * 📦 开箱即用，`cordova.js`自动注入，支持数据模拟；
-* 📎 所有方法无须等待`deviceready`，支持`Promise`及`callback`的调用方式;
+* 📎 所有方法无须等待`deviceready`，支持`Promise`及`callback`的调用方式；
 * ⚙️ 支持`script`标签直接引入，支持基于`webpack`等工具的按需引入；
 * 🔒 基于`TypeScript`编写，质量优良、提示完善；
 * 🎉 内含 10+ 个功能模块，轻松应付各种业务需求。
