@@ -12,7 +12,7 @@ interface CopyTextOptions extends ExecOptions<void, void>, CopyTextParams {}
  * @module webview
  * @returns {Promise<void>}
  */
-function copyText(options: CopyTextOptions) {
+function copyText(options: CopyTextOptions): void {
   return core.execSync(WORKPLUS_WEBVIEW, 'copyText', [options.text]);
 }
 
