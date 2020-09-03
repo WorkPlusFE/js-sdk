@@ -1,6 +1,6 @@
 import * as core from './core';
 import Image from './image';
-import Contact from './contact';
+import * as Contact from './contact';
 import * as Location from './location';
 import Device from './device';
 import EventLog from './eventlog';
@@ -9,9 +9,12 @@ import * as Network from './network';
 import Util from './util';
 import * as Email from './email';
 import * as Auth from './auth';
-import Webview from './webview';
 import * as Eventlistener from './eventlistener';
 import * as App from './app';
+import * as Session from './session';
+import * as User from './user';
+import * as Header from './header';
+import * as Webview from './webview';
 
 /** WorkPlus SDK 版本 */
 export const version = '__VERSION__';
@@ -21,28 +24,25 @@ export const native = {};
 export const image = Image;
 
 /** 联系人接口 */
-export const contact = Contact.contact;
+export const contact = Contact;
+
 /** 用户接口 */
-export const user = Contact.user;
+export const user = User;
+
 /** 聊天会话接口 */
-export const session = Contact.session;
+export const session = Session;
 
 /** 应用 */
-export const app = {
-  ...App,
-  ...Contact.app,
-};
+export const app = App;
 
 /** 网页接口 */
-export const webview = Webview.webview;
+export const webview = Webview;
+
 /** 网页头部接口 */
-export const header = Webview.header;
+export const header = Header;
 
 /** 工具类接口 */
-export const util = {
-  ...Webview.util,
-  ...Util,
-};
+export const util = Util;
 
 /** 地理位置接口 */
 export const location = Location;

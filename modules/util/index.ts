@@ -1,16 +1,12 @@
-import { parse, stringify } from 'query-string';
 import scanner from './scanner';
-import share from '../webview/share';
-import registerShakeListener from '../webview/registerShakeListener';
-import unregisterShakeListener from '../webview/unregisterShakeListener';
-import wxShare from '../webview/wxShare';
+import voiceToText from './voiceToText';
+import copyText from './copyText';
 
 export default {
+  /** 扫描二维码 */
   scanner,
-  share,
-  registerShakeListener,
-  unregisterShakeListener,
-  wxShare,
-  parse,
-  stringify,
+  /** 语音转文本 */
+  voiceToText,
+  /** 复制文本 */
+  copyText,
 };
