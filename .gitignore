@@ -44,3 +44,5 @@ dist
 # Editor directories and files
 .idea
 .vscode
+
+RELEASE_NOTE*.md

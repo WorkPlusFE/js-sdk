@@ -22,7 +22,6 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "demo": "npm run build && cd example && npm run serve",
-    "prepublishOnly": "npm run lint && npm run test",
     "release": "bash scripts/release.sh",
     "release:note": "node scripts/genReleaseNote.js",
     "release:version": "node scripts/replaceVersion.js"
