@@ -3,8 +3,8 @@
   "version": "1.0.0-alpha.0",
   "description": "WorkPlusFE JavaScript SDK.",
   "main": "index.js",
-  "main:min": "dist/sdk.min.js",
-  "module": "dist/sdk.mjs",
+  "main:min": "sdk.min.js",
+  "module": "sdk.mjs",
   "typings": "index.d.ts",
   "publishConfig": {
     "access": "public"
@@ -79,19 +79,17 @@
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3",
     "uppercamelcase": "^3.0.0",
-    "vuepress": "^1.2.0"
-  },
-  "engines": {
-    "node": ">= 10.16.0"
-  },
-  "dependencies": {
+    "vuepress": "^1.2.0",
     "@chenfengyuan/vue-qrcode": "^1.0.2",
     "@vuepress/plugin-back-to-top": "^1.5.2",
     "@w6s/vuepress-code-wrapper": "1.1.2",
     "element-ui": "^2.13.2",
-    "moment": "^2.27.0",
-    "query-string": "^6.9.0"
+    "moment": "^2.27.0"
   },
+  "engines": {
+    "node": ">= 10.16.0"
+  },
+  "dependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"

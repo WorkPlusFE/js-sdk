@@ -20,7 +20,8 @@
 一、基于`npm`包的方式引入：
 
 ```sh
-npm install @w6s/sdk --save # yarn add @w6s/sdk
+npm install @w6s/sdk --save 
+# yarn add @w6s/sdk
 ```
 
 使用：
