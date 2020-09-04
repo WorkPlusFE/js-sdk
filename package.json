@@ -1,6 +1,6 @@
 {
   "name": "@w6s/sdk",
-  "version": "0.10.2",
+  "version": "0.1.16",
   "description": "WorkPlusFE JavaScript SDK.",
   "main": "index.js",
   "main:min": "dist/sdk.min.js",
@@ -17,14 +17,15 @@
     "pretest": "npm run build",
     "build:common": "tsc -P modules/tsconfig.commonjs.json",
     "build:prod": "cross-env NODE_ENV=production rollup -c scripts/rollup.config.js",
-    "build": "rimraf dist && npm run build:common && npm run build:prod && cp ./{package.json,README.md} ./dist/ && node scripts/replaceVersion.js",
+    "build": "rimraf dist && npm run build:common && npm run build:prod && cp ./{package.json,README.md} ./dist/",
     "watch": "rollup -c -w",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "demo": "npm run build && cd example && npm run serve",
     "prepublishOnly": "npm run lint && npm run test",
     "release": "bash scripts/release.sh",
-    "release:note": "node scripts/genReleaseNote.js"
+    "release:note": "node scripts/genReleaseNote.js",
+    "release:version": "&& node scripts/replaceVersion.js"
   },
   "keywords": [
     "WorkPlusFE",
@@ -91,5 +92,10 @@
     "element-ui": "^2.13.2",
     "moment": "^2.27.0",
     "query-string": "^6.9.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }

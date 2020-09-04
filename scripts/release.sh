@@ -15,26 +15,28 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # lint
   echo "# lint"
-  #npm run lint
+  npm run lint
 
   # build
   echo "# build"
   VERSION=$VERSION 
-  # npm version "$VERSION"
   npm run build
 
   # commit
   echo "# commit"
-  # git add -A
-  # git commit -m "build: build $VERSION"
+  git add -A
+  git commit -m "build: build $VERSION"
+  npm version "$VERSION" --message "build: release $VERSION"
 
-  # generate release note
-  # npm run release:note
+  # generate release
+  echo "# generate release"
+  npm run release:note
+  npm run release:version
 
   # publish
   echo "# publish"
-  # git push origin refs/tags/v"$VERSION"
-  # git push
+  git push origin refs/tags/v"$VERSION"
+  git push
   
-  # npm publish
+  npm publish
 fi
