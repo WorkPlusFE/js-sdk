@@ -25,7 +25,7 @@
     "prepublishOnly": "npm run lint && npm run test",
     "release": "bash scripts/release.sh",
     "release:note": "node scripts/genReleaseNote.js",
-    "release:version": "&& node scripts/replaceVersion.js"
+    "release:version": "node scripts/replaceVersion.js"
   },
   "keywords": [
     "WorkPlusFE",
