@@ -25,16 +25,16 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # commit
   echo "# commit"
-  git add -A
-  git commit -m "build: build $VERSION"
+  # git add -A
+  # git commit -m "build: build $VERSION"
 
   # generate release note
   # npm run release:note
 
   # publish
   echo "# publish"
-  git push origin refs/tags/v"$VERSION"
-  git push
+  # git push origin refs/tags/v"$VERSION"
+  # git push
   
-  npm publish
+  # npm publish
 fi
