@@ -14,14 +14,17 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "Releasing $VERSION ..."
 
   # lint
+  echo "# lint"
   npm run lint
 
   # build
+  echo "# build"
   VERSION=$VERSION 
   npm version "$VERSION"
   npm run build
 
   # commit
+  echo "# commit"
   git add .
   git commit -m "build: build $VERSION"
 
@@ -29,6 +32,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # npm run release:note
 
   # publish
+  echo "# publish"
   git push origin refs/tags/v"$VERSION"
   git push
   
