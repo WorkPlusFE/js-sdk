@@ -20,7 +20,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # build
   echo "# build"
   VERSION=$VERSION 
-  npm version "$VERSION"
+  # npm version "$VERSION"
   npm run build
 
   # commit
