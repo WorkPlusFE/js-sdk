@@ -91,10 +91,5 @@
     "element-ui": "^2.13.2",
     "moment": "^2.27.0",
     "query-string": "^6.9.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
   }
 }
