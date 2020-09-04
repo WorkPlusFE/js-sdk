@@ -17,14 +17,14 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "# lint"
   npm run lint
 
+  # commit
+  echo "# commit"
+  npm version "$VERSION" --message "build: release $VERSION"
+
   # build
   echo "# build"
   VERSION=$VERSION 
   npm run build
-
-  # commit
-  echo "# commit"
-  npm version "$VERSION" --message "build: release $VERSION"
 
   # generate release
   echo "# generate release"
