@@ -11,7 +11,7 @@ cc({
       pkg.version = `v${version}`;
       return pkg;
     },
-  }.
+  },
 }).pipe(fileStream).on('close', () => {
   console.log(`Generated release note at ${file}`);
 });
