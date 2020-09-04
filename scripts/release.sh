@@ -15,7 +15,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # lint
   echo "# lint"
-  npm run lint
+  #npm run lint
 
   # build
   echo "# build"
