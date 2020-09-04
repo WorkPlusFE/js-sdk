@@ -3,8 +3,8 @@
   "version": "1.0.0-alpha.2",
   "description": "WorkPlusFE JavaScript SDK.",
   "main": "index.js",
-  "main:min": "sdk.min.js",
-  "module": "sdk.mjs",
+  "main:min": "dist/sdk.min.js",
+  "module": "dist/sdk.mjs",
   "typings": "index.d.ts",
   "publishConfig": {
     "access": "public"
