@@ -185,15 +185,15 @@ w6s.webview.rightButtons({
 
 | 图标编号 | 图标  | 图标编号 |  图标 |
 |--------|-----------| --------|-----------|
-| 1 | ![ICON_1](/header/ICON_1.png) | 2 | ![ICON_1](/header/ICON_2.png) |
-| 3 | ![ICON_1](/header/ICON_3.png) | 4 | ![ICON_1](/header/ICON_4.png) |
-| 5 | ![ICON_1](/header/ICON_5.png) | 6 | ![ICON_1](/header/ICON_6.png) |
-| 7 | ![ICON_1](/header/ICON_7.png) | 8 | ![ICON_1](/header/ICON_8.png) |
-| 9 | ![ICON_1](/header/ICON_9.png) | 10 | ![ICON_1](/header/ICON_10.png) |
-| 11 | ![ICON_1](/header/ICON_11.png) | 12 | ![ICON_1](/header/ICON_12.png) |
-| 13 | ![ICON_1](/header/ICON_13.png) | 14 | ![ICON_1](/header/ICON_14.png) |
-| 15 | ![ICON_1](/header/ICON_15.png) | 16 | ![ICON_1](/header/ICON_16.png) |
-| 17 | ![ICON_1](/header/ICON_17.png) | |
+| 1 | <img :src="$withBase('/header/ICON_1.png')" alt="icon1" width="40px">  | 2 | <img :src="$withBase('/header/ICON_2.png')" alt="icon2" width="40px">  |
+| 3 | <img :src="$withBase('/header/ICON_3.png')" alt="icon3" width="40px">  | 4 | <img :src="$withBase('/header/ICON_4.png')" alt="icon4" width="40px">  |
+| 5 | <img :src="$withBase('/header/ICON_5.png')" alt="icon5" width="40px">  | 6 | <img :src="$withBase('/header/ICON_6.png')" alt="icon6" width="40px">  |
+| 7 | <img :src="$withBase('/header/ICON_7.png')" alt="icon7" width="40px">  | 8 | <img :src="$withBase('/header/ICON_8.png')" alt="icon8" width="40px">  |
+| 9 | <img :src="$withBase('/header/ICON_9.png')" alt="icon9" width="40px">  | 10 | <img :src="$withBase('/header/ICON_10.png')" alt="icon10" width="40px">  |
+| 11 | <img :src="$withBase('/header/ICON_11.png')" alt="icon11" width="40px">  | 12 | <img :src="$withBase('/header/ICON_12.png')" alt="icon12" width="40px">  |
+| 13 | <img :src="$withBase('/header/ICON_13.png')" alt="icon13" width="40px">  | 14 | <img :src="$withBase('/header/ICON_14.png')" alt="icon14" width="40px">  |
+| 15 | <img :src="$withBase('/header/ICON_15.png')" alt="icon15" width="40px">  | 16 | <img :src="$withBase('/header/ICON_16.png')" alt="icon16" width="40px">  |
+| 17 | <img :src="$withBase('/header/ICON_17.png')" alt="icon17" width="40px">  | |
 
 以上图片均为白色，透明背景（为显示效果做了灰色背景处理）。
 
@@ -206,7 +206,7 @@ w6s.webview.rightButtons({
 }
 ```
 
-如上述定义，表示将使用图标3，也就是 <img :src="$withBase('//header/ICON_3.png')" alt="icon3" width="40px"> 
+如上述定义，表示将使用图标3，也就是 <img :src="$withBase('/header/ICON_3.png')" alt="icon3" width="40px"> 
 
 ## 清除右侧按钮
 
