@@ -26,7 +26,7 @@ import * as sdk from '../../../dist/';
 })
 export default class Home extends Vue {
   beforeMount() {
-    sdk.webview.title({ title: 'WorkPlus JS-SDK' });
+    sdk.header.title({ title: 'WorkPlus JS-SDK' });
   }
 }
 </script>

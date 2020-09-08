@@ -5,16 +5,16 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
-const isProd = process.env.NODE_ENV !== 'production';
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  publicPath: isProd ? './' : '/',
+  publicPath: isProd ? '/sdk-demo/' : '/',
 
-  lintOnSave: isProd,
+  lintOnSave: !isProd,
 
   css: {
     // 是否使用css分离插件 ExtractTextPlugin
-    extract: isProd,
+    extract: !isProd,
     // 开启 CSS source maps?
     sourceMap: false,
     loaderOptions: {
