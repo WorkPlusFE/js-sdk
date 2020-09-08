@@ -138,6 +138,7 @@ function getLightAppBar (group) {
       collapsable: false,
       sidebarDepth: 2,
       children: [
+        'vconsole',
         'debug',
       ]
     }
