@@ -106,7 +106,7 @@ w6s.init({
 
 **mock**
 
-开启 js-sdk 接口的数据模拟功能，该开关可通过`process.env.NODE`环境变量来控制。
+开启 js-sdk 接口的数据模拟功能，该开关可通过`process.env.NODE_ENV`环境变量来控制。
 
 **mockData**
 

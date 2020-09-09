@@ -43,7 +43,7 @@ module.exports = {
 
   pluginOptions: {
     vconsole: {
-      enable: true,
+      enable: process.env.NODE_ENV !== 'production',
     },
   },
 };
