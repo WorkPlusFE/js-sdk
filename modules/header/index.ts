@@ -1,5 +1,5 @@
 import rightButtons from './rightButtons';
-import title from './title';
+import setTitle from './setTitle';
 import visibleLeftButton from './visibleLeftButton';
 import clearLeftButton from './clearLeftButton';
 import clearRightButtons from './clearRightButtons';
@@ -21,7 +21,7 @@ export {
   /** 更换右侧按钮动作 */
   rightButtons,
   /** 设置标题 */
-  title,
+  setTitle,
   /** 是否隐藏或显示左侧的按钮和关闭字样 */
   visibleLeftButton,
 };

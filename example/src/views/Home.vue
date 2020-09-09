@@ -28,7 +28,7 @@ console.log(sdk);
 })
 export default class Home extends Vue {
   mounted() {
-    sdk.header.title({ title: 'WorkPlus JS-SDK' });
+    sdk.header.setTitle('WorkPlus JS-SDK');
   }
 
   beforeMount() {

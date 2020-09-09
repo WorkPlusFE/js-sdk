@@ -65,7 +65,7 @@ export default class ExampleList extends Vue {
   /** life cycle */
   mounted() {
     this.setOptions(this.action);
-    sdk.header.title({ title: this.options.title });
+    sdk.header.setTitle(this.options.title);
   }
 
   /** method */

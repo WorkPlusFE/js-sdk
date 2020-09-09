@@ -16,10 +16,10 @@
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.setTitle">
+<CodeWrapper fn="header.setTitle">
 
 ```js
-w6s.webview.setTitle('test title');
+w6s.header.setTitle('test title');
 ```
 </CodeWrapper>
 
@@ -33,10 +33,10 @@ w6s.webview.setTitle('test title');
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.leftButton">
+<CodeWrapper fn="header.leftButton">
 
 ```js
-w6s.webview.leftButton(
+w6s.header.leftButton(
   method: 'goBack',
 });
 ```
@@ -62,10 +62,10 @@ w6s.webview.leftButton(
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.clearLeftButton">
+<CodeWrapper fn="header.clearLeftButton">
 
 ```js
-w6s.webview.clearLeftButton();
+w6s.header.clearLeftButton();
 ```
 </CodeWrapper>
 
@@ -79,14 +79,14 @@ w6s.webview.clearLeftButton();
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.openWebView">
+<CodeWrapper fn="header.openWebView">
 
 ```js
 // 锁定
-w6s.webview.navigation.lock();
+w6s.header.navigation.lock();
 
 // 解锁
-w6s.webview.navigation.unlock();
+w6s.header.navigation.unlock();
 ```
 </CodeWrapper>
 
@@ -142,10 +142,10 @@ w6s.webview.navigation.unlock();
 
 调用方法，每个按钮为一个数组:
 
-<CodeWrapper fn="webview.rightButtons">
+<CodeWrapper fn="header.rightButtons">
 
 ```js
-w6s.webview.rightButtons({
+w6s.header.rightButtons({
   items: [
     [
       {"icon": "1", "title": "更多", "action": "list", "value": ""},
@@ -218,10 +218,10 @@ w6s.webview.rightButtons({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.clearRightButtons">
+<CodeWrapper fn="header.clearRightButtons">
 
 ```js
-w6s.webview.clearRightButtons();
+w6s.header.clearRightButtons();
 ```
 </CodeWrapper>
 
@@ -236,10 +236,10 @@ w6s.webview.clearRightButtons();
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.visibleLeftButton">
+<CodeWrapper fn="header.visibleLeftButton">
 
 ```js
-w6s.webview.visibleLeftButton({
+w6s.header.visibleLeftButton({
   showBack: false,
   showClose: false,
 });
