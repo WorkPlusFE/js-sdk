@@ -11,8 +11,8 @@ import App from './app';
 // import Notification from './notification';
 // import Event from './event';
 import Util from './utils';
-import User from "./user";
-import Session from "./session";
+import User from './user';
+import Session from './session';
 import Header from './header';
 
 interface ApiModule {

@@ -45,7 +45,7 @@ export default {
         selectedUsers: [], // 已选择的users
         selectedEmployees: [], // 已选择的employees
       },
-    },{
+    }, {
       title: '获取手机通讯录',
       description: '获取手机通讯录联系人的列表。',
       action: 'getMobileContacts',

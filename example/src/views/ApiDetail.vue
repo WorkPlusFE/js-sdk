@@ -6,7 +6,6 @@
           <span class="code-panel__title">接口描述</span>
         </div>
         <p class="api-detail__desc">{{ description }}</p>
-        <p class="api-detail__desc">{{ args }}</p>
       </van-panel>
 
       <van-panel v-if="res">
@@ -37,7 +36,7 @@ import {
 import {
   Button, Field, Panel, Toast,
 } from 'vant';
-import * as sdk from '../../../dist/';
+import * as sdk from '../../../dist';
 import config from '../api';
 
 @Component({

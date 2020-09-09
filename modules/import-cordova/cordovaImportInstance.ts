@@ -15,6 +15,7 @@ export default class CordovaImportInstance {
     this.config = Object.assign(JSON.parse(JSON.stringify(config)), {
       cordovajs: {
         ...options,
+        local: config.cordovajs.local,
       },
       useHttp,
     });

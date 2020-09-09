@@ -16,7 +16,9 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ExampleList from '@/components/ExampleList.vue';
-import * as sdk from '../../../dist/';
+import * as sdk from '../../../dist';
+
+console.log(sdk);
 
 @Component({
   name: 'Home',
@@ -25,8 +27,12 @@ import * as sdk from '../../../dist/';
   },
 })
 export default class Home extends Vue {
-  beforeMount() {
+  mounted() {
     sdk.header.title({ title: 'WorkPlus JS-SDK' });
+  }
+
+  beforeMount() {
+    sdk.init({ debug: true });
   }
 }
 </script>

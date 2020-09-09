@@ -36,5 +36,5 @@ export default {
     params: {
       orgId: '37a2ef9f-8683-4369-ae7b-121cea149d05',
     },
-  },],
+  }],
 };

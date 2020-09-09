@@ -20,7 +20,7 @@ export default {
     description: '把文本内容复制到粘贴板中。',
     action: 'copyText',
     params: {
-      text: 'open.workplus.io'
+      text: 'open.workplus.io',
     },
   }],
 };
