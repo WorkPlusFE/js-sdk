@@ -1,5 +1,9 @@
 # 工作台
 
+<p class="w6s-image">
+  <img :src="$withBase('/app/workbench.png')" alt="工作台" width="15%">
+</p>
+
 本文档用于指引第三方业务系统接入`WorkPlus工作台`。
 
 ## 卡片类型
