@@ -45,3 +45,5 @@ docs/.vuepress/v4/
 .vscode
 
 RELEASE_NOTE*.md
+
+release_node

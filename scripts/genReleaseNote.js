@@ -1,7 +1,7 @@
 const cc = require('conventional-changelog');
 
 const { version } = require('../package.json');
-const file = `./RELEASE_NOTE${version ? `_${version}` : ``}.md`;
+const file = `./release_note/RELEASE_NOTE${version ? `_${version}` : ``}.md`;
 const fileStream = require('fs').createWriteStream(file);
 
 cc({
