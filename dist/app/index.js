@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.showAppListById = exports.showAppChatViewById = exports.searchInApp = exports.route = void 0;
+var route_1 = require("./route");
+exports.route = route_1.default;
+var searchInApp_1 = require("./searchInApp");
+exports.searchInApp = searchInApp_1.default;
+var showAppChatViewById_1 = require("./showAppChatViewById");
+exports.showAppChatViewById = showAppChatViewById_1.default;
+var showAppListById_1 = require("./showAppListById");
+exports.showAppListById = showAppListById_1.default;
