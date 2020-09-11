@@ -1,31 +1,11 @@
 {
   "name": "@w6s/sdk",
-  "version": "1.0.0-alpha.6",
+  "version": "v1.0.0-alpha.7",
   "description": "WorkPlusFE JavaScript SDK.",
   "main": "index.js",
-  "main:min": "dist/sdk.min.js",
-  "module": "dist/sdk.mjs",
   "typings": "index.d.ts",
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "lint:prettier": "prettier '{modules,test}/**/*.{js,jsx,ts,tsx,json}' --write",
-    "lint:fix": "cd modules && eslint --fix './**/*.{js,jsx,ts,tsx,json}' --ext .ts,.tsx --fix",
-    "lint": "npm run lint:prettier && npm run lint:fix",
-    "test": "jest --coverage",
-    "pretest": "npm run build",
-    "build:common": "tsc -P modules/tsconfig.commonjs.json",
-    "build:prod": "cross-env NODE_ENV=production rollup -c scripts/rollup.config.js",
-    "build": "rimraf dist && npm run build:common && npm run build:prod && cp ./{package.json,README.md} ./dist/",
-    "watch": "rollup -c -w",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "demo": "npm run build && cd example && npm run serve",
-    "demo:notbuild": "cd example && npm run serve",
-    "release": "bash scripts/release.sh",
-    "release:note": "node scripts/genReleaseNote.js",
-    "release:version": "node scripts/replaceVersion.js"
   },
   "keywords": [
     "WorkPlusFE",
@@ -34,66 +14,7 @@
   ],
   "author": "WorkPlusFE",
   "license": "MIT",
-  "resolutions": {
-    "watchpack": "1.6.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "@chenfengyuan/vue-qrcode": "^1.0.2",
-    "@rollup/plugin-alias": "^2.2.0",
-    "@rollup/plugin-auto-install": "^2.0.0",
-    "@rollup/plugin-beep": "^0.1.2",
-    "@rollup/plugin-buble": "^0.20.0",
-    "@rollup/plugin-json": "^4.0.0",
-    "@rollup/plugin-node-resolve": "^6.0.0",
-    "@rollup/plugin-replace": "^2.2.1",
-    "@rollup/pluginutils": "^3.0.0",
-    "@types/cordova": "^0.0.34",
-    "@types/jest": "^24.0.24",
-    "@typescript-eslint/eslint-plugin": "^2.12.0",
-    "@typescript-eslint/parser": "^2.12.0",
-    "@vuepress/plugin-back-to-top": "^1.5.2",
-    "@vuepress/plugin-medium-zoom": "^1.5.3",
-    "@vuepress/plugin-register-components": "^1.5.3",
-    "@w6s/vuepress-code-wrapper": "1.1.2",
-    "babel-eslint": "10.0.3",
-    "babel-plugin-external-helpers": "^6.8.0",
-    "babel-register": "^6.11.6",
-    "conventional-changelog": "^3.1.23",
-    "cross-env": "^6.0.3",
-    "element-ui": "^2.13.2",
-    "eslint": "^6.7.2",
-    "eslint-config-prettier": "^6.7.0",
-    "fs-extra": "^8.1.0",
-    "husky": "^3.1.0",
-    "jest": "^24.9.0",
-    "moment": "^2.27.0",
-    "path": "^0.12.7",
-    "prettier": "^1.19.1",
-    "replace-x": "^1.7.2",
-    "rimraf": "^3.0.0",
-    "rollup": "^1.27.13",
-    "rollup-plugin-babel": "4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-filesize": "^6.2.1",
-    "rollup-plugin-istanbul": "^1.0.0",
-    "rollup-plugin-typescript2": "^0.25.3",
-    "rollup-plugin-uglify": "^6.0.4",
-    "rollup-watch": "4.3.1",
-    "ts-jest": "^24.2.0",
-    "ts-node": "^8.5.4",
-    "typescript": "^3.7.3",
-    "uppercamelcase": "^3.0.0",
-    "vuepress": "^1.2.0"
-  },
   "engines": {
     "node": ">= 10.16.0"
-  },
-  "dependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
   }
 }
