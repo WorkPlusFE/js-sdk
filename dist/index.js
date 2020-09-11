@@ -19,7 +19,7 @@ var User = require("./user");
 var Header = require("./header");
 var Webview = require("./webview");
 /** WorkPlus SDK 版本 */
-exports.version = 'v1.0.0-alpha.5';
+exports.version = 'v1.0.0-alpha.6';
 exports.native = {};
 /** 图像接口 */
 exports.image = image_1.default;
