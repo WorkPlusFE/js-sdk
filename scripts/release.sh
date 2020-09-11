@@ -31,10 +31,13 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   npm run release:note
   npm run release:version
 
+  git add -A
+  git commit -m "build: build $VERSION"
+
   # publish
   echo "# publish"
   git push origin refs/tags/v"$VERSION"
   git push
   
-  npm publish
+  npm publish dist
 fi
