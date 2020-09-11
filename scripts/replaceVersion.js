@@ -8,5 +8,5 @@ replace({
   paths: [dist],
   recursive: true,
   regex: '__VERSION__',
-  replacement: `v${pkg.version}`,
+  replacement: `${pkg.version}`,
 });
