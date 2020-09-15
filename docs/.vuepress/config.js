@@ -43,7 +43,7 @@ module.exports = {
     docsDir: 'docs',
     docsBranch: 'master',
 
-    editLinks: true,
+    editLinks: false,
     editLinkText: '帮助我们完善此文档',
 
     lastUpdated: '上次编辑于', 
@@ -76,7 +76,7 @@ function getJsSdkBar () {
       children: [
         '/js-sdk/',
         '/js-sdk/overview/usage',
-        '/js-sdk/overview/auth',
+        // '/js-sdk/overview/auth',
         '/js-sdk/overview/urlScheme',
         '/js-sdk/overview/demo',
         '/js-sdk/overview/origin',
