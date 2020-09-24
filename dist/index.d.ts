@@ -11,7 +11,7 @@ import * as User from './user';
 import * as Header from './header';
 import * as Webview from './webview';
 /** WorkPlus SDK 版本 */
-export declare const version = "1.0.1-alpha.0";
+export declare const version = "__VERSION__";
 export declare const native: {};
 /** 图像接口 */
 export declare const image: {

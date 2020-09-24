@@ -13,9 +13,12 @@ const env = process.env.NODE_ENV;
 const pkg = require('../package.json');
 const banner =
   '/*!\n' +
-  ' * ' + pkg.name + '.js v' + pkg.version + '\n' +
+  ' * WorkPlus JS-SDK v' + pkg.version + '\n' +
   ' * (c) ' + new Date().getFullYear() + ' ' + pkg.author + '\n' +
+  ' * MIT License \n' +
   ' */\n';
+
+const footer = '\n/* 最终解析权归 恒拓高科(https://workplus.io) 所有! */';
 
 let hasTSChecked = false
 
@@ -74,7 +77,7 @@ if (env === 'production') {
       output: {
         comments: function(node, comment) {
           if (comment.type === "comment2") {
-            return /sdk.js/i.test(comment.value);
+            return /WorkPlus JS-SDK|https:\/\/workplus.io/i.test(comment.value);
           }
           return false;
         }
@@ -84,10 +87,11 @@ if (env === 'production') {
   );
 
   config.output = [{
-    file: resolveFile(pkg['main:min']),
+    file: resolveFile(pkg['main:min']).replace(/{{_VERSION_}}/, pkg.version),
     format: 'umd',
     name: 'WorkPlus',
-    banner: banner,
+    banner,
+    footer,
   }];
 }
 
