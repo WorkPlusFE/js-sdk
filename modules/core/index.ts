@@ -176,6 +176,14 @@ function execByMock<S>(service: string, action: string): boolean | S {
   return false;
 }
 
+const jsonParser = (res: any): any => {
+  try {
+    return JSON.parse(res);
+  } catch (error) {
+    return res;
+  }
+};
+
 /**
  * 以异步的方式执行 Cordova 的事件，用于获取数据类型的 API
  * @template A 参数类型
@@ -216,11 +224,13 @@ export function exec<A, S, F>(
       cordova.exec(
         function(res: S) {
           removeTimer();
-          logger.warn(`${callAPI} 调用成功: ${JSON.stringify(res, null, 4)}`);
+
+          const response = jsonParser(res);
+          logger.warn(`${callAPI} 调用成功: ${JSON.stringify(response, null, 4)}`);
           if (success && isFunction(success)) {
-            success(res);
+            success(response);
           }
-          return resolve(res);
+          return resolve(response);
         },
         function(err: F) {
           removeTimer();
