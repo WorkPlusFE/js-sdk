@@ -23,6 +23,7 @@
           <van-cell
             v-for="api in service.apis"
             :key="api.title"
+            v-show="!api.disable"
             @click="toExecPage(service.module, api.action)"
           >
             <template slot="title">
