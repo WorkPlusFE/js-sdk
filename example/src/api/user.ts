@@ -6,7 +6,6 @@ export default {
   module: 'user',
   active: false,
   apis: [
-
     {
       title: '获取登录用户详情',
       description: '获取当前登录用户详细信息，包括某个组织下的雇员信息。',
@@ -17,11 +16,9 @@ export default {
     },
     {
       title: '获取用户的雇员信息',
-      description: '通过传入组织id，获取当前用户的雇员信息，默认为当前所在组织。',
+      description: '通过传入组织id，获取当前用户的雇员信息，若不设置，默认为当前所在组织。',
       action: 'getCurrentEmployeeInfo',
-      params: {
-        orgCode: '组织id',
-      },
+      params: {},
     },
     {
       title: '获取用户信息',
@@ -31,6 +28,7 @@ export default {
         userId: '用户的userId',
         domainId: '用户的domainId',
       },
+      disable: true,
     },
     {
       title: '打开用户详情页面',
@@ -39,6 +37,7 @@ export default {
       params: {
         username: '用户的username',
       },
+      disable: true,
     },
   ],
 };

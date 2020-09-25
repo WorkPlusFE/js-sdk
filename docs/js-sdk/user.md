@@ -69,7 +69,7 @@ w6s.user.getCurrentEmployeeInfo({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="user.getUserInfoByUserId">
+<CodeWrapper fn="user.getUserInfoByUserId" :qrcode="false">
 
 ```js
 w6s.user.getUserInfoByUserId({
@@ -96,7 +96,7 @@ w6s.user.getUserInfoByUserId({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="user.showUserInfoByUsername">
+<CodeWrapper fn="user.showUserInfoByUsername" :qrcode="false">
 
 ```js
 w6s.user.showUserInfoByUsername({
