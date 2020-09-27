@@ -76,7 +76,6 @@ export default class ExampleList extends Vue {
       const filePath = res.result.imageURL;
       sdk.image.toBase64({ filePath })
         .then((res: any) => {
-          console.log(res);
           const source = res.target._result;
           this.imageBase64Source = source;
         })

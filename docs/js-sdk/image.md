@@ -192,7 +192,7 @@ w6s.image.actionForLongPressImage({
 | - | - | - |
 | imageData | String | base64数据 |
 
-## * 转 Base64
+## 转 Base64
 
 将本地图片转换成 Base64字符串。
 
@@ -226,7 +226,8 @@ w6s.image.toBase64({
 **返回数据**
 
 | 参数 | 说明 |
-| - | - | 
+| - | - | - |
+| target._result | 在返回数据的 target 属性中，可以找到 key 值为 _result 的 base64 内容  | 
 
 
 ## 图片添加水印
