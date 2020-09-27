@@ -80,6 +80,11 @@ export default class ExampleList extends Vue {
         this.$router.push({ name: 'base64' });
         return;
       }
+
+      if (action === 'takePhotoAndAddWaterMark') {
+        this.$router.push({ name: 'takePhotoAndAddWaterMark' });
+        return;
+      }
     }
 
     this.$router.push({

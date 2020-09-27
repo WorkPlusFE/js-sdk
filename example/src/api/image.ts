@@ -70,17 +70,10 @@ export default {
       params: {},
     },
     {
-      title: '[Custom]图片添加水印',
+      title: '图片添加水印',
       description: '调起手机相册进行拍照，生成水印图片并返回。',
       action: 'takePhotoAndAddWaterMark',
-      params: {
-        content: 'WorkPlus',
-        fontSize: 14,
-        color: '#FF5858',
-        markDisable: false,
-        timeEnable: true,
-        locationEsnable: true,
-      },
+      params: {},
     },
   ],
 };
