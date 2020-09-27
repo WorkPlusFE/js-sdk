@@ -75,6 +75,13 @@ export default class ExampleList extends Vue {
       }
     }
 
+    if (service === 'image') {
+      if (action === 'toBase64') {
+        this.$router.push({ name: 'base64' });
+        return;
+      }
+    }
+
     this.$router.push({
       name: 'api',
       params: {

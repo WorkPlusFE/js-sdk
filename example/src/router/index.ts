@@ -16,6 +16,8 @@ const routes = [
     name: 'api',
     component: () => import(/* webpackChunkName: "about" */ '../views/ApiDetail.vue'),
   },
+
+  // webview
   {
     path: '/webview/changeOrientation',
     name: 'changeOrientation',
@@ -30,6 +32,13 @@ const routes = [
     path: '/webview/shake',
     name: 'shake',
     component: () => import(/* webpackChunkName: "webview" */ '../views/webview/Shake.vue'),
+  },
+
+  // image
+  {
+    path: '/image/base64',
+    name: 'base64',
+    component: () => import(/* webpackChunkName: "image" */ '../views/image/Base64.vue'),
   },
   {
     path: '/not',

@@ -8,13 +8,27 @@
         <p class="api-detail__desc">{{ options.description }}</p>
       </van-panel>
 
-      <van-button class="api-detail__exec" type="info" block @click="registerShakeListener">
-        注册摇一摇
+      <van-panel>
+        <div slot="header" class="code-panel van-hairline--bottom">
+          <span class="code-panel__title">为什么需要转成 Base64？</span>
+        </div>
+        <p class="api-detail__desc">
+          通常我们通过拍照或者打开相册来获取图片，而图片的访问地址都是本地绝对路径，基于 Webview 的安全机制，本地路径放到 IMG 标签的 src 里，并不能显示出来，此时可以通过该方法把图片转换成 Base64 来使用。
+        </p>
+      </van-panel>
+
+      <van-panel v-if="imageBase64Source">
+        <div slot="header" class="code-panel van-hairline--bottom">
+          <span class="code-panel__title">转换成 Base64</span>
+        </div>
+        <div style="overflow: hidden;">
+          <img width="100%" :src="imageBase64Source" alt="">
+        </div>
+      </van-panel>
+
+      <van-button class="api-detail__exec" type="info" block @click="toBase64">
+        选择照片后，图片将显示在页面上
       </van-button>
-      <van-button class="api-detail__exec" type="default" block @click="unregisterShakeListener">
-        注销摇一摇
-      </van-button>
-      <p class="tips">请摇一摇手机，触发绑定事件。</p>
     </div>
   </div>
 </template>
@@ -43,10 +57,11 @@ export default class ExampleList extends Vue {
 
   /** data */
   options = {
-    title: '摇一摇',
-    description: '端需要实现 onWorkplusShake() 方法, 在该处执行自己的业务, 摇一摇后将在该方法回调。该方法必须为全局方法，并且方法名不可以转换。',
-    params: {},
+    title: '转 Base64',
+    description: '将本地图片转换成 Base64 字符串。',
   };
+
+  imageBase64Source = '';
 
   /** life cycle */
   mounted() {
@@ -54,13 +69,18 @@ export default class ExampleList extends Vue {
   }
 
   /** method */
-  private registerShakeListener(): void {
-    alert('registerShakeListener')
-    sdk.webview.registerShakeListener();
-  }
-
-  private unregisterShakeListener(): void {
-    sdk.webview.unregisterShakeListener();
+  private toBase64(): void {
+    sdk.image.chooseImages({
+      multiple: false,
+    }).then((res: any) => {
+      const filePath = res.result.imageURL;
+      sdk.image.toBase64({ filePath })
+        .then((res: any) => {
+          console.log(res);
+          const source = res.target._result;
+          this.imageBase64Source = source;
+        })
+    });
   }
 }
 </script>
@@ -127,12 +147,5 @@ export default class ExampleList extends Vue {
 
 .van-panel__content {
   overflow: auto;
-}
-
-.tips {
-  text-align: center;
-  font-size: 14px;
-  color: $color-primary;
-  margin: 20px 0;
 }
 </style>
