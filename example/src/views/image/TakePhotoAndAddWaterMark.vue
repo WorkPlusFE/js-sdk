@@ -18,7 +18,7 @@
       </van-panel>
 
       <van-button class="api-detail__exec" type="info" block @click="toBase64">
-        选择照片后，图片将显示在页面上
+        拍照后，图片将显示在页面上
       </van-button>
     </div>
   </div>
