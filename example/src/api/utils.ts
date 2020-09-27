@@ -7,7 +7,7 @@ export default {
   icon: 'photo-o',
   apis: [{
     title: '扫描二维码',
-    description: '',
+    description: '调用相机扫描二维码。',
     action: 'scanner',
     params: {},
   }, {

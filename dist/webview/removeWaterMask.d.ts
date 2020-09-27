@@ -1,5 +1,3 @@
-import { ExecOptions } from '../types/core';
-export declare type RemoveWaterMask = ExecOptions<void, void>;
 /**
  * 移除水印
  * @description 移除水印
@@ -7,5 +5,5 @@ export declare type RemoveWaterMask = ExecOptions<void, void>;
  * @module webview
  * @returns 无
  */
-declare function removeWaterMask(options?: RemoveWaterMask): Promise<void>;
+declare function removeWaterMask(): void;
 export default removeWaterMask;

@@ -176,13 +176,15 @@ function execByMock<S>(service: string, action: string): boolean | S {
   return false;
 }
 
+/* eslint-disable */
 const jsonParser = (res: any): any => {
   try {
     return JSON.parse(res);
   } catch (error) {
-    return res;
+    return { result: res };
   }
 };
+/* eslint-enable */
 
 /**
  * 以异步的方式执行 Cordova 的事件，用于获取数据类型的 API
@@ -219,6 +221,7 @@ export function exec<A, S, F>(
     const removeTimer = (): void => {
       timer && clearTimeout(timer);
     };
+
     const execFn = (): void => {
       logger.warn(`准备调用 ${callAPI}`);
       cordova.exec(

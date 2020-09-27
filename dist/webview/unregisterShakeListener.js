@@ -9,7 +9,7 @@ var constants_1 = require("../constants");
  * @module webview
  * @returns {Promise<void>}
  */
-function unregisterShakeListener(options) {
-    return core.exec(constants_1.WORKPLUS_WEBVIEW, 'unregisterShakeListener', [], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail);
+function unregisterShakeListener() {
+    return core.execSync(constants_1.WORKPLUS_WEBVIEW, 'unregisterShakeListener', []);
 }
 exports.default = unregisterShakeListener;

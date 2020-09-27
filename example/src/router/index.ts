@@ -17,6 +17,21 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/ApiDetail.vue'),
   },
   {
+    path: '/webview/changeOrientation',
+    name: 'changeOrientation',
+    component: () => import(/* webpackChunkName: "webview" */ '../views/webview/ChangeOrientation.vue'),
+  },
+  {
+    path: '/webview/waterMask',
+    name: 'waterMask',
+    component: () => import(/* webpackChunkName: "webview" */ '../views/webview/WaterMask.vue'),
+  },
+  {
+    path: '/webview/shake',
+    name: 'shake',
+    component: () => import(/* webpackChunkName: "webview" */ '../views/webview/Shake.vue'),
+  },
+  {
     path: '/not',
     name: 'notInWorkPlus',
     component: NotInWorkPlus,

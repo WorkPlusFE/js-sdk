@@ -168,7 +168,7 @@ w6s.webview.addWaterMask({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.removeWaterMask">
+<CodeWrapper fn="webview.removeWaterMask" :qrcode="false">
 
 ```js
 w6s.webview.removeWaterMask();
@@ -210,7 +210,7 @@ w6s.webview.registerShakeListener();
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.unregisterShakeListener">
+<CodeWrapper fn="webview.unregisterShakeListener" :qrcode="false">
 
 ```js
 w6s.webview.unregisterShakeListener();
@@ -228,7 +228,7 @@ w6s.webview.unregisterShakeListener();
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.wxShare">
+<CodeWrapper fn="webview.wxShare" :qrcode="false">
 
 ```js
 w6s.webview.wxShare({

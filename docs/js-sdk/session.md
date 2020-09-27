@@ -10,7 +10,7 @@
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="session.showUserChatViewByUser">
+<CodeWrapper fn="session.showUserChatViewByUser" :qrcode="false">
 
 ```js
 w6s.session.showUserChatViewByUser({
@@ -29,7 +29,7 @@ w6s.session.showUserChatViewByUser({
 
 
 
-## 打开群组聊天页面 WIP <Badge text="v3.1.4+" type="warning" />
+## * 打开群组聊天页面 <Badge text="v3.1.4+" type="warning" />
 
 通过`群组id`打开该群组的聊天页面，并且可以自定义发送应用所支持的消息。
 
@@ -39,7 +39,7 @@ w6s.session.showUserChatViewByUser({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="session.openDiscussionById">
+<CodeWrapper fn="session.openDiscussionById" :qrcode="false">
 
 ```js
 w6s.session.openDiscussionById({
@@ -93,7 +93,7 @@ w6s.session.createDiscussionChat();
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="session.selectDiscussionMembers">
+<CodeWrapper fn="session.selectDiscussionMembers" :qrcode="false">
 
 ```js
 w6s.session.selectDiscussionMembers({

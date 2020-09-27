@@ -9,7 +9,7 @@ var constants_1 = require("../constants");
  * @module webview
  * @returns 无
  */
-function exit(options) {
-    return core.exec(constants_1.WORKPLUS_WEBVIEW, 'exit', [], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail);
+function exit() {
+    return core.execSync(constants_1.WORKPLUS_WEBVIEW, 'exit', []);
 }
 exports.default = exit;

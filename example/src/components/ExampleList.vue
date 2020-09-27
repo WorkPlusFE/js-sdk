@@ -58,6 +58,23 @@ export default class ExampleList extends Vue {
 
   /* method */
   private toExecPage(service: string, action: string) {
+    if (service === 'webview') {
+      if (action === 'changeOrientation') {
+        this.$router.push({ name: 'changeOrientation' });
+        return;
+      }
+
+      if (action === 'addWaterMask') {
+        this.$router.push({ name: 'waterMask' });
+        return;
+      }
+
+      if (action === 'registerShakeListener') {
+        this.$router.push({ name: 'shake' });
+        return;
+      }
+    }
+
     this.$router.push({
       name: 'api',
       params: {

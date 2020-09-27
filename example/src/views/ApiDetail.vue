@@ -158,6 +158,7 @@ export default class ExampleList extends Vue {
   &__title {
     color: $color-black;
     font-weight: bold;
+    font-size: 16px;
   }
 
   &__action {

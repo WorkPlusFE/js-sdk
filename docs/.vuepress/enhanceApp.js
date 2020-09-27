@@ -4,7 +4,7 @@ import CodeWrapper from '@w6s/vuepress-code-wrapper';
 
 const host = process.env.NODE_ENV === 'production' ?
   'https://open.workplus.io/sdk-demo/' :
-  'http://172.16.1.66:8081';
+  'http://172.16.1.66:8080';
 
 export default ({
   Vue,

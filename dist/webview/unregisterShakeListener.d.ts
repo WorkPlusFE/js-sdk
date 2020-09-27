@@ -1,4 +1,3 @@
-import { NotResOptions } from '../types/core';
 /**
  * 注销摇一摇监听
  * @description 注销摇一摇监听
@@ -6,5 +5,5 @@ import { NotResOptions } from '../types/core';
  * @module webview
  * @returns {Promise<void>}
  */
-declare function unregisterShakeListener(options?: NotResOptions): Promise<void>;
+declare function unregisterShakeListener(): void;
 export default unregisterShakeListener;

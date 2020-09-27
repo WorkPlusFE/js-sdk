@@ -34,7 +34,7 @@ export default {
     {
       title: '更换头部title',
       description: '更换webview的导航栏标题',
-      action: 'title',
+      action: 'setTitle',
       params: {
         title: '标题',
       },

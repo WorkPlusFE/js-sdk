@@ -28,7 +28,7 @@ w6s.app.route({
 | scheme_url |  String | 除了原生应用的`schema_url`规则, 也支持内部的应用协议, 例如`workplus://openApp?id=abc&domainId=abc` |
 
 
-## 打开应用聊天界面 WIP <Badge text="v3.4.1+" type="warning" />
+## 打开应用聊天界面 <Badge text="v3.4.1+" type="warning" />
 
 通过`应用id`和`orgId`，打开该组织下某个应用聊天界面。
 
@@ -38,7 +38,7 @@ w6s.app.route({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="app.showAppChatViewById">
+<CodeWrapper fn="app.showAppChatViewById" :qrcode="false">
 
 ```js
 w6s.app.showAppChatViewById({

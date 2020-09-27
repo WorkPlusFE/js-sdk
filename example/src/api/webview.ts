@@ -9,8 +9,8 @@ export default {
       description: '传入地址，打开WorkPlus网页',
       action: 'openWebView',
       params: {
-        url: 'https://www.baidu.com',
-        title: '百度',
+        url: 'https://workplus.io',
+        title: 'WorkPlus',
         use_android_webview: true,
         display_mode: '',
       },
@@ -26,52 +26,27 @@ export default {
       description: '弹出分享对话框，跳转分享',
       action: 'share',
       params: {
-        url: 'http://www.baidu.com',
-        title: '百度一下',
+        url: 'https://workplus.io',
+        title: 'WorkPlus',
         cover_media_id: '',
         scope: 0,
-        summary: '点击打开百度首页',
+        summary: '点击打开 WorkPlus 官网',
         // dicrectly: '',
       },
     },
     {
-      title: '控制屏幕旋转',
-      description: '根据参数控制屏幕横屏显示或者竖屏显示',
+      title: '屏幕旋转',
       action: 'changeOrientation',
-      params: {
-        landscape: true,
-        lock: false,
-      },
+      params: {},
     },
     {
-      title: '添加水印',
-      description: '给页面添加水印',
+      title: '网页水印',
       action: 'addWaterMask',
-      params: {
-        textColor: '#000000',
-        orgId: 'XXX',
-        alpha: 1.0,
-        verticalPadding: 40,
-        fontSize: 16,
-      },
-    },
-    {
-      title: '移除水印',
-      description: '移除水印',
-      action: 'removeWaterMask',
       params: {},
     },
     {
-      title: '注册摇一摇监听',
-      description:
-        '前端需要实现全局 onWorkplusShake() 方法, 在该处执行自己的业务, 摇一摇后将在该方法回调',
+      title: '摇一摇',
       action: 'registerShakeListener',
-      params: {},
-    },
-    {
-      title: '注销摇一摇监听',
-      description: '注销摇一摇监听',
-      action: 'unregisterShakeListener',
       params: {},
     },
     {
@@ -87,6 +62,7 @@ export default {
         scene: 0,
         data: { url: 'https://www.baidu.com' },
       },
+      disable: true,
     },
   ],
 };

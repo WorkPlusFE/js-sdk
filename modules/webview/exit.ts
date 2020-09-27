@@ -1,8 +1,5 @@
 import * as core from '../core';
-import { ExecOptions } from '../types/core';
 import { WORKPLUS_WEBVIEW } from '../constants';
-
-export type ExitOptions = ExecOptions<void, void>;
 
 /**
  * 退出webview
@@ -11,8 +8,8 @@ export type ExitOptions = ExecOptions<void, void>;
  * @module webview
  * @returns 无
  */
-function exit(options?: ExitOptions): Promise<void> {
-  return core.exec<void, void, void>(WORKPLUS_WEBVIEW, 'exit', [], options?.success, options?.fail);
+function exit(): void {
+  return core.execSync<void>(WORKPLUS_WEBVIEW, 'exit', []);
 }
 
 export default exit;

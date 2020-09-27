@@ -172,6 +172,16 @@ function execByMock(service, action) {
     }
     return false;
 }
+/* eslint-disable */
+var jsonParser = function (res) {
+    try {
+        return JSON.parse(res);
+    }
+    catch (error) {
+        return { result: res };
+    }
+};
+/* eslint-enable */
 /**
  * 以异步的方式执行 Cordova 的事件，用于获取数据类型的 API
  * @template A 参数类型
@@ -206,11 +216,12 @@ function exec(service, action, args, success, fail, setTimer) {
             exports.logger.warn("\u51C6\u5907\u8C03\u7528 " + callAPI);
             cordova.exec(function (res) {
                 removeTimer();
-                exports.logger.warn(callAPI + " \u8C03\u7528\u6210\u529F: " + JSON.stringify(res, null, 4));
+                var response = jsonParser(res);
+                exports.logger.warn(callAPI + " \u8C03\u7528\u6210\u529F: " + JSON.stringify(response, null, 4));
                 if (success && is_1.isFunction(success)) {
-                    success(res);
+                    success(response);
                 }
-                return resolve(res);
+                return resolve(response);
             }, function (err) {
                 removeTimer();
                 exports.logger.error(callAPI + " \u63A5\u53E3\u8C03\u7528\u5931\u8D25");

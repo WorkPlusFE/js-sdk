@@ -1,5 +1,3 @@
-import { ExecOptions } from '../types/core';
-export declare type ExitOptions = ExecOptions<void, void>;
 /**
  * 退出webview
  * @description 关闭整个webview
@@ -7,5 +5,5 @@ export declare type ExitOptions = ExecOptions<void, void>;
  * @module webview
  * @returns 无
  */
-declare function exit(options?: ExitOptions): Promise<void>;
+declare function exit(): void;
 export default exit;

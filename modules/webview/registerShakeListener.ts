@@ -1,5 +1,4 @@
 import * as core from '../core';
-import { NotResOptions } from '../types/core';
 import { WORKPLUS_WEBVIEW } from '../constants';
 
 /**
@@ -9,14 +8,8 @@ import { WORKPLUS_WEBVIEW } from '../constants';
  * @module webview
  * @returns 无
  */
-function registerShakeListener(options?: NotResOptions): Promise<void> {
-  return core.exec<[], void, void>(
-    WORKPLUS_WEBVIEW,
-    'registerShakeListener',
-    [],
-    options?.success,
-    options?.fail,
-  );
+function registerShakeListener(): void {
+  return core.execSync<[]>(WORKPLUS_WEBVIEW, 'registerShakeListener', []);
 }
 
 export default registerShakeListener;
