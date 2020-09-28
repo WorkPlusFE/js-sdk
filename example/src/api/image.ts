@@ -40,20 +40,18 @@ export default {
       action: 'showImages',
       params: {
         urls: [
-          'https://workplus.io/images/aboutme01.png',
-          'https://workplus.io/images/aboutme02.png',
-          'https://workplus.io/images/aboutme03.png',
+          'https://open.workplus.io/static/pics/j-2.jpeg',
+          'https://open.workplus.io/static/pics/j-1.jpg',
+          'https://open.workplus.io/static/pics/j-3.jpeg',
         ],
         position: 0,
       },
     },
     {
-      title: '[Custom]图片保存',
+      title: '图片保存',
       description: '传入图片地址，保存到手机本地。',
       action: 'saveImages',
-      params: {
-        url: 'https://workplus.io/images/aboutme03.png',
-      },
+      params: {},
     },
     {
       title: '[Custom]长按图片弹出框',

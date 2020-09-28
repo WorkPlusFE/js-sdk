@@ -2,7 +2,7 @@
 /** 用户 */
 
 export default {
-  title: '* 用户',
+  title: '用户',
   module: 'user',
   active: false,
   apis: [

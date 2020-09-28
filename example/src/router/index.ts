@@ -46,6 +46,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "image" */ '../views/image/TakePhotoAndAddWaterMark.vue'),
   },
   {
+    path: '/image/SaveImages',
+    name: 'saveImages',
+    component: () => import(/* webpackChunkName: "image" */ '../views/image/SaveImages.vue'),
+  },
+
+  {
     path: '/not',
     name: 'notInWorkPlus',
     component: NotInWorkPlus,

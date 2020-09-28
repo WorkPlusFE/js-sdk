@@ -85,6 +85,11 @@ export default class ExampleList extends Vue {
         this.$router.push({ name: 'takePhotoAndAddWaterMark' });
         return;
       }
+
+      if (action === 'saveImages') {
+        this.$router.push({ name: 'saveImages' });
+        return;
+      }
     }
 
     this.$router.push({

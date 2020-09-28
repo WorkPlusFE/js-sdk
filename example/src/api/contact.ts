@@ -1,7 +1,7 @@
 /** 邮箱 */
 
 export default {
-  title: '* 联系人',
+  title: '联系人',
   module: 'contact',
   active: false,
   icon: 'envelop-o',

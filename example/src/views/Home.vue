@@ -4,7 +4,7 @@
       <img class="demo__logo" src="@/assets/logo.png" />
       <h2 class="demo__title">WorkPlus JS-SDK 功能展示</h2>
       <p class="demo__desc">
-        本应用只是对相关接口功能进行展示，具体的参数和说明详见官方 <a href="javascript:;">开发文档</a>。
+        本应用只是对相关接口功能进行展示，具体的参数和说明详见官方 <a href="https://open.workplus.io/v4/js-sdk/">开发文档</a>。
       </p>
     </div>
     <div class="demo-example">
