@@ -54,7 +54,7 @@ export default {
       params: {},
     },
     {
-      title: '[Custom]长按图片弹出框',
+      title: '长按图片弹出框',
       description: '弹出框包括"识别二维码", "保存图片"等选项',
       action: 'actionForLongPressImage',
       params: {

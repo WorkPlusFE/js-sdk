@@ -90,6 +90,11 @@ export default class ExampleList extends Vue {
         this.$router.push({ name: 'saveImages' });
         return;
       }
+
+      if (action === 'actionForLongPressImage') {
+        this.$router.push({ name: 'actionForLongPressImage' });
+        return;
+      }
     }
 
     this.$router.push({

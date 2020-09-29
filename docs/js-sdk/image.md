@@ -190,7 +190,35 @@ w6s.image.actionForLongPressImage({
 
 | 参数 | 类型 | 说明|
 | - | - | - |
-| imageData | String | base64数据 |
+| imageData | String | base64数据，详细描述请看下方说明 |
+
+
+**关于 imageData**
+
+页面上显示的图片通常都以`http(s)://` 的方式加载，或者本身就是个 base64 字符串。而参数 imageData 的值，并非是一个 image 直接转换过来的 base64 字符串，例如:
+
+```html
+data:image/jpeg;base64,/9j/4AAQSkZJ....Rg
+```
+
+此处需要的是`base64,`后的那一段，也就是`/9j/4AAQSkZJ....Rg`。
+
+此外，sdk 中的`image.toBase64`方法并不能转换非本地的图片，如果需要转换以 `http(s)://` 协议访问的图片，请使用第三方模块，例如[html2canvas](https://html2canvas.hertzen.com/)。
+
+```js
+import html2canvas from 'html2canvas';
+
+html2canvas(document.getElementById('body'))
+  .then((canvas: any) => {
+    const base64 = canvas.toDataURL("image/jpeg", 1).toString();
+    const imageData  = base64.split('base64,')[1];
+    
+    sdk.image.actionForLongPressImage({
+      imageData,
+    });
+  });
+```
+
 
 ## 转 Base64
 

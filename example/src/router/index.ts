@@ -46,9 +46,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "image" */ '../views/image/TakePhotoAndAddWaterMark.vue'),
   },
   {
-    path: '/image/SaveImages',
+    path: '/image/saveImages',
     name: 'saveImages',
     component: () => import(/* webpackChunkName: "image" */ '../views/image/SaveImages.vue'),
+  },
+  {
+    path: '/image/actionForLongPressImage',
+    name: 'actionForLongPressImage',
+    component: () => import(/* webpackChunkName: "image" */ '../views/image/ActionForLongPressImage.vue'),
   },
 
   {
