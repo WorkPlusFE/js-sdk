@@ -73,7 +73,7 @@ export default class ExampleList extends Vue {
     // @ts-ignore
     document.getElementById('image-box').addEventListener('long-press', (e) => {
       // stop the event from bubbling up
-      e.preventDefault()
+      e.preventDefault();
       console.log(e.target);
     });
   }
@@ -83,9 +83,9 @@ export default class ExampleList extends Vue {
     // @ts-ignore
     html2canvas(document.getElementById('image-box'))
       .then((canvas: any) => {
-        const base64 = canvas.toDataURL("image/jpeg", 1).toString();
+        const base64 = canvas.toDataURL('image/jpeg', 1).toString();
         this.imagebase64 = base64;
-        const imageData  = base64.split('base64,')[1];
+        const imageData = base64.split('base64,')[1];
         console.log(imageData);
         sdk.image.actionForLongPressImage({
           imageData,

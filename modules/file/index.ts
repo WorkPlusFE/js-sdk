@@ -3,6 +3,7 @@ import isFileExist from './isFileExist';
 import openFileDetail from './openFileDetail';
 import readFile from './readFile';
 import download from './download';
+import upload from './upload';
 
 export default {
   /** 选择文件 */
@@ -15,4 +16,6 @@ export default {
   readFile,
   /** 文件下载 */
   download,
+  /** 文件上传 */
+  upload,
 };

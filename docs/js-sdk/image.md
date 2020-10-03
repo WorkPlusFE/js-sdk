@@ -126,7 +126,7 @@ w6s.image.showImages({
 
 | 参数 | 类型 | 说明|
 | - | - | - |
-| urls |  Array[String] | 图片在本机的地址或图片的http(s)访问地址 |
+| urls |  Array[String] | 图片的`http(s)://`访问地址，不支持本地图片 |
 | medias | Array[String] | 图片的 mediaId |
 | position | Number \| String | 非必须，表示从第几张图片开始预览，0 为第一张 |
 

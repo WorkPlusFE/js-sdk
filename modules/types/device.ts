@@ -1,6 +1,4 @@
 export interface DeviceOptions<D, S> {
-  /** 传参 */
-  data: D;
   /** 成功回调 */
   success?: (res: S) => void;
   /** 失败回调 */

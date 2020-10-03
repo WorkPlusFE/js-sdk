@@ -8,17 +8,11 @@
         <p class="api-detail__desc">{{ options.description }}</p>
       </van-panel>
 
-      <van-panel v-if="imageBase64Source">
-        <div slot="header" class="code-panel van-hairline--bottom">
-          <span class="code-panel__title">添加水印后的图片</span>
-        </div>
-        <div style="overflow: hidden;">
-          <img width="100%" :src="imageBase64Source" alt="">
-        </div>
-      </van-panel>
-
-      <van-button class="api-detail__exec" type="info" block @click="toBase64">
-        拍照后，图片将显示在页面上
+      <van-button class="api-detail__exec" type="info" block @click="handleSelectFile">
+        1、选择文件
+      </van-button>
+      <van-button :disabled="!options.selected" class="api-detail__exec" type="info" block @click="handleOpenFile">
+        2、打开文件详情
       </van-button>
     </div>
   </div>
@@ -43,16 +37,22 @@ import config from '../../api';
     [Radio.name]: Radio,
   },
 })
+
 export default class ExampleList extends Vue {
   /** props */
 
   /** data */
   options = {
-    title: '图片添加水印',
-    description: '调起手机相册进行拍照，生成水印图片并返回。',
+    title: '打开文件详情',
+    description: '通过指定 mediaId, fileName 等参数, 打开文件详情界面。',
+    params: {
+      filePath: 'file.filePath',
+      fileName: 'file.name',
+      fileSize: 0,
+      isImage: false,
+    },
+    selected: false,
   };
-
-  imageBase64Source = '';
 
   /** life cycle */
   mounted() {
@@ -60,22 +60,27 @@ export default class ExampleList extends Vue {
   }
 
   /** method */
-  private toBase64(): void {
-    sdk.image.takePhotoAndAddWaterMark({
-      content: 'WorkPlus',
-      fontSize: 30,
-      color: '#333333',
-      markDisable: false,
-      timeEnable: true,
-      locationEnable: true,
+  private handleSelectFile(): void {
+    sdk.file.chooseFiles({
+      multiple: false,
     }).then((res: any) => {
-      const filePath = res.result.imageURL;
-      sdk.image.toBase64({ filePath })
-        .then((res: any) => {
-          const source = res.target._result;
-          this.imageBase64Source = source;
-        });
+      console.log(res);
+      if (res) {
+        const file = res.result[0];
+        this.options.params = {
+          filePath: 'https://open.workplus.io/static/pics/j-1.jpg',
+          fileName: file.name,
+          fileSize: file.size,
+          isImage: true,
+        };
+        this.options.selected = true;
+      }
     });
+  }
+
+  private handleOpenFile(): void {
+    console.log(this.options.params);
+    sdk.file.openFileDetail(this.options.params);
   }
 }
 </script>

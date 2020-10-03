@@ -21,7 +21,7 @@ var constants_1 = require("../constants");
  * @returns 无
  */
 function writeEmail(options) {
-    var success = options.success, fail = options.fail, params = __rest(options, ["success", "fail"]);
-    return core.exec(constants_1.WORKPLUS_EMAIL, 'writeEmail', [params], success, fail, false);
+    var success = options.success, fail = options.fail, args = __rest(options, ["success", "fail"]);
+    return core.exec(constants_1.WORKPLUS_EMAIL, 'writeEmail', [args], success, fail, false);
 }
 exports.default = writeEmail;

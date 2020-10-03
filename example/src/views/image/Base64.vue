@@ -78,7 +78,7 @@ export default class ExampleList extends Vue {
         .then((res: any) => {
           const source = res.target._result;
           this.imageBase64Source = source;
-        })
+        });
     });
   }
 }

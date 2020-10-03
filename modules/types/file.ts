@@ -1,6 +1,4 @@
-export interface FileOptions<D, S> {
-  /** 传参 */
-  data: D;
+export interface FileOptions<S> {
   /** 成功回调 */
   success?: (res: S) => void;
   /** 失败回调 */
@@ -28,20 +26,20 @@ export interface EmailAttachmentDirRes {
 
 type FileLimit = {
   /** 多选时数量的限制 */
-  max_select_count: number;
+  max_select_count?: number;
   /** 单个文件选择大小限制(byte),-1表示不限制 */
-  single_select_size: number;
+  single_select_size?: number;
   /** 所有文件选择大小限制(byte),-1表示不限制 */
-  total_select_size: number;
+  total_select_size?: number;
 };
 
 export interface ChooseFilesParams {
   /** 单选, 多选 */
-  multiple: boolean;
+  multiple?: boolean;
   /** 文件条件 */
-  file_limit: FileLimit;
+  file_limit?: FileLimit;
   /** 已选文件列表 filePath */
-  file_keys: string[];
+  file_keys?: string[];
 }
 
 export interface ChooseFilesRes {
@@ -69,9 +67,9 @@ export interface ShowFileParams {
   /** 必传，文件名称 */
   fileName: string;
   /** 可选参数, 文件大小 */
-  fileSize: number;
+  fileSize?: number;
   /** 可选参数, 媒体id */
-  mediaId: string;
+  mediaId?: string;
   /** 必传，指定文件是否是图片
    * 若为 true, 客户端则强制打开图片预览界面, false 则通过 fileName后缀来判断文件类型, 非图片则使用文件详情界面
    */

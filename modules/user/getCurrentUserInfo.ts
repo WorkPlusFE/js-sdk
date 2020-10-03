@@ -6,17 +6,18 @@ import { WORKPLUS_CONTACT } from '../constants';
  * 获取当前登录用户详细信息
  *
  * @export
- * @param {ContactOption<CurrentUserInfoParams, CurrentUserInfoRes>} [options]
+ * @param {CurrentUserInfoParams & ContactOption<CurrentUserInfoRes>} [options]
  * @returns {Promise<CurrentUserInfoRes>}
  */
 export default function getCurrentUserInfo(
-  options?: ContactOption<CurrentUserInfoParams, CurrentUserInfoRes>,
+  options: CurrentUserInfoParams & ContactOption<CurrentUserInfoRes>,
 ): Promise<CurrentUserInfoRes> {
+  const { success, fail, ...args } = options;
   return core.exec<CurrentUserInfoParams, CurrentUserInfoRes, unknown>(
     WORKPLUS_CONTACT,
     'getCurrentUserInfo',
-    options?.data ?? [],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
   );
 }

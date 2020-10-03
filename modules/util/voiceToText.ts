@@ -19,6 +19,7 @@ function voiceToText(options?: VoiceToTextOptions): Promise<VoiceToTextRes> {
     [],
     options?.success,
     options?.fail,
+    false,
   );
 }
 

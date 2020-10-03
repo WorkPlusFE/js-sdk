@@ -55,7 +55,7 @@ export default class ExampleList extends Vue {
 
   /** method */
   private registerShakeListener(): void {
-    alert('registerShakeListener')
+    alert('registerShakeListener');
     sdk.webview.registerShakeListener();
   }
 

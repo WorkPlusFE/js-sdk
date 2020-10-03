@@ -18,17 +18,8 @@ export interface ImageInfo {
   size: string;
 }
 
-export interface ImageOptions<D, S> {
-  /** 传参 */
-  data: D;
-  /** 成功回调 */
-  success?: (res: S) => void;
-  /** 失败回调 */
-  fail?: (err: void) => void;
-}
-
 export interface ShowImagesItem {
-  /** 图片在本机的地址 */
+  /** 图片的访问地址（不支持本地图片） */
   urls?: string[];
   /** 图片的mediaId */
   medias?: string[];

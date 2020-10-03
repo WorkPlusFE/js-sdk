@@ -14,7 +14,7 @@ export default function getDeviceInfo(
   return core.exec<[], DeviceInfoRes, never>(
     WORKPLUS_DEVICE,
     'getDeviceInfo',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );

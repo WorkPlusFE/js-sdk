@@ -3,12 +3,7 @@ import * as core from '../core';
 import { PayOption, WxPayParams, WxPayRes } from '../types/pay';
 import { WORKPLUS_PAY } from '../constants';
 
-export default function wxPay(options?: PayOption<WxPayParams, WxPayRes>): Promise<WxPayRes> {
-  return core.exec<WxPayParams, WxPayRes, unknown>(
-    WORKPLUS_PAY,
-    'wxPay',
-    options?.data ?? [],
-    options?.success,
-    options?.fail,
-  );
+export default function wxPay(options: WxPayParams & PayOption<WxPayRes>): Promise<WxPayRes> {
+  const { success, fail, ...args } = options;
+  return core.exec<WxPayParams, WxPayRes, unknown>(WORKPLUS_PAY, 'wxPay', [args], success, fail);
 }

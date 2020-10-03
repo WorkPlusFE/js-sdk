@@ -57,6 +57,12 @@ const routes = [
   },
 
   {
+    path: '/file/openFileDetail',
+    name: 'openFileDetail',
+    component: () => import(/* webpackChunkName: "file" */ '../views/file/OpenFileDetail.vue'),
+  },
+
+  {
     path: '/not',
     name: 'notInWorkPlus',
     component: NotInWorkPlus,

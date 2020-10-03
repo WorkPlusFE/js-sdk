@@ -6,17 +6,18 @@ import { WORKPLUS_CONTACT } from '../constants';
  * 单选联系人
  *
  * @export
- * @param {ContactOption<SingleContactParams, SingleContactRes>} [options]
+ * @param {SingleContactParams & ContactOption<SingleContactRes>} [options]
  * @returns {Promise<SingleContactRes>}
  */
 export default function getSingleContact(
-  options?: ContactOption<SingleContactParams, SingleContactRes>,
+  options: SingleContactParams & ContactOption<SingleContactRes>,
 ): Promise<SingleContactRes> {
+  const { success, fail, ...args } = options;
   return core.exec<SingleContactParams, SingleContactRes, unknown>(
     WORKPLUS_CONTACT,
     'getContact',
-    options?.data ?? [],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
   );
 }

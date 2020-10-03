@@ -9,7 +9,6 @@ var constants_1 = require("../constants");
  * @returns {Promise<PedometerDataRes>}
  */
 function getPedometerData(options) {
-    var _a;
-    return core.exec(constants_1.WORKPLUS_DEVICE, 'getPedometerData', (_a = options === null || options === void 0 ? void 0 : options.data) !== null && _a !== void 0 ? _a : [], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail);
+    return core.exec(constants_1.WORKPLUS_DEVICE, 'getPedometerData', [], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail);
 }
 exports.default = getPedometerData;

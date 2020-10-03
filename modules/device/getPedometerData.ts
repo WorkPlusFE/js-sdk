@@ -14,7 +14,7 @@ export default function getPedometerData(
   return core.exec<[], PedometerDataRes, never>(
     WORKPLUS_DEVICE,
     'getPedometerData',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );

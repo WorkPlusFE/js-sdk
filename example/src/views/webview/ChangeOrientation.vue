@@ -65,6 +65,7 @@ export default class ExampleList extends Vue {
   };
 
   landscape = true;
+
   lock = false;
 
   /** life cycle */

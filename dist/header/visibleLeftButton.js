@@ -21,7 +21,7 @@ var constants_1 = require("../constants");
  * @returns 无
  */
 function visibleLeftButton(options) {
-    var success = options.success, fail = options.fail, params = __rest(options, ["success", "fail"]);
-    return core.exec(constants_1.WORKPLUS_WEBVIEW, 'visibleLeftButton', [params], success, fail);
+    var success = options.success, fail = options.fail, args = __rest(options, ["success", "fail"]);
+    return core.exec(constants_1.WORKPLUS_WEBVIEW, 'visibleLeftButton', [args], success, fail);
 }
 exports.default = visibleLeftButton;

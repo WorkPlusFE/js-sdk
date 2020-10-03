@@ -9,11 +9,11 @@ import { WORKPLUS_CONTACT } from '../constants';
  * @param {ContactOption<[], unknown>} [options]
  * @returns {Promise<unknown>}
  */
-export default function getMobileContacts(options?: ContactOption<[], unknown>): Promise<unknown> {
+export default function getMobileContacts(options?: ContactOption<unknown>): Promise<unknown> {
   return core.exec<[], unknown, unknown>(
     WORKPLUS_CONTACT,
     'getMobileContacts',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );

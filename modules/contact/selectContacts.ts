@@ -7,17 +7,18 @@ import { WORKPLUS_CONTACT } from '../constants';
  * 打开通用选择人员界面, 多选用户或者雇员
  *
  * @export
- * @param {ContactOption<SelectContactsParams, unknown>} [options]
+ * @param {SelectContactsParams & ContactOption<unknown>} [options]
  * @returns {Promise<unknown>}
  */
 export default function selectContacts(
-  options?: ContactOption<SelectContactsParams, unknown>,
+  options: SelectContactsParams & ContactOption<unknown>,
 ): Promise<unknown> {
+  const { success, fail, ...args } = options;
   return core.exec<SelectContactsParams, unknown, unknown>(
     WORKPLUS_CONTACT,
     'selectContacts',
-    options?.data ?? [],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
   );
 }

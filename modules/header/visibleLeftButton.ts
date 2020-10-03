@@ -13,11 +13,11 @@ export type VisibleLeftButtonOptions = VisibleLeftButtonParams & ExecOptions<voi
  * @returns 无
  */
 function visibleLeftButton(options: VisibleLeftButtonOptions): Promise<void> {
-  const { success, fail, ...params } = options;
+  const { success, fail, ...args } = options;
   return core.exec<VisibleLeftButtonParams, void, void>(
     WORKPLUS_WEBVIEW,
     'visibleLeftButton',
-    [params],
+    [args],
     success,
     fail,
   );

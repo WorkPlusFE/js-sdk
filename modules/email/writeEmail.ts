@@ -13,11 +13,11 @@ export type WriteEmailOptions = WriteEmailParams & ExecOptions<void, void>;
  * @returns 无
  */
 function writeEmail(options: WriteEmailOptions): Promise<void> {
-  const { success, fail, ...params } = options;
+  const { success, fail, ...args } = options;
   return core.exec<WriteEmailParams, void, void>(
     WORKPLUS_EMAIL,
     'writeEmail',
-    [params],
+    [args],
     success,
     fail,
     false,

@@ -3,8 +3,7 @@ export interface SingleContactParams {
   filterSenior?: 1 | 0;
 }
 
-export interface ContactOption<D, R> {
-  data: D[];
+export interface ContactOption<R> {
   success: (res: R) => void;
   fail: (err: unknown) => void;
 }
@@ -120,7 +119,7 @@ interface SelectedEmpList {
 }
 
 export interface CurrentUserInfoParams {
-  needEmpInfo: boolean;
+  needEmpInfo?: boolean;
 }
 
 export interface CurrentUserInfoRes {

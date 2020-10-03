@@ -7,17 +7,18 @@ import { WORKPLUS_CONTACT } from '../constants';
  * 通过用户域id和用户id获取这个用户的详细信息
  *
  * @export
- * @param {ContactOption<GetUserInfoByUserIdParams, GetUserInfoByUserIdRes>} [options]
+ * @param {GetUserInfoByUserIdParams & ContactOption<GetUserInfoByUserIdRes>} [options]
  * @returns {Promise<GetUserInfoByUserIdRes>}
  */
 export default function getUserInfoByUserId(
-  options?: ContactOption<GetUserInfoByUserIdParams, GetUserInfoByUserIdRes>,
+  options: GetUserInfoByUserIdParams & ContactOption<GetUserInfoByUserIdRes>,
 ): Promise<GetUserInfoByUserIdRes> {
+  const { success, fail, ...args } = options;
   return core.exec<GetUserInfoByUserIdParams, GetUserInfoByUserIdRes, unknown>(
     WORKPLUS_CONTACT,
     'getUserInfoByUserId',
-    options?.data ?? [],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
   );
 }

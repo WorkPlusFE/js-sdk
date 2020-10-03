@@ -1,6 +1,4 @@
-export interface EventlogOptions<D, S> {
-  /** 传参 */
-  data: D;
+export interface EventlogOptions<S> {
   /** 成功回调 */
   success?: (res: S) => void;
   /** 失败回调 */

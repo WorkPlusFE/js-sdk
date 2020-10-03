@@ -30,5 +30,10 @@ export default {
     description: '文件下载。',
     action: 'download',
     params: {},
+  }, {
+    title: '[Custom]文件上传',
+    description: '文件上传。',
+    action: 'download',
+    params: {},
   }],
 };

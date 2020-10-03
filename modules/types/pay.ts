@@ -1,5 +1,4 @@
-export interface PayOption<D, R> {
-  data: D[];
+export interface PayOption<R> {
   success: (res: R) => void;
   fail: (err: unknown) => void;
 }

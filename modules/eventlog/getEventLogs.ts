@@ -5,17 +5,18 @@ import { EventlogOptions, EventLogsParams, EventLogsRes } from '../types/eventlo
 /**
  * 获取事件日志数据
  * @description 根据传参条件, 返回对应的事件日志数据
- * @param {EventlogOptions<EventLogsParams[], EventLogsRes>} [options]
+ * @param {EventLogsParams & EventlogOptions<EventLogsRes>} [options]
  * @returns {Promise<EventLogsRes>}
  */
 export default function getEventLogs(
-  options?: EventlogOptions<EventLogsParams[], EventLogsRes>,
+  options: EventLogsParams & EventlogOptions<EventLogsRes>,
 ): Promise<EventLogsRes> {
+  const { success, fail, ...args } = options;
   return core.exec<EventLogsParams, EventLogsRes, unknown>(
     WORKPLUS_EVENTLOG,
     'getEventLogs',
-    options?.data ?? [],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
   );
 }

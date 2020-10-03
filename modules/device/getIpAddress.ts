@@ -14,7 +14,7 @@ export default function getIpAddress(
   return core.exec<[], IpAddressRes, never>(
     WORKPLUS_DEVICE,
     'getIpAddress',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );

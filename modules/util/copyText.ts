@@ -1,19 +1,15 @@
 import * as core from '../core';
 import { WORKPLUS_WEBVIEW } from '../constants';
-import { ExecOptions } from '../types/core';
-import { CopyTextParams } from '../types/webview';
-
-interface CopyTextOptions extends ExecOptions<void, void>, CopyTextParams {}
 
 /**
  * 复制文本
  * @description 复制文本
- * @param {CopyTextOptions} [options]
+ * @param {string} [options]
  * @module webview
- * @returns {Promise<void>}
+ * @returns {void}
  */
-function copyText(options: CopyTextOptions): void {
-  return core.execSync(WORKPLUS_WEBVIEW, 'copyText', [options.text]);
+function copyText(text: string): void {
+  return core.execSync(WORKPLUS_WEBVIEW, 'copyText', [{ text }]);
 }
 
 export default copyText;

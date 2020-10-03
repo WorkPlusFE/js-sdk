@@ -14,7 +14,7 @@ export default function getDeviceInfo(
   return core.exec<[], AppInfoRes, never>(
     WORKPLUS_PUBLIC_CLOUND,
     'getAppInfo',
-    options?.data ?? [],
+    [],
     options?.success,
     options?.fail,
   );
