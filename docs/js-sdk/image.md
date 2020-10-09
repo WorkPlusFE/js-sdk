@@ -141,7 +141,7 @@ w6s.image.showImages({
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
-<CodeWrapper fn="image.saveImages">
+<CodeWrapper custom-link="image/saveImages">
 
 ```js
 // 该方法没有回调
@@ -176,7 +176,7 @@ w6s.image.saveImages({
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
-<CodeWrapper fn="image.actionForLongPressImage">
+<CodeWrapper custom-link="image/actionForLongPressImage">
 
 ```js
 // 该方法没有回调
@@ -226,6 +226,8 @@ html2canvas(document.getElementById('body'))
 
 ::: tip 提示
 通常我们通过拍照或者打开相册来获取图片，而图片的访问地址都是本地绝对路径，基于 Webview 的安全机制，本地路径放到 `<img>` src 里，并不能显示出来，此时可以通过该方法把图片转换成 Base64 来使用。
+
+注意，该方法仅支持转换本地图片。
 :::
 
 **使用说明**
@@ -234,7 +236,7 @@ html2canvas(document.getElementById('body'))
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="image.toBase64">
+<CodeWrapper custom-link="image/base64">
 
 ```js
 w6s.image.toBase64({
@@ -268,7 +270,7 @@ w6s.image.toBase64({
 | -------- | ------- | ---- |
 | 支持情况 | 支持    | 支持 |
 
-<CodeWrapper fn="image.takePhotoAndAddWaterMark">
+<CodeWrapper custom-link="image/takePhotoAndAddWaterMark">
 
 ```js
 w6s.image.takePhotoAndAddWaterMark({

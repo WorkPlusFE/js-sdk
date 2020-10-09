@@ -108,7 +108,7 @@ w6s.webview.share({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.changeOrientation">
+<CodeWrapper custom-link="webview/changeOrientation">
 
 ```js
 w6s.webview.changeOrientation({
@@ -125,6 +125,8 @@ w6s.webview.changeOrientation({
 | landscape | Boolean | 表示横屏或者竖屏，非必须 |
 | lock | Boolean | 表示锁定当前横屏或者竖屏的状态, false 表示 app 随用户系统设置来控制旋转，默认是 false |
 
+> lock 参数在低于 4.9.1 版本的 APP 下可能无效。
+
 ## 添加水印
 
 给页面添加水印。
@@ -135,7 +137,7 @@ w6s.webview.changeOrientation({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.addWaterMask">
+<CodeWrapper custom-link="webview/waterMask">
 
 ```js
 w6s.webview.addWaterMask({
@@ -186,7 +188,7 @@ w6s.webview.removeWaterMask();
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.registerShakeListener">
+<CodeWrapper custom-link="webview/shake">
 
 ```js
 w6s.webview.registerShakeListener();
@@ -210,7 +212,7 @@ w6s.webview.registerShakeListener();
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="webview.unregisterShakeListener" :qrcode="false">
+<CodeWrapper custom-link="webview/shake">
 
 ```js
 w6s.webview.unregisterShakeListener();

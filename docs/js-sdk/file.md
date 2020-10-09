@@ -55,7 +55,7 @@ w6s.file.chooseFiles({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="file.openFileDetail">
+<CodeWrapper custom-link="file/openFileDetail">
 
 ```js
 // 该方法没有回调
