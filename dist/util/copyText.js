@@ -5,11 +5,11 @@ var constants_1 = require("../constants");
 /**
  * 复制文本
  * @description 复制文本
- * @param {CopyTextOptions} [options]
+ * @param {string}
  * @module webview
- * @returns {Promise<void>}
+ * @returns {void}
  */
-function copyText(options) {
-    return core.execSync(constants_1.WORKPLUS_WEBVIEW, 'copyText', [options.text]);
+function copyText(text) {
+    return core.execSync(constants_1.WORKPLUS_WEBVIEW, 'copyText', [{ text: text }]);
 }
 exports.default = copyText;

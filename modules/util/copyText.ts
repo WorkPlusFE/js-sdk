@@ -4,7 +4,7 @@ import { WORKPLUS_WEBVIEW } from '../constants';
 /**
  * 复制文本
  * @description 复制文本
- * @param {string} [options]
+ * @param {string} 
  * @module webview
  * @returns {void}
  */

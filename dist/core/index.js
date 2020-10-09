@@ -266,7 +266,7 @@ function execSync(service, action, args) {
         exports.logger.warn(JSON.stringify(data, null, 4));
     }, function (err) {
         exports.logger.error(JSON.stringify(err, null, 4));
-        core.onError(service + "." + action + " \u8C03\u7528\u5931\u8D25: " + err);
+        core.onError(callAPI + " \u8C03\u7528\u5931\u8D25: " + err);
     }, service, action, args);
 }
 exports.execSync = execSync;

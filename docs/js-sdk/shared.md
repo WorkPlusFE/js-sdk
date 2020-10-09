@@ -58,7 +58,7 @@ w6s.util.voiceToText({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="util.copyText">
+<CodeWrapper custom-link="util/copyText">
 
 ```js
 w6s.util.copyText('open.workplus.io');

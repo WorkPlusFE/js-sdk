@@ -104,6 +104,20 @@ export default class ExampleList extends Vue {
       }
     }
 
+    if (service === 'header') {
+      if (action === 'setTitle') {
+        this.$router.push({ name: 'setTitle' });
+        return;
+      }
+    }
+
+    if (service === 'util') {
+      if (action === 'copyText') {
+        this.$router.push({ name: 'copyText' });
+        return;
+      }
+    }
+
     this.$router.push({
       name: 'api',
       params: {

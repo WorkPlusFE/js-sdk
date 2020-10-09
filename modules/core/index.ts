@@ -286,7 +286,7 @@ export function execSync<A>(service: string, action: string, args: Array<A>): vo
     },
     function(err) {
       logger.error(JSON.stringify(err, null, 4));
-      core.onError(`${service}.${action} 调用失败: ${err}`);
+      core.onError(`${callAPI} 调用失败: ${err}`);
     },
     service,
     action,

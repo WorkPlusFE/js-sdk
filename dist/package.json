@@ -1,0 +1,20 @@
+{
+  "name": "@w6s/sdk",
+  "version": "__VERSION__",
+  "description": "WorkPlusFE JavaScript SDK.",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "WorkPlusFE",
+    "w6s",
+    "sdk"
+  ],
+  "author": "WorkPlusFE",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10.16.0"
+  }
+}

@@ -35,9 +35,7 @@ export default {
       title: '更换头部title',
       description: '更换webview的导航栏标题',
       action: 'setTitle',
-      params: {
-        title: '标题',
-      },
+      params: '这是新的标题-1',
     },
     {
       title: '清除左侧按钮',

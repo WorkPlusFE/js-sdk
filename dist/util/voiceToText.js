@@ -10,6 +10,6 @@ var constants_1 = require("../constants");
  * @returns {Promise<VoiceToTextRes>}
  */
 function voiceToText(options) {
-    return core.exec(constants_1.WORKPLUS_WEBVIEW, 'voiceToText', [], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail);
+    return core.exec(constants_1.WORKPLUS_WEBVIEW, 'voiceToText', [], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail, false);
 }
 exports.default = voiceToText;

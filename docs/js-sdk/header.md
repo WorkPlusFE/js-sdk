@@ -16,7 +16,7 @@
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="header.setTitle">
+<CodeWrapper custom-link="header/setTitle">
 
 ```js
 w6s.header.setTitle('test title');

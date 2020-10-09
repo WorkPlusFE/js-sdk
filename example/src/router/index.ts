@@ -34,6 +34,20 @@ const routes = [
     component: () => import(/* webpackChunkName: "webview" */ '../views/webview/Shake.vue'),
   },
 
+  // header
+  {
+    path: '/header/setTitle',
+    name: 'setTitle',
+    component: () => import(/* webpackChunkName: "webview" */ '../views/header/SetTitle.vue'),
+  },
+
+  // util
+  {
+    path: '/util/copyText',
+    name: 'copyText',
+    component: () => import(/* webpackChunkName: "webview" */ '../views/util/CopyText.vue'),
+  },
+
   // image
   {
     path: '/image/base64',
