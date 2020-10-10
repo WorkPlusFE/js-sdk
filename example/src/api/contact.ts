@@ -22,7 +22,7 @@ export default {
       params: {
         hideMe: true,
         filterSenior: 1,
-        selectedContacts: ['联系人列表信息，用于复选'],
+        selectedContacts: [],
       },
     },
     {
@@ -32,7 +32,7 @@ export default {
       params: {
         hideMe: true,
         filterSenior: 1,
-        selectedContacts: ['联系人列表信息，用于复选'],
+        selectedContacts: [],
       },
     },
     {
