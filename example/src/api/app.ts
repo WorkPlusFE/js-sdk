@@ -9,7 +9,7 @@ export default {
     description: '根据参数跳转到指定的 App，只在 schemeUrl 为 workplus:// 才有效。',
     action: 'route',
     params: {
-      schemeUrl: 'workplus://meeting?type=zoom&action=join',
+      schemeUrl: 'workplus://meeting?type=zoom&action=join&view=1',
     },
   }, {
     title: '打开应用聊天界面',
@@ -33,8 +33,6 @@ export default {
     title: '打开 App 列表页面',
     description: '根据组织 id 打开该组织下的应用列表页面。',
     action: 'showAppListById',
-    params: {
-      orgId: '37a2ef9f-8683-4369-ae7b-121cea149d05',
-    },
+    params: {},
   }],
 };

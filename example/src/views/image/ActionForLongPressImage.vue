@@ -21,9 +21,8 @@
         <div slot="header" class="code-panel van-hairline--bottom">
           <span class="code-panel__title">长按的图片</span>
         </div>
-        <div style="overflow: hidden;" id="image-box" @click="longPressImage">
+        <div id="image-box" style="user-select: none;" data-long-press-delay="1500">
           <img width="100%" :src="options.imageUrl" alt="">
-          <img width="100%" :src="imagebase64" alt="">
         </div>
       </van-panel>
 
@@ -71,7 +70,7 @@ export default class ExampleList extends Vue {
   mounted() {
     sdk.header.setTitle(this.options.title);
     // @ts-ignore
-    document.getElementById('image-box').addEventListener('long-press', (e) => {
+    document.addEventListener('long-press', (e) => {
       // stop the event from bubbling up
       e.preventDefault();
       console.log(e.target);
@@ -81,12 +80,14 @@ export default class ExampleList extends Vue {
   /** method */
   private longPressImage(): void {
     // @ts-ignore
-    html2canvas(document.getElementById('image-box'))
-      .then((canvas: any) => {
-        const base64 = canvas.toDataURL('image/jpeg', 1).toString();
+    const elm: any = document.getElementById('image-box');
+    html2canvas(elm, {
+       useCORS: true,
+       logging: false,
+    }).then((canvas: any) => {
+        const base64 = canvas.toDataURL('image/png');
         this.imagebase64 = base64;
-        const imageData = base64.split('base64,')[1];
-        console.log(imageData);
+        const imageData = base64.split(';base64,')[1];
         sdk.image.actionForLongPressImage({
           imageData,
         });

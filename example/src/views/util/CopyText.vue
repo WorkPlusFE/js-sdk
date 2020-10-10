@@ -52,8 +52,6 @@ export default class ExampleList extends Vue {
     description: '把文本内容复制到粘贴板中。',
   };
 
-  value: '';
-
   /** life cycle */
   mounted() {
     sdk.header.setTitle(this.options.title);

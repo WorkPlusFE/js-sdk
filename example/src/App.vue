@@ -16,5 +16,7 @@ $color-background: #f2f2f3;
   min-height: 100vh;
   display: block;
   background-color: $color-background;
+
+  user-select: none;
 }
 </style>

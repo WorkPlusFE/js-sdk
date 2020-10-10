@@ -10,6 +10,6 @@ var constants_1 = require("../constants");
  * @returns {void}
  */
 function showAppListById(options) {
-    return core.execSync(constants_1.WORKPLUS_CONTACT, 'showAppListById', [options]);
+    return core.execSync(constants_1.WORKPLUS_APP_STORE, 'showAppListById', [options]);
 }
 exports.default = showAppListById;

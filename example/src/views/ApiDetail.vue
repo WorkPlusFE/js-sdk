@@ -70,6 +70,8 @@ export default class ExampleList extends Vue {
 
   /** method */
   private handleExec(): void {
+    console.log(this.args);
+
     // @ts-ignore
     sdk[this.service][this.action]({
       ...this.args,
