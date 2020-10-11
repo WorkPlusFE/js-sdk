@@ -40,6 +40,11 @@ const routes = [
     name: 'setTitle',
     component: () => import(/* webpackChunkName: "webview" */ '../views/header/SetTitle.vue'),
   },
+  {
+    path: '/header/navigation',
+    name: 'navigation',
+    component: () => import(/* webpackChunkName: "webview" */ '../views/header/Navigation.vue'),
+  },
 
   // util
   {

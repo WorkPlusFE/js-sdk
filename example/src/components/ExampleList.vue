@@ -109,6 +109,10 @@ export default class ExampleList extends Vue {
         this.$router.push({ name: 'setTitle' });
         return;
       }
+      if (action === 'navigation') {
+        this.$router.push({ name: 'navigation' });
+        return;
+      }
     }
 
     if (service === 'util') {

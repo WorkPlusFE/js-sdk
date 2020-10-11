@@ -69,7 +69,7 @@ w6s.header.clearLeftButton();
 ```
 </CodeWrapper>
 
-## WIP 锁定网页顶部栏
+## 锁定网页顶部栏
 
 锁定顶部栏，使得顶部栏按钮无效。
 

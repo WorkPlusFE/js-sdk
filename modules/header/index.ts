@@ -4,8 +4,17 @@ import visibleLeftButton from './visibleLeftButton';
 import clearLeftButton from './clearLeftButton';
 import clearRightButtons from './clearRightButtons';
 import leftButton from './leftButton';
-import navigation from './navigation';
+import nav from './navigation';
 import changeLeftButton from './changeLeftButton';
+
+const navigation = {
+  lock() {
+    nav('lock');
+  },
+  unlock() {
+    nav('unlock');
+  },
+};
 
 export {
   /** 更换左侧按钮和定义动作 */
