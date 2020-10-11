@@ -12,7 +12,7 @@ import { WORKPLUS_CONTACT } from '../constants';
 export default function getEmployeesFromCurrentOrg(
   options?: EmployeesFromOrgParams & ContactOption<CurrentEmployeeInfoRes>,
 ): Promise<CurrentEmployeeInfoRes> {
-  const args : EmployeesFromOrgParams = {
+  const args: EmployeesFromOrgParams = {
     selectedEmpList: options?.selectedEmpList || [],
     hideMe: options?.hideMe || false,
     filterSenior: options?.filterSenior || 1,
