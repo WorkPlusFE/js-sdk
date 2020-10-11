@@ -15,15 +15,8 @@ export interface RightButtonsOptions extends ExecOptions<void, void> {
  * @module webview
  * @returns 无
  */
-function rightButtons(options: RightButtonsOptions): Promise<void> {
-  const { success, fail } = options;
-  return core.exec<ButtonsItem[], void, void>(
-    WORKPLUS_WEBVIEW,
-    'rightButtons',
-    [options.items],
-    success,
-    fail,
-  );
+function rightButtons(options: RightButtonsOptions): void {
+  return core.execSync<ButtonsItem[]>(WORKPLUS_WEBVIEW, 'rightButtons', [options.items]);
 }
 
 export default rightButtons;

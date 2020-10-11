@@ -15,19 +15,19 @@ export default {
     },
     {
       title: '更换左侧按钮动作',
-      description: '设置左侧按钮回调，传入一个全局的JS函数名',
+      description: '设置左侧按钮回调，传入一个全局的 JS 函数名。执行方法后，点击左上角返回按钮，全局方法将被执行（弹出一个提示框），原始返回行为将无效。',
       action: 'leftButton',
       params: {
-        method: 'back',
+        method: 'leftButtonBackEvent',
       },
     },
     {
       title: '更换右侧按钮动作',
-      description: '更换右侧按钮，参数为一个选项列表',
+      description: '更换右侧按钮，参数为一个选项列表。执行方法后，右上角按钮将变成“点我”，点击后，绑定的全局方法将被执行（弹出一个提示框）。该接口参数较多，详情请查阅官方文档！',
       action: 'rightButtons',
       params: {
         items: [{
-          icon: -1, title: '完成', action: 'js', value: 'rightButtons',
+          icon: -1, title: '点我', action: 'js', value: 'rightButtonsEvent',
         }],
       },
     },
@@ -64,7 +64,7 @@ export default {
       action: 'changeLeftButton',
       params: {
         items: [{
-          icon: -1, title: '返回', action: 'js', value: 'back',
+          icon: -1, title: '<-返回', action: 'js', value: 'leftButtonBackEvent',
         }],
       },
     },

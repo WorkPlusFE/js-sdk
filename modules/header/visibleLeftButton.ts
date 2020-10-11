@@ -1,9 +1,6 @@
 import * as core from '../core';
 import { WORKPLUS_WEBVIEW } from '../constants';
-import { ExecOptions } from '../types/core';
 import { VisibleLeftButtonParams } from '../types/webview';
-
-export type VisibleLeftButtonOptions = VisibleLeftButtonParams & ExecOptions<void, void>;
 
 /**
  * 是否隐藏或显示左侧的按钮和关闭字样
@@ -12,15 +9,8 @@ export type VisibleLeftButtonOptions = VisibleLeftButtonParams & ExecOptions<voi
  * @module webview
  * @returns 无
  */
-function visibleLeftButton(options: VisibleLeftButtonOptions): Promise<void> {
-  const { success, fail, ...args } = options;
-  return core.exec<VisibleLeftButtonParams, void, void>(
-    WORKPLUS_WEBVIEW,
-    'visibleLeftButton',
-    [args],
-    success,
-    fail,
-  );
+function visibleLeftButton(options: VisibleLeftButtonParams): void {
+  return core.execSync<VisibleLeftButtonParams>(WORKPLUS_WEBVIEW, 'visibleLeftButton', [options]);
 }
 
 export default visibleLeftButton;

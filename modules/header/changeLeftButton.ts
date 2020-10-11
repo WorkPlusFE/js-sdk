@@ -3,7 +3,7 @@ import { WORKPLUS_WEBVIEW } from '../constants';
 import { ExecOptions } from '../types/core';
 import { ButtonsItem } from '../types/webview';
 
-export interface ChangeLeftButtonOptions extends ExecOptions<void, void> {
+export interface ChangeLeftButtonOptions {
   items: ButtonsItem[];
 }
 
@@ -14,15 +14,8 @@ export interface ChangeLeftButtonOptions extends ExecOptions<void, void> {
  * @module webview
  * @returns 无
  */
-function changeLeftButton(options: ChangeLeftButtonOptions): Promise<void> {
-  const { success, fail, items } = options;
-  return core.exec<ButtonsItem[], void, void>(
-    WORKPLUS_WEBVIEW,
-    'changeLeftButton',
-    [items],
-    success,
-    fail,
-  );
+function changeLeftButton(options: ChangeLeftButtonOptions): void {
+  return core.execSync<ButtonsItem[]>(WORKPLUS_WEBVIEW, 'changeLeftButton', [options.items]);
 }
 
 export default changeLeftButton;

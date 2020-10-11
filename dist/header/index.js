@@ -14,6 +14,16 @@ exports.clearRightButtons = clearRightButtons_1.default;
 var leftButton_1 = require("./leftButton");
 exports.leftButton = leftButton_1.default;
 var navigation_1 = require("./navigation");
-exports.navigation = navigation_1.default;
 var changeLeftButton_1 = require("./changeLeftButton");
 exports.changeLeftButton = changeLeftButton_1.default;
+var navigation = {
+    // @ts-ignore
+    lock: function () {
+        navigation_1.default('lock');
+    },
+    // @ts-ignore
+    unlock: function () {
+        navigation_1.default('unlock');
+    },
+};
+exports.navigation = navigation;

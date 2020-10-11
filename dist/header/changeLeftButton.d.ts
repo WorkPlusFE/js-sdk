@@ -1,6 +1,5 @@
-import { ExecOptions } from '../types/core';
 import { ButtonsItem } from '../types/webview';
-export interface ChangeLeftButtonOptions extends ExecOptions<void, void> {
+export interface ChangeLeftButtonOptions {
     items: ButtonsItem[];
 }
 /**
@@ -10,5 +9,5 @@ export interface ChangeLeftButtonOptions extends ExecOptions<void, void> {
  * @module webview
  * @returns 无
  */
-declare function changeLeftButton(options: ChangeLeftButtonOptions): Promise<void>;
+declare function changeLeftButton(options: ChangeLeftButtonOptions): void;
 export default changeLeftButton;

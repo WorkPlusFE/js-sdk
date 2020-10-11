@@ -10,7 +10,6 @@ var constants_1 = require("../constants");
  * @returns 无
  */
 function changeLeftButton(options) {
-    var success = options.success, fail = options.fail, items = options.items;
-    return core.exec(constants_1.WORKPLUS_WEBVIEW, 'changeLeftButton', [items], success, fail);
+    return core.execSync(constants_1.WORKPLUS_WEBVIEW, 'changeLeftButton', [options.items]);
 }
 exports.default = changeLeftButton;

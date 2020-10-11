@@ -1,8 +1,7 @@
 import * as core from '../core';
 import { WORKPLUS_WEBVIEW } from '../constants';
-import { ExecOptions } from '../types/core';
 
-export interface LeftButtonOptions extends ExecOptions<void, void> {
+export interface LeftButtonOptions {
   /** 执行的JS全局函数名 */
   method: string;
 }
@@ -14,15 +13,8 @@ export interface LeftButtonOptions extends ExecOptions<void, void> {
  * @module webview
  * @returns 无
  */
-function leftButton(options: LeftButtonOptions): Promise<void> {
-  const { success, fail, ...params } = options;
-  return core.exec<string, void, void>(
-    WORKPLUS_WEBVIEW,
-    'leftButton',
-    [params.method],
-    success,
-    fail,
-  );
+function leftButton(options: LeftButtonOptions): void {
+  return core.execSync<string>(WORKPLUS_WEBVIEW, 'leftButton', [options.method]);
 }
 
 export default leftButton;

@@ -9,9 +9,18 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <title>WorkPlus JS-SDK</title>
     <script>
-      var onWorkplusShake = function() {
+      window.onWorkplusShake = function() {
         alert('Shake Shake Shake');
-      }
+      };
+
+      window.leftButtonBackEvent = function() {
+        alert('你点击了返回！关闭后，返回上一页。');
+        history.go(-1);
+      };
+
+      window.rightButtonsEvent = function() {
+        alert('你点击了我！');
+      }; 
     </script>
   </head>
   <body>

@@ -11,5 +11,5 @@ export interface RightButtonsOptions extends ExecOptions<void, void> {
  * @module webview
  * @returns 无
  */
-declare function rightButtons(options: RightButtonsOptions): Promise<void>;
+declare function rightButtons(options: RightButtonsOptions): void;
 export default rightButtons;

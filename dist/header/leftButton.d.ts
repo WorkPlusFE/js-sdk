@@ -1,5 +1,4 @@
-import { ExecOptions } from '../types/core';
-export interface LeftButtonOptions extends ExecOptions<void, void> {
+export interface LeftButtonOptions {
     /** 执行的JS全局函数名 */
     method: string;
 }
@@ -10,5 +9,5 @@ export interface LeftButtonOptions extends ExecOptions<void, void> {
  * @module webview
  * @returns 无
  */
-declare function leftButton(options: LeftButtonOptions): Promise<void>;
+declare function leftButton(options: LeftButtonOptions): void;
 export default leftButton;
