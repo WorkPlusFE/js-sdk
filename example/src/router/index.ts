@@ -89,6 +89,13 @@ const routes = [
     component: () => import(/* webpackChunkName: "file" */ '../views/file/OpenFileDetail.vue'),
   },
 
+  // event listener
+  {
+    path: '/event/listener',
+    name: 'listener',
+    component: () => import(/* webpackChunkName: "event" */ '../views/listener/Listener.vue'),
+  },
+
   {
     path: '/not',
     name: 'notInWorkPlus',

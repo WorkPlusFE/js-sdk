@@ -129,6 +129,13 @@ export default class ExampleList extends Vue {
       }
     }
 
+    if (service === 'event') {
+      if (action === 'listener') {
+        this.$router.push({ name: 'listener' });
+        return;
+      }
+    }
+
     this.$router.push({
       name: 'api',
       params: {

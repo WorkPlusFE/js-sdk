@@ -14,6 +14,7 @@ import Util from './utils';
 import User from './user';
 import Session from './session';
 import Header from './header';
+import Listener from './listener';
 
 interface ApiModule {
   title: string;
@@ -47,4 +48,5 @@ export default [
   // Notification,
   // Event,
   Email,
+  Listener,
 ] as ApiModule[];
