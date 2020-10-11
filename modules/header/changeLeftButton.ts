@@ -1,6 +1,5 @@
 import * as core from '../core';
 import { WORKPLUS_WEBVIEW } from '../constants';
-import { ExecOptions } from '../types/core';
 import { ButtonsItem } from '../types/webview';
 
 export interface ChangeLeftButtonOptions {

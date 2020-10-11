@@ -1,9 +1,8 @@
 import * as core from '../core';
 import { WORKPLUS_WEBVIEW } from '../constants';
-import { ExecOptions } from '../types/core';
 import { ButtonsItem } from '../types/webview';
 
-export interface RightButtonsOptions extends ExecOptions<void, void> {
+export interface RightButtonsOptions {
   /** 右侧按钮列表 */
   items: ButtonsItem[];
 }

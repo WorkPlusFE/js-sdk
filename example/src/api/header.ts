@@ -1,7 +1,7 @@
 // 网页头部
 
 export default {
-  title: '* 网页头部',
+  title: '网页头部',
   module: 'header',
   active: false,
   apis: [

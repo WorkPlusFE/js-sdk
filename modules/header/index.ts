@@ -8,11 +8,9 @@ import nav from './navigation';
 import changeLeftButton from './changeLeftButton';
 
 const navigation = {
-  // @ts-ignore
   lock() {
     nav('lock');
   },
-  // @ts-ignore
   unlock() {
     nav('unlock');
   },
