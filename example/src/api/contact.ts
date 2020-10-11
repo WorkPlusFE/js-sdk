@@ -11,8 +11,7 @@ export default {
       description: '打开当前组织的联系人列表，单选一个联系人(兼容2.0数据)。',
       action: 'getSingleContact',
       params: {
-        hideMe: true,
-        filterSenior: 1,
+
       },
     },
     {
@@ -20,9 +19,7 @@ export default {
       description: '打开当前组织的联系人列表，多选联系人(兼容2.0数据)。',
       action: 'getContacts',
       params: {
-        hideMe: true,
-        filterSenior: 1,
-        selectedContacts: [],
+
       },
     },
     {
@@ -30,9 +27,7 @@ export default {
       description: '打开当前组织的联系人列表，选择多个联系人，返回雇员信息。',
       action: 'getEmployeesFromCurrentOrg',
       params: {
-        hideMe: true,
-        filterSenior: 1,
-        selectedContacts: [],
+
       },
     },
     {
@@ -40,10 +35,7 @@ export default {
       description: '该接口打开通用的选择界面，此界面能选择组织内的雇员信息, 用户的星标联系人等。',
       action: 'selectContacts',
       params: {
-        filterSenior: 1,
-        maxCount: 9,
-        selectedUsers: [], // 已选择的users
-        selectedEmployees: [], // 已选择的employees
+
       },
     }, {
       title: '获取手机通讯录',

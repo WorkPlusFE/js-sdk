@@ -1,7 +1,5 @@
 import * as core from '../core';
-
 import { ContactOption, EmployeesFromOrgParams, CurrentEmployeeInfoRes } from '../types/contact';
-
 import { WORKPLUS_CONTACT } from '../constants';
 
 /**
@@ -12,14 +10,19 @@ import { WORKPLUS_CONTACT } from '../constants';
  * @returns {Promise<CurrentEmployeeInfoRes>}
  */
 export default function getEmployeesFromCurrentOrg(
-  options: EmployeesFromOrgParams & ContactOption<CurrentEmployeeInfoRes>,
+  options?: EmployeesFromOrgParams & ContactOption<CurrentEmployeeInfoRes>,
 ): Promise<CurrentEmployeeInfoRes> {
-  const { success, fail, ...args } = options;
+  const args : EmployeesFromOrgParams = {
+    selectedEmpList: options?.selectedEmpList || [],
+    hideMe: options?.hideMe || false,
+    filterSenior: options?.filterSenior || 1,
+  };
   return core.exec<EmployeesFromOrgParams, CurrentEmployeeInfoRes, unknown>(
     WORKPLUS_CONTACT,
     'getEmployeesFromCurrentOrg',
     [args],
-    success,
-    fail,
+    options?.success,
+    options?.fail,
+    false,
   );
 }

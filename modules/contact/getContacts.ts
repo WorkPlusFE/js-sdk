@@ -11,13 +11,18 @@ export type ContactsOptions = ContactsParams & ContactOption<ContactsRes>;
  * @param {ContactsOptions} [options]
  * @returns {Promise<ContactsRes>}
  */
-export default function getContacts(options: ContactsOptions): Promise<ContactsRes> {
-  const { success, fail, ...args } = options;
+export default function getContacts(options?: ContactsOptions): Promise<ContactsRes> {
+  const args: ContactsParams = {
+    selectedContacts: options?.selectedContacts || [],
+    hideMe: options?.hideMe || false,
+    filterSenior: options?.filterSenior || 1,
+  };
   return core.exec<ContactsParams, ContactsRes, unknown>(
     WORKPLUS_CONTACT,
     'getContacts',
     [args],
-    success,
-    fail,
+    options?.success,
+    options?.fail,
+    false,
   );
 }

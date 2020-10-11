@@ -10,14 +10,18 @@ import { WORKPLUS_CONTACT } from '../constants';
  * @returns {Promise<SingleContactRes>}
  */
 export default function getSingleContact(
-  options: SingleContactParams & ContactOption<SingleContactRes>,
+  options?: SingleContactParams & ContactOption<SingleContactRes>,
 ): Promise<SingleContactRes> {
-  const { success, fail, ...args } = options;
+  const args: SingleContactParams = {
+    hideMe: options?.hideMe || false,
+    filterSenior: options?.filterSenior || 1,
+  };
   return core.exec<SingleContactParams, SingleContactRes, unknown>(
     WORKPLUS_CONTACT,
     'getContact',
     [args],
-    success,
-    fail,
+    options?.success,
+    options?.fail,
+    false,
   );
 }

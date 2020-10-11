@@ -11,14 +11,20 @@ import { WORKPLUS_CONTACT } from '../constants';
  * @returns {Promise<unknown>}
  */
 export default function selectContacts(
-  options: SelectContactsParams & ContactOption<unknown>,
+  options?: SelectContactsParams & ContactOption<unknown>,
 ): Promise<unknown> {
-  const { success, fail, ...args } = options;
+  const args: SelectContactsParams = {
+    filterSenior: options?.filterSenior || 1,
+    maxCount: options?.maxCount || -1,
+    selectedUsers: options?.selectedUsers || [],
+    selectedEmployees: options?.selectedEmployees || [],
+  };
   return core.exec<SelectContactsParams, unknown, unknown>(
     WORKPLUS_CONTACT,
     'selectContacts',
     [args],
-    success,
-    fail,
+    options?.success,
+    options?.fail,
+    false,
   );
 }
