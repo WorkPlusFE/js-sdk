@@ -4,8 +4,8 @@ export interface SingleContactParams {
 }
 
 export interface ContactOption<R> {
-  success: (res: R) => void;
-  fail: (err: unknown) => void;
+  success?: (res: R) => void;
+  fail?: (err: unknown) => void;
 }
 
 export interface SingleContactRes {

@@ -3,8 +3,8 @@ export interface SingleContactParams {
     filterSenior?: 1 | 0;
 }
 export interface ContactOption<R> {
-    success: (res: R) => void;
-    fail: (err: unknown) => void;
+    success?: (res: R) => void;
+    fail?: (err: unknown) => void;
 }
 export interface SingleContactRes {
     identifier: string;
@@ -35,9 +35,9 @@ export interface SingleContactRes {
     }[];
 }
 export interface ContactsParams {
-    selectedContacts: SelectedContact[];
-    hideMe: string;
-    filterSenior: number;
+    selectedContacts?: SelectedContact[];
+    hideMe?: boolean;
+    filterSenior?: 1 | 0;
 }
 export interface SelectedContact {
     identifier: string;
@@ -96,9 +96,9 @@ export interface ContactsRes {
     }[];
 }
 export interface EmployeesFromOrgParams {
-    selectedEmpList: SelectedEmpList[];
-    hideMe: string;
-    filterSenior: number;
+    selectedEmpList?: SelectedEmpList[];
+    hideMe?: boolean;
+    filterSenior?: 1 | 0;
 }
 interface SelectedEmpList {
     username: string;
@@ -249,10 +249,10 @@ export interface ShowAppListByIdParams {
     org_id: string;
 }
 export interface SelectContactsParams {
-    filterSenior: number;
-    maxCount: number;
-    selectedUsers: unknown[];
-    selectedEmployees: unknown[];
+    filterSenior?: 1 | 0;
+    maxCount?: number;
+    selectedUsers?: unknown[];
+    selectedEmployees?: unknown[];
 }
 export interface SelectContactsRes {
     user: unknown[];

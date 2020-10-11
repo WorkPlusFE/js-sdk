@@ -122,6 +122,13 @@ export default class ExampleList extends Vue {
       }
     }
 
+    if (service === 'session') {
+      if (action === 'showUserChatViewByUser') {
+        this.$router.push({ name: 'showUserChatViewByUser' });
+        return;
+      }
+    }
+
     this.$router.push({
       name: 'api',
       params: {

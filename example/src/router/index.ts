@@ -38,19 +38,26 @@ const routes = [
   {
     path: '/header/setTitle',
     name: 'setTitle',
-    component: () => import(/* webpackChunkName: "webview" */ '../views/header/SetTitle.vue'),
+    component: () => import(/* webpackChunkName: "header" */ '../views/header/SetTitle.vue'),
   },
   {
     path: '/header/navigation',
     name: 'navigation',
-    component: () => import(/* webpackChunkName: "webview" */ '../views/header/Navigation.vue'),
+    component: () => import(/* webpackChunkName: "header" */ '../views/header/Navigation.vue'),
   },
 
   // util
   {
     path: '/util/copyText',
     name: 'copyText',
-    component: () => import(/* webpackChunkName: "webview" */ '../views/util/CopyText.vue'),
+    component: () => import(/* webpackChunkName: "util" */ '../views/util/CopyText.vue'),
+  },
+
+  // session
+  {
+    path: '/session/showUserChatViewByUser',
+    name: 'showUserChatViewByUser',
+    component: () => import(/* webpackChunkName: "session" */ '../views/session/ShowUserChatViewByUser.vue'),
   },
 
   // image
@@ -75,6 +82,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "image" */ '../views/image/ActionForLongPressImage.vue'),
   },
 
+  // file
   {
     path: '/file/openFileDetail',
     name: 'openFileDetail',

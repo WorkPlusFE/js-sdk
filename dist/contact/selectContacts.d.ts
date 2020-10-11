@@ -6,4 +6,4 @@ import { ContactOption, SelectContactsParams } from '../types/contact';
  * @param {SelectContactsParams & ContactOption<unknown>} [options]
  * @returns {Promise<unknown>}
  */
-export default function selectContacts(options: SelectContactsParams & ContactOption<unknown>): Promise<unknown>;
+export default function selectContacts(options?: SelectContactsParams & ContactOption<unknown>): Promise<unknown>;

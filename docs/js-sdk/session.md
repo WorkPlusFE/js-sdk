@@ -29,7 +29,7 @@ w6s.session.showUserChatViewByUser({
 
 
 
-## * 打开群组聊天页面 <Badge text="v3.1.4+" type="warning" />
+## 打开群组聊天页面 <Badge text="v3.1.4+" type="warning" />
 
 通过`群组id`打开该群组的聊天页面，并且可以自定义发送应用所支持的消息。
 

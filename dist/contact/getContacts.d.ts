@@ -7,4 +7,4 @@ export declare type ContactsOptions = ContactsParams & ContactOption<ContactsRes
  * @param {ContactsOptions} [options]
  * @returns {Promise<ContactsRes>}
  */
-export default function getContacts(options: ContactsOptions): Promise<ContactsRes>;
+export default function getContacts(options?: ContactsOptions): Promise<ContactsRes>;

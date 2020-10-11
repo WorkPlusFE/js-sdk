@@ -17,11 +17,9 @@ var navigation_1 = require("./navigation");
 var changeLeftButton_1 = require("./changeLeftButton");
 exports.changeLeftButton = changeLeftButton_1.default;
 var navigation = {
-    // @ts-ignore
     lock: function () {
         navigation_1.default('lock');
     },
-    // @ts-ignore
     unlock: function () {
         navigation_1.default('unlock');
     },

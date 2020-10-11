@@ -6,4 +6,4 @@ import { SingleContactRes, ContactOption, SingleContactParams } from '../types/c
  * @param {SingleContactParams & ContactOption<SingleContactRes>} [options]
  * @returns {Promise<SingleContactRes>}
  */
-export default function getSingleContact(options: SingleContactParams & ContactOption<SingleContactRes>): Promise<SingleContactRes>;
+export default function getSingleContact(options?: SingleContactParams & ContactOption<SingleContactRes>): Promise<SingleContactRes>;
