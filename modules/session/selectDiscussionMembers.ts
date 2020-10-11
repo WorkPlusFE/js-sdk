@@ -2,6 +2,7 @@ import * as core from '../core';
 import {
   ContactOption,
   SelectDiscussionMembersParams,
+  SelectDiscussionMembersParamsOrigin,
   SelectDiscussionMembersRes,
 } from '../types/contact';
 
@@ -17,12 +18,15 @@ import { WORKPLUS_CONTACT } from '../constants';
 export default function selectDiscussionMembers(
   options: SelectDiscussionMembersParams & ContactOption<SelectDiscussionMembersRes>,
 ): Promise<SelectDiscussionMembersRes> {
-  const { success, fail, ...args } = options;
-  return core.exec<SelectDiscussionMembersParams, SelectDiscussionMembersRes, unknown>(
+  const args: SelectDiscussionMembersParamsOrigin = {
+    discussion_id: options.discussionId,
+    members_selected: options?.membersSelected || [],
+  };
+  return core.exec<SelectDiscussionMembersParamsOrigin, SelectDiscussionMembersRes, unknown>(
     WORKPLUS_CONTACT,
     'selectDiscussionMembers',
     [args],
-    success,
-    fail,
+    options?.success,
+    options?.fail,
   );
 }
