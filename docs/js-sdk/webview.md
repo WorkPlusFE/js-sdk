@@ -86,12 +86,12 @@ w6s.webview.share({
 | url | String | 要分享的网页地址 |
 | title | String | 分享后显示的标题 |
 | coverMediaId | String | 分享后显示的图标，媒体id |
-| coverUrl | String | 分享后显示的图标，网络地址 |
+| coverUrl | String | 分享后显示的图标，网络地址，与 coverMediaId 二选一即可 |
 | scope | Number | 用于显示范围，0 只显示内部分享的操作，包括"发送给"，"分享到圈子"；1则显示全部 |
 | summary | String | 分享的内容摘要，一般会放到分享后的描述位置 |
 | directly | String | 可选值：w6s_contact、w6s_current_session，具体说明请看下方描述 |
-| directSession.id | String |  |
-| directSession.type | String |  |
+| directSession.id | String | 会话的id |
+| directSession.type | String | 会话的类型 |
 
 
 ::: tip directly 参数
@@ -234,7 +234,7 @@ w6s.webview.unregisterShakeListener();
 
 ```js
 w6s.webview.wxShare({
-  app_id: 'wx63f4a539bf345965',
+  appId: 'wx63f4a539bf345965',
   title: '这是一个标题',
   type : 'webpage',
   description: '这是概要',
@@ -249,7 +249,7 @@ w6s.webview.wxShare({
 
 | 参数 | 类型 | 说明|
 | - | - | - |
-| app_id | String | 微信的`AppId` |
+| appId | String | 微信的`AppId` |
 | title | String | 分享的标题 |
 | type | String | 分享的消息类型，webpage(网页链接), image(图片) |
 | description | String | 描述 |

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Logger = /** @class */ (function () {
     function Logger(enabled) {
         if (enabled === void 0) { enabled = false; }
-        this._PREFIX = 'WorkPlus SDK ';
+        this._PREFIX = 'WorkPlus JS-SDK ';
         this._enabled = enabled;
     }
     Logger.prototype.disable = function () {

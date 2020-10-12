@@ -11,5 +11,5 @@ export declare type ChooseImagesOptions = ChooseImages & ExecOptions<PhotoInfoAn
  * @version 3.1.3版本以上
  * @returns 带有mediaId的图片信息
  */
-declare function chooseImages(options: ChooseImagesOptions): Promise<PhotoInfoAndMediaId[]>;
+declare function chooseImages(options?: ChooseImagesOptions): Promise<PhotoInfoAndMediaId[]>;
 export default chooseImages;

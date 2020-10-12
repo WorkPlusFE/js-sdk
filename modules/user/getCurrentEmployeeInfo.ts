@@ -11,14 +11,16 @@ import { WORKPLUS_CONTACT } from '../constants';
  * @returns {Promise<CurrentEmployeeInfoRes>}
  */
 export default function getCurrentEmployeeInfo(
-  options: CurrentEmployeeInfoParams & ContactOption<CurrentEmployeeInfoRes>,
+  options?: CurrentEmployeeInfoParams & ContactOption<CurrentEmployeeInfoRes>,
 ): Promise<CurrentEmployeeInfoRes> {
-  const { success, fail, ...args } = options;
+  const args: CurrentEmployeeInfoParams = {
+    orgCode: options?.orgCode || '',
+  };
   return core.exec<CurrentEmployeeInfoParams, CurrentEmployeeInfoRes, unknown>(
     WORKPLUS_CONTACT,
     'getCurrentEmployeeInfo',
     [args],
-    success,
-    fail,
+    options?.success,
+    options?.fail,
   );
 }

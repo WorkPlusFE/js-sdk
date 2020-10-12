@@ -21,11 +21,11 @@
 ```js
 w6s.file.chooseFiles({
   multiple: true,
-  file_keys: ['已选文件本地地址'],
-  file_limit: {
-    max_select_count: 9,
-    single_select_size: -1,
-    total_select_size: -1,
+  fileKeys: ['已选文件本地地址'],
+  fileLimit: {
+    maxSelectCount: 9,
+    singleSelectSize: -1,
+    totalSelectSize: -1,
   },
   success: function(res) {},
   fail: function(err) {},
@@ -38,10 +38,10 @@ w6s.file.chooseFiles({
 | 参数 | 类型 | 说明|
 | - | - | - |
 | multiple | Boolean | 是否为多选 |
-| file_keys | Array[String] | 已选文件本地地址数组，用于复选 |
-| file_limit.max_select_count | Number | 非必须，多选时数量的限制，默认为 9 |
-| file_limit.single_select_size | Number | 非必须，单个文件选择大小限制(byte),-1表示不限制，默认为 -1 |
-| file_limit.total_select_size | Number | 非必须，所有文件选择大小限制(byte),-1表示不限制，默认为 -1 |
+| fileKeys | Array[String] | 已选文件本地地址数组，用于复选 |
+| fileLimit.maxSelectCount | Number | 非必须，多选时数量的限制，默认为 9 |
+| fileLimit.singleSelectSize | Number | 非必须，单个文件选择大小限制(byte),-1表示不限制，默认为 -1 |
+| fileLimit.totalSelectSize | Number | 非必须，所有文件选择大小限制(byte),-1表示不限制，默认为 -1 |
 
 **返回数据**
 

@@ -23,7 +23,7 @@ w6s.header.setTitle('test title');
 ```
 </CodeWrapper>
 
-## WIP 设置返回按钮动作
+## 设置返回按钮动作
 
 更换左侧的返回按钮动作。
 
@@ -90,7 +90,7 @@ w6s.header.navigation.unlock();
 ```
 </CodeWrapper>
 
-## WIP 设置右侧按钮动作
+## 设置右侧按钮动作
 
 自定义右侧按钮，最多允许在右边定义三个按钮，每个按钮允许定义成下拉类型，下拉没有数量限制，但建议不超过 5 个。
 

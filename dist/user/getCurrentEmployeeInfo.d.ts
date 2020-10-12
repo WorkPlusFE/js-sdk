@@ -6,4 +6,4 @@ import { ContactOption, CurrentEmployeeInfoParams, CurrentEmployeeInfoRes } from
  * @param {CurrentEmployeeInfoParams & ContactOption<CurrentEmployeeInfoRes>} [options]
  * @returns {Promise<CurrentEmployeeInfoRes>}
  */
-export default function getCurrentEmployeeInfo(options: CurrentEmployeeInfoParams & ContactOption<CurrentEmployeeInfoRes>): Promise<CurrentEmployeeInfoRes>;
+export default function getCurrentEmployeeInfo(options?: CurrentEmployeeInfoParams & ContactOption<CurrentEmployeeInfoRes>): Promise<CurrentEmployeeInfoRes>;

@@ -8,10 +8,25 @@ export interface OpenWebViewParams {
   url: string;
   /** 打开网页的标题 */
   title: string;
-  /** 是否使用 android 原生 webview 打开, 否则使用workplus 订制的 webview，3.1.3以上版本支持 */
-  use_android_webview: boolean;
+  /** 是否使用 android 原生 webview 打开, 否则使用 workplus 订制的 webview，3.1.3以上版本支持 */
+  use_android_webview?: boolean;
+  /** 等同于 useAndroidWebview，只是该参数能用于 iOS 以及 android 平台 */
+  use_system_webview?: boolean;
   /** 全屏打开 webview(即不包含原生标题栏), 默认非全屏 */
   display_mode?: 'FULL_SCREEN' | '';
+}
+
+export interface OpenWebView {
+  /** 打开的网址url */
+  url: string;
+  /** 打开网页的标题 */
+  title: string;
+  /** 是否使用 android 原生 webview 打开, 否则使用 workplus 订制的 webview，3.1.3以上版本支持 */
+  useAndroidWebview?: boolean;
+  /** 等同于 useAndroidWebview，只是该参数能用于 iOS 以及 android 平台 */
+  useSystemWebview?: boolean;
+  /** 全屏打开 webview(即不包含原生标题栏), 默认非全屏 */
+  displayMode?: 'FULL_SCREEN' | '';
 }
 
 /** 锁定网页顶部栏的传参 */
@@ -37,13 +52,46 @@ export interface ShareParams {
   /** 标题 */
   title: string;
   /** 分享图标mediaId */
-  cover_media_id: string;
+  cover_media_id?: string;
+  /** 分享图标的网络访问地址 */
+  cover_url?: string;
   /** 该字段是用于显示范围, 0 只显示内部分享的操作, 包括"发送给", "分享到圈子", 1则显示全部 */
   scope: 0 | 1;
   /** 分享链接的摘要 */
   summary: string;
   /** 直接执行分享操作, w6s_contact对应"分享弹出窗"的"发送给", 为App内部的联系人等列表, 后期扩展更多直接分享的类型, 敬请期待;当dicrectly存在值时, scope参数无意义, 请忽略, 默认dicrectly为空, 也即该接口会显示"分享弹出框"*/
-  dicrectly: string;
+  dicrectly?: 'w6s_contact' | 'w6s_current_session' | '';
+  /** 会话参数 */
+  direct_session?: {
+    /** 会话的id */
+    id: string;
+    /** 会话的类型 */
+    type: string;
+  };
+}
+
+export interface Share {
+  /** 链接 */
+  url: string;
+  /** 标题 */
+  title: string;
+  /** 分享图标mediaId */
+  coverMediaId?: string;
+  /** 分享图标的网络访问地址 */
+  coverUrl?: string;
+  /** 该字段是用于显示范围, 0 只显示内部分享的操作, 包括"发送给", "分享到圈子", 1则显示全部 */
+  scope: 0 | 1;
+  /** 分享链接的摘要 */
+  summary: string;
+  /** 直接执行分享操作, w6s_contact对应"分享弹出窗"的"发送给", 为App内部的联系人等列表, 后期扩展更多直接分享的类型, 敬请期待;当dicrectly存在值时, scope参数无意义, 请忽略, 默认dicrectly为空, 也即该接口会显示"分享弹出框"*/
+  dicrectly?: 'w6s_contact' | 'w6s_current_session' | '';
+  /** 会话参数 */
+  directSession?: {
+    /** 会话的id */
+    id: string;
+    /** 会话的类型 */
+    type: string;
+  };
 }
 
 export interface ToActivityParams {
@@ -91,6 +139,23 @@ export interface AddWaterMaskParams {
 export interface WxShareParams {
   /** 微信的AppId */
   app_id: string;
+  /** 分享的标题 */
+  title: string;
+  /** 分享的消息类型，webpage(网页链接), image(图片) */
+  type: 'webpage' | 'image';
+  /** 描述 */
+  description: string;
+  /** 缩略图数据 */
+  thumb: string;
+  /** 0 为聊天界面 1为朋友圈 */
+  scene: number;
+  /** 分享内容 */
+  data: WxShareData;
+}
+
+export interface WxShare {
+  /** 微信的AppId */
+  appId: string;
   /** 分享的标题 */
   title: string;
   /** 分享的消息类型，webpage(网页链接), image(图片) */

@@ -1,8 +1,8 @@
 import * as core from '../core';
 import { WORKPLUS_FILE } from '../constants';
-import { FileOptions, ChooseFilesParams, ChooseFilesRes } from '../types/file';
+import { FileOptions, ChooseFiles, ChooseFilesParams, ChooseFilesRes } from '../types/file';
 
-export type ChooseFilesOptions = ChooseFilesParams & FileOptions<ChooseFilesRes[]>;
+export type ChooseFilesOptions = ChooseFiles & FileOptions<ChooseFilesRes[]>;
 
 /**
  * 文件选择接口(返回带mediaId方式)
@@ -10,13 +10,23 @@ export type ChooseFilesOptions = ChooseFilesParams & FileOptions<ChooseFilesRes[
  * @param {ChooseFilesOptions} [options]
  * @returns {Promise<ChooseFilesRes[]>}
  */
-export default function chooseFiles(options: ChooseFilesOptions): Promise<ChooseFilesRes[]> {
-  const { success, fail, ...args } = options;
+export default function chooseFiles(options?: ChooseFilesOptions): Promise<ChooseFilesRes[]> {
+  const args: ChooseFilesParams = {
+    multiple: options?.multiple || true,
+    file_keys: options?.fileKeys || [],
+    file_limit: {
+      max_select_count: options?.fileLimit?.maxSelectCount || 9,
+      single_select_size: options?.fileLimit?.singleSelectSize || -1,
+      total_select_size: options?.fileLimit?.totalSelectSize || -1,
+    },
+  };
+
   return core.exec<ChooseFilesParams, ChooseFilesRes[], unknown>(
     WORKPLUS_FILE,
     'chooseFiles',
     [args],
-    success,
-    fail,
+    options?.success,
+    options?.fail,
+    false,
   );
 }

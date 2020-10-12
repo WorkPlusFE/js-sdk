@@ -22,6 +22,6 @@ var constants_1 = require("../constants");
  */
 function showUserChatViewByUser(options) {
     var success = options.success, fail = options.fail, args = __rest(options, ["success", "fail"]);
-    return core.exec(constants_1.WORKPLUS_CONTACT, 'showUserChatViewByUser', [args], success, fail);
+    return core.exec(constants_1.WORKPLUS_CONTACT, 'showUserChatViewByUser', [args], success, fail, false);
 }
 exports.default = showUserChatViewByUser;

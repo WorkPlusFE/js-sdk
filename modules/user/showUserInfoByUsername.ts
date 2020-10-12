@@ -20,5 +20,6 @@ export default function showUserInfoByUsername(
     [args],
     success,
     fail,
+    false,
   );
 }

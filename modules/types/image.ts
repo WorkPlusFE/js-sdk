@@ -29,7 +29,7 @@ export interface ShowImagesItem {
 
 export interface SaveImageItem {
   /** 图片mediaId */
-  mediaId?: string[];
+  mediaId?: string;
   /** 图片url地址 */
   url?: string;
   /** base64数据 */
@@ -65,7 +65,7 @@ export interface ChooseImagesParams {
 
 export interface ChooseImages {
   /** 是否是多选，ture(多选)  fals(单选) */
-  multiple: boolean;
+  multiple?: boolean;
   /** 是否对图像进行剪裁 true(剪裁)  false(不剪裁)  */
   editable?: boolean;
   /** 图片在本机的地址 */

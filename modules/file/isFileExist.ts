@@ -18,5 +18,6 @@ export default function isFileExist(options: FileExistOptions): Promise<FileExis
     [args],
     success,
     fail,
+    false,
   );
 }

@@ -20,5 +20,6 @@ export default function showUserChatViewByUser(
     [args],
     success,
     fail,
+    false,
   );
 }

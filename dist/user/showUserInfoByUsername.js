@@ -22,6 +22,6 @@ var constants_1 = require("../constants");
  */
 function showUserInfoByUsername(options) {
     var success = options.success, fail = options.fail, args = __rest(options, ["success", "fail"]);
-    return core.exec(constants_1.WORKPLUS_CONTACT, 'showUserInfoByUsername', [args], success, fail);
+    return core.exec(constants_1.WORKPLUS_CONTACT, 'showUserInfoByUsername', [args], success, fail, false);
 }
 exports.default = showUserInfoByUsername;

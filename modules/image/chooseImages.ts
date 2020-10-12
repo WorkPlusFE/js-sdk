@@ -15,15 +15,14 @@ export type ChooseImagesOptions = ChooseImages & ExecOptions<PhotoInfoAndMediaId
  * @version 3.1.3版本以上
  * @returns 带有mediaId的图片信息
  */
-function chooseImages(options: ChooseImagesOptions): Promise<PhotoInfoAndMediaId[]> {
-  const { success, fail, ...data } = options;
-  const params = {
-    multiple: data.multiple,
-    imageKeys: data.imageKeys,
+function chooseImages(options?: ChooseImagesOptions): Promise<PhotoInfoAndMediaId[]> {
+  const params: ChooseImagesParams = {
+    multiple: options?.multiple || true,
+    imageKeys: options?.imageKeys || [],
     file_limit: {
-      max_select_count: data.fileLimit?.maxSelectCount || 9,
-      single_select_size: data.fileLimit?.singleSelectSize || -1,
-      total_select_size: data.fileLimit?.totalSelectSize || -1,
+      max_select_count: options?.fileLimit?.maxSelectCount || 9,
+      single_select_size: options?.fileLimit?.singleSelectSize || -1,
+      total_select_size: options?.fileLimit?.totalSelectSize || -1,
     },
   };
 
@@ -31,8 +30,8 @@ function chooseImages(options: ChooseImagesOptions): Promise<PhotoInfoAndMediaId
     WORKPLUS_IMAGE,
     'chooseImages',
     [params],
-    success,
-    fail,
+    options?.success,
+    options?.fail,
     false,
   );
 }

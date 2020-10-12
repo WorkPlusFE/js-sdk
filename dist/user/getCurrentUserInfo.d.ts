@@ -6,4 +6,4 @@ import { ContactOption, CurrentUserInfoParams, CurrentUserInfoRes } from '../typ
  * @param {CurrentUserInfoParams & ContactOption<CurrentUserInfoRes>} [options]
  * @returns {Promise<CurrentUserInfoRes>}
  */
-export default function getCurrentUserInfo(options: CurrentUserInfoParams & ContactOption<CurrentUserInfoRes>): Promise<CurrentUserInfoRes>;
+export default function getCurrentUserInfo(options?: CurrentUserInfoParams & ContactOption<CurrentUserInfoRes>): Promise<CurrentUserInfoRes>;

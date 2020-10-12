@@ -14,6 +14,6 @@ function selectDiscussionMembers(options) {
         discussion_id: options.discussionId,
         members_selected: (options === null || options === void 0 ? void 0 : options.membersSelected) || [],
     };
-    return core.exec(constants_1.WORKPLUS_CONTACT, 'selectDiscussionMembers', [args], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail);
+    return core.exec(constants_1.WORKPLUS_CONTACT, 'selectDiscussionMembers', [args], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail, false);
 }
 exports.default = selectDiscussionMembers;

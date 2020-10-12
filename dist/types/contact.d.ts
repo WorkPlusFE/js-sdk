@@ -179,7 +179,7 @@ interface Employee {
     birthday: string;
 }
 export interface CurrentEmployeeInfoParams {
-    orgCode: string;
+    orgCode?: string;
 }
 export interface CurrentEmployeeInfoRes {
     username: string;
@@ -245,8 +245,17 @@ export interface ShowAppChatViewParams {
     org_id: string;
     session_type: string;
 }
+export interface ShowAppChatView {
+    appId: string;
+    domainId: string;
+    orgId: string;
+    sessionType: string;
+}
 export interface ShowAppListByIdParams {
     org_id: string;
+}
+export interface ShowAppListById {
+    orgId: string;
 }
 export interface SelectContactsParams {
     filterSenior?: 1 | 0;

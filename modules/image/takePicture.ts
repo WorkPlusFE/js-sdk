@@ -5,7 +5,7 @@ import { ExecOptions } from '../types/core';
 
 export interface PictureOptions extends ExecOptions<PhotoInfoAndMediaId, never> {
   /** 返回是否进行裁剪: true 裁剪 false 不裁剪 */
-  editable: boolean;
+  editable?: boolean;
 }
 
 /**
@@ -16,14 +16,16 @@ export interface PictureOptions extends ExecOptions<PhotoInfoAndMediaId, never> 
  * @version 3.1.3以上版本支持
  * @returns 带有mediaId的图片信息
  */
-function takePicture(options: PictureOptions): Promise<PhotoInfoAndMediaId> {
-  const { success, fail, ...data } = options;
+function takePicture(options?: PictureOptions): Promise<PhotoInfoAndMediaId> {
+  const args: PictureOptions = {
+    editable: options?.editable || false,
+  };
   return core.exec<PictureOptions, PhotoInfoAndMediaId, never>(
     WORKPLUS_IMAGE,
     'takePicture',
-    [data],
-    success,
-    fail,
+    [args],
+    options?.success,
+    options?.fail,
     false,
   );
 }

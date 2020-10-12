@@ -184,7 +184,7 @@ interface Employee {
 }
 
 export interface CurrentEmployeeInfoParams {
-  orgCode: string;
+  orgCode?: string;
 }
 
 export interface CurrentEmployeeInfoRes {
@@ -260,8 +260,19 @@ export interface ShowAppChatViewParams {
   session_type: string;
 }
 
+export interface ShowAppChatView {
+  appId: string;
+  domainId: string;
+  orgId: string;
+  sessionType: string;
+}
+
 export interface ShowAppListByIdParams {
   org_id: string;
+}
+
+export interface ShowAppListById {
+  orgId: string;
 }
 
 export interface SelectContactsParams {

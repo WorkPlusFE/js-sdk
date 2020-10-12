@@ -10,14 +10,16 @@ import { WORKPLUS_CONTACT } from '../constants';
  * @returns {Promise<CurrentUserInfoRes>}
  */
 export default function getCurrentUserInfo(
-  options: CurrentUserInfoParams & ContactOption<CurrentUserInfoRes>,
+  options?: CurrentUserInfoParams & ContactOption<CurrentUserInfoRes>,
 ): Promise<CurrentUserInfoRes> {
-  const { success, fail, ...args } = options;
+  const args: CurrentUserInfoParams = {
+    needEmpInfo: options?.needEmpInfo || false,
+  };
   return core.exec<CurrentUserInfoParams, CurrentUserInfoRes, unknown>(
     WORKPLUS_CONTACT,
     'getCurrentUserInfo',
     [args],
-    success,
-    fail,
+    options?.success,
+    options?.fail,
   );
 }

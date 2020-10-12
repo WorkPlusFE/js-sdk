@@ -42,6 +42,22 @@ export interface ChooseFilesParams {
   file_keys?: string[];
 }
 
+export interface ChooseFiles {
+  /** 单选, 多选 */
+  multiple?: boolean;
+  /** 文件条件 */
+  fileLimit?: {
+    /** 多选时数量的限制 */
+    maxSelectCount?: number;
+    /** 单个文件选择大小限制(byte),-1表示不限制 */
+    singleSelectSize?: number;
+    /** 所有文件选择大小限制(byte),-1表示不限制 */
+    totalSelectSize?: number;
+  };
+  /** 已选文件列表 filePath */
+  fileKeys?: string[];
+}
+
 export interface ChooseFilesRes {
   /** 文件在本机的路径 */
   filePath: string;
