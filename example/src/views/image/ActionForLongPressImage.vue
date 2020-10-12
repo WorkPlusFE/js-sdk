@@ -19,14 +19,14 @@
 
       <van-panel>
         <div slot="header" class="code-panel van-hairline--bottom">
-          <span class="code-panel__title">长按的图片</span>
+          <span class="code-panel__title">待识别的图片</span>
         </div>
-        <div id="image-box" style="user-select: none;" data-long-press-delay="1500">
+        <div id="image-box" style="user-select: none;" @click="longPressImage">
           <img width="100%" :src="options.imageUrl" alt="">
         </div>
       </van-panel>
 
-       <p class="tips">请长按上方图片，直至触发弹出框。</p>
+       <p class="tips">请点击上方图片。</p>
     </div>
   </div>
 </template>
@@ -39,9 +39,6 @@ import {
   Button, Panel, Toast, RadioGroup, Radio,
 } from 'vant';
 import html2canvas from 'html2canvas';
-// @ts-ignore
-import longPressEvent from 'long-press-event';
-
 import * as sdk from '../../../../dist';
 import config from '../../api';
 
@@ -69,12 +66,6 @@ export default class ExampleList extends Vue {
   /** life cycle */
   mounted() {
     sdk.header.setTitle(this.options.title);
-    // @ts-ignore
-    document.addEventListener('long-press', (e) => {
-      // stop the event from bubbling up
-      e.preventDefault();
-      console.log(e.target);
-    });
   }
 
   /** method */

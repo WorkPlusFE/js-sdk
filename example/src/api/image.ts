@@ -69,7 +69,7 @@ export default {
     },
     {
       title: '图片添加水印',
-      description: '调起手机相册进行拍照，生成水印图片并返回。',
+      description: '调起手机相册进行拍照，生成水印图片并返回。（水印在左下角）',
       action: 'takePhotoAndAddWaterMark',
       params: {},
     },

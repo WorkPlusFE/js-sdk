@@ -1,5 +1,5 @@
 export default class Logger {
-  private _PREFIX = 'WorkPlus SDK ';
+  private _PREFIX = 'WorkPlus JS-SDK ';
   private _enabled: boolean;
 
   constructor(enabled = false) {

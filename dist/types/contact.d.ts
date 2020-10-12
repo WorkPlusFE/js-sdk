@@ -258,9 +258,13 @@ export interface SelectContactsRes {
     user: unknown[];
     employee: unknown[];
 }
-export interface SelectDiscussionMembersParams {
+export interface SelectDiscussionMembersParamsOrigin {
     discussion_id: string;
-    members_selected: unknown[];
+    members_selected?: unknown[];
+}
+export interface SelectDiscussionMembersParams {
+    discussionId: string;
+    membersSelected?: unknown[];
 }
 export interface SelectDiscussionMembersRes {
     members: unknown[];

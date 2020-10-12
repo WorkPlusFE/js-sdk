@@ -76,6 +76,7 @@ export default class ExampleList extends Vue {
     sdk[this.service][this.action]({
       ...this.args,
       success: (res: unknown) => {
+        console.log(res);
         this.res = JSON.stringify(res, null, 4);
         console.log(this.res);
       },
