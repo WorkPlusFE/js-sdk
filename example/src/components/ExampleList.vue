@@ -102,6 +102,10 @@ export default class ExampleList extends Vue {
         this.$router.push({ name: 'openFileDetail' });
         return;
       }
+      if (action === 'readFile') {
+        this.$router.push({ name: 'readFile' });
+        return;
+      }
     }
 
     if (service === 'header') {

@@ -88,6 +88,11 @@ const routes = [
     name: 'openFileDetail',
     component: () => import(/* webpackChunkName: "file" */ '../views/file/OpenFileDetail.vue'),
   },
+  {
+    path: '/file/readFile',
+    name: 'readFile',
+    component: () => import(/* webpackChunkName: "file" */ '../views/file/OpenLocalFileDetail.vue'),
+  },
 
   // event listener
   {

@@ -1,7 +1,7 @@
 // 应用
 
 export default {
-  title: '* 应用',
+  title: '应用',
   module: 'app',
   active: false,
   apis: [{
@@ -21,6 +21,7 @@ export default {
       orgId: '37a2ef9f-8683-4369-ae7b-121cea149d05',
       sessionType: 'service',
     },
+    disable: true,
   },
   {
     title: '打开搜索页面',

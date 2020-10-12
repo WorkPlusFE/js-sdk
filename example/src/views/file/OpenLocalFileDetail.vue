@@ -43,13 +43,10 @@ export default class ExampleList extends Vue {
 
   /** data */
   options = {
-    title: '打开文件详情',
-    description: '通过指定 mediaId, fileName 等参数, 打开文件详情界面。',
+    title: '本地打开文件',
+    description: '原生打开文件，pdf、excel、word 及 ppt 等。',
     params: {
       filePath: 'file.filePath',
-      fileName: 'file.name',
-      fileSize: 0,
-      isImage: false,
     },
     selected: false,
   };
@@ -57,11 +54,6 @@ export default class ExampleList extends Vue {
   /** life cycle */
   mounted() {
     sdk.header.setTitle(this.options.title);
-  }
-
-  private isImage(key: string): boolean {
-    const fileType = key.split('.').pop().toLowerCase();
-    return ['png', 'jpg', 'jpeg', 'gif'].indexOf(fileType) > -1;
   }
 
   private getFilePath(path: string): string {
@@ -81,9 +73,6 @@ export default class ExampleList extends Vue {
         const file = res.result[0];
         this.options.params = {
           filePath: this.getFilePath(file.filePath),
-          fileName: file.name,
-          fileSize: file.size,
-          isImage: this.isImage(file.filePath),
         };
         this.options.selected = true;
       }
@@ -92,7 +81,9 @@ export default class ExampleList extends Vue {
 
   private handleOpenFile(): void {
     console.log(this.options.params);
-    sdk.file.openFileDetail(this.options.params);
+    sdk.file.readFile({
+      path: this.options.params.filePath,
+    });
   }
 }
 </script>

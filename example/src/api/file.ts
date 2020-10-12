@@ -24,14 +24,15 @@ export default {
     title: '判断文件是否存在',
     description: '判断指定路径的文件是否存在。',
     action: 'isFileExist',
+    disable: true,
     params: {},
   }, {
-    title: '[Custom]文件下载',
+    title: '* 文件下载',
     description: '文件下载。',
     action: 'download',
     params: {},
   }, {
-    title: '[Custom]文件上传',
+    title: '* 文件上传',
     description: '文件上传。',
     action: 'download',
     params: {},

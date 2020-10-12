@@ -1,5 +1,11 @@
 # 文件
 
+::: warning 关于文件本地路径
+文件相关的接口，若需传入本地文件路径，都需要去掉`file://`开头。
+
+例如，通常我们获取到的本地图片路径为：`file:///var/mobile/xxxx/test.xlsx`，需去掉`file://`，变成`/var/mobile/xxxx/test.xlsx`。
+:::
+
 ## 选择文件
 
 打开 WorkPlus 文件选择管理器，支持单选或多选，并自动上传文件到后台媒体中心，返回对应 mediaId。
@@ -60,7 +66,7 @@ w6s.file.chooseFiles({
 ```js
 // 该方法没有回调
 w6s.file.openFileDetail({
-  filePath: 'file://xxx.png',
+  filePath: '文件地址',
   fileName: 'demo',
   fileSize: 100 * 1024,
   mediaId: 'demo-mediaId',
@@ -98,7 +104,7 @@ w6s.file.openFileDetail({
 ```js
 // 该方法没有回调
 w6s.file.readFile({
-  path: 'file://文件地址'
+  path: '文件地址'
 });
 ```
 </CodeWrapper>
@@ -123,7 +129,7 @@ w6s.file.readFile({
 
 ```js
 w6s.file.isFileExist({
-  path: 'file://文件地址',
+  path: '文件地址',
   success: function(res) {},
   fail: function(err) {},
 });
