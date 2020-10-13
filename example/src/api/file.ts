@@ -27,14 +27,23 @@ export default {
     disable: true,
     params: {},
   }, {
-    title: '* 文件下载',
+    title: '文件下载',
     description: '文件下载。',
     action: 'download',
     params: {},
+    disable: process.env.NODE_ENV === 'production',
   }, {
-    title: '* 文件上传',
+    title: '文件上传',
     description: '文件上传。',
     action: 'download',
     params: {},
+    disable: process.env.NODE_ENV === 'production',
+  }, {
+    title: '获取文件目录路径',
+    description: '获取设备的文件存在目录，包括下载文件夹及网盘（如果有）及用户自定义目录。',
+    action: 'getFilePath',
+    params: {
+      system: 'file',
+    },
   }],
 };

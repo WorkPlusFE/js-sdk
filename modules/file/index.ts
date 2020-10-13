@@ -4,6 +4,7 @@ import openFileDetail from './openFileDetail';
 import readFile from './readFile';
 import download from './download';
 import upload from './upload';
+import getFilePath from './getUserFilePath';
 
 export default {
   /** 选择文件 */
@@ -18,4 +19,6 @@ export default {
   download,
   /** 文件上传 */
   upload,
+  /** 获取文件目录 */
+  getFilePath,
 };

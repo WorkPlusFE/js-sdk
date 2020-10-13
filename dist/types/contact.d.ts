@@ -229,16 +229,6 @@ export interface OpenDiscussionByIdParams {
     body_type: string;
     body: Body;
 }
-interface Body {
-    display_avatar: string;
-    share_type: string;
-    share_message: Sharemessage;
-}
-interface Sharemessage {
-    avatar: string;
-    digest: string;
-    url: string;
-}
 export interface ShowAppChatViewParams {
     app_id: string;
     domain_id: string;

@@ -148,7 +148,7 @@ w6s.file.isFileExist({
 | - | - | 
 | exist | Boolean, 表示文件是否存在  |
 
-## * 文件下载
+## 文件下载
 下载文件到本地，可以在 WorkPlus 文件选择器中看到。
 
 **使用说明**
@@ -157,10 +157,19 @@ w6s.file.isFileExist({
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="file.download">
+<CodeWrapper :qrcode="false" fn="file.download">
 
 ```js
-w6s.file.download();
+w6s.file.download({
+  source: 'https://demo.com/xx.file',
+  target: 'file:///var/mobile/xx/files/xxx.file',
+  trustAllHosts: false,
+  options: {
+    headers: {},
+  },
+  success: function(res) {},
+  fail: function(res) {},
+});
 ```
 </CodeWrapper>
 
@@ -168,13 +177,20 @@ w6s.file.download();
 
 | 参数 | 类型 | 说明|
 | - | - | - |
+| source | string | 文件的下载地址，需做 encodeURI 处理  |
+| target | string | 文件下载后存放在本级的地址 |
+| trustAllHosts | boolean | 可选参数，默认为false。 如果设置为true，则它接受所有安全证书。 这很有用，因为Android拒绝自签名安全证书。 不建议用于生产。 |
+| options | object | 通常用于设置头部信息 |
 
 **返回数据**
 
-| 参数 | 说明 |
-| - | - | 
+下载成功后，将会执行`success`回调方法，并返回一个`FileEntry`对象。若失败，将触发`fail`回调方法，返回一个`FileTransferError`错误对象。
 
-## * 文件上传
+::: tip 关于 target 参数
+通常情况下，我们无法得知设备本地存储文件的具体位置，可以通过[获取文件目录路径](/js-sdk/file.html#获取文件目录路径)获取。
+:::
+
+## 文件上传
 
 上传本地文件到服务器，通常用于选择图片或者文件后上传到第三方服务器。
 
@@ -184,10 +200,24 @@ w6s.file.download();
 | -------- | ------- | ---- |
 | 支持情况 | 支持  | 支持 |
 
-<CodeWrapper fn="file.upload">
+<CodeWrapper :qrcode="false" fn="file.upload">
 
 ```js
-w6s.file.upload();
+w6s.file.upload({
+  fileURL: '文件本地地址',
+  server: '上传媒体的服务器地址',
+  trustAllHosts: false,
+  success: function(res) {
+    // 上传成功回调
+  },
+  fail: function(err) {
+    // 上传失败回调
+  },
+  progress: function(loaded, total) {
+    // loaded：已经上传的，tottal：文件总大小
+    // 可在此处处理文件上传的进度计算
+  },
+});
 ```
 </CodeWrapper>
 
@@ -195,8 +225,39 @@ w6s.file.upload();
 
 | 参数 | 类型 | 说明|
 | - | - | - |
+| fileURL | string | 文件在设备中的本地地址 |
+| server | string | 上传文件的服务器地址 |
+| trustAllHosts | boolean | 可选参数，默认为false。 如果设置为true，则它接受所有安全证书。 这很有用，因为Android拒绝自签名安全证书。 不建议用于生产。 |
 
-**返回数据**
 
-| 参数 | 说明 |
-| - | - | 
+## 获取文件目录路径
+
+获取设备的文件存在目录，包括下载文件夹及网盘（如果有）及用户自定义目录。
+
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持  | 支持 |
+
+<CodeWrapper fn="file.getFilePath">
+
+```js
+w6s.file.getFilePath({
+  system: 'file',
+  custom: 'test',
+  success: function(res) {},
+  fail: function(err) {},
+});
+```
+</CodeWrapper>
+
+**参数说明**
+
+| 参数 | 类型 | 说明|
+| - | - | - |
+| system | string | 表示 WorkPlus 定义的路径，目前支持`file`, `dropbox`类型, 分别获取下载文件目录, 跟网盘目录 |
+| custom | string | 轻应用自定义的用户目录，如传入参数`"custom" : "abc"`, app 将创建`sdcard_root/app_file/username/abc`的文件目录, 并返回路径给调用者 |
+
+注意，以上参数`system`优先级较高, 即两个类型同时传入时, 以`system`为准。
+

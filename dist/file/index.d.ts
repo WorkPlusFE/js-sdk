@@ -4,6 +4,7 @@ import openFileDetail from './openFileDetail';
 import readFile from './readFile';
 import download from './download';
 import upload from './upload';
+import getFilePath from './getUserFilePath';
 declare const _default: {
     /** 选择文件 */
     chooseFiles: typeof chooseFiles;
@@ -17,5 +18,7 @@ declare const _default: {
     download: typeof download;
     /** 文件上传 */
     upload: typeof upload;
+    /** 获取文件目录 */
+    getFilePath: typeof getFilePath;
 };
 export default _default;

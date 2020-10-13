@@ -81,4 +81,10 @@ export interface ShowFileParams {
      */
     isImage: boolean;
 }
+export interface GetUserFilePathParams {
+    /** 表示 WorkPlus 定义的路径，目前支持`file`, `dropbox`类型, 分别获取下载文件目录, 跟网盘目录 */
+    system?: 'file' | 'dropbox' | '';
+    /** 轻应用自定义的用户目录，如传入参数`"custom" : "abc"`, app 将创建`sdcard_root/app_file/username/abc`的文件目录, 并返回路径给调用者 */
+    custom?: string;
+}
 export {};

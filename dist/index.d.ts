@@ -64,6 +64,7 @@ export declare const file: {
     readFile: typeof import("./file/readFile").default;
     download: typeof import("./file/download").default;
     upload: typeof import("./file/upload").default;
+    getFilePath: typeof import("./file/getUserFilePath").default;
 };
 /** 网络信息接口 */
 export declare const network: typeof Network;
