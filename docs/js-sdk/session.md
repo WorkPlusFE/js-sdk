@@ -29,9 +29,9 @@ w6s.session.showUserChatViewByUser({
 
 
 
-## 打开群组聊天页面 <Badge text="v3.1.4+" type="warning" />
+## 打开群组聊天页面
 
-通过`群组id`打开该群组的聊天页面，并且可以自定义发送应用所支持的消息。
+通过`群组id`打开该群组的聊天页面。
 
 **使用说明**
 
@@ -43,17 +43,7 @@ w6s.session.showUserChatViewByUser({
 
 ```js
 w6s.session.openDiscussionById({
-  discussionId: '0629aad170784c9e810985c443fb0bd6',
-  body_type : 'SHARE',
-  body: {
-    display_avatar: "媒体id",
-    share_type: 'LINK',
-    share_message: {
-      avatar: 'http://www.icon',
-      digest: '这里显示摘要',
-      url: 'www.baidu.com'
-    },
-  },
+  discussionId: '0629aadxx3fb0bd6',
 });
 ```
 </CodeWrapper>
