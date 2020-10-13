@@ -92,7 +92,6 @@ export interface ShowFileParams {
   isImage: boolean;
 }
 
-
 export interface GetUserFilePathParams {
   /** 表示 WorkPlus 定义的路径，目前支持`file`, `dropbox`类型, 分别获取下载文件目录, 跟网盘目录 */
   system?: 'file' | 'dropbox' | '';
