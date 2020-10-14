@@ -44,9 +44,14 @@ w6s.auth.getUserTicket({
 
 **二、`script`标签引入：**
 
-```html
-<script src=""></script>  
-```
+<CodeWrapper :qrcode="false">
+
+&lt;script src="https://open.workplus.io/static/js-sdk/sdk.{{$themeConfig.version}}.js"&gt;&lt;/script&gt;
+
+</CodeWrapper>
+
+引入后，会在全局暴露`w6s`对象，直接调用相关接口即可。
+
 
 ::: warning 关于 JS-SDK 资源
 基于 WorkPlus 部分客户网络环境的特殊性，推荐自行部署`js-sdk`的相关资源，以供自家平台轻应用访问。

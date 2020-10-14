@@ -26,6 +26,7 @@ module.exports = {
     ['meta', { itemprop: 'name', content: 'WorkPlus - 企业移动办公管理平台,移动门户,移动办公OA,企业办公沟通,智慧办公解决方案专家' }]
   ],
   themeConfig: {
+    version: pkg.version,
     logo: '/logo.png',
     nav: [
       { text: '轻应用', link: '/light-app/' },

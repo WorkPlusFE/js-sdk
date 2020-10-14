@@ -182,6 +182,8 @@ w6s.file.download({
 | trustAllHosts | boolean | 可选参数，默认为false。 如果设置为true，则它接受所有安全证书。 这很有用，因为Android拒绝自签名安全证书。 不建议用于生产。 |
 | options | object | 通常用于设置头部信息 |
 
+具体接口参数说明，请查看[官方文档](https://cordova.apache.org/docs/en/6.x/reference/cordova-plugin-file-transfer/index.html#download)。
+
 **返回数据**
 
 下载成功后，将会执行`success`回调方法，并返回一个`FileEntry`对象。若失败，将触发`fail`回调方法，返回一个`FileTransferError`错误对象。
@@ -229,6 +231,7 @@ w6s.file.upload({
 | server | string | 上传文件的服务器地址 |
 | trustAllHosts | boolean | 可选参数，默认为false。 如果设置为true，则它接受所有安全证书。 这很有用，因为Android拒绝自签名安全证书。 不建议用于生产。 |
 
+具体接口参数说明，请查看[官方文档](https://cordova.apache.org/docs/en/6.x/reference/cordova-plugin-file-transfer/index.html#upload)。
 
 ## 获取文件目录路径
 
