@@ -73,7 +73,7 @@ export default class ExampleList extends Vue {
     sdk.image.chooseImages({
       multiple: false,
     }).then((res: any) => {
-      const filePath = res.result.imageURL;
+      const filePath = res.result[0].imageURL;
       sdk.image.toBase64({ filePath })
         .then((res: any) => {
           const source = res.target._result;
