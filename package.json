@@ -1,6 +1,6 @@
 {
   "name": "@w6s/sdk",
-  "version": "1.1.0-beta.0",
+  "version": "1.1.0-beta.1",
   "description": "WorkPlusFE JavaScript SDK.",
   "main": "index.js",
   "main:min": "dist/sdk.{{_VERSION_}}.js",
