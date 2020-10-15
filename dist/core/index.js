@@ -262,11 +262,14 @@ exports.exec = exec;
 function execSync(service, action, args) {
     var callAPI = service + "." + action;
     exports.logger.warn("\u540C\u6B65\u8C03\u7528 " + callAPI);
-    cordova.exec(function (data) {
-        exports.logger.warn(JSON.stringify(data, null, 4));
-    }, function (err) {
-        exports.logger.error(JSON.stringify(err, null, 4));
-        core.onError(callAPI + " \u8C03\u7528\u5931\u8D25: " + err);
-    }, service, action, args);
+    var execSyncFn = function () {
+        cordova.exec(function (data) {
+            exports.logger.warn(JSON.stringify(data, null, 4));
+        }, function (err) {
+            exports.logger.error(JSON.stringify(err, null, 4));
+            core.onError(callAPI + " \u8C03\u7528\u5931\u8D25: " + err);
+        }, service, action, args);
+    };
+    core.ready(execSyncFn);
 }
 exports.execSync = execSync;
