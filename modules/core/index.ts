@@ -280,16 +280,19 @@ export function exec<A, S, F>(
 export function execSync<A>(service: string, action: string, args: Array<A>): void {
   const callAPI = `${service}.${action}`;
   logger.warn(`同步调用 ${callAPI}`);
-  cordova.exec(
-    function(data) {
-      logger.warn(JSON.stringify(data, null, 4));
-    },
-    function(err) {
-      logger.error(JSON.stringify(err, null, 4));
-      core.onError(`${callAPI} 调用失败: ${err}`);
-    },
-    service,
-    action,
-    args,
-  );
+  const execSyncFn = (): void => {
+    cordova.exec(
+      function(data) {
+        logger.warn(JSON.stringify(data, null, 4));
+      },
+      function(err) {
+        logger.error(JSON.stringify(err, null, 4));
+        core.onError(`${callAPI} 调用失败: ${err}`);
+      },
+      service,
+      action,
+      args,
+    );
+  };
+  core.ready(execSyncFn);
 }
