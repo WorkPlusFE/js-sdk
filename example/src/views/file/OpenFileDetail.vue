@@ -59,7 +59,8 @@ export default class ExampleList extends Vue {
     sdk.header.setTitle(this.options.title);
   }
 
-  private isImage(key: string): boolean {
+  private isImage(key: string = ''): boolean {
+    // @ts-ignore
     const fileType = key.split('.').pop().toLowerCase();
     return ['png', 'jpg', 'jpeg', 'gif'].indexOf(fileType) > -1;
   }

@@ -5,8 +5,8 @@ var bind_1 = require("./bind");
 var is_1 = require("../shared/is");
 var platform_1 = require("../shared/platform");
 /**
- * 页面不可见时触发事件
- * @description 该方法只需要执行一次，一旦绑定，原始事件将失效，然后返回逻辑都需要在回调方法中处理
+ * 页面离开
+ * @description 当页面不可见时，WorkPlus 会产生回调，开发者可以监听此pause事件，并处理特定的业务逻辑
  * @param {Function} callback
  */
 function bindPauseEvent(callback) {
