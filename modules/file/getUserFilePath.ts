@@ -1,6 +1,6 @@
 import * as core from '../core';
 import { WORKPLUS_FILE } from '../constants';
-import { FileOptions, GetUserFilePathParams, FileExistRes } from '../types/file';
+import { FileOptions, GetUserFilePathParams } from '../types/file';
 
 export type FileExistOptions = GetUserFilePathParams & FileOptions<unknown>;
 
