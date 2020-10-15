@@ -14,3 +14,8 @@ sidebar: auto
 
 所以，尽可能不要使用 alert 来检验接口返回值，可以使用 [VConsole](/light-app/vconsole.html) 等调试工具。
 
+### 可以多次注入 cordovajs 吗？
+
+不可以。
+
+如果你是使用原始 Cordova API，请确保一个 webview 只注入一次。如果使用 js-sdk，则无需考虑该问题，因为 sdk 内部会自动处理。
