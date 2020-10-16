@@ -23,6 +23,16 @@ w6s.header.setTitle('test title');
 ```
 </CodeWrapper>
 
+::: tip 初始标题 
+打开一个页面，标题通常默认取自 html 页面上的 title 标签的内容，如果希望初始不显示任何标题内容，可以将 title 内容设置如下：
+
+```html
+<title>$No_Title$</title>
+```
+
+这是一个约定好的标签内容，若设置，标题将显示空白。 
+:::
+
 ## 设置返回按钮动作
 
 更换左侧的返回按钮动作。
