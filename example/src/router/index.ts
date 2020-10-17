@@ -21,84 +21,84 @@ const routes = [
   {
     path: '/webview/changeOrientation',
     name: 'changeOrientation',
-    component: () => import(/* webpackChunkName: "webview" */ '../views/webview/ChangeOrientation.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/webview/ChangeOrientation.vue'),
   },
   {
     path: '/webview/waterMask',
     name: 'waterMask',
-    component: () => import(/* webpackChunkName: "webview" */ '../views/webview/WaterMask.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/webview/WaterMask.vue'),
   },
   {
     path: '/webview/shake',
     name: 'shake',
-    component: () => import(/* webpackChunkName: "webview" */ '../views/webview/Shake.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/webview/Shake.vue'),
   },
 
   // header
   {
     path: '/header/setTitle',
     name: 'setTitle',
-    component: () => import(/* webpackChunkName: "header" */ '../views/header/SetTitle.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/header/SetTitle.vue'),
   },
   {
     path: '/header/navigation',
     name: 'navigation',
-    component: () => import(/* webpackChunkName: "header" */ '../views/header/Navigation.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/header/Navigation.vue'),
   },
 
   // util
   {
     path: '/util/copyText',
     name: 'copyText',
-    component: () => import(/* webpackChunkName: "util" */ '../views/util/CopyText.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/util/CopyText.vue'),
   },
 
   // session
   {
     path: '/session/showUserChatViewByUser',
     name: 'showUserChatViewByUser',
-    component: () => import(/* webpackChunkName: "session" */ '../views/session/ShowUserChatViewByUser.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/session/ShowUserChatViewByUser.vue'),
   },
 
   // image
   {
     path: '/image/base64',
     name: 'base64',
-    component: () => import(/* webpackChunkName: "image" */ '../views/image/Base64.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/image/Base64.vue'),
   },
   {
     path: '/image/takePhotoAndAddWaterMark',
     name: 'takePhotoAndAddWaterMark',
-    component: () => import(/* webpackChunkName: "image" */ '../views/image/TakePhotoAndAddWaterMark.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/image/TakePhotoAndAddWaterMark.vue'),
   },
   {
     path: '/image/saveImages',
     name: 'saveImages',
-    component: () => import(/* webpackChunkName: "image" */ '../views/image/SaveImages.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/image/SaveImages.vue'),
   },
   {
     path: '/image/actionForLongPressImage',
     name: 'actionForLongPressImage',
-    component: () => import(/* webpackChunkName: "image" */ '../views/image/ActionForLongPressImage.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/image/ActionForLongPressImage.vue'),
   },
 
   // file
   {
     path: '/file/openFileDetail',
     name: 'openFileDetail',
-    component: () => import(/* webpackChunkName: "file" */ '../views/file/OpenFileDetail.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/file/OpenFileDetail.vue'),
   },
   {
     path: '/file/readFile',
     name: 'readFile',
-    component: () => import(/* webpackChunkName: "file" */ '../views/file/OpenLocalFileDetail.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/file/OpenLocalFileDetail.vue'),
   },
 
   // event listener
   {
     path: '/event/listener',
     name: 'listener',
-    component: () => import(/* webpackChunkName: "event" */ '../views/listener/Listener.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/listener/Listener.vue'),
   },
 
   {

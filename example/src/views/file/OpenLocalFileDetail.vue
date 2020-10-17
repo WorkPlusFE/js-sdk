@@ -88,67 +88,6 @@ export default class ExampleList extends Vue {
 }
 </script>
 
+<style lang="scss">
 
-<style lang="scss" scoped>
-.api-detail {
-  position: relative;
-  padding: 15px;
-  height: inherit;
-
-  &__desc {
-    padding: 0 16px;
-    line-height: 20px;
-    color: $color-desc;
-    font-size: $font-size-small;
-  }
-
-  .params-settings {
-    padding: 0 16px 16px;
-    font-size: 14px;
-    p {
-      color: #999;
-    }
-  }
-
-  .van-radio-group {
-    display: flex;
-    .van-radio {
-      padding-right: 30px;
-    }
-  }
-}
-
-.code-panel {
-  padding: 10px 16px;
-  display: flex;
-  justify-content: space-between;
-  font-size: $font-size-small;
-  line-height: 24px;
-
-  &__title {
-    color: $color-black;
-    font-weight: bold;
-    font-size: 16px;
-  }
-
-  &__action {
-    color: $color-primary;
-  }
-}
-
-.api-detail__exec {
-  margin-top: 15px;
-}
-
-.api-detail__code-format {
-  // margin: 0;
-}
-
-.van-panel + .van-panel {
-  margin-top: 15px;
-}
-
-.van-panel__content {
-  overflow: auto;
-}
 </style>

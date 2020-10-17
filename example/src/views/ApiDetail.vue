@@ -8,19 +8,24 @@
         <p class="api-detail__desc">{{ description }}</p>
       </van-panel>
 
-      <van-panel v-if="res">
+      <van-panel v-if="Object.keys(res).length > 0">
         <div slot="header" class="code-panel van-hairline--bottom">
           <span class="code-panel__title">返回数据</span>
           <span
             class="code-panel__action"
-            v-clipboard:copy="res"
+            v-clipboard:copy="copyValue"
             v-clipboard:success="onCopy"
             v-clipboard:error="onError"
           >
             复制
           </span>
         </div>
-        <pre v-highlightjs="res"><code class="javascript"></code></pre>
+        <json-viewer
+          :value="res"
+          :expand-depth=5
+          boxed
+        >
+        </json-viewer>
       </van-panel>
       <van-button class="api-detail__exec" type="info" block @click="handleExec">
         点击运行
@@ -53,6 +58,8 @@ export default class ExampleList extends Vue {
   /** data */
   actives = ['code'];
 
+  copyValue = '';
+
   options = {
     title: '',
     description: '',
@@ -60,7 +67,7 @@ export default class ExampleList extends Vue {
     params: {},
   };
 
-  res = '';
+  res: object = {};
 
   /** life cycle */
   mounted() {
@@ -75,24 +82,24 @@ export default class ExampleList extends Vue {
     // @ts-ignore
     sdk[this.service][this.action]({
       ...this.args,
-      success: (res: unknown) => {
+      success: (res: any) => {
         console.log(res);
-        this.res = JSON.stringify(res, null, 4);
+        this.res = res;
         console.log(this.res);
       },
-      fail: (err: unknown) => {
-        this.res = `调用失败：${err}`;
+      fail: (err: any) => {
+        this.res = { message: `调用失败：${err}` };
         console.log(err);
       },
     });
   }
 
   onCopy() {
-    Toast('复制成功');
+    Toast.success('复制成功');
   }
 
   onError() {
-    Toast('复制失败');
+    Toast.fail('复制失败');
   }
 
   /** watch */
@@ -111,6 +118,11 @@ export default class ExampleList extends Vue {
     if (options) {
       this.options = options;
     }
+  }
+
+  @Watch('res', { immediate: true })
+  setCopyValue(result: object) {
+    this.copyValue = JSON.stringify(result, null, 4);
   }
 
   /** computed */
@@ -137,7 +149,7 @@ export default class ExampleList extends Vue {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 .api-detail {
   position: relative;
   padding: 15px;
@@ -146,7 +158,7 @@ export default class ExampleList extends Vue {
   &__desc {
     padding: 0 16px;
     line-height: 20px;
-    color: $color-desc;
+    color: $color-black;
     font-size: $font-size-small;
   }
 }
@@ -156,12 +168,13 @@ export default class ExampleList extends Vue {
   display: flex;
   justify-content: space-between;
   font-size: $font-size-small;
-  line-height: 24px;
+  line-height: 22px;
 
   &__title {
-    color: $color-black;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
+    color: $color-primary;
+    padding-top: 2px;
   }
 
   &__action {
