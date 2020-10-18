@@ -81,3 +81,7 @@ export default class ExampleList extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '~@/style/detail.scss';
+</style>

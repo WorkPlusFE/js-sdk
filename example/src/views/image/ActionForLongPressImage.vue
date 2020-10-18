@@ -87,7 +87,9 @@ export default class ExampleList extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import '~@/style/detail.scss';
+
 .tips {
   text-align: center;
   font-size: 14px;

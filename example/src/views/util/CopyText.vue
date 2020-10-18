@@ -19,6 +19,7 @@
       <van-button class="api-detail__exec" type="info" block @click="copyText">
         点击运行
       </van-button>
+      <p class="tips">复制成功后，长按上方输入框尝试粘贴内容。</p>
     </div>
   </div>
 </template>
@@ -64,3 +65,14 @@ export default class ExampleList extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '~@/style/detail.scss';
+
+.tips {
+  text-align: center;
+  font-size: 14px;
+  color: $color-primary;
+  margin: 20px 0;
+}
+</style>

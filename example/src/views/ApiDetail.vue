@@ -17,7 +17,6 @@
             v-clipboard:success="onCopy"
             v-clipboard:error="onError"
           >
-            复制
           </span>
         </div>
         <json-viewer
@@ -148,53 +147,6 @@ export default class ExampleList extends Vue {
 }
 </script>
 
-
-<style lang="scss">
-.api-detail {
-  position: relative;
-  padding: 15px;
-  height: inherit;
-
-  &__desc {
-    padding: 0 16px;
-    line-height: 20px;
-    color: $color-black;
-    font-size: $font-size-small;
-  }
-}
-
-.code-panel {
-  padding: 10px 16px;
-  display: flex;
-  justify-content: space-between;
-  font-size: $font-size-small;
-  line-height: 22px;
-
-  &__title {
-    font-weight: bold;
-    font-size: 14px;
-    color: $color-primary;
-    padding-top: 2px;
-  }
-
-  &__action {
-    color: $color-primary;
-  }
-}
-
-.api-detail__exec {
-  margin-top: 15px;
-}
-
-.api-detail__code-format {
-  // margin: 0;
-}
-
-.van-panel + .van-panel {
-  margin-top: 15px;
-}
-
-.van-panel__content {
-  overflow: auto;
-}
+<style lang="scss" scoped>
+@import '~@/style/detail.scss';
 </style>

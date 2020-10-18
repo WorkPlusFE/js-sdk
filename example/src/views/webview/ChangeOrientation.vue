@@ -84,6 +84,8 @@ export default class ExampleList extends Vue {
 </script>
 
 <style lang="scss">
+@import '~@/style/detail.scss';
+
 .api-detail {
   .params-settings {
     padding: 0 16px 16px;
