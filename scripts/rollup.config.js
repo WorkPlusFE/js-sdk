@@ -57,7 +57,7 @@ const config = {
   output: [{
     file: resolveFile(pkg['main']),
     format: 'umd',
-    name: 'WorkPlus',
+    name: 'w6s',
     banner: banner,
   }, {
     file: resolveFile(pkg['module']),
@@ -89,7 +89,7 @@ if (env === 'production') {
   config.output = [{
     file: resolveFile(pkg['main:min']).replace(/{{_VERSION_}}/, pkg.version),
     format: 'umd',
-    name: 'WorkPlus',
+    name: 'w6s',
     banner,
     footer,
   }];
