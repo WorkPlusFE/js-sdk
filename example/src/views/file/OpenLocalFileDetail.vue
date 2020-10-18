@@ -12,7 +12,7 @@
         1、选择文件
       </van-button>
       <van-button :disabled="!options.selected" class="api-detail__exec" type="info" block @click="handleOpenFile">
-        2、打开文件详情
+        2、本地打开文件
       </van-button>
     </div>
   </div>
