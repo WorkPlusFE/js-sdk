@@ -23,8 +23,10 @@ https://open.workplus.io/static/js-sdk/sdk.{{$themeConfig.version}}.js
 
 </CodeWrapper>
 
+[JS-SDK GitHub 下载地址](https://github.com/WorkPlusFE/js-sdk/releases)。
+
 ::: warning 关于 JS-SDK 资源
-如果网络环境比较特殊，建议自行部署 js-sdk 的相关资源，以保障自家平台轻应用访问正常。
+如果网络环境比较特殊，建议自行部署 JS-SDK 的相关资源，以保障自家平台轻应用访问正常。
 :::
 
 **CordovaJs 文件：**
