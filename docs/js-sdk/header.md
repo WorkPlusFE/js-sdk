@@ -273,3 +273,74 @@ w6s.header.visibleLeftButton({
 ```html
 <meta name="_navigation_color" content="#194c7b" />
 ```
+
+## 显示搜索栏 <badge type="success" text="v4.10.0+" />
+
+让原生头部变成一个搜索框。
+
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持  | 支持 |
+
+<CodeWrapper fn="header.showSearchBar">
+
+```js
+w6s.header.showSearchBar({
+  hint: '请输入关键字',
+  cancelMode: 'reset',
+  success: function(res) {},
+  fail: function(err) {},
+});
+```
+</CodeWrapper>
+
+**参数说明**
+
+| 参数 | 类型 | 说明|
+| - | - | - |
+| hint | string | 搜索时，输入框的 placeholder |
+| cancelMode | reset\|back\|custom | 取消按钮的行为，可不传，默认为 reset。具体说明请看下方。 |
+
+**关于 cancelMode 的说明:**
+
+* `reset` 表示点击取消时，隐藏搜索栏，还原回去；
+* `back` 表示点击取消时，表现为同返回按钮一样的行为；
+* `custom` 表示点击取消时，完全交由前端管理维护，原生不会触发任何行为。
+
+**返回数据**
+
+| 参数 | 说明 |
+| - | - | 
+| action | 表示用户的动作，包括以下行为：input、search 及 cancel |
+| content | 搜索栏输入的内容 |
+
+**关于回调的触发：**
+
+会触发回调的行为，有以下三种：
+
+1. 用户在搜索栏输入内容，此时会触发 success 回调，并返回上述数据，action 为 input；
+2. 用户点击键盘的搜索按钮，此时会触发回调，action 为 search；
+3. 用户点击取消按钮，此时会触发回调，action 为 cancel。
+
+注意，在输入搜索内容有变化时，回调会马上被触发，此时执行搜索，应做好 **防抖** 处理。
+
+## 隐藏搜索栏 <badge type="success" text="v4.10.0+" />
+
+针对`显示搜索栏`接口，用于隐藏搜索栏。
+
+> 仅对执行`显示搜索栏`接口后出现的搜索框有效！
+
+**使用说明**
+
+| 客户端   | Android | iOS  |
+| -------- | ------- | ---- |
+| 支持情况 | 支持  | 支持 |
+
+<CodeWrapper fn="header.hideSearchBar" :qrcode="false">
+
+```js
+w6s.header.hideSearchBar();
+```
+</CodeWrapper>
