@@ -25,5 +25,6 @@ export default function showSearchBar(
     [args],
     options?.success,
     options?.fail,
+    false,
   );
 }
