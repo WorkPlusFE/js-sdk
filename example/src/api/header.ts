@@ -68,5 +68,13 @@ export default {
         }],
       },
     },
+    {
+      title: '显示搜索栏',
+      description: '让原生头部变成一个搜索框，v4.10.0 版本开始支持。',
+      action: 'showSearchBar',
+      params: {
+        hint: '请输入关键字',
+      },
+    },
   ],
 };
