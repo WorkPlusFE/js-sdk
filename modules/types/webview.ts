@@ -186,3 +186,23 @@ export interface CopyTextParams {
   /** 要复制的文本 */
   text: string;
 }
+
+export interface ShowSearchBarParams {
+  hint: string;
+  cancel_mode: 'reset' | 'back' | 'custom';
+  visible: boolean;
+}
+
+export interface ShowSearch {
+  /** 搜索时，输入框的 placeholder */
+  hint?: string;
+  /** 取消按钮的行为，可不传，默认为 reset。可选值：reset|back|custom */
+  cancelMode?: 'reset' | 'back' | 'custom';
+}
+
+export interface ShowSearchRes {
+  /** 搜索栏输入的内容 */
+  content: string;
+  /** 表示用户的动作，包括以下行为：input、search 及 cancel */
+  action: 'input' | 'search' | 'cancel';
+}

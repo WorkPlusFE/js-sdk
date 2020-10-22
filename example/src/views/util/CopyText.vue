@@ -60,7 +60,7 @@ export default class ExampleList extends Vue {
 
   /** method */
   private copyText(): void {
-    sdk.util.copyText('WorkPlus 开放平台' + Date.now());
+    sdk.util.copyText(`WorkPlus 开放平台${Date.now()}`);
     Toast.success('复制成功');
   }
 }

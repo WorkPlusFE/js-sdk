@@ -11,7 +11,7 @@ import store from './store';
 import 'normalize.css';
 
 Vue.use(VueClipboard);
-Vue.use(JsonViewer)
+Vue.use(JsonViewer);
 
 Vue.config.productionTip = false;
 

@@ -6,6 +6,8 @@ import clearRightButtons from './clearRightButtons';
 import leftButton from './leftButton';
 import nav from './navigation';
 import changeLeftButton from './changeLeftButton';
+import showSearchBar from './showSearchBar';
+import hideSearchBar from './hideSearchBar';
 
 const navigation = {
   lock() {
@@ -33,4 +35,8 @@ export {
   setTitle,
   /** 是否隐藏或显示左侧的按钮和关闭字样 */
   visibleLeftButton,
+  /** 显示搜索栏 */
+  showSearchBar,
+  /** 隐藏搜索栏 */
+  hideSearchBar,
 };

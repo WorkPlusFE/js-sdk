@@ -73,16 +73,16 @@ export default class ExampleList extends Vue {
     // @ts-ignore
     const elm: any = document.getElementById('image-box');
     html2canvas(elm, {
-       useCORS: true,
-       logging: false,
+      useCORS: true,
+      logging: false,
     }).then((canvas: any) => {
-        const base64 = canvas.toDataURL('image/png');
-        this.imagebase64 = base64;
-        const imageData = base64.split(';base64,')[1];
-        sdk.image.actionForLongPressImage({
-          imageData,
-        });
+      const base64 = canvas.toDataURL('image/png');
+      this.imagebase64 = base64;
+      const imageData = base64.split(';base64,')[1];
+      sdk.image.actionForLongPressImage({
+        imageData,
       });
+    });
   }
 }
 </script>

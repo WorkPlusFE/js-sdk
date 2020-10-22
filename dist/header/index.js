@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.visibleLeftButton = exports.setTitle = exports.rightButtons = exports.navigation = exports.leftButton = exports.clearRightButtons = exports.clearLeftButton = exports.changeLeftButton = void 0;
+exports.hideSearchBar = exports.showSearchBar = exports.visibleLeftButton = exports.setTitle = exports.rightButtons = exports.navigation = exports.leftButton = exports.clearRightButtons = exports.clearLeftButton = exports.changeLeftButton = void 0;
 var rightButtons_1 = require("./rightButtons");
 exports.rightButtons = rightButtons_1.default;
 var setTitle_1 = require("./setTitle");
@@ -16,6 +16,10 @@ exports.leftButton = leftButton_1.default;
 var navigation_1 = require("./navigation");
 var changeLeftButton_1 = require("./changeLeftButton");
 exports.changeLeftButton = changeLeftButton_1.default;
+var showSearchBar_1 = require("./showSearchBar");
+exports.showSearchBar = showSearchBar_1.default;
+var hideSearchBar_1 = require("./hideSearchBar");
+exports.hideSearchBar = hideSearchBar_1.default;
 var navigation = {
     lock: function () {
         navigation_1.default('lock');
