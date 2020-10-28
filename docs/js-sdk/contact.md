@@ -96,7 +96,7 @@ w6s.contact.getEmployeesFromCurrentOrg({
 | selectedEmpList | Array | 非必须，雇员列表信息，用于复选 | 
 
 
-## 打开通用选择人员界面 <Badge text="v3.6.0+" type="warning" />
+## 打开通用选择人员界面 
 
 该接口打开通用的选择界面，此界面能选择组织内的雇员信息, 用户的星标联系人等。
 

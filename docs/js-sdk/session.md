@@ -73,7 +73,7 @@ w6s.session.createDiscussionChat();
 </CodeWrapper>
 
 
-## 打开群组选人界面 <Badge text="v3.6.0+" type="warning" /> 
+## 打开群组选人界面
 
 根据`群组id`, 打开群组成员界面, 并进行选择。
 

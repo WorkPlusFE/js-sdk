@@ -59,7 +59,7 @@ w6s.device.getDeviceInfo({
 | channel_vendor | Apple or ？|
 
 
-## 获取运动数据 <Badge text="v3.12.1+" type="success" />
+## 获取运动数据
 获取设备当天凌晨 0 点至当前时间的运动数据。
 
 **使用说明**

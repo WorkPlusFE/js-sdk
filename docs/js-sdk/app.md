@@ -28,7 +28,7 @@ w6s.app.route({
 | scheme_url |  String | 除了原生应用的`schema_url`规则, 也支持内部的应用协议, 例如`workplus://openApp?id=abc&domainId=abc` |
 
 
-## 打开应用聊天界面 <Badge text="v3.4.1+" type="warning" />
+## 打开应用聊天界面
 
 通过`应用id`和`orgId`，打开该组织下某个应用聊天界面。
 
@@ -62,7 +62,7 @@ w6s.app.showAppChatViewById({
 > service 是服务号，lightApp 是轻应用。
 
 
-## 打开搜索页面 <Badge text="v3.4.1+" type="warning" />
+## 打开搜索页面
 
 打开 WorkPlus 的搜索页面。
 
@@ -80,7 +80,7 @@ w6s.app.searchInApp();
 </CodeWrapper>
 
 
-## 打开App列表页面 <Badge text="v3.4.1+" type="warning" />
+## 打开App列表页面
 
 根据`组织id`打开该组织下的应用列表页面。
 
