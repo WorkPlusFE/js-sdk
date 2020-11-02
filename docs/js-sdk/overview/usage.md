@@ -56,7 +56,7 @@ w6s.auth.getUserTicket({
 ::: warning 关于 JS-SDK 资源
 基于 WorkPlus 部分客户网络环境的特殊性，推荐自行部署`js-sdk`的相关资源，以供自家平台轻应用访问。
 
-相关资源说明，请查看[此处](/js-sdk/overview/demo)。
+相关资源说明，请查看[此处](/js-sdk/overview/demo.html#资源文件)。
 :::
 
 
@@ -97,7 +97,7 @@ w6s.init({
 
 **cordovajs**
 
-用于设置 iOS 及 Android 两端的 cordovajs 的加载地址，相关资源说明，请查看[此处](/js-sdk/overview/demo)。
+用于设置 iOS 及 Android 两端的 cordovajs 的加载地址，相关资源说明，请查看[此处](/js-sdk/overview/demo.html#资源文件)。
 
 在 js-sdk 内部，会根据具体的环境来决定使用`applocal://`还是`http(s)://`的方式注入 cordovajs。
 

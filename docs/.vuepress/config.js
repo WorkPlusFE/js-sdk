@@ -30,16 +30,18 @@ module.exports = {
     logo: '/logo.png',
     nav: [
       { text: '轻应用', link: '/light-app/' },
+      { text: '应用主题', link: '/theme/' },
       { text: 'API 文档', link: '/api/' },
       { text: 'JS-SDK', link: '/js-sdk/' },
-      { text: 'Cordova 文档', link: 'https://open.workplus.io/cordova/' },
-      { text: '开发工具', link: '/dev-tools' },
+      // { text: '开发工具', link: '/dev-tools' },
       { text: '常见问题', link: '/qa' },
+      { text: 'Cordova 文档', link: 'https://open.workplus.io/cordova/' },
     ],
     sidebar: {
       '/light-app/': getLightAppBar(),
       '/js-sdk/': getJsSdkBar(),
       '/api/': getApiBar(),
+      '/theme/': getThemeBar(),
     },
 
     docsRepo: 'WorkPlusFE/js-sdk',
@@ -203,4 +205,24 @@ function getApiBar () {
       ]
     }
   ]
+}
+
+function getThemeBar () {
+  return [
+    {
+      title: '应用主题',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: [
+        '',
+      ]
+    }, {
+      title: '使用主题',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: [
+        'usage'
+      ]
+    },
+  ];
 }
