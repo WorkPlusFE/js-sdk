@@ -40,7 +40,6 @@
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
-    "@chenfengyuan/vue-qrcode": "^1.0.2",
     "@rollup/plugin-alias": "^2.2.0",
     "@rollup/plugin-auto-install": "^2.0.0",
     "@rollup/plugin-beep": "^0.1.2",
@@ -85,7 +84,8 @@
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3",
     "uppercamelcase": "^3.0.0",
-    "vuepress": "^1.2.0"
+    "vuepress": "1.2.0",
+    "vuepress-plugin-export": "^0.2.0"
   },
   "engines": {
     "node": ">= 10.16.0"

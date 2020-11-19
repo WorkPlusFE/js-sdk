@@ -47,3 +47,5 @@ docs/.vuepress/v4/
 RELEASE_NOTE*.md
 
 release_node
+
+*.pdf

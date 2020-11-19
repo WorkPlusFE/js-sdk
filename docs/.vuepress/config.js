@@ -69,6 +69,7 @@ module.exports = {
         }
       }
     ],
+    'vuepress-plugin-export'
   ]
 };
 
