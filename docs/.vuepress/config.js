@@ -30,7 +30,7 @@ module.exports = {
     logo: '/logo.png',
     nav: [
       { text: '轻应用', link: '/light-app/' },
-      { text: '应用主题', link: '/theme/' },
+      // { text: '应用主题', link: '/theme/' },
       { text: 'API 文档', link: '/api/' },
       { text: 'JS-SDK', link: '/js-sdk/' },
       // { text: '开发工具', link: '/dev-tools' },
