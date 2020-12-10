@@ -1,41 +1,5 @@
 # 开发者接口回调
 
-## 回调地址验证
-
-```js
-GET http://XXXXXX?signature={signature}&timestamp={timestamp}&nonce={nonce}&echoStr={echoStr}
-```
-
-**请求参数：**
-
-|字段	 |类型	 |是否必填	 |说明 |
-|-| -|- |-|
-|http://XXXXXX	 |String	 |Y	 |回调地址 |
-|signature	 |String	 |Y	 |签名 |
-|timestamp	 |String	 |Y	 |时间戳 |
-|nonce	 |String	 |Y	 |随机数 |
-|echoStr	 |String	 |Y	 |密文 |
-
-**请求示例：**
-
-```js
-signature=7a3c8a5ee2b5886348feb971620728db800a0989&timestamp=1487642989592&nonce=OsiLRP9KnE16gUJP&echoStr=371903801831038013801
-```
-
-**参数说明：**
-
-* 计算签名：signature=sha1(sort(token、timestamp、nonce、echoStr))。sort的含义是将参数按照字母字典排序，然后从小到大拼接成一个字符串；
-* echoStr = Base64_Encode( AES_Encrypt[random(16B) + msg_len(4B) + msg + $appKey] )，是对明文消息 msg 加密处理后的 Base64 编码。 其中 random 为16字节的随机字符串；msg_len 为4字节的 msg 长度，网络字节序；msg 为消息体明文；$appKey 为 APP 的标识。
-
-**返回数据（解密后的原文）：**
-
-对应于加密方案，解密方案如下:
-
-* 对密文 BASE64 解码：aes_msg=Base64_Decode(msg_encrypt)；
-* 使用 AESKey 做 AES 解密：rand_msg=AES_Decrypt(aes_msg)；
-* 验证解密后 $appKey、msg_len；
-* 去掉 rand_msg 头部的16个随机字节，4个字节的 msg_len,和尾部的 $appKey 即为最终的消息体原文 msg。
-
 ## 消息回调
 
 ```js
