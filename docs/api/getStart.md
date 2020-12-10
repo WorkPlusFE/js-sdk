@@ -47,8 +47,8 @@ POST https://demo-api.workplus.io/v1/token
 
 | 参数 | 类型 | 说明|
 | - | - | - |
-| grant_type |  String | 固定值 'client_credentials' |
-| scope | String | 固定值 'app' | 
+| grant_type |  String | 固定值 `client_credentials` |
+| scope | String | 固定值 `app` | 
 | domain_id | String | 应用所在域的域id | 
 | org_id | String | 应用所在组织的组织id | 
 | client_id | String | 应用的 appKey | 
