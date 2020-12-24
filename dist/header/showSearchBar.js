@@ -16,6 +16,6 @@ function showSearchBar(options) {
         hint: (options === null || options === void 0 ? void 0 : options.hint) || '',
         cancel_mode: (options === null || options === void 0 ? void 0 : options.cancelMode) || 'reset',
     };
-    return core.exec(constants_1.WORKPLUS_WEBVIEW, 'searchBar', [args], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail);
+    return core.exec(constants_1.WORKPLUS_WEBVIEW, 'searchBar', [args], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail, false);
 }
 exports.default = showSearchBar;
