@@ -11,6 +11,9 @@ class Core {
   /** cordova is loaded */
   private _ready = false;
 
+  /** cordova is inject */
+  private _inject = false;
+
   /** logger */
   private _logger: Logger = new Logger();
 
@@ -51,9 +54,10 @@ class Core {
       return;
     }
 
-    if (!window.cordova && !this.isReday) {
+    if (!window.cordova && !this.isReday && !this._inject) {
       // 注入 Cordova
       injectCordova(options?.cordovajs, options?.useHttp);
+      this._inject = true;
     }
 
     // 设置超时
@@ -80,6 +84,7 @@ class Core {
   public ready = (fn?: Function): Promise<void> => {
     return new Promise(resolve => {
       const run = (): void => fn && isFunction(fn) && fn();
+      console.log(run);
       if (this.isReday) {
         resolve();
         run();
@@ -227,7 +232,7 @@ export function exec<A, S, F>(
       cordova.exec(
         function(res: S) {
           removeTimer();
-
+          console.log(res);
           const response = jsonParser(res);
           logger.warn(`${callAPI} 调用成功: ${JSON.stringify(response, null, 4)}`);
           if (success && isFunction(success)) {

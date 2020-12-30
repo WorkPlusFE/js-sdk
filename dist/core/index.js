@@ -12,6 +12,8 @@ var Core = /** @class */ (function () {
         var _this = this;
         /** cordova is loaded */
         this._ready = false;
+        /** cordova is inject */
+        this._inject = false;
         /** logger */
         this._logger = new logger_1.default();
         /** timeout */
@@ -39,9 +41,10 @@ var Core = /** @class */ (function () {
                 _this._logger.error('SDK 不支持非浏览器环境');
                 return;
             }
-            if (!window.cordova && !_this.isReday) {
+            if (!window.cordova && !_this.isReday && !_this._inject) {
                 // 注入 Cordova
                 import_cordova_1.default(options === null || options === void 0 ? void 0 : options.cordovajs, options === null || options === void 0 ? void 0 : options.useHttp);
+                _this._inject = true;
             }
             // 设置超时
             _this._timeout = (options === null || options === void 0 ? void 0 : options.timeout) || EXEC_TIME_OUT;
@@ -66,6 +69,7 @@ var Core = /** @class */ (function () {
         this.ready = function (fn) {
             return new Promise(function (resolve) {
                 var run = function () { return fn && is_1.isFunction(fn) && fn(); };
+                console.log(run);
                 if (_this.isReday) {
                     resolve();
                     run();
@@ -216,6 +220,7 @@ function exec(service, action, args, success, fail, setTimer) {
             exports.logger.warn("\u51C6\u5907\u8C03\u7528 " + callAPI);
             cordova.exec(function (res) {
                 removeTimer();
+                console.log(res);
                 var response = jsonParser(res);
                 exports.logger.warn(callAPI + " \u8C03\u7528\u6210\u529F: " + JSON.stringify(response, null, 4));
                 if (success && is_1.isFunction(success)) {
