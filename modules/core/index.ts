@@ -6,7 +6,6 @@ import Logger from './logger';
 import { services as mockServiceNames } from './mock-services';
 
 const EXEC_TIME_OUT = 5000;
-
 class Core {
   /** cordova is loaded */
   private _ready = false;
@@ -28,10 +27,6 @@ class Core {
 
   /** error 回调函数 */
   private _errorCallback!: Function;
-
-  constructor() {
-    this.init();
-  }
 
   /**
    * 初始化配置项
@@ -84,7 +79,6 @@ class Core {
   public ready = (fn?: Function): Promise<void> => {
     return new Promise(resolve => {
       const run = (): void => fn && isFunction(fn) && fn();
-      console.log(run);
       if (this.isReday) {
         resolve();
         run();

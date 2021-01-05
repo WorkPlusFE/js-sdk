@@ -1,3 +1,4 @@
+import { CoreOptions } from './types/core';
 import * as core from './core';
 import * as Contact from './contact';
 import * as Location from './location';
@@ -11,7 +12,7 @@ import * as User from './user';
 import * as Header from './header';
 import * as Webview from './webview';
 /** WorkPlus SDK 版本 */
-export declare const version = "1.1.0-beta.5";
+export declare const version = "__VERSION__";
 export declare const native: {};
 /** 图像接口 */
 export declare const image: {
@@ -75,7 +76,7 @@ export declare const auth: typeof Auth;
 /** 网页事件 */
 export declare const event: typeof Eventlistener;
 /** WrokPlus SDK 初始化配置 */
-export declare const init: (options?: import("./types/core").CoreOptions | undefined) => void;
+export declare const init: (options?: CoreOptions | undefined) => void;
 /** Cordova 首次注入时的触发事件 */
 export declare const ready: (fn?: Function | undefined) => Promise<void>;
 /** Cordova 执行事件（异步） */
@@ -84,3 +85,6 @@ export declare const exec: typeof core.exec;
 export declare const execSync: typeof core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 export declare const error: (fn: (err: unknown) => void) => void;
+export declare const isReady: boolean;
+/** Vue Plugin install function */
+export declare const install: (Vue: any, options?: CoreOptions | undefined, globalMode?: boolean | undefined) => void;

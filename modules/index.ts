@@ -1,3 +1,4 @@
+import { CoreOptions } from './types/core';
 import * as core from './core';
 import Image from './image';
 import * as Contact from './contact';
@@ -71,3 +72,46 @@ export const exec = core.exec;
 export const execSync = core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 export const error = core.error;
+
+/** Vue Plugin install function */
+/*eslint @typescript-eslint/no-explicit-any: 0*/
+export const install = (Vue: any, options?: CoreOptions, globalMode?: boolean) => {
+  if (!globalMode) {
+    core.init(options);
+  }
+
+  /* eslint no-param-reassign: 0 */
+  Vue.prototype.$w6s = {
+    version,
+    image,
+    contact,
+    user,
+    session,
+    app,
+    webview,
+    header,
+    util,
+    location,
+    device,
+    eventlog,
+    file,
+    network,
+    email,
+    auth,
+    event,
+    ready,
+    exec,
+    execSync,
+    error,
+  };
+
+  if (globalMode) {
+    Vue.prototype.$w6s.init = init;
+  }
+};
+
+/* @ts-ignore */
+if (typeof window !== 'undefined' && window.Vue) {
+  /* @ts-ignore */
+  install(window.Vue, null, true);
+}

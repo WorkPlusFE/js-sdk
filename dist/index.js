@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.error = exports.execSync = exports.exec = exports.ready = exports.init = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
+exports.install = exports.isReady = exports.error = exports.execSync = exports.exec = exports.ready = exports.init = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
 var core = require("./core");
 var image_1 = require("./image");
 var Contact = require("./contact");
@@ -19,7 +19,7 @@ var User = require("./user");
 var Header = require("./header");
 var Webview = require("./webview");
 /** WorkPlus SDK 版本 */
-exports.version = '1.1.0-beta.5';
+exports.version = '__VERSION__';
 exports.native = {};
 /** 图像接口 */
 exports.image = image_1.default;
@@ -63,3 +63,43 @@ exports.exec = core.exec;
 exports.execSync = core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 exports.error = core.error;
+exports.isReady = core.isReady;
+/** Vue Plugin install function */
+exports.install = function (Vue, options, globalMode) {
+    if (!globalMode) {
+        core.init(options);
+    }
+    /* eslint no-param-reassign: 0 */
+    Vue.prototype.$w6s = {
+        version: exports.version,
+        isReady: exports.isReady,
+        image: exports.image,
+        contact: exports.contact,
+        user: exports.user,
+        session: exports.session,
+        app: exports.app,
+        webview: exports.webview,
+        header: exports.header,
+        util: exports.util,
+        location: exports.location,
+        device: exports.device,
+        eventlog: exports.eventlog,
+        file: exports.file,
+        network: exports.network,
+        email: exports.email,
+        auth: exports.auth,
+        event: exports.event,
+        ready: exports.ready,
+        exec: exports.exec,
+        execSync: exports.execSync,
+        error: exports.error,
+    };
+    if (globalMode) {
+        Vue.prototype.$w6s.init = exports.init;
+    }
+};
+/* @ts-ignore */
+if (typeof window !== 'undefined' && window.Vue) {
+    /* @ts-ignore */
+    exports.install(window.Vue, null, true);
+}
