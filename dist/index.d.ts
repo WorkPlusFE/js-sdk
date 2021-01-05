@@ -12,7 +12,7 @@ import * as User from './user';
 import * as Header from './header';
 import * as Webview from './webview';
 /** WorkPlus SDK 版本 */
-export declare const version = "__VERSION__";
+export declare const version = "1.1.0-beta.6";
 export declare const native: {};
 /** 图像接口 */
 export declare const image: {
@@ -85,6 +85,5 @@ export declare const exec: typeof core.exec;
 export declare const execSync: typeof core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 export declare const error: (fn: (err: unknown) => void) => void;
-export declare const isReady: boolean;
 /** Vue Plugin install function */
 export declare const install: (Vue: any, options?: CoreOptions | undefined, globalMode?: boolean | undefined) => void;

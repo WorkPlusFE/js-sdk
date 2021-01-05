@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.install = exports.isReady = exports.error = exports.execSync = exports.exec = exports.ready = exports.init = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
+exports.install = exports.error = exports.execSync = exports.exec = exports.ready = exports.init = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
 var core = require("./core");
 var image_1 = require("./image");
 var Contact = require("./contact");
@@ -19,7 +19,7 @@ var User = require("./user");
 var Header = require("./header");
 var Webview = require("./webview");
 /** WorkPlus SDK 版本 */
-exports.version = '__VERSION__';
+exports.version = '1.1.0-beta.6';
 exports.native = {};
 /** 图像接口 */
 exports.image = image_1.default;
@@ -63,8 +63,8 @@ exports.exec = core.exec;
 exports.execSync = core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 exports.error = core.error;
-exports.isReady = core.isReady;
 /** Vue Plugin install function */
+/*eslint @typescript-eslint/no-explicit-any: 0*/
 exports.install = function (Vue, options, globalMode) {
     if (!globalMode) {
         core.init(options);
@@ -72,7 +72,6 @@ exports.install = function (Vue, options, globalMode) {
     /* eslint no-param-reassign: 0 */
     Vue.prototype.$w6s = {
         version: exports.version,
-        isReady: exports.isReady,
         image: exports.image,
         contact: exports.contact,
         user: exports.user,

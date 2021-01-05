@@ -1,13 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.execSync = exports.exec = exports.isReady = exports.logger = exports.error = exports.ready = exports.init = void 0;
+exports.execSync = exports.exec = exports.logger = exports.error = exports.ready = exports.init = void 0;
 var platform_1 = require("../shared/platform");
 var is_1 = require("../shared/is");
 var import_cordova_1 = require("../import-cordova");
 var logger_1 = require("./logger");
 var mock_services_1 = require("./mock-services");
 var EXEC_TIME_OUT = 5000;
-var CORDOVA_IS_READY = false;
 var Core = /** @class */ (function () {
     function Core() {
         var _this = this;
@@ -109,7 +108,6 @@ var Core = /** @class */ (function () {
     };
     Core.prototype._setReady = function (val) {
         this._ready = val;
-        CORDOVA_IS_READY = val;
     };
     Object.defineProperty(Core.prototype, "isReday", {
         get: function () {
@@ -153,7 +151,6 @@ exports.init = core.init;
 exports.ready = core.ready;
 exports.error = core.error;
 exports.logger = core.logger;
-exports.isReady = CORDOVA_IS_READY;
 /**
  * 执行 Mock 调用
  * @param {string} service 调用的服务类名

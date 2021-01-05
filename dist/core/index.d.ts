@@ -4,7 +4,6 @@ export declare const init: (options?: CoreOptions | undefined) => void;
 export declare const ready: (fn?: Function | undefined) => Promise<void>;
 export declare const error: (fn: (err: unknown) => void) => void;
 export declare const logger: Logger;
-export declare const isReady = false;
 /**
  * 以异步的方式执行 Cordova 的事件，用于获取数据类型的 API
  * @template A 参数类型
