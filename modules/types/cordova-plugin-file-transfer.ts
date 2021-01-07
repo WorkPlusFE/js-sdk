@@ -10,7 +10,7 @@
  * The FileTransfer object provides a way to upload files using an HTTP multi-part POST request,
  * and to download files as well.
  */
-interface FileTransfer {
+export interface FileTransfer {
   /** Called with a ProgressEvent whenever a new chunk of data is transferred.  */
   onprogress: (event: ProgressEvent) => void;
   /**
@@ -67,7 +67,7 @@ declare let FileTransfer: {
 };
 
 /** A FileUploadResult object is passed to the success callback of the FileTransfer object's upload() method. */
-interface FileUploadResult {
+export interface FileUploadResult {
   /** The number of bytes sent to the server as part of the upload. */
   bytesSent: number;
   /** The HTTP response code returned by the server. */
@@ -79,7 +79,7 @@ interface FileUploadResult {
 }
 
 /** Optional parameters for upload method. */
-interface FileUploadOptions {
+export interface FileUploadOptions {
   /** The name of the form element. Defaults to file. */
   fileKey?: string;
   /** The file name to use when saving the file on the server. Defaults to image.jpg. */
@@ -103,7 +103,7 @@ interface FileDownloadOptions {
 }
 
 /** A FileTransferError object is passed to an error callback when an error occurs. */
-interface FileTransferError {
+export interface FileTransferError {
   /**
    * One of the predefined error codes listed below.
    *     FileTransferError.FILE_NOT_FOUND_ERR

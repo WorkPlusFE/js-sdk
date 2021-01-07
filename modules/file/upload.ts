@@ -1,4 +1,10 @@
 import { isFunction } from '../shared/is';
+import {
+  FileTransfer,
+  FileUploadOptions,
+  FileUploadResult,
+  FileTransferError,
+} from '../types/cordova-plugin-file-transfer';
 
 interface UploadOptions {
   fileURL: string;
@@ -8,6 +14,10 @@ interface UploadOptions {
   progress?: Function;
   trustAllHosts?: boolean;
 }
+
+declare let FileTransfer: {
+  new (): FileTransfer;
+};
 
 class FileUpload {
   fileTransferInstance: FileTransfer;

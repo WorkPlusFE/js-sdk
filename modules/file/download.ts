@@ -1,7 +1,13 @@
+import { FileTransfer } from '../types/cordova-plugin-file-transfer';
+
 type DownloadOptions = {
   headers: {
     [p: string]: unknown;
   };
+};
+
+declare let FileTransfer: {
+  new (): FileTransfer;
 };
 
 interface Download {
