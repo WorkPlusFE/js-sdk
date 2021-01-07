@@ -17,7 +17,7 @@
 
 ## 安装及使用
 
-一、基于`npm`包的方式引入：
+基于`npm`包的方式引入：
 
 ```sh
 npm install @w6s/sdk --save 
