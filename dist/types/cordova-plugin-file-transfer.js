@@ -6,3 +6,4 @@
 //
 // Copyright (c) Microsoft Open Technologies Inc
 // Licensed under the MIT license
+Object.defineProperty(exports, "__esModule", { value: true });

@@ -1,3 +1,4 @@
+import { FileTransfer, FileUploadOptions, FileUploadResult } from '../types/cordova-plugin-file-transfer';
 interface UploadOptions {
     fileURL: string;
     server: string;
@@ -6,6 +7,9 @@ interface UploadOptions {
     progress?: Function;
     trustAllHosts?: boolean;
 }
+declare let FileTransfer: {
+    new (): FileTransfer;
+};
 declare class FileUpload {
     fileTransferInstance: FileTransfer;
     fileUploadOptions: FileUploadOptions;
