@@ -1,4 +1,4 @@
-import { FileTransfer } from '../types/cordova-plugin-file-transfer';
+import { FileTransfer } from '../types/cordova-plugin-file';
 
 type DownloadOptions = {
   headers: {

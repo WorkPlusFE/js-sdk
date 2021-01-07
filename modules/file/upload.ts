@@ -4,7 +4,7 @@ import {
   FileUploadOptions,
   FileUploadResult,
   FileTransferError,
-} from '../types/cordova-plugin-file-transfer';
+} from '../types/cordova-plugin-file';
 
 interface UploadOptions {
   fileURL: string;
