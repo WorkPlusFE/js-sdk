@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var platform_1 = require("../shared/platform");
 var is_1 = require("../shared/is");
-var resolveLocalFileSystemURL = function (fileUrl) {
+var resolveFn = function (fileUrl) {
     return new Promise(function (resolve, reject) {
         window.resolveLocalFileSystemURL(fileUrl, function (fileEntry) {
             resolve(fileEntry);
@@ -16,7 +16,7 @@ var resolveURI = function (fileUrl) {
         if (platform_1.isAndroid()) {
             fileUrl = "file://" + fileUrl;
         }
-        resolveLocalFileSystemURL(fileUrl)
+        resolveFn(fileUrl)
             .then(function (fileEntry) {
             fileEntry.file(function (file) {
                 resolve(file);

@@ -202,7 +202,7 @@ interface FileSystem {
  * An abstract interface representing entries in a file system,
  * each of which may be a File or DirectoryEntry.
  */
-interface Entry {
+export interface Entry {
   /** Entry is a file. */
   isFile: boolean;
   /** Entry is a directory. */
@@ -389,7 +389,7 @@ interface DirectoryReader {
 }
 
 /** This interface represents a file on a file system. */
-interface FileEntry extends Entry {
+export interface FileEntry extends Entry {
   /**
    * Creates a new FileWriter associated with the file that this FileEntry represents.
    * @param successCallback A callback that is called with the new FileWriter.
@@ -479,7 +479,7 @@ declare let FileWriter: {
   DONE: number;
 };
 
-interface FileError {
+export interface FileError {
   /** Error code */
   code: number;
 }

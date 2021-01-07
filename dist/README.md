@@ -17,7 +17,7 @@
 
 ## 安装及使用
 
-一、基于`npm`包的方式引入：
+基于`npm`包的方式引入：
 
 ```sh
 npm install @w6s/sdk --save 
@@ -29,18 +29,16 @@ npm install @w6s/sdk --save
 ```js
 import * as w6s from '@w6s/sdk';
 
-// Promise
+// 初始化 sdk
+w6s.init({
+  debug: true,
+  timeout: 10 * 1000,
+});
+
+// 获取用户 Ticket
 w6s.auth.getUserTicket().then(res => {
   console.log(res.user_ticket); 
 }).catch();
-
-// CallBack
-w6s.auth.getUserTicket({
-  success(res) {
-    console.log(res.user_ticket); 
-  },
-  fail(err) {},
-});
 ```
 
 如果需要以`script`标签直接引入，相关资源说明请看[这里](https://open.workplus.io/v4/js-sdk/overview/demo.html#资源文件)。

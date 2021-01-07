@@ -1,28 +1,96 @@
-interface Window {
+/**
+ * The FileTransfer object provides a way to upload files using an HTTP multi-part POST request,
+ * and to download files as well.
+ */
+export interface FileTransfer {
+    /** Called with a ProgressEvent whenever a new chunk of data is transferred.  */
+    onprogress: (event: ProgressEvent) => void;
     /**
-     * Requests a filesystem in which to store application data.
-     * @param type              Whether the filesystem requested should be persistent, as defined above. Use one of TEMPORARY or PERSISTENT.
-     * @param size              This is an indicator of how much storage space, in bytes, the application expects to need.
-     * @param successCallback   The callback that is called when the user agent provides a filesystem.
-     * @param errorCallback     A callback that is called when errors happen, or when the request to obtain the filesystem is denied.
+     * Sends a file to a server.
+     * @param fileURL           Filesystem URL representing the file on the device. For backwards compatibility,
+     *                                this can also be the full path of the file on the device.
+     * @param server            URL of the server to receive the file, as encoded by encodeURI().
+     * @param successCallback   A callback that is passed a FileUploadResult object.
+     * @param errorCallback     A callback that executes if an error occurs retrieving the FileUploadResult.
+     *                               Invoked with a FileTransferError object.
+     * @param options           Optional parameters.
+     * @param trustAllHosts     Optional parameter, defaults to false. If set to true, it accepts all security certificates.
+     *                               This is useful since Android rejects self-signed security certificates.
+     *                               Not recommended for production use. Supported on Android and iOS.
      */
-    requestFileSystem(type: LocalFileSystem, size: number, successCallback: (fileSystem: FileSystem) => void, errorCallback?: (fileError: FileError) => void): void;
+    upload(fileURL: string, server: string, successCallback: (result: FileUploadResult) => void, errorCallback: (error: FileTransferError) => void, options?: FileUploadOptions, trustAllHosts?: boolean): void;
     /**
-     * Look up file system Entry referred to by local URL.
-     * @param string url       URL referring to a local file or directory
-     * @param successCallback  invoked with Entry object corresponding to URL
-     * @param errorCallback    invoked if error occurs retrieving file system entry
+     * downloads a file from server.
+     * @param source            URL of the server to download the file, as encoded by encodeURI().
+     * @param target            Filesystem url representing the file on the device. For backwards compatibility,
+     *                               this can also be the full path of the file on the device.
+     * @param successCallback   A callback that is passed a FileEntry object. (Function)
+     * @param errorCallback     A callback that executes if an error occurs when retrieving the fileEntry.
+     *                               Invoked with a FileTransferError object.
+     * @param options           Optional parameters.
+     * @param trustAllHosts     Optional parameter, defaults to false. If set to true, it accepts all security certificates.
+     *                               This is useful since Android rejects self-signed security certificates.
+     *                               Not recommended for production use. Supported on Android and iOS.
      */
-    resolveLocalFileSystemURL(url: string, successCallback: (entry: Entry) => void, errorCallback?: (error: FileError) => void): void;
+    download(source: string, target: string, successCallback: (fileEntry: FileEntry) => void, errorCallback: (error: FileTransferError) => void, trustAllHosts?: boolean, options?: FileDownloadOptions): void;
     /**
-     * Look up file system Entry referred to by local URI.
-     * @param string uri       URI referring to a local file or directory
-     * @param successCallback  invoked with Entry object corresponding to URI
-     * @param errorCallback    invoked if error occurs retrieving file system entry
+     * Aborts an in-progress transfer. The onerror callback is passed a FileTransferError object
+     * which has an error code of FileTransferError.ABORT_ERR.
      */
-    resolveLocalFileSystemURI(uri: string, successCallback: (entry: Entry) => void, errorCallback?: (error: FileError) => void): void;
-    TEMPORARY: number;
-    PERSISTENT: number;
+    abort(): void;
+}
+/** A FileUploadResult object is passed to the success callback of the FileTransfer object's upload() method. */
+export interface FileUploadResult {
+    /** The number of bytes sent to the server as part of the upload. */
+    bytesSent: number;
+    /** The HTTP response code returned by the server. */
+    responseCode: number;
+    /** The HTTP response returned by the server. */
+    response: string;
+    /** The HTTP response headers by the server. Currently supported on iOS only.*/
+    headers: unknown;
+}
+/** Optional parameters for upload method. */
+export interface FileUploadOptions {
+    /** The name of the form element. Defaults to file. */
+    fileKey?: string;
+    /** The file name to use when saving the file on the server. Defaults to image.jpg. */
+    fileName?: string;
+    /** The HTTP method to use - either `PUT` or `POST`. Defaults to `POST`. */
+    httpMethod?: string;
+    /** The mime type of the data to upload. Defaults to image/jpeg. */
+    mimeType?: string;
+    /** A set of optional key/value pairs to pass in the HTTP request. */
+    params?: Record<string, unknown>;
+    /** Whether to upload the data in chunked streaming mode. Defaults to true. */
+    chunkedMode?: boolean;
+    /** A map of header name/header values. Use an array to specify more than one value. */
+    headers?: Record<string, unknown>;
+}
+/** Optional parameters for download method. */
+interface FileDownloadOptions {
+    /** A map of header name/header values. */
+    headers?: {};
+}
+/** A FileTransferError object is passed to an error callback when an error occurs. */
+export interface FileTransferError {
+    /**
+     * One of the predefined error codes listed below.
+     *     FileTransferError.FILE_NOT_FOUND_ERR
+     *     FileTransferError.INVALID_URL_ERR
+     *     FileTransferError.CONNECTION_ERR
+     *     FileTransferError.ABORT_ERR
+     *     FileTransferError.NOT_MODIFIED_ERR
+     */
+    code: number;
+    /** URL to the source. */
+    source: string;
+    /** URL to the target. */
+    target: string;
+    /** HTTP status code. This attribute is only available when a response code is received from the HTTP connection. */
+    http_status: number;
+    body: string;
+    exception: unknown;
 }
 /** This interface represents a file system. */
 interface FileSystem {
@@ -34,7 +102,7 @@ interface FileSystem {
  * An abstract interface representing entries in a file system,
  * each of which may be a File or DirectoryEntry.
  */
-interface Entry {
+export interface Entry {
     /** Entry is a file. */
     isFile: boolean;
     /** Entry is a directory. */
@@ -187,7 +255,7 @@ interface DirectoryReader {
     readEntries(successCallback: (entries: Entry[]) => void, errorCallback?: (error: FileError) => void): void;
 }
 /** This interface represents a file on a file system. */
-interface FileEntry extends Entry {
+export interface FileEntry extends Entry {
     /**
      * Creates a new FileWriter associated with the file that this FileEntry represents.
      * @param successCallback A callback that is called with the new FileWriter.
@@ -269,42 +337,8 @@ declare let FileWriter: {
     WRITING: number;
     DONE: number;
 };
-interface FileError {
+export interface FileError {
     /** Error code */
     code: number;
 }
-declare let FileError: {
-    new (code: number): FileError;
-    NOT_FOUND_ERR: number;
-    SECURITY_ERR: number;
-    ABORT_ERR: number;
-    NOT_READABLE_ERR: number;
-    ENCODING_ERR: number;
-    NO_MODIFICATION_ALLOWED_ERR: number;
-    INVALID_STATE_ERR: number;
-    SYNTAX_ERR: number;
-    INVALID_MODIFICATION_ERR: number;
-    QUOTA_EXCEEDED_ERR: number;
-    TYPE_MISMATCH_ERR: number;
-    PATH_EXISTS_ERR: number;
-};
-interface Cordova {
-    file: {
-        applicationDirectory: string;
-        applicationStorageDirectory: string;
-        dataDirectory: string;
-        cacheDirectory: string;
-        externalApplicationStorageDirectory: string;
-        externalDataDirectory: string;
-        externalCacheDirectory: string;
-        externalRootDirectory: string;
-        tempDirectory: string;
-        syncedDataDirectory: string;
-        documentsDirectory: string;
-        sharedDirectory: string;
-    };
-}
-declare enum LocalFileSystem {
-    PERSISTENT = 1,
-    TEMPORARY = 0
-}
+export {};

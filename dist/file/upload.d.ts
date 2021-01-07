@@ -1,4 +1,4 @@
-import { FileTransfer, FileUploadOptions, FileUploadResult } from '../types/cordova-plugin-file-transfer';
+import { FileTransfer, FileUploadOptions, FileUploadResult } from '../types/cordova-plugin-file';
 interface UploadOptions {
     fileURL: string;
     server: string;
