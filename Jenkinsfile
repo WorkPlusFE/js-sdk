@@ -18,6 +18,7 @@ pipeline {
             }
             steps {
                 sh 'npm config set registry https://registry.npm.taobao.org'
+                sh 'npm config set puppeteer_download_host https://npm.taobao.org/mirrors'
                 sh 'npm install'
                 sh 'npm run lint'
                 sh 'npm run build'
