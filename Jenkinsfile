@@ -28,7 +28,7 @@ pipeline {
 
         stage("SDK Deploy") {
             steps {
-                sh 'rsync --delete -avz -e ssh ${WORKSPACE}/dist/sdk.*.js root@106.13.212.147:/data/workplus/websites/open.workplus.io/temp/v4'
+                sh 'rsync --delete -avz -e ssh ${WORKSPACE}/dist/sdk.*.js root@106.13.212.147:/data/workplus/websites/open.workplus.io/static/js-sdk/'
             }
         }
 
@@ -41,16 +41,13 @@ pipeline {
                 }
             }
             steps {
-                sh 'cd ${WORKSPACE}/example'
-                sh 'npm config set registry https://registry.npm.taobao.org'
-                sh 'npm install'
-                sh 'npm run build'
+                sh 'cd ${WORKSPACE}/example && npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass && npm config set registry https://registry.npm.taobao.org && npm install && npm run build'
             }
         }
 
         stage("Demo Deploy") {
             steps {
-                sh 'rsync --delete -avz -e ssh ${WORKSPACE}/example/dist/* root@106.13.212.147:/data/workplus/websites/open.workplus.io/temp/v4'
+                sh 'rsync --delete -avz -e ssh ${WORKSPACE}/example/dist/* root@106.13.212.147:/data/workplus/websites/open.workplus.io/sdk-demo'
             }
         }
     }
