@@ -13,6 +13,7 @@ pipeline {
                 docker {
                     image 'node:10.23.0-alpine3.10' 
                     args '-e HOME=/tmp -e NPM_CONFIG_PREFIX=/tmp/.npm'
+                    reuseNode true
                 }
             }
             steps {
@@ -20,13 +21,13 @@ pipeline {
                 sh 'npm install'
                 sh 'npm run lint'
                 sh 'npm run build'
+                sh 'npm run release:version'
             }
         }
 
         stage("SDK Deploy") {
             steps {
-                sh 'npm run release:version'
-                sh 'rsync --delete -avz -e ssh ${WORKSPACE}@2/dist/sdk.*.js root@106.13.212.147:/data/workplus/websites/open.workplus.io/temp/v4'
+                sh 'rsync --delete -avz -e ssh ${WORKSPACE}/dist/sdk.*.js root@106.13.212.147:/data/workplus/websites/open.workplus.io/temp/v4'
             }
         }
 
@@ -35,10 +36,11 @@ pipeline {
                 docker {
                     image 'node:10.23.0-alpine3.10' 
                     args '-e HOME=/tmp -e NPM_CONFIG_PREFIX=/tmp/.npm'
+                    reuseNode true
                 }
             }
             steps {
-                sh 'cd example'
+                sh 'cd ${WORKSPACE}/example'
                 sh 'npm config set registry https://registry.npm.taobao.org'
                 sh 'npm install'
                 sh 'npm run build'
@@ -47,7 +49,7 @@ pipeline {
 
         stage("Demo Deploy") {
             steps {
-                sh 'rsync --delete -avz -e ssh ${WORKSPACE}@3/example/dist/* root@106.13.212.147:/data/workplus/websites/open.workplus.io/temp/v4'
+                sh 'rsync --delete -avz -e ssh ${WORKSPACE}/example/dist/* root@106.13.212.147:/data/workplus/websites/open.workplus.io/temp/v4'
             }
         }
     }
