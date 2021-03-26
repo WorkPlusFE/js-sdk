@@ -42,7 +42,6 @@ import {
 } from 'vant';
 import * as sdk from '../../../dist';
 import config from '../api';
-import func from '../../../vue-temp/vue-editor-bridge';
 
 @Component({
   name: 'ExampleList',
@@ -76,7 +75,8 @@ export default class ExampleList extends Vue {
       sdk.header.setTitle(this.options.title);
     };
 
-    if (typeof cordova === 'undefined') {
+    // @ts-ignore
+    if (typeof window.cordova === 'undefined') {
       sdk.init();
       init();
     } else {
