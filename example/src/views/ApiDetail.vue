@@ -42,6 +42,7 @@ import {
 } from 'vant';
 import * as sdk from '../../../dist';
 import config from '../api';
+import func from '../../../vue-temp/vue-editor-bridge';
 
 @Component({
   name: 'ExampleList',
@@ -70,8 +71,17 @@ export default class ExampleList extends Vue {
 
   /** life cycle */
   mounted() {
-    this.setOptions(this.action);
-    sdk.header.setTitle(this.options.title);
+    const init = () => {
+      this.setOptions(this.action);
+      sdk.header.setTitle(this.options.title);
+    };
+
+    if (typeof cordova === 'undefined') {
+      sdk.init();
+      init();
+    } else {
+      init();
+    }
   }
 
   /** method */
