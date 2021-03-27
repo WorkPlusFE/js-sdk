@@ -10,6 +10,6 @@ var constants_1 = require("../constants");
  * @returns 无
  */
 function rightButtons(options) {
-    return core.execSync(constants_1.WORKPLUS_WEBVIEW, 'rightButtons', [options.items]);
+    return core.execSync(constants_1.WORKPLUS_WEBVIEW, 'rightButtons', options.items);
 }
 exports.default = rightButtons;

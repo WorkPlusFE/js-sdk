@@ -4,7 +4,7 @@ import { ButtonsItem } from '../types/webview';
 
 export interface RightButtonsOptions {
   /** 右侧按钮列表 */
-  items: ButtonsItem[];
+  items: ButtonsItem[][];
 }
 
 /**
@@ -15,7 +15,7 @@ export interface RightButtonsOptions {
  * @returns 无
  */
 function rightButtons(options: RightButtonsOptions): void {
-  return core.execSync<ButtonsItem[]>(WORKPLUS_WEBVIEW, 'rightButtons', [options.items]);
+  return core.execSync<ButtonsItem[]>(WORKPLUS_WEBVIEW, 'rightButtons', options.items);
 }
 
 export default rightButtons;

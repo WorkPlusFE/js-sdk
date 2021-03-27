@@ -1,7 +1,7 @@
 import { ButtonsItem } from '../types/webview';
 export interface RightButtonsOptions {
     /** 右侧按钮列表 */
-    items: ButtonsItem[];
+    items: ButtonsItem[][];
 }
 /**
  * 更换右侧按钮动作
