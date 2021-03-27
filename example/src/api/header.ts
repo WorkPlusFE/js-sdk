@@ -26,9 +26,14 @@ export default {
       description: '更换右侧按钮，参数为一个选项列表。执行方法后，右上角按钮将变成“点我”，点击后，绑定的全局方法将被执行（弹出一个提示框）。该接口参数较多，详情请查阅官方文档！',
       action: 'rightButtons',
       params: {
-        items: [{
-          icon: -1, title: '点我', action: 'js', value: 'rightButtonsEvent',
-        }],
+        items: [
+          [{
+            icon: -1, title: '点我', action: 'js', value: 'rightButtonsEvent',
+          }],
+          [{
+            icon: -1, title: '🐳', action: 'js', value: 'rightButtonsEvent',
+          }]
+        ],
       },
     },
     {
