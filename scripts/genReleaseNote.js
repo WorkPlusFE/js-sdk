@@ -1,9 +1,9 @@
 const cc = require('conventional-changelog');
 
-const file = `./release_note/RELEASE_NOTE.md`;
-const fileStream = require('fs').createWriteStream(file);
-
 const version = process.argv[2] || process.env.VERSION;
+
+const file = `./release_note/RELEASE_NOTE_${version}.md`;
+const fileStream = require('fs').createWriteStream(file);
 
 cc({
   preset: 'angular',
