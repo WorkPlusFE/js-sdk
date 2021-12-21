@@ -28,6 +28,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # generate release
   echo "# generate release"
+  export VERSION=$VERSION
   npm run release:note
   npm run release:version
 
