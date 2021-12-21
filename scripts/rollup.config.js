@@ -11,9 +11,10 @@ const resolveFile = (filePath) => path.join(process.cwd(), '.', filePath);
 
 const env = process.env.NODE_ENV;
 const pkg = require('../package.json');
+const version = process.env.VERSION || pkg.version;
 const banner =
   '/*!\n' +
-  ' * WorkPlus JS-SDK v' + pkg.version + '\n' +
+  ' * WorkPlus JS-SDK v' + version + '\n' +
   ' * (c) ' + new Date().getFullYear() + ' ' + pkg.author + '\n' +
   ' * MIT License \n' +
   ' */\n';
@@ -42,7 +43,7 @@ const plugins = [
   json(),
   replace({
     values: {
-      __VERSION__: `v${pkg.version}`,
+      __VERSION__: `v${version}`,
     },
   }),
 ]
@@ -87,7 +88,7 @@ if (env === 'production') {
   );
 
   config.output = [{
-    file: resolveFile(pkg['main:min']).replace(/{{_VERSION_}}/, pkg.version),
+    file: resolveFile(pkg['main:min']).replace(/{{_VERSION_}}/, version),
     format: 'umd',
     name: 'w6s',
     banner,
