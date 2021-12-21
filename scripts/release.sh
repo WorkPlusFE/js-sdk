@@ -21,9 +21,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "# build"
   VERSION=$VERSION npm run build
 
-  git add -A
-  git commit -m "build: build $VERSION"
-
   # generate release
   echo "# generate release"
   export VERSION=$VERSION
@@ -32,6 +29,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # commit
   echo "# commit"
+  git add -A
+  git commit -m "build: build $VERSION"
+
+  # set tag
   npm version "$VERSION" --message "build: release $VERSION"
 
 
