@@ -10,6 +10,6 @@ export default function cordovaImportInit(options?: ImportCordovaOptions, useHtt
     const importUri = lib.getImportUri();
     scriptGenerator(importUri);
   } catch (error) {
-    throw new Error(error);
+    console.log(error);
   }
 }

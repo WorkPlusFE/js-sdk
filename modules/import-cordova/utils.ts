@@ -4,7 +4,8 @@ import { ImportCordovaConfig, Platform } from '../types/import-cordova';
 export const isHttpsProtocol = (): boolean => window.location.protocol === 'https:';
 
 // 是否在 iframe 中打开
-export const inIframe = (): boolean => self.frameElement && self.frameElement.tagName == 'IFRAME';
+export const inIframe = (): boolean =>
+  self.frameElement ? self.frameElement.tagName === 'IFRAME' : false;
 
 export const isiOSPlatform = (userAgent: string): boolean => userAgent.indexOf('iphone') > -1;
 export const isAndroidPlatform = (userAgent: string): boolean => userAgent.indexOf('android') > -1;

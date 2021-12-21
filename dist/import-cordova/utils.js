@@ -4,7 +4,9 @@ exports.scriptGenerator = exports.inWorkPlus = exports.getCordovaJsUriByPlatform
 // 是否为 https 模式
 exports.isHttpsProtocol = function () { return window.location.protocol === 'https:'; };
 // 是否在 iframe 中打开
-exports.inIframe = function () { return self.frameElement && self.frameElement.tagName == 'IFRAME'; };
+exports.inIframe = function () {
+    return self.frameElement ? self.frameElement.tagName === 'IFRAME' : false;
+};
 exports.isiOSPlatform = function (userAgent) { return userAgent.indexOf('iphone') > -1; };
 exports.isAndroidPlatform = function (userAgent) { return userAgent.indexOf('android') > -1; };
 exports.isX5Webview = function (userAgent) {

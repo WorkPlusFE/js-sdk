@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.execSync = exports.exec = exports.logger = exports.error = exports.ready = exports.init = void 0;
+exports.execSync = exports.exec = exports.logger = exports.error = exports.deviceready = exports.init = void 0;
 var platform_1 = require("../shared/platform");
 var is_1 = require("../shared/is");
-var import_cordova_1 = require("../import-cordova");
 var logger_1 = require("./logger");
 var mock_services_1 = require("./mock-services");
+var import_cordova_1 = require("../import-cordova");
 var EXEC_TIME_OUT = 5000;
 var Core = /** @class */ (function () {
     function Core() {
         var _this = this;
         /** cordova is loaded */
-        this._ready = false;
+        this._deviceready = false;
         /** cordova is inject */
         this._inject = false;
         /** logger */
@@ -41,10 +41,13 @@ var Core = /** @class */ (function () {
                 _this._logger.error('SDK 不支持非浏览器环境');
                 return;
             }
-            if (!window.cordova && !_this.isReday && !_this._inject) {
-                // 注入 Cordova
-                import_cordova_1.default(options === null || options === void 0 ? void 0 : options.cordovajs, options === null || options === void 0 ? void 0 : options.useHttp);
-                _this._inject = true;
+            // 若非鉴权模式，需要主动注入 cordova.js
+            if (!(options === null || options === void 0 ? void 0 : options.auth)) {
+                if (!window.cordova && !_this.isDeviceReady && !_this._inject) {
+                    // 注入 Cordova
+                    import_cordova_1.default(options === null || options === void 0 ? void 0 : options.cordovajs, options === null || options === void 0 ? void 0 : options.useHttp);
+                    _this._inject = true;
+                }
             }
             // 设置超时
             _this._timeout = (options === null || options === void 0 ? void 0 : options.timeout) || EXEC_TIME_OUT;
@@ -66,17 +69,17 @@ var Core = /** @class */ (function () {
          * @param {Function} [fn] 回调函数
          * @memberof Core
          */
-        this.ready = function (fn) {
+        this.deviceready = function (fn) {
             return new Promise(function (resolve) {
                 var run = function () { return fn && is_1.isFunction(fn) && fn(); };
-                if (_this.isReday) {
+                if (_this.isDeviceReady) {
                     resolve();
                     run();
                 }
                 else {
                     document.addEventListener('deviceready', function () {
-                        _this._logger.warn('Cordova 注入成功');
-                        _this._setReady(true);
+                        _this._logger.warn('SDK 已就绪');
+                        _this._setDeviceReady(true);
                         resolve();
                         run();
                     }, false);
@@ -106,12 +109,12 @@ var Core = /** @class */ (function () {
             this._errorCallback(error);
         }
     };
-    Core.prototype._setReady = function (val) {
-        this._ready = val;
+    Core.prototype._setDeviceReady = function (val) {
+        this._deviceready = val;
     };
-    Object.defineProperty(Core.prototype, "isReday", {
+    Object.defineProperty(Core.prototype, "isDeviceReady", {
         get: function () {
-            return this._ready;
+            return this._deviceready;
         },
         enumerable: false,
         configurable: true
@@ -148,7 +151,7 @@ var Core = /** @class */ (function () {
 }());
 var core = new Core();
 exports.init = core.init;
-exports.ready = core.ready;
+exports.deviceready = core.deviceready;
 exports.error = core.error;
 exports.logger = core.logger;
 /**
@@ -218,7 +221,6 @@ function exec(service, action, args, success, fail, setTimer) {
             exports.logger.warn("\u51C6\u5907\u8C03\u7528 " + callAPI);
             cordova.exec(function (res) {
                 removeTimer();
-                console.log(res);
                 var response = jsonParser(res);
                 exports.logger.warn(callAPI + " \u8C03\u7528\u6210\u529F: " + JSON.stringify(response, null, 4));
                 if (success && is_1.isFunction(success)) {
@@ -245,7 +247,7 @@ function exec(service, action, args, success, fail, setTimer) {
                     return;
                 }
             }
-            core.ready(execFn);
+            core.deviceready(execFn);
         }
         catch (error) {
             core.onError(error);
@@ -273,6 +275,6 @@ function execSync(service, action, args) {
             core.onError(callAPI + " \u8C03\u7528\u5931\u8D25: " + err);
         }, service, action, args);
     };
-    core.ready(execSyncFn);
+    core.deviceready(execSyncFn);
 }
 exports.execSync = execSync;

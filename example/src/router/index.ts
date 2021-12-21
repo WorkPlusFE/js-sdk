@@ -34,6 +34,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "webview" */ '../views/webview/Shake.vue'),
   },
 
+  {
+    path: '/webview/refresh',
+    name: 'refresh',
+    component: () => import(/* webpackChunkName: "webview" */ '../views/webview/Refresh.vue'),
+  },
+
   // header
   {
     path: '/header/setTitle',
@@ -51,6 +57,18 @@ const routes = [
     path: '/util/copyText',
     name: 'copyText',
     component: () => import(/* webpackChunkName: "util" */ '../views/util/CopyText.vue'),
+  },
+
+  {
+    path: '/util/generateBarcode',
+    name: 'generateBarcode',
+    component: () => import(/* webpackChunkName: "util" */ '../views/util/GenerateBarcode.vue'),
+  },
+
+  {
+    path: '/util/generateQrcode',
+    name: 'generateQrcode',
+    component: () => import(/* webpackChunkName: "util" */ '../views/util/GenerateQrcode.vue'),
   },
 
   // session

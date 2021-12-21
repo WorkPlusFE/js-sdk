@@ -16,6 +16,11 @@ import * as Session from './session';
 import * as User from './user';
 import * as Header from './header';
 import * as Webview from './webview';
+import * as Config from './config';
+import * as Dialog from './dialog';
+import * as Storage from './storage';
+import Record from './record';
+import Video from './video';
 
 /** WorkPlus SDK 版本 */
 export const version = '__VERSION__';
@@ -61,11 +66,26 @@ export const email = Email;
 export const auth = Auth;
 /** 网页事件 */
 export const event = Eventlistener;
+/** Dialog */
+export const dialog = Dialog;
+/** Storage */
+export const storage = Storage;
+/** Record */
+export const record = Record;
+/** Video */
+export const video = Video;
 
 /** WrokPlus SDK 初始化配置 */
 export const init = core.init;
-/** Cordova 首次注入时的触发事件 */
-export const ready = core.ready;
+export const deviceready = core.deviceready;
+
+/** 鉴权完成 */
+export const config = Config.config;
+/** 鉴权完成 */
+export const ready = Config.ready;
+/** 检测接口 */
+export const checkApi = Config.checkApi;
+
 /** Cordova 执行事件（异步） */
 export const exec = core.exec;
 /** Cordova 执行事件（同步） */
@@ -100,9 +120,16 @@ export const install = (Vue: any, options?: CoreOptions, globalMode?: boolean) =
     auth,
     event,
     ready,
+    config,
+    deviceready,
     exec,
     execSync,
     error,
+    checkApi,
+    dialog,
+    storage,
+    record,
+    video,
   };
 
   if (globalMode) {

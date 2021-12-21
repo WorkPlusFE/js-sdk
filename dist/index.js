@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.install = exports.error = exports.execSync = exports.exec = exports.ready = exports.init = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
+exports.install = exports.error = exports.execSync = exports.exec = exports.checkApi = exports.ready = exports.config = exports.deviceready = exports.init = exports.video = exports.record = exports.storage = exports.dialog = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
 var core = require("./core");
 var image_1 = require("./image");
 var Contact = require("./contact");
@@ -18,8 +18,13 @@ var Session = require("./session");
 var User = require("./user");
 var Header = require("./header");
 var Webview = require("./webview");
+var Config = require("./config");
+var Dialog = require("./dialog");
+var Storage = require("./storage");
+var record_1 = require("./record");
+var video_1 = require("./video");
 /** WorkPlus SDK 版本 */
-exports.version = '1.2.0';
+exports.version = '__VERSION__';
 exports.native = {};
 /** 图像接口 */
 exports.image = image_1.default;
@@ -53,10 +58,23 @@ exports.email = Email;
 exports.auth = Auth;
 /** 网页事件 */
 exports.event = Eventlistener;
+/** Dialog */
+exports.dialog = Dialog;
+/** Storage */
+exports.storage = Storage;
+/** Record */
+exports.record = record_1.default;
+/** Video */
+exports.video = video_1.default;
 /** WrokPlus SDK 初始化配置 */
 exports.init = core.init;
-/** Cordova 首次注入时的触发事件 */
-exports.ready = core.ready;
+exports.deviceready = core.deviceready;
+/** 鉴权完成 */
+exports.config = Config.config;
+/** 鉴权完成 */
+exports.ready = Config.ready;
+/** 检测接口 */
+exports.checkApi = Config.checkApi;
 /** Cordova 执行事件（异步） */
 exports.exec = core.exec;
 /** Cordova 执行事件（同步） */
@@ -89,9 +107,16 @@ exports.install = function (Vue, options, globalMode) {
         auth: exports.auth,
         event: exports.event,
         ready: exports.ready,
+        config: exports.config,
+        deviceready: exports.deviceready,
         exec: exports.exec,
         execSync: exports.execSync,
         error: exports.error,
+        checkApi: exports.checkApi,
+        dialog: exports.dialog,
+        storage: exports.storage,
+        record: exports.record,
+        video: exports.video,
     };
     if (globalMode) {
         Vue.prototype.$w6s.init = exports.init;

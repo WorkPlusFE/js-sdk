@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.unregisterShakeListener = exports.registerShakeListener = exports.wxShare = exports.share = exports.removeWaterMask = exports.openWebView = exports.exit = exports.changeOrientation = exports.addWaterMask = void 0;
+exports.endPullRefresh = exports.startPullRefresh = exports.onPullRefresh = exports.configPullRefresh = exports.launchMiniProgram = exports.unregisterShakeListener = exports.registerShakeListener = exports.wxShare = exports.share = exports.removeWaterMask = exports.openWebView = exports.exit = exports.changeOrientation = exports.addWaterMask = void 0;
 var addWaterMask_1 = require("./addWaterMask");
 exports.addWaterMask = addWaterMask_1.default;
 var changeOrientation_1 = require("./changeOrientation");
@@ -19,3 +19,10 @@ var registerShakeListener_1 = require("./registerShakeListener");
 exports.registerShakeListener = registerShakeListener_1.default;
 var unregisterShakeListener_1 = require("./unregisterShakeListener");
 exports.unregisterShakeListener = unregisterShakeListener_1.default;
+var launchMiniProgram_1 = require("./launchMiniProgram");
+exports.launchMiniProgram = launchMiniProgram_1.default;
+var refresh_1 = require("./refresh");
+Object.defineProperty(exports, "configPullRefresh", { enumerable: true, get: function () { return refresh_1.configPullRefresh; } });
+Object.defineProperty(exports, "onPullRefresh", { enumerable: true, get: function () { return refresh_1.onPullRefresh; } });
+Object.defineProperty(exports, "startPullRefresh", { enumerable: true, get: function () { return refresh_1.startPullRefresh; } });
+Object.defineProperty(exports, "endPullRefresh", { enumerable: true, get: function () { return refresh_1.endPullRefresh; } });

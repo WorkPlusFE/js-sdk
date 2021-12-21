@@ -10,3 +10,22 @@ export interface ScannerParams {
      * */
     type?: 'native';
 }
+export interface VibrateRes {
+    [key: string]: unknown;
+}
+export interface GenerateBarcodeRes {
+    [key: string]: unknown;
+}
+export interface GenerateBarcodeParams {
+    content: string;
+    width: number;
+    height: number;
+}
+export interface GenerateQrcodeRes {
+    [key: string]: unknown;
+}
+export interface GenerateQrcodeParams {
+    content: string;
+    width: number;
+    height: number;
+}

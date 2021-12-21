@@ -8,7 +8,7 @@ function resolve(dir) {
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  publicPath: isProd ? '/sdk-demo/' : '/',
+  publicPath: isProd ? '' : '',
 
   lintOnSave: !isProd,
 
@@ -43,7 +43,7 @@ module.exports = {
 
   pluginOptions: {
     vconsole: {
-      enable: process.env.NODE_ENV !== 'production',
+      enable: process.env.NODE_ENV === 'production',
     },
   },
 };

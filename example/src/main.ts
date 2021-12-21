@@ -5,6 +5,9 @@ import VueClipboard from 'vue-clipboard2';
 import JsonViewer from 'vue-json-viewer';
 import 'vue-json-viewer/style.css';
 
+// import VConsole from 'vconsole';
+// new VConsole();
+
 import App from './App.vue';
 import router from './router';
 import store from './store';

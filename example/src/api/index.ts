@@ -1,3 +1,4 @@
+import Dialog from './dialog';
 import Image from './image';
 import Webview from './webview';
 import Auth from './auth';
@@ -8,13 +9,13 @@ import Device from './device';
 import Contact from './contact';
 import File from './file';
 import App from './app';
-// import Notification from './notification';
-// import Event from './event';
 import Util from './utils';
 import User from './user';
 import Session from './session';
 import Header from './header';
 import Listener from './listener';
+import Record from './record';
+import Video from './video';
 
 interface ApiModule {
   title: string;
@@ -34,19 +35,20 @@ interface ApiItem {
 export default [
   Auth,
   User,
-  Image,
-  File,
   Contact,
+  Dialog,
   Webview,
   Header,
-  Session,
-  Location,
+  Image,
+  File,
   Network,
+  Location,
   Device,
+  Video,
+  Record,
   App,
-  Util,
-  // Notification,
-  // Event,
+  Session,
   Email,
   Listener,
+  Util,
 ] as ApiModule[];

@@ -1,14 +1,15 @@
 import { CoreOptions, MockOptions } from '../types/core';
 import { detectInWorkPlus, isBrowser } from '../shared/platform';
 import { isFunction } from '../shared/is';
-import injectCordova from '../import-cordova';
 import Logger from './logger';
 import { services as mockServiceNames } from './mock-services';
+import injectCordova from '../import-cordova';
 
 const EXEC_TIME_OUT = 5000;
+
 class Core {
   /** cordova is loaded */
-  private _ready = false;
+  private _deviceready = false;
 
   /** cordova is inject */
   private _inject = false;
@@ -49,10 +50,13 @@ class Core {
       return;
     }
 
-    if (!window.cordova && !this.isReday && !this._inject) {
-      // 注入 Cordova
-      injectCordova(options?.cordovajs, options?.useHttp);
-      this._inject = true;
+    // 若非鉴权模式，需要主动注入 cordova.js
+    if (!options?.auth) {
+      if (!window.cordova && !this.isDeviceReady && !this._inject) {
+        // 注入 Cordova
+        injectCordova(options?.cordovajs, options?.useHttp);
+        this._inject = true;
+      }
     }
 
     // 设置超时
@@ -76,18 +80,18 @@ class Core {
    * @param {Function} [fn] 回调函数
    * @memberof Core
    */
-  public ready = (fn?: Function): Promise<void> => {
+  public deviceready = (fn?: Function): Promise<void> => {
     return new Promise(resolve => {
       const run = (): void => fn && isFunction(fn) && fn();
-      if (this.isReday) {
+      if (this.isDeviceReady) {
         resolve();
         run();
       } else {
         document.addEventListener(
           'deviceready',
           () => {
-            this._logger.warn('Cordova 注入成功');
-            this._setReady(true);
+            this._logger.warn('SDK 已就绪');
+            this._setDeviceReady(true);
             resolve();
             run();
           },
@@ -121,12 +125,12 @@ class Core {
     }
   }
 
-  private _setReady(val: boolean): void {
-    this._ready = val;
+  private _setDeviceReady(val: boolean): void {
+    this._deviceready = val;
   }
 
-  get isReday(): boolean {
-    return this._ready;
+  get isDeviceReady(): boolean {
+    return this._deviceready;
   }
 
   get logger(): Logger {
@@ -148,7 +152,7 @@ class Core {
 
 const core = new Core();
 export const init = core.init;
-export const ready = core.ready;
+export const deviceready = core.deviceready;
 export const error = core.error;
 export const logger = core.logger;
 
@@ -226,7 +230,6 @@ export function exec<A, S, F>(
       cordova.exec(
         function(res: S) {
           removeTimer();
-          console.log(res);
           const response = jsonParser(res);
           logger.warn(`${callAPI} 调用成功: ${JSON.stringify(response, null, 4)}`);
           if (success && isFunction(success)) {
@@ -260,7 +263,7 @@ export function exec<A, S, F>(
         }
       }
 
-      core.ready(execFn);
+      core.deviceready(execFn);
     } catch (error) {
       core.onError(error);
     }
@@ -293,5 +296,5 @@ export function execSync<A>(service: string, action: string, args: Array<A>): vo
       args,
     );
   };
-  core.ready(execSyncFn);
+  core.deviceready(execSyncFn);
 }

@@ -42,6 +42,7 @@ import {
 } from 'vant';
 import * as sdk from '../../../dist';
 import config from '../api';
+import cordovaUtils from '../uitls/cordova';
 
 @Component({
   name: 'ExampleList',
@@ -58,6 +59,8 @@ export default class ExampleList extends Vue {
   actives = ['code'];
 
   copyValue = '';
+
+  hideLoadingTimer: any = null
 
   options = {
     title: '',
@@ -86,8 +89,6 @@ export default class ExampleList extends Vue {
 
   /** method */
   private handleExec(): void {
-    console.log(this.args);
-
     // @ts-ignore
     sdk[this.service][this.action]({
       ...this.args,
@@ -101,6 +102,15 @@ export default class ExampleList extends Vue {
         console.log(err);
       },
     });
+    if (this.service === 'dialog') {
+      if (this.action === 'showLoading') {
+        clearTimeout(this.hideLoadingTimer);
+        this.hideLoadingTimer = setTimeout(() => {
+          cordovaUtils.hideLoading();
+          clearTimeout(this.hideLoadingTimer);
+        }, 3000);
+      }
+    }
   }
 
   onCopy() {

@@ -73,6 +73,11 @@ export default class ExampleList extends Vue {
         this.$router.push({ name: 'shake' });
         return;
       }
+
+      if (action === 'refresh') {
+        this.$router.push({ name: 'refresh' });
+        return;
+      }
     }
 
     if (service === 'image') {
@@ -122,6 +127,14 @@ export default class ExampleList extends Vue {
     if (service === 'util') {
       if (action === 'copyText') {
         this.$router.push({ name: 'copyText' });
+        return;
+      }
+      if (action === 'generateBarcode') {
+        this.$router.push({ name: 'generateBarcode' });
+        return;
+      }
+      if (action === 'generateQrcode') {
+        this.$router.push({ name: 'generateQrcode' });
         return;
       }
     }

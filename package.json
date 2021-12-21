@@ -1,32 +1,25 @@
 {
   "name": "@w6s/sdk",
-  "version": "1.2.0",
+  "version": "2.0.0-beta.0",
   "description": "WorkPlusFE JavaScript SDK.",
   "main": "index.js",
   "main:min": "dist/sdk.{{_VERSION_}}.js",
   "module": "dist/sdk.mjs",
   "typings": "index.d.ts",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "lint:prettier": "prettier '{modules,test}/**/*.{js,jsx,ts,tsx,json}' --write",
     "lint:fix": "cd modules && eslint --fix './**/*.{js,jsx,ts,tsx,json}' --ext .ts,.tsx --fix",
     "lint": "npm run lint:prettier && npm run lint:fix",
-    "test": "jest --coverage",
     "pretest": "npm run build",
     "build:common": "tsc -P modules/tsconfig.commonjs.json",
     "build:prod": "cross-env NODE_ENV=production rollup -c scripts/rollup.config.js",
     "build": "rimraf dist && npm run build:common && npm run build:prod && cp ./README.md ./dist/ && cp ./scripts/package.json ./dist/",
     "watch": "rollup -c -w",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
     "demo": "npm run build && cd example && npm run serve",
     "demo:notbuild": "cd example && npm run serve",
     "release": "bash scripts/release.sh",
     "release:note": "node scripts/genReleaseNote.js",
-    "release:version": "node scripts/replaceVersion.js",
-    "export:pdf": "vuepress export ./docs/"
+    "release:version": "node scripts/replaceVersion.js"
   },
   "keywords": [
     "WorkPlusFE",
@@ -34,7 +27,6 @@
     "sdk"
   ],
   "author": "WorkPlusFE",
-  "license": "MIT",
   "resolutions": {
     "watchpack": "1.6.1"
   },
@@ -56,13 +48,11 @@
     "@vuepress/plugin-back-to-top": "^1.5.2",
     "@vuepress/plugin-medium-zoom": "^1.5.3",
     "@vuepress/plugin-register-components": "^1.5.3",
-    "@w6s/vuepress-code-wrapper": "^1.1.4",
     "babel-eslint": "10.0.3",
     "babel-plugin-external-helpers": "^6.8.0",
     "babel-register": "^6.11.6",
     "conventional-changelog": "^3.1.23",
     "cross-env": "^6.0.3",
-    "element-ui": "^2.13.2",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
     "fs-extra": "^8.1.0",
@@ -84,14 +74,14 @@
     "ts-jest": "^24.2.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3",
-    "uppercamelcase": "^3.0.0",
-    "vuepress": "1.2.0",
-    "vuepress-plugin-export": "^0.2.0"
+    "uppercamelcase": "^3.0.0"
   },
   "engines": {
     "node": ">= 10.16.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tslib": "^2.3.1"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"

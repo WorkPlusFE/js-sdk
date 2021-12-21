@@ -7,6 +7,8 @@ import share from './share';
 import wxShare from './wxShare';
 import registerShakeListener from './registerShakeListener';
 import unregisterShakeListener from './unregisterShakeListener';
+import launchMiniProgram from './launchMiniProgram';
+import { configPullRefresh, onPullRefresh, startPullRefresh, endPullRefresh } from './refresh';
 export { 
 /** 添加水印 */
 addWaterMask, 
@@ -25,4 +27,8 @@ wxShare,
 /** 注册摇一摇 */
 registerShakeListener, 
 /** 注销摇一摇 */
-unregisterShakeListener, };
+unregisterShakeListener, 
+/** 打开小程序 */
+launchMiniProgram, 
+/** 下拉刷新 */
+configPullRefresh, onPullRefresh, startPullRefresh, endPullRefresh, };

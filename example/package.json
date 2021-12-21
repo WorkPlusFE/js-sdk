@@ -8,11 +8,15 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@types/crypto-js": "^4.0.2",
     "@w6s/sdk": "^0.1.2",
     "core-js": "^3.4.4",
+    "crypto-js": "^4.1.1",
     "html2canvas": "^1.0.0-rc.7",
+    "jssha": "^3.2.0",
     "normalize.css": "^8.0.1",
     "vant": "^2.4.1",
+    "vconsole": "^3.9.5",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
     "vue-clipboard2": "^0.3.1",

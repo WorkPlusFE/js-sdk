@@ -32,7 +32,7 @@ export default {
           }],
           [{
             icon: -1, title: '🐳', action: 'js', value: 'rightButtonsEvent',
-          }]
+          }],
         ],
       },
     },

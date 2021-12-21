@@ -11,7 +11,7 @@ function cordovaImportInit(options, useHttp) {
         utils_1.scriptGenerator(importUri);
     }
     catch (error) {
-        throw new Error(error);
+        console.log(error);
     }
 }
 exports.default = cordovaImportInit;

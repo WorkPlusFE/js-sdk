@@ -14,6 +14,8 @@ export interface OpenWebViewParams {
   use_system_webview?: boolean;
   /** 全屏打开 webview(即不包含原生标题栏), 默认非全屏 */
   display_mode?: 'FULL_SCREEN' | '';
+  /** 通用配置 */
+  mute_config?: string[];
 }
 
 export interface OpenWebView {
@@ -27,6 +29,8 @@ export interface OpenWebView {
   useSystemWebview?: boolean;
   /** 全屏打开 webview(即不包含原生标题栏), 默认非全屏 */
   displayMode?: 'FULL_SCREEN' | '';
+  /** 通用配置 */
+  muteConfig?: string[];
 }
 
 /** 锁定网页顶部栏的传参 */
@@ -205,4 +209,25 @@ export interface ShowSearchRes {
   content: string;
   /** 表示用户的动作，包括以下行为：input、search 及 cancel */
   action: 'input' | 'search' | 'cancel';
+}
+
+export interface ConfigPullRefreshRes {
+  [key: string]: unknown;
+}
+
+export interface ConfigPullRefreshParams {
+  enable: boolean;
+  mode: string; //选填-默认为default, default: 表示默认模式,支持手动滑动,也可以通过函数触发  trigger: 仅支持通过函数触发
+}
+
+export interface OnPullRefreshRes {
+  [key: string]: unknown;
+}
+
+export interface StartPullRefreshRes {
+  [key: string]: unknown;
+}
+
+export interface EndPullRefreshRes {
+  [key: string]: unknown;
 }

@@ -11,3 +11,27 @@ export interface ScannerParams {
    * */
   type?: 'native';
 }
+
+export interface VibrateRes {
+  [key: string]: unknown;
+}
+
+export interface GenerateBarcodeRes {
+  [key: string]: unknown;
+}
+
+export interface GenerateBarcodeParams {
+  content: string; // 必填-条形码内容
+  width: number; // 选填-条形码宽度
+  height: number; // 选填-条形码高度
+}
+
+export interface GenerateQrcodeRes {
+  [key: string]: unknown;
+}
+
+export interface GenerateQrcodeParams {
+  content: string; // 必填-条形码内容
+  width: number; // 选填-条形码宽度
+  height: number; // 选填-条形码高度
+}

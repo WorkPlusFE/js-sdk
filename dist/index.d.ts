@@ -11,8 +11,11 @@ import * as Session from './session';
 import * as User from './user';
 import * as Header from './header';
 import * as Webview from './webview';
+import * as Config from './config';
+import * as Dialog from './dialog';
+import * as Storage from './storage';
 /** WorkPlus SDK 版本 */
-export declare const version = "1.2.0";
+export declare const version = "__VERSION__";
 export declare const native: {};
 /** 图像接口 */
 export declare const image: {
@@ -42,6 +45,10 @@ export declare const util: {
     scanner: typeof import("./util/scanner").default;
     voiceToText: typeof import("./util/voiceToText").default;
     copyText: typeof import("./util/copyText").default;
+    tel: typeof import("./util/tel").default;
+    vibrate: typeof import("./util/vibrate").default;
+    generateBarcode: typeof import("./util/generateBarcode").default;
+    generateQrcode: typeof import("./util/generateQrcode").default;
 };
 /** 地理位置接口 */
 export declare const location: typeof Location;
@@ -75,10 +82,29 @@ export declare const email: typeof Email;
 export declare const auth: typeof Auth;
 /** 网页事件 */
 export declare const event: typeof Eventlistener;
+/** Dialog */
+export declare const dialog: typeof Dialog;
+/** Storage */
+export declare const storage: typeof Storage;
+/** Record */
+export declare const record: {
+    translateAudio: typeof import("./record/translateAudio").default;
+    voiceRecord: typeof import("./record/voiceRecord").default;
+};
+/** Video */
+export declare const video: {
+    startVideoRecoder: typeof import("./video/startVideoRecoder").default;
+    playVideo: typeof import("./video/playVideo").default;
+};
 /** WrokPlus SDK 初始化配置 */
 export declare const init: (options?: CoreOptions | undefined) => void;
-/** Cordova 首次注入时的触发事件 */
-export declare const ready: (fn?: Function | undefined) => Promise<void>;
+export declare const deviceready: (fn?: Function | undefined) => Promise<void>;
+/** 鉴权完成 */
+export declare const config: typeof Config.config;
+/** 鉴权完成 */
+export declare const ready: typeof Config.ready;
+/** 检测接口 */
+export declare const checkApi: typeof Config.checkApi;
 /** Cordova 执行事件（异步） */
 export declare const exec: typeof core.exec;
 /** Cordova 执行事件（同步） */

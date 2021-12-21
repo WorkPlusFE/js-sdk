@@ -16,6 +16,7 @@ function openWebView(options: OpenWebView): void {
     use_android_webview: options?.useAndroidWebview || false,
     use_system_webview: options?.useSystemWebview || false,
     display_mode: options?.displayMode || '',
+    mute_config: options?.muteConfig || [],
   };
   return core.execSync<OpenWebViewParams>(WORKPLUS_WEBVIEW, 'openWebView', [args]);
 }

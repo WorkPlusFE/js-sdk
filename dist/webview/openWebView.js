@@ -16,6 +16,7 @@ function openWebView(options) {
         use_android_webview: (options === null || options === void 0 ? void 0 : options.useAndroidWebview) || false,
         use_system_webview: (options === null || options === void 0 ? void 0 : options.useSystemWebview) || false,
         display_mode: (options === null || options === void 0 ? void 0 : options.displayMode) || '',
+        mute_config: (options === null || options === void 0 ? void 0 : options.muteConfig) || [],
     };
     return core.execSync(constants_1.WORKPLUS_WEBVIEW, 'openWebView', [args]);
 }

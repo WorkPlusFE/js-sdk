@@ -16,6 +16,12 @@ export default {
       },
     },
     {
+      title: '下拉刷新',
+      description: '下拉刷新',
+      action: 'refresh',
+      params: {},
+    },
+    {
       title: '退出webview',
       description: '退出webview',
       action: 'exit',
