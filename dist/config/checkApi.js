@@ -4,7 +4,7 @@ var core = require("../core");
 var constants_1 = require("../constants");
 /**
  * 接口检测
- * @description 检验是否存在 Cordova 插件和方法
+ * @description 检验是否存在 Cordova 插件和方法，该方面不能直接检查 SDK 的方法，需要使用原始 Cordova 接口文档的接口命名参数。
  * @param {ConfigOptions} [options]
  * @module config
  * @returns {CommonApiRes}
