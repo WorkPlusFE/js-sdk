@@ -12,7 +12,6 @@ cc({
       return pkg;
     },
   },
-  releaseCount: 0,
 }).pipe(fileStream).on('close', () => {
   console.log(`Generated release note at ${file}`);
 });
