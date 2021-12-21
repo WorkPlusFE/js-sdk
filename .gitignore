@@ -44,8 +44,6 @@ docs/.vuepress/v4/
 .idea
 .vscode
 
-RELEASE_NOTE*.md
-
 release_node
 
 *.pdf

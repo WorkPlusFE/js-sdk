@@ -19,7 +19,8 @@
     "demo:notbuild": "cd example && npm run serve",
     "release": "bash scripts/release.sh",
     "release:note": "node scripts/genReleaseNote.js",
-    "release:version": "node scripts/replaceVersion.js"
+    "release:version": "node scripts/replaceVersion.js",
+    "cz": "cz"
   },
   "keywords": [
     "WorkPlusFE",
@@ -51,8 +52,10 @@
     "babel-eslint": "10.0.3",
     "babel-plugin-external-helpers": "^6.8.0",
     "babel-register": "^6.11.6",
+    "commitizen": "^4.2.4",
     "conventional-changelog": "^3.1.23",
     "cross-env": "^6.0.3",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
     "fs-extra": "^8.1.0",
@@ -85,6 +88,11 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
