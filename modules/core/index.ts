@@ -42,16 +42,17 @@ class Core {
     }
     if (options?.debug) {
       this._logger.enable();
-      this._logger.warn('当前 SDK 已开启调试模式');
+      this._logger.warn('已开启调试模式');
     }
 
     if (!isBrowser()) {
-      this._logger.error('SDK 不支持非浏览器环境');
+      this._logger.error('不支持非浏览器环境');
       return;
     }
 
-    // 若非鉴权模式，需要主动注入 cordova.js
+    this._logger.log(`鉴权模式已${options?.auth ? '开启' : '关闭'}`);
     if (!options?.auth) {
+      // 若非鉴权模式，需要主动注入 cordova.js
       if (!window.cordova && !this.isDeviceReady && !this._inject) {
         // 注入 Cordova
         injectCordova(options?.cordovajs, options?.useHttp);
@@ -61,7 +62,7 @@ class Core {
 
     // 设置超时
     this._timeout = options?.timeout || EXEC_TIME_OUT;
-    this._logger.warn(`当前 SDK 设置的超时时间为: ${this._timeout}ms`);
+    this._logger.log(`设置的超时时间为: ${this._timeout}ms`);
 
     // 设置 Mock 服务
     if (options?.mock) {
@@ -90,7 +91,7 @@ class Core {
         document.addEventListener(
           'deviceready',
           () => {
-            this._logger.warn('SDK 已就绪');
+            this._logger.log('[deviceready] SDK 已就绪');
             this._setDeviceReady(true);
             resolve();
             run();
@@ -167,12 +168,12 @@ function execByMock<S>(service: string, action: string): boolean | S {
   const mockService = core.mockData[serviceName];
   if (mockService && mockService[action] && isFunction(mockService[action])) {
     let res = Object.create(null);
-    logger.warn(`执行 ${service}.${action} Mock 调用`);
+    logger.log(`执行 ${service}.${action} Mock 调用`);
     try {
       res = mockService[action]();
-      logger.warn(`执行 ${service}.${action} Mock 返回结果: ${JSON.stringify(res, null, 4)}`);
+      logger.log(`执行 ${service}.${action} Mock 返回结果: ${JSON.stringify(res, null, 4)}`);
     } catch (error) {
-      logger.error(`执行 ${service}.${action} Mock 发生错误: ${JSON.stringify(error, null, 4)}`);
+      logger.log(`执行 ${service}.${action} Mock 发生错误: ${JSON.stringify(error, null, 4)}`);
     }
     return res;
   }
@@ -226,12 +227,12 @@ export function exec<A, S, F>(
     };
 
     const execFn = (): void => {
-      logger.warn(`准备调用 ${callAPI}`);
+      logger.log(`准备调用 ${callAPI}`);
       cordova.exec(
         function(res: S) {
           removeTimer();
           const response = jsonParser(res);
-          logger.warn(`${callAPI} 调用成功: ${JSON.stringify(response, null, 4)}`);
+          logger.log(`${callAPI} 调用成功: ${JSON.stringify(response, null, 4)}`);
           if (success && isFunction(success)) {
             success(response);
           }
@@ -281,11 +282,11 @@ export function exec<A, S, F>(
  */
 export function execSync<A>(service: string, action: string, args: Array<A>): void {
   const callAPI = `${service}.${action}`;
-  logger.warn(`同步调用 ${callAPI}`);
+  logger.log(`同步调用 ${callAPI}`);
   const execSyncFn = (): void => {
     cordova.exec(
       function(data) {
-        logger.warn(JSON.stringify(data, null, 4));
+        logger.log(JSON.stringify(data, null, 4));
       },
       function(err) {
         logger.error(JSON.stringify(err, null, 4));
