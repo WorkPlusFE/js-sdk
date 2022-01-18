@@ -47,7 +47,7 @@ class Core {
     }
 
     if (!isBrowser()) {
-      this._logger.error('SDK 不支持非浏览器环境');
+      this._logger.error('不支持非浏览器环境');
       return;
     }
 
@@ -56,6 +56,7 @@ class Core {
 
     // 若非鉴权模式，需要主动注入 cordova.js
     if (!options?.auth) {
+      // 若非鉴权模式，需要主动注入 cordova.js
       if (!window.cordova && !this.isDeviceReady && !this._inject) {
         // 注入 Cordova
         injectCordova(options?.cordovajs, options?.useHttp);
@@ -171,12 +172,12 @@ function execByMock<S>(service: string, action: string): boolean | S {
   const mockService = core.mockData[serviceName];
   if (mockService && mockService[action] && isFunction(mockService[action])) {
     let res = Object.create(null);
-    logger.warn(`执行 ${service}.${action} Mock 调用`);
+    logger.log(`执行 ${service}.${action} Mock 调用`);
     try {
       res = mockService[action]();
-      logger.warn(`执行 ${service}.${action} Mock 返回结果: ${JSON.stringify(res, null, 4)}`);
+      logger.log(`执行 ${service}.${action} Mock 返回结果: ${JSON.stringify(res, null, 4)}`);
     } catch (error) {
-      logger.error(`执行 ${service}.${action} Mock 发生错误: ${JSON.stringify(error, null, 4)}`);
+      logger.log(`执行 ${service}.${action} Mock 发生错误: ${JSON.stringify(error, null, 4)}`);
     }
     return res;
   }
@@ -230,12 +231,12 @@ export function exec<A, S, F>(
     };
 
     const execFn = (): void => {
-      logger.warn(`准备调用 ${callAPI}`);
+      logger.log(`准备调用 ${callAPI}`);
       cordova.exec(
         function(res: S) {
           removeTimer();
           const response = jsonParser(res);
-          logger.warn(`${callAPI} 调用成功: ${JSON.stringify(response, null, 4)}`);
+          logger.log(`${callAPI} 调用成功: ${JSON.stringify(response, null, 4)}`);
           if (success && isFunction(success)) {
             success(response);
           }
@@ -285,11 +286,11 @@ export function exec<A, S, F>(
  */
 export function execSync<A>(service: string, action: string, args: Array<A>): void {
   const callAPI = `${service}.${action}`;
-  logger.warn(`同步调用 ${callAPI}`);
+  logger.log(`同步调用 ${callAPI}`);
   const execSyncFn = (): void => {
     cordova.exec(
       function(data) {
-        logger.warn(JSON.stringify(data, null, 4));
+        logger.log(JSON.stringify(data, null, 4));
       },
       function(err) {
         logger.error(JSON.stringify(err, null, 4));
