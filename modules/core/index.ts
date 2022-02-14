@@ -70,7 +70,7 @@ class Core {
         this._mockData = options?.mockData;
       }
     } else if (!detectInWorkPlus()) {
-      this._logger.error('请在 WorkPlus APP 下打开页面');
+      this._logger.error('请在 WorkPlus APP 内打开应用');
       return;
     }
   };
@@ -90,7 +90,7 @@ class Core {
         document.addEventListener(
           'deviceready',
           () => {
-            this._logger.warn('SDK 已就绪');
+            this._logger.warn('设备已就绪！（deviceready 事件被触发）');
             this._setDeviceReady(true);
             resolve();
             run();

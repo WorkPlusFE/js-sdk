@@ -15,6 +15,7 @@ export default function ready(callback: Function): Promise<ConfigAuthRes> {
     'ready',
     [],
     (res: ConfigAuthRes) => {
+      core.logger.warn('SDK 已就绪！（ready 事件被触发）');
       callback(res);
     },
     () => {},
