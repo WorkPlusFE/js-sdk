@@ -40,15 +40,19 @@ class Core {
     if (!this._logger) {
       this._logger = new Logger();
     }
+
     if (options?.debug) {
       this._logger.enable();
-      this._logger.warn('当前 SDK 已开启调试模式');
+      this._logger.warn('SDK 已开启调试模式');
     }
 
     if (!isBrowser()) {
       this._logger.error('SDK 不支持非浏览器环境');
       return;
     }
+
+    // 鉴权提示
+    this._logger.warn(`SDK 已${ options?.auth ? '开启' : '关闭' }接口鉴权`);
 
     // 若非鉴权模式，需要主动注入 cordova.js
     if (!options?.auth) {
@@ -61,7 +65,7 @@ class Core {
 
     // 设置超时
     this._timeout = options?.timeout || EXEC_TIME_OUT;
-    this._logger.warn(`当前 SDK 设置的超时时间为: ${this._timeout}ms`);
+    this._logger.warn(`SDK 设置的超时时间为: ${this._timeout}ms`);
 
     // 设置 Mock 服务
     if (options?.mock) {
