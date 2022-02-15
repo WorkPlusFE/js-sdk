@@ -5,7 +5,7 @@
       <h2 class="demo__title">WorkPlus JS-SDK 功能展示</h2>
       <p class="demo__desc">
         本应用只是对相关接口功能进行展示，具体的参数和说明详见官方
-        <a href="https://open.workplus.io/v4/js-sdk/">开发文档</a>。
+        <a href="https://open.workplus.io/js-sdk/overview/usage.html">开发文档</a>。
       </p>
     </div>
     <div class="demo-example">
@@ -16,10 +16,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import sha1 from 'crypto-js/sha1';
-
 import ExampleList from '@/components/ExampleList.vue';
-import * as sdk from '../../../dist';
 
 @Component({
   name: 'Home',
