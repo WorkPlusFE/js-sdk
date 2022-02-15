@@ -34,7 +34,7 @@ export default {
 
       // 非鉴权模式自动返回成功
       if (!authMode) {
-        resolve({ code: 0 });
+        return resolve({ code: 0 });
       }
 
       // 开始鉴权
