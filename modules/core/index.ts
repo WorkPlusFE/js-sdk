@@ -52,7 +52,7 @@ class Core {
     }
 
     // 鉴权提示
-    this._logger.warn(`SDK 已${ options?.auth ? '开启' : '关闭' }接口鉴权`);
+    this._logger.warn(`SDK 已${options?.auth ? '开启' : '关闭'}接口鉴权`);
 
     // 若非鉴权模式，需要主动注入 cordova.js
     if (!options?.auth) {
