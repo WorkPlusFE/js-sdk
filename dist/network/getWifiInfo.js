@@ -10,6 +10,6 @@ var constants_1 = require("../constants");
  * @returns 当前连接的Wifi信息
  */
 function getWifiInfo(options) {
-    return core.exec(constants_1.WORKPLUS_NETWORK, 'getWifiInfo', [], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail);
+    return core.exec(constants_1.WORKPLUS_NETINFO, 'getWifiInfo', [], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail);
 }
 exports.default = getWifiInfo;

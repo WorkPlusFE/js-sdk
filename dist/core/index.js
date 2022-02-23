@@ -35,14 +35,17 @@ var Core = /** @class */ (function () {
             }
             if (options === null || options === void 0 ? void 0 : options.debug) {
                 _this._logger.enable();
-                _this._logger.warn('当前 SDK 已开启调试模式');
+                _this._logger.warn('SDK 已开启调试模式');
             }
             if (!platform_1.isBrowser()) {
-                _this._logger.error('SDK 不支持非浏览器环境');
+                _this._logger.error('不支持非浏览器环境');
                 return;
             }
+            // 鉴权提示
+            _this._logger.warn("SDK \u5DF2" + ((options === null || options === void 0 ? void 0 : options.auth) ? '开启' : '关闭') + "\u63A5\u53E3\u9274\u6743");
             // 若非鉴权模式，需要主动注入 cordova.js
             if (!(options === null || options === void 0 ? void 0 : options.auth)) {
+                // 若非鉴权模式，需要主动注入 cordova.js
                 if (!window.cordova && !_this.isDeviceReady && !_this._inject) {
                     // 注入 Cordova
                     import_cordova_1.default(options === null || options === void 0 ? void 0 : options.cordovajs, options === null || options === void 0 ? void 0 : options.useHttp);
@@ -51,7 +54,7 @@ var Core = /** @class */ (function () {
             }
             // 设置超时
             _this._timeout = (options === null || options === void 0 ? void 0 : options.timeout) || EXEC_TIME_OUT;
-            _this._logger.warn("\u5F53\u524D SDK \u8BBE\u7F6E\u7684\u8D85\u65F6\u65F6\u95F4\u4E3A: " + _this._timeout + "ms");
+            _this._logger.warn("SDK \u8BBE\u7F6E\u7684\u8D85\u65F6\u65F6\u95F4\u4E3A: " + _this._timeout + "ms");
             // 设置 Mock 服务
             if (options === null || options === void 0 ? void 0 : options.mock) {
                 _this._mock = options === null || options === void 0 ? void 0 : options.mock;
@@ -60,7 +63,7 @@ var Core = /** @class */ (function () {
                 }
             }
             else if (!platform_1.detectInWorkPlus()) {
-                _this._logger.error('请在 WorkPlus APP 下打开页面');
+                _this._logger.error('请在 WorkPlus APP 内打开应用');
                 return;
             }
         };
@@ -78,7 +81,7 @@ var Core = /** @class */ (function () {
                 }
                 else {
                     document.addEventListener('deviceready', function () {
-                        _this._logger.warn('SDK 已就绪');
+                        _this._logger.warn('设备已就绪！（deviceready 事件被触发）');
                         _this._setDeviceReady(true);
                         resolve();
                         run();
@@ -165,13 +168,13 @@ function execByMock(service, action) {
     var mockService = core.mockData[serviceName];
     if (mockService && mockService[action] && is_1.isFunction(mockService[action])) {
         var res = Object.create(null);
-        exports.logger.warn("\u6267\u884C " + service + "." + action + " Mock \u8C03\u7528");
+        exports.logger.log("\u6267\u884C " + service + "." + action + " Mock \u8C03\u7528");
         try {
             res = mockService[action]();
-            exports.logger.warn("\u6267\u884C " + service + "." + action + " Mock \u8FD4\u56DE\u7ED3\u679C: " + JSON.stringify(res, null, 4));
+            exports.logger.log("\u6267\u884C " + service + "." + action + " Mock \u8FD4\u56DE\u7ED3\u679C: " + JSON.stringify(res, null, 4));
         }
         catch (error) {
-            exports.logger.error("\u6267\u884C " + service + "." + action + " Mock \u53D1\u751F\u9519\u8BEF: " + JSON.stringify(error, null, 4));
+            exports.logger.log("\u6267\u884C " + service + "." + action + " Mock \u53D1\u751F\u9519\u8BEF: " + JSON.stringify(error, null, 4));
         }
         return res;
     }
@@ -218,11 +221,11 @@ function exec(service, action, args, success, fail, setTimer) {
             timer && clearTimeout(timer);
         };
         var execFn = function () {
-            exports.logger.warn("\u51C6\u5907\u8C03\u7528 " + callAPI);
+            exports.logger.log("\u51C6\u5907\u8C03\u7528 " + callAPI);
             cordova.exec(function (res) {
                 removeTimer();
                 var response = jsonParser(res);
-                exports.logger.warn(callAPI + " \u8C03\u7528\u6210\u529F: " + JSON.stringify(response, null, 4));
+                exports.logger.log(callAPI + " \u8C03\u7528\u6210\u529F: " + JSON.stringify(response, null, 4));
                 if (success && is_1.isFunction(success)) {
                     success(response);
                 }
@@ -266,10 +269,10 @@ exports.exec = exec;
  */
 function execSync(service, action, args) {
     var callAPI = service + "." + action;
-    exports.logger.warn("\u540C\u6B65\u8C03\u7528 " + callAPI);
+    exports.logger.log("\u540C\u6B65\u8C03\u7528 " + callAPI);
     var execSyncFn = function () {
         cordova.exec(function (data) {
-            exports.logger.warn(JSON.stringify(data, null, 4));
+            exports.logger.log(JSON.stringify(data, null, 4));
         }, function (err) {
             exports.logger.error(JSON.stringify(err, null, 4));
             core.onError(callAPI + " \u8C03\u7528\u5931\u8D25: " + err);

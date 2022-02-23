@@ -11,6 +11,7 @@ var constants_1 = require("../constants");
  */
 function ready(callback) {
     return core.exec(constants_1.WORKPLUS_CONFIG, 'ready', [], function (res) {
+        core.logger.warn('SDK 已就绪！（ready 事件被触发）');
         callback(res);
     }, function () { }, false);
 }
