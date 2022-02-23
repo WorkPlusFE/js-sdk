@@ -1,7 +1,7 @@
 import * as core from '../core';
 import { ExecOptions } from '../types/core';
 import { WifiRes } from '../types/network';
-import { WORKPLUS_NETWORK } from '../constants';
+import { WORKPLUS_NETINFO } from '../constants';
 
 export type GetWifiOptions = ExecOptions<WifiRes, void>;
 
@@ -14,7 +14,7 @@ export type GetWifiOptions = ExecOptions<WifiRes, void>;
  */
 function getWifiInfo(options?: GetWifiOptions): Promise<WifiRes> {
   return core.exec<[], WifiRes, void>(
-    WORKPLUS_NETWORK,
+    WORKPLUS_NETINFO,
     'getWifiInfo',
     [],
     options?.success,
