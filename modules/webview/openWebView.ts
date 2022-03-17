@@ -18,6 +18,11 @@ function openWebView(options: OpenWebView): void {
     display_mode: options?.displayMode || '',
     mute_config: options?.muteConfig || [],
   };
+
+  if (options?.orientation) {
+    args.orientation = options?.orientation;
+  }
+
   return core.execSync<OpenWebViewParams>(WORKPLUS_WEBVIEW, 'openWebView', [args]);
 }
 

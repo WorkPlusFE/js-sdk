@@ -16,6 +16,8 @@ export interface OpenWebViewParams {
   display_mode?: 'FULL_SCREEN' | '';
   /** 通用配置 */
   mute_config?: string[];
+  /** 横竖屏设置，1 表示竖屏 2表示横屏，默认是追随手机设置 */
+  orientation?: number;
 }
 
 export interface OpenWebView {
@@ -31,6 +33,8 @@ export interface OpenWebView {
   displayMode?: 'FULL_SCREEN' | '';
   /** 通用配置 */
   muteConfig?: string[];
+  /** 横竖屏设置，1 表示竖屏 2表示横屏，默认是追随手机设置 */
+  orientation?: number;
 }
 
 /** 锁定网页顶部栏的传参 */
