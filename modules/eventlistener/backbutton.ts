@@ -38,5 +38,5 @@ export function unbindBackButtonEvent(): void {
     'CoreAndroid',
     'overrideBackbutton',
     [false],
-  )
+  );
 }
