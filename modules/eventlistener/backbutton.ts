@@ -26,3 +26,17 @@ export function bindBackButtonEvent(callback: Function): void {
   );
   cordova.exec(backButtonEvent, () => {}, 'CoreAndroid', 'messageChannel', []);
 }
+
+/**
+ * 解除安卓物理返回按钮事件
+ */
+export function unbindBackButtonEvent(): void {
+  /* eslint @typescript-eslint/no-empty-function: 0 */
+  cordova.exec(
+    () => {},
+    () => {},
+    'CoreAndroid',
+    'overrideBackbutton',
+    [false],
+  )
+}
