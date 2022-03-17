@@ -18,6 +18,9 @@ function openWebView(options) {
         display_mode: (options === null || options === void 0 ? void 0 : options.displayMode) || '',
         mute_config: (options === null || options === void 0 ? void 0 : options.muteConfig) || [],
     };
+    if (options === null || options === void 0 ? void 0 : options.orientation) {
+        args.orientation = options === null || options === void 0 ? void 0 : options.orientation;
+    }
     return core.execSync(constants_1.WORKPLUS_WEBVIEW, 'openWebView', [args]);
 }
 exports.default = openWebView;

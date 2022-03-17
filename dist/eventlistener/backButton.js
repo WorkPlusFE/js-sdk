@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.bindBackButtonEvent = void 0;
+exports.unbindBackButtonEvent = exports.bindBackButtonEvent = void 0;
 /**
  * 绑定安卓物理返回按钮事件
  * @description 该方法只需要执行一次，一旦绑定，返回按钮的原始事件将失效，然后返回逻辑都需要在回调方法中处理
@@ -18,3 +18,11 @@ function bindBackButtonEvent(callback) {
     cordova.exec(backButtonEvent, function () { }, 'CoreAndroid', 'messageChannel', []);
 }
 exports.bindBackButtonEvent = bindBackButtonEvent;
+/**
+ * 解除安卓物理返回按钮事件
+ */
+function unbindBackButtonEvent() {
+    /* eslint @typescript-eslint/no-empty-function: 0 */
+    cordova.exec(function () { }, function () { }, 'CoreAndroid', 'overrideBackbutton', [false]);
+}
+exports.unbindBackButtonEvent = unbindBackButtonEvent;

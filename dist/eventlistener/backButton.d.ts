@@ -4,3 +4,7 @@
  * @param {Function} callback
  */
 export declare function bindBackButtonEvent(callback: Function): void;
+/**
+ * 解除安卓物理返回按钮事件
+ */
+export declare function unbindBackButtonEvent(): void;
