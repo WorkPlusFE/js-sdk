@@ -1,5 +1,5 @@
-import { bindBackButtonEvent } from './backbutton';
+import { bindBackButtonEvent, unbindBackButtonEvent } from './backbutton';
 import { bindPauseEvent } from './pause';
 import { bindResumeEvent } from './resume';
 
-export { bindBackButtonEvent, bindPauseEvent, bindResumeEvent };
+export { bindBackButtonEvent, bindPauseEvent, bindResumeEvent, unbindBackButtonEvent };
