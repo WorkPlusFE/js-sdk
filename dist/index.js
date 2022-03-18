@@ -24,7 +24,7 @@ var Storage = require("./storage");
 var record_1 = require("./record");
 var video_1 = require("./video");
 /** WorkPlus SDK 版本 */
-exports.version = '2.0.0-beta.9';
+exports.version = '2.0.0-beta.10';
 exports.native = {};
 /** 图像接口 */
 exports.image = image_1.default;
