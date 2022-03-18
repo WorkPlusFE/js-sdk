@@ -1,4 +1,6 @@
 import { CordovaListener } from '../types/eventlistener';
+import { WORKPLUS_WEBVIEW } from '../constants';
+
 interface Channel {
   action: CordovaListener;
 }
@@ -9,7 +11,7 @@ interface Channel {
  * @param {Function} callback
  */
 export function bindBackButtonEvent(callback: Function): void {
-  const action: CordovaListener = 'backbutton';
+  const action: CordovaListener = 'back';
   const backButtonEvent = (channel: Channel): void => {
     if (channel.action === action && typeof callback === 'function') {
       callback();
@@ -20,11 +22,11 @@ export function bindBackButtonEvent(callback: Function): void {
   cordova.exec(
     () => {},
     () => {},
-    'CoreAndroid',
-    'overrideBackbutton',
+    WORKPLUS_WEBVIEW,
+    'overrideBack',
     [true],
   );
-  cordova.exec(backButtonEvent, () => {}, 'CoreAndroid', 'messageChannel', []);
+  cordova.exec(backButtonEvent, () => {}, WORKPLUS_WEBVIEW, 'messageChannel', []);
 }
 
 /**
@@ -35,8 +37,8 @@ export function unbindBackButtonEvent(): void {
   cordova.exec(
     () => {},
     () => {},
-    'CoreAndroid',
-    'overrideBackbutton',
+    WORKPLUS_WEBVIEW,
+    'overrideBack',
     [false],
   );
 }
