@@ -3,12 +3,15 @@
     <div class="api-detail">
       <van-panel>
         <div slot="header" class="code-panel van-hairline--bottom">
-          <span class="code-panel__title">安卓物理返回按钮</span>
+          <span class="code-panel__title">物理返回事件</span>
         </div>
-        <p class="api-detail__desc">绑定安卓设备的物理返回按钮，绑定后，原始返回动作将无效。</p>
+        <p class="api-detail__desc">绑定安卓设备的物理返回按钮（iOS为侧滑），绑定后，原始返回动作将无效。而取消绑定后，即会恢复原始的物理返回行为。</p>
       </van-panel>
       <van-button class="api-detail__exec" type="info" block @click="handleBindBackButton">
-        绑定安卓物理返回按钮事件
+        绑定物理返回事件
+      </van-button>
+      <van-button class="api-detail__exec" type="info" block @click="handleUnBindBackButton">
+        解除物理返回事件
       </van-button>
       <br>
       <van-panel>
@@ -64,8 +67,12 @@ export default class ExampleList extends Vue {
   /** method */
   private handleBindBackButton(): void {
     sdk.event.bindBackButtonEvent(() => {
-      alert('你点击了安卓的物理返回按钮！');
+      alert('触发了物理返回事件');
     });
+  }
+
+  private handleUnBindBackButton(): void {
+    sdk.event.unbindBackButtonEvent();
   }
 
   private handleBindPause(): void {
