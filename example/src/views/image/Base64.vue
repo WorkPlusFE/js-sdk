@@ -27,7 +27,7 @@
       </van-panel>
 
       <van-button class="api-detail__exec" type="info" block @click="toBase64">
-        选择照片后，图片将显示在页面上
+        拍照后，图片将显示在页面上
       </van-button>
     </div>
   </div>
@@ -70,14 +70,14 @@ export default class ExampleList extends Vue {
 
   /** method */
   private toBase64(): void {
-    sdk.image.chooseImages({
-      multiple: false,
+    sdk.image.takePicture({
+      editable: false,
     }).then((res: any) => {
-      const filePath = typeof res.result === 'object' ? res.result.imageURL : res.result[0].imageURL;
-
+      const filePath = res.result.imageURL;
       sdk.image.toBase64({ filePath })
         .then((res: any) => {
           const source = res.target._result;
+          console.log('base64 =', source);
           this.imageBase64Source = source;
         });
     });
