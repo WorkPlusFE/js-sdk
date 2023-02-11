@@ -77,6 +77,7 @@
     "ts-jest": "^24.2.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3",
+    "tslib": "^2.3.1",
     "uppercamelcase": "^3.0.0"
   },
   "engines": {
