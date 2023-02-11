@@ -1,5 +1,6 @@
 import { CordovaListener } from '../types/eventlistener';
 import { WORKPLUS_WEBVIEW } from '../constants';
+import { deviceready } from '../core';
 
 interface Channel {
   action: CordovaListener;
@@ -11,22 +12,24 @@ interface Channel {
  * @param {Function} callback
  */
 export function bindBackButtonEvent(callback: Function): void {
-  const action: CordovaListener = 'back';
-  const backButtonEvent = (channel: Channel): void => {
-    if (channel.action === action && typeof callback === 'function') {
-      callback();
-    }
-  };
+  deviceready().then(() => {
+    const action: CordovaListener = 'back';
+    const backButtonEvent = (channel: Channel): void => {
+      if (channel.action === action && typeof callback === 'function') {
+        callback();
+      }
+    };
 
-  /* eslint @typescript-eslint/no-empty-function: 0 */
-  cordova.exec(
-    () => {},
-    () => {},
-    WORKPLUS_WEBVIEW,
-    'overrideBack',
-    [true],
-  );
-  cordova.exec(backButtonEvent, () => {}, WORKPLUS_WEBVIEW, 'messageChannel', []);
+    /* eslint @typescript-eslint/no-empty-function: 0 */
+    cordova.exec(
+      () => {},
+      () => {},
+      WORKPLUS_WEBVIEW,
+      'overrideBack',
+      [true],
+    );
+    cordova.exec(backButtonEvent, () => {}, WORKPLUS_WEBVIEW, 'messageChannel', []);
+  });
 }
 
 /**
@@ -34,11 +37,13 @@ export function bindBackButtonEvent(callback: Function): void {
  */
 export function unbindBackButtonEvent(): void {
   /* eslint @typescript-eslint/no-empty-function: 0 */
-  cordova.exec(
-    () => {},
-    () => {},
-    WORKPLUS_WEBVIEW,
-    'overrideBack',
-    [false],
-  );
+  deviceready().then(() => {
+    cordova.exec(
+      () => {},
+      () => {},
+      WORKPLUS_WEBVIEW,
+      'overrideBack',
+      [false],
+    );
+  });
 }

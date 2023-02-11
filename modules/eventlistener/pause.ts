@@ -3,6 +3,7 @@ import { isFunction } from '../shared/is';
 import { isIPhone, detectInWorkPlus, isAndroid } from '../shared/platform';
 
 import { CordovaListener } from '../types/eventlistener';
+import { deviceready } from 'core';
 interface Channel {
   action: CordovaListener;
 }
@@ -15,25 +16,27 @@ interface Channel {
 export function bindPauseEvent(callback: Function): void {
   if (!detectInWorkPlus()) return;
 
-  const action: CordovaListener = 'pause';
-  const pauseEvent = (channel: Channel): void => {
-    if (channel.action === action && isFunction(callback)) {
-      callback();
+  deviceready().then(() => {
+    const action: CordovaListener = 'pause';
+    const pauseEvent = (channel: Channel): void => {
+      if (channel.action === action && isFunction(callback)) {
+        callback();
+      }
+    };
+
+    if (isIPhone()) {
+      on(
+        action,
+        (ev: Event) => {
+          if (isFunction(callback)) return callback(ev);
+        },
+        false,
+      );
     }
-  };
 
-  if (isIPhone()) {
-    on(
-      action,
-      (ev: Event) => {
-        if (isFunction(callback)) return callback(ev);
-      },
-      false,
-    );
-  }
-
-  if (isAndroid()) {
-    /* eslint @typescript-eslint/no-empty-function: 0 */
-    cordova.exec(pauseEvent, () => {}, 'CoreAndroid', 'messageChannel', []);
-  }
+    if (isAndroid()) {
+      /* eslint @typescript-eslint/no-empty-function: 0 */
+      cordova.exec(pauseEvent, () => {}, 'CoreAndroid', 'messageChannel', []);
+    }
+  });
 }

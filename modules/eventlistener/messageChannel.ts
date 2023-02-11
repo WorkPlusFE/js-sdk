@@ -1,3 +1,4 @@
+import { deviceready } from 'core';
 import { WORKPLUS_WEBVIEW } from '../constants';
 
 export interface ChanelActionResType {
@@ -10,13 +11,15 @@ export interface ChanelActionResType {
  * @description ios/android 统一 resume/pause/back 事件的监听方式
  */
 export function bindMessageChannel(callback: Function): void {
-  cordova.exec(
-    (result: ChanelActionResType) => {
-      callback && callback(result);
-    },
-    () => {},
-    WORKPLUS_WEBVIEW,
-    'messageChannel',
-    [],
-  );
+  deviceready().then(() => {
+    cordova.exec(
+      (result: ChanelActionResType) => {
+        callback && callback(result);
+      },
+      () => {},
+      WORKPLUS_WEBVIEW,
+      'messageChannel',
+      [],
+    );
+  });
 }
