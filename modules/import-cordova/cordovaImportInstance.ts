@@ -36,7 +36,7 @@ export default class CordovaImportInstance {
     const platform = this.getCurrentPlatformByUserAgent();
     if (this.mustUseHttpModel() || this.config.useHttp) {
       const httpUri = getCordovaJsUriByPlatform(this.config, platform);
-      if (!httpUri && process.env.NODE_ENV === 'development') {
+      if (!httpUri) {
         console.warn(
           '当前应用环境适合使 http(s):// 方式加载 cordova.js，请设置对应平台的 cordova.js 访问地址！',
         );
