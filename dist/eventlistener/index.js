@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.unbindBackButtonEvent = exports.bindResumeEvent = exports.bindPauseEvent = exports.bindBackButtonEvent = void 0;
+exports.bindMessageChannel = exports.unbindBackButtonEvent = exports.bindResumeEvent = exports.bindPauseEvent = exports.bindBackButtonEvent = void 0;
 var backbutton_1 = require("./backbutton");
 Object.defineProperty(exports, "bindBackButtonEvent", { enumerable: true, get: function () { return backbutton_1.bindBackButtonEvent; } });
 Object.defineProperty(exports, "unbindBackButtonEvent", { enumerable: true, get: function () { return backbutton_1.unbindBackButtonEvent; } });
@@ -8,3 +8,5 @@ var pause_1 = require("./pause");
 Object.defineProperty(exports, "bindPauseEvent", { enumerable: true, get: function () { return pause_1.bindPauseEvent; } });
 var resume_1 = require("./resume");
 Object.defineProperty(exports, "bindResumeEvent", { enumerable: true, get: function () { return resume_1.bindResumeEvent; } });
+var messageChannel_1 = require("./messageChannel");
+Object.defineProperty(exports, "bindMessageChannel", { enumerable: true, get: function () { return messageChannel_1.bindMessageChannel; } });

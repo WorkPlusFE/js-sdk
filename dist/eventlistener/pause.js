@@ -4,7 +4,7 @@ exports.bindPauseEvent = void 0;
 var bind_1 = require("./bind");
 var is_1 = require("../shared/is");
 var platform_1 = require("../shared/platform");
-var core_1 = require("core");
+var core_1 = require("../core");
 /**
  * 页面离开
  * @description 当页面不可见时，WorkPlus 会产生回调，开发者可以监听此pause事件，并处理特定的业务逻辑

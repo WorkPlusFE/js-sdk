@@ -38,7 +38,7 @@ var CordovaImportInstance = /** @class */ (function () {
         var platform = this.getCurrentPlatformByUserAgent();
         if (this.mustUseHttpModel() || this.config.useHttp) {
             var httpUri = utils_1.getCordovaJsUriByPlatform(this.config, platform);
-            if (!httpUri && process.env.NODE_ENV === 'development') {
+            if (!httpUri) {
                 console.warn('当前应用环境适合使 http(s):// 方式加载 cordova.js，请设置对应平台的 cordova.js 访问地址！');
             }
             if (httpUri)
