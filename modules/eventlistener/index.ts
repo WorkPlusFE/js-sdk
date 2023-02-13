@@ -3,4 +3,10 @@ import { bindPauseEvent } from './pause';
 import { bindResumeEvent } from './resume';
 import { bindMessageChannel } from './messageChannel';
 
-export { bindBackButtonEvent, bindPauseEvent, bindResumeEvent, unbindBackButtonEvent, bindMessageChannel };
+export {
+  bindBackButtonEvent,
+  bindPauseEvent,
+  bindResumeEvent,
+  unbindBackButtonEvent,
+  bindMessageChannel,
+};
