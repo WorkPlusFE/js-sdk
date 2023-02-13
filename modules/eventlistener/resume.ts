@@ -3,7 +3,7 @@ import { isFunction } from '../shared/is';
 import { isIPhone, detectInWorkPlus, isAndroid } from '../shared/platform';
 
 import { CordovaListener } from '../types/eventlistener';
-import { deviceready } from 'core';
+import { deviceready } from '../core';
 interface Channel {
   action: CordovaListener;
 }

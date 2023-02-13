@@ -1,4 +1,4 @@
-import { deviceready } from 'core';
+import { deviceready } from '../core';
 import { WORKPLUS_WEBVIEW } from '../constants';
 
 export interface ChanelActionResType {
