@@ -89,6 +89,7 @@ export default class ExampleList extends Vue {
 
   /** method */
   private handleExec(): void {
+    console.log(sdk);
     // @ts-ignore
     sdk[this.service][this.action]({
       ...this.args,

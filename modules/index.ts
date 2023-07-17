@@ -21,6 +21,7 @@ import * as Dialog from './dialog';
 import * as Storage from './storage';
 import Record from './record';
 import Video from './video';
+import Pay from './pay';
 
 /** WorkPlus SDK 版本 */
 export const version = '__VERSION__';
@@ -74,6 +75,8 @@ export const storage = Storage;
 export const record = Record;
 /** Video */
 export const video = Video;
+/** Pay */
+export const pay = Pay;
 
 /** WrokPlus SDK 初始化配置 */
 export const init = core.init;
@@ -130,6 +133,7 @@ export const install = (Vue: any, options?: CoreOptions, globalMode?: boolean) =
     storage,
     record,
     video,
+    pay,
   };
 
   if (globalMode) {

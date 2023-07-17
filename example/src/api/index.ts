@@ -16,6 +16,7 @@ import Header from './header';
 import Listener from './listener';
 import Record from './record';
 import Video from './video';
+import Pay from './pay';
 
 interface ApiModule {
   title: string;
@@ -51,4 +52,5 @@ export default [
   Email,
   Listener,
   Util,
+  Pay,
 ] as ApiModule[];
