@@ -1,10 +1,7 @@
 import * as core from '../core';
 import { WORKPLUS_PAY } from '../constants';
 import { ExecOptions } from '../types/core';
-import {
-  WxChooseInvoiceParams,
-  WxChooseInvoiceItem,
-} from '../types/pay';
+import { WxChooseInvoiceParams, WxChooseInvoiceItem } from '../types/pay';
 
 export type WxChooseInvoiceOptions = WxChooseInvoiceParams &
   ExecOptions<WxChooseInvoiceItem[], void>;
@@ -16,18 +13,28 @@ export type WxChooseInvoiceOptions = WxChooseInvoiceParams &
  * @returns {Promise<WxChooseInvoiceItem[]>}
  */
 export default function chooseWxInvoice(
-  options: WxChooseInvoiceOptions,
+  options?: WxChooseInvoiceOptions,
 ): Promise<WxChooseInvoiceItem[]> {
+  const params: WxChooseInvoiceParams = {};
+  const keys = ['card_sign', 'sign_type', 'timestamp', 'nonce_str'];
+  let keyNum = 0;
 
-  const params = {
-    app_id: options.app_id,
-    card_sign: options.card_sign,
-    sign_type: options.sign_type,
-    timestamp: options.timestamp,
-    nonce_str: options.nonce_str,
-    can_multi_select: options.can_multi_select,
+  if (options) {
+    Object.keys(options).forEach(key=> {
+      params[key] = options[key]
+      if (keys.includes(key)) {
+        keyNum++;
+      }
+    });
+    if (keyNum !== 0 && keyNum !== 4) {
+      return Promise.reject({
+        code: -1,
+        message: '缺少必要参数',
+      });
+    }
   }
-  console.log(params)
+
+  console.log(params);
   return core.exec<WxChooseInvoiceParams, WxChooseInvoiceItem[], never>(
     WORKPLUS_PAY,
     'wechatInvoice',

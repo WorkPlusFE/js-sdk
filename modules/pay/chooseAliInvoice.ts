@@ -4,6 +4,7 @@ import { ExecOptions } from '../types/core';
 import {
   AliChooseInvoiceParams,
   AliChooseInvoiceResult,
+  AliChooseInvoiceUrlParams,
 } from '../types/pay';
 
 export type AliChooseInvoiceOptions = AliChooseInvoiceParams &
@@ -18,11 +19,13 @@ export type AliChooseInvoiceOptions = AliChooseInvoiceParams &
 export default function chooseAliInvoice(
   options: AliChooseInvoiceOptions,
 ): Promise<AliChooseInvoiceResult> {
-
+  const encodeIsvUrl = window.encodeURIComponent(options.isvUrl);
+  const alipayUrl = `/www/invoiceSelect.htm?scene=INVOICE_EXPENSE&einvMerchantId=${options.einvMerchantId}&serverRedirectUrl=${encodeIsvUrl}`;
   const params = {
-    url:options.url
-  }
-  return core.exec<AliChooseInvoiceParams, AliChooseInvoiceResult, never>(
+    url: alipayUrl,
+  };
+  console.log(params);
+  return core.exec<AliChooseInvoiceUrlParams, AliChooseInvoiceResult, never>(
     WORKPLUS_PAY,
     'aliPayInvoice',
     [params],
