@@ -6,5 +6,5 @@ import chooseAliInvoice from './chooseAliInvoice';
 export default {
   wxPay,
   chooseWxInvoice,
-  chooseAliInvoice
+  chooseAliInvoice,
 };
