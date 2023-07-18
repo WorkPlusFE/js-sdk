@@ -15,7 +15,7 @@ import * as Config from './config';
 import * as Dialog from './dialog';
 import * as Storage from './storage';
 /** WorkPlus SDK 版本 */
-export declare const version = "2.0.0-beta.12";
+export declare const version = "2.0.0-beta.13";
 export declare const native: {};
 /** 图像接口 */
 export declare const image: {
@@ -95,6 +95,12 @@ export declare const record: {
 export declare const video: {
     startVideoRecoder: typeof import("./video/startVideoRecoder").default;
     playVideo: typeof import("./video/playVideo").default;
+};
+/** Pay */
+export declare const pay: {
+    wxPay: typeof import("./pay/wxPay").default;
+    chooseWxInvoice: typeof import("./pay/chooseWxInvoice").default;
+    chooseAliInvoice: typeof import("./pay/chooseAliInvoice").default;
 };
 /** WrokPlus SDK 初始化配置 */
 export declare const init: (options?: CoreOptions | undefined) => void;
