@@ -20,8 +20,8 @@ export default function chooseWxInvoice(
   let keyNum = 0;
 
   if (options) {
-    Object.keys(options).forEach(key=> {
-      params[key] = options[key]
+    Object.keys(options).forEach(key => {
+      params[key] = options[key];
       if (keys.includes(key)) {
         keyNum++;
       }

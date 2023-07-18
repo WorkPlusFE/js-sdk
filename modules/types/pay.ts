@@ -36,7 +36,7 @@ export interface WxChooseInvoiceParams {
   nonce_str?: string;
   /** 当传1，为多选。不传安卓默认单选 */
   can_multi_select?: string;
-  [name:string]:any
+  [name: string]: any;
 }
 
 export interface WxChooseInvoiceItem {
