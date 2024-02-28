@@ -103,8 +103,7 @@ export const install = (Vue: any, options?: CoreOptions, globalMode?: boolean) =
     core.init(options);
   }
 
-  /* eslint no-param-reassign: 0 */
-  Vue.prototype.$w6s = {
+  const w6s = {
     version,
     image,
     contact,
@@ -136,13 +135,32 @@ export const install = (Vue: any, options?: CoreOptions, globalMode?: boolean) =
     pay,
   };
 
-  if (globalMode) {
-    Vue.prototype.$w6s.init = init;
+  /* eslint no-param-reassign: 0 */
+  if (Vue.prototype) {
+    /** Vue2 */
+    Vue.prototype.$w6s = w6s;
+    if (globalMode) {
+      Vue.prototype.$w6s.init = init;
+    }
+  } else if (Vue.config.globalProperties) {
+    /** Vue3 */
+    Vue.config.globalProperties.$w6s = w6s;
+    if (globalMode) {
+      Vue.config.globalProperties.$w6s.init = init;
+    }
   }
 };
 
 /* @ts-ignore */
 if (typeof window !== 'undefined' && window.Vue) {
   /* @ts-ignore */
-  install(window.Vue, null, true);
+  const version = window.Vue.version.split('.').shift();
+
+  if (version === '2') {
+    /* @ts-ignore */
+    install(window.Vue, null, true);
+  } else if (version === '3') {
+    /* @ts-ignore */
+    window.w6s = { install };
+  }
 }
