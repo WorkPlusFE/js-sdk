@@ -13,7 +13,7 @@ exports.WORKPLUS_WEBVIEW = 'WorkPlus_WebView';
 /** 邮箱 */
 exports.WORKPLUS_EMAIL = 'WorkPlus_Email';
 /** 支付 */
-exports.WORKPLUS_PAY = 'Workplus_Pay';
+exports.WORKPLUS_PAY = 'WorkPlus_Pay';
 /** 扫描二维码 */
 exports.WORKPLUS_SCAN = 'WorkPlus_BarcodeScanner';
 /** 设备 */

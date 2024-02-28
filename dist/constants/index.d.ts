@@ -10,7 +10,7 @@ export declare const WORKPLUS_WEBVIEW = "WorkPlus_WebView";
 /** 邮箱 */
 export declare const WORKPLUS_EMAIL = "WorkPlus_Email";
 /** 支付 */
-export declare const WORKPLUS_PAY = "Workplus_Pay";
+export declare const WORKPLUS_PAY = "WorkPlus_Pay";
 /** 扫描二维码 */
 export declare const WORKPLUS_SCAN = "WorkPlus_BarcodeScanner";
 /** 设备 */
