@@ -2,6 +2,7 @@ import * as core from '../core';
 import { WORKPLUS_IMAGE } from '../constants';
 import { WaterMark, PhotoInfoAndMediaId } from '../types/image';
 import { ExecOptions } from '../types/core';
+import getLocation from '../location/getLocation';
 
 export interface WaterMarkOptions extends WaterMark, ExecOptions<PhotoInfoAndMediaId, never> {}
 
@@ -14,6 +15,20 @@ export interface WaterMarkParams {
   location_enable: boolean;
 }
 
+const getTimeStr = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const hour = date.getHours();
+  const minate = date.getMinutes();
+  const monthStr = month < 10 ? `0${month}` : `${month}`;
+  const dayStr = day < 10 ? `0${day}` : `${day}`;
+  const hourStr = hour < 10 ? `0${hour}` : `${hour}`;
+  const minateStr = minate < 10 ? `0${minate}` : `${minate}`;
+  return `${year}-${monthStr}-${dayStr} ${hourStr}:${minateStr}`;
+};
+
 /**
  * 调起拍照，并添加水印
  * @description 拍照生成水印图片返回
@@ -24,23 +39,53 @@ export interface WaterMarkParams {
  */
 function takePhotoAndAddWaterMark(options: WaterMarkOptions): Promise<PhotoInfoAndMediaId> {
   const { success, fail, ...data } = options;
-  const params = {
-    content: data.content,
-    font_size: data.fontSize,
-    color: data.color,
-    mark_disable: data.markDisable,
-    time_enable: data.timeEnable,
-    location_enable: data.locationEnable,
-  };
+  let content = data.content;
+  const timeStr = getTimeStr();
 
-  return core.exec<WaterMarkParams, PhotoInfoAndMediaId, never>(
-    WORKPLUS_IMAGE,
-    'takePhotoAndAddWaterMark',
-    [params],
-    success,
-    fail,
-    false,
-  );
+  if (data.timeEnable) {
+    content = `${content} ${timeStr}`;
+  }
+
+  if (data.locationEnable) {
+    return getLocation().then(res => {
+      const locationStr = res.city + res.district + res.street;
+      content = `${content} ${locationStr}`;
+      const params = {
+        content: content,
+        font_size: data.fontSize,
+        color: data.color,
+        mark_disable: data.markDisable,
+        time_enable: data.timeEnable,
+        location_enable: data.locationEnable,
+      };
+
+      return core.exec<WaterMarkParams, PhotoInfoAndMediaId, never>(
+        WORKPLUS_IMAGE,
+        'takePhotoAndAddWaterMark',
+        [params],
+        success,
+        fail,
+        false,
+      );
+    });
+  } else {
+    const params = {
+      content: content,
+      font_size: data.fontSize,
+      color: data.color,
+      mark_disable: data.markDisable,
+      time_enable: data.timeEnable,
+      location_enable: data.locationEnable,
+    };
+    return core.exec<WaterMarkParams, PhotoInfoAndMediaId, never>(
+      WORKPLUS_IMAGE,
+      'takePhotoAndAddWaterMark',
+      [params],
+      success,
+      fail,
+      false,
+    );
+  }
 }
 
 export default takePhotoAndAddWaterMark;
