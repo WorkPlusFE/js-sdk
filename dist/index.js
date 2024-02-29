@@ -25,7 +25,7 @@ var record_1 = require("./record");
 var video_1 = require("./video");
 var pay_1 = require("./pay");
 /** WorkPlus SDK 版本 */
-exports.version = '2.0.0';
+exports.version = '2.0.1';
 exports.native = {};
 /** 图像接口 */
 exports.image = image_1.default;
