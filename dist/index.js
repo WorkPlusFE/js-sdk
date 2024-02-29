@@ -25,7 +25,7 @@ var record_1 = require("./record");
 var video_1 = require("./video");
 var pay_1 = require("./pay");
 /** WorkPlus SDK 版本 */
-exports.version = '2.0.0-beta.13';
+exports.version = '2.0.0';
 exports.native = {};
 /** 图像接口 */
 exports.image = image_1.default;
@@ -90,8 +90,7 @@ exports.install = function (Vue, options, globalMode) {
     if (!globalMode) {
         core.init(options);
     }
-    /* eslint no-param-reassign: 0 */
-    Vue.prototype.$w6s = {
+    var w6s = {
         version: exports.version,
         image: exports.image,
         contact: exports.contact,
@@ -122,12 +121,32 @@ exports.install = function (Vue, options, globalMode) {
         video: exports.video,
         pay: exports.pay,
     };
-    if (globalMode) {
-        Vue.prototype.$w6s.init = exports.init;
+    /* eslint no-param-reassign: 0 */
+    if (Vue.prototype) {
+        /** Vue2 */
+        Vue.prototype.$w6s = w6s;
+        if (globalMode) {
+            Vue.prototype.$w6s.init = exports.init;
+        }
+    }
+    else if (Vue.config.globalProperties) {
+        /** Vue3 */
+        Vue.config.globalProperties.$w6s = w6s;
+        if (globalMode) {
+            Vue.config.globalProperties.$w6s.init = exports.init;
+        }
     }
 };
 /* @ts-ignore */
 if (typeof window !== 'undefined' && window.Vue) {
     /* @ts-ignore */
-    exports.install(window.Vue, null, true);
+    var version_1 = window.Vue.version.split('.').shift();
+    if (version_1 === '2') {
+        /* @ts-ignore */
+        exports.install(window.Vue, null, true);
+    }
+    else if (version_1 === '3') {
+        /* @ts-ignore */
+        window.w6s = { install: exports.install };
+    }
 }
