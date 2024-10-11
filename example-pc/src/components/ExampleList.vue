@@ -179,9 +179,13 @@ export default class ExampleList extends Vue {
 .api-list {
   padding: 15px;
   margin-top: -30px;
+  max-width: 600px;
+  margin: 0 auto;
 
   &__item {
     margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
     > .van-cell:after {
       display: none;
     }

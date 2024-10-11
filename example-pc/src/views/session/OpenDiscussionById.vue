@@ -8,7 +8,7 @@
         <p class="api-detail__desc">{{ options.description }}</p>
       </van-panel>
       <van-field v-model="discussionId" label="群Id" placeholder="输入群ID" />
-      <van-button v-if="discussionId" class="api-detail__exec" type="primary" block @click="handleOpenChat">
+      <van-button v-if="discussionId" class="api-detail__exec" type="info" block @click="handleOpenChat">
         打开群聊天窗口
       </van-button>
     </div>

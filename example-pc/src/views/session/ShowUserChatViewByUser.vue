@@ -8,10 +8,10 @@
         <p class="api-detail__desc">{{ options.description }}</p>
       </van-panel>
       <van-button class="api-detail__exec" type="info" block @click="handleGetUser">
-        选择人员
+        1、选择人员
       </van-button>
-      <van-button v-if="user" class="api-detail__exec" type="primary" block @click="handleOpenChat">
-        打开与"{{this.user.name}}"的聊天窗口
+      <van-button v-if="user" class="api-detail__exec" type="info" block @click="handleOpenChat">
+        2、打开与"{{this.user.name}}"的聊天窗口
       </van-button>
     </div>
   </div>

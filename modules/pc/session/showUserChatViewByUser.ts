@@ -4,7 +4,7 @@ import { ContactOption, ShowUserChatViewByUserParams } from '../types/contact';
 import { WORKPLUS_CONTACT } from '../../constants';
 
 /**
- * 轻应用输入userId，domianId, 跳转到workplus与该用户的聊天页面
+ * 轻应用输入 userId，domianId, 跳转到 WorkPlus 与该用户的聊天页面
  *
  * @export
  * @param {ShowUserChatViewByUserParams & ContactOption<unknown>} [options]

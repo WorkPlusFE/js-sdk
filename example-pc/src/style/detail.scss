@@ -2,6 +2,8 @@
   position: relative;
   padding: 15px;
   height: inherit;
+  max-width: 600px;
+  margin: 0 auto;
 
   &__desc {
     padding: 10px 16px;
