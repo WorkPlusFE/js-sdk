@@ -75,7 +75,7 @@ var Core = /** @class */ (function () {
         this.deviceready = function (fn) {
             return new Promise(function (resolve) {
                 var run = function () { return fn && is_1.isFunction(fn) && fn(); };
-                if (_this.isDeviceReady) {
+                if (_this.isDeviceReady || window.isDeviceReady) {
                     resolve();
                     run();
                 }

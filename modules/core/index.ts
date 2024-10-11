@@ -88,7 +88,7 @@ class Core {
   public deviceready = (fn?: Function): Promise<void> => {
     return new Promise(resolve => {
       const run = (): void => fn && isFunction(fn) && fn();
-      if (this.isDeviceReady) {
+      if (this.isDeviceReady || (window as any).isDeviceReady) {
         resolve();
         run();
       } else {

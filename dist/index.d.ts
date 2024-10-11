@@ -15,7 +15,7 @@ import * as Config from './config';
 import * as Dialog from './dialog';
 import * as Storage from './storage';
 /** WorkPlus SDK 版本 */
-export declare const version = "2.0.2";
+export declare const version = "__VERSION__";
 export declare const native: {};
 /** 图像接口 */
 export declare const image: {
@@ -101,6 +101,17 @@ export declare const pay: {
     wxPay: typeof import("./pay/wxPay").default;
     chooseWxInvoice: typeof import("./pay/chooseWxInvoice").default;
     chooseAliInvoice: typeof import("./pay/chooseAliInvoice").default;
+};
+/** pc */
+export declare const pc: {
+    contact: {
+        getSingleContact: typeof import("./pc/contact/getSingleContact").default;
+    };
+    session: {
+        showUserChatViewByUser: typeof import("./pc/session/showUserChatViewByUser").default;
+        openDiscussionById: typeof import("./pc/session/openDiscussionById").default;
+        createDiscussionChat: typeof import("./pc/session/createDiscussionChat").default;
+    };
 };
 /** WrokPlus SDK 初始化配置 */
 export declare const init: (options?: CoreOptions | undefined) => void;
