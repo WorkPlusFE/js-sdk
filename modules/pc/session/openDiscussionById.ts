@@ -1,5 +1,5 @@
 import * as core from '../../core';
-import { OpenDiscussionByIdParams,ContactOption } from '../types/contact';
+import { OpenDiscussionByIdParams, ContactOption } from '../types/contact';
 
 import { WORKPLUS_CONTACT } from '../../constants';
 
@@ -10,7 +10,9 @@ import { WORKPLUS_CONTACT } from '../../constants';
  * @param {OpenDiscussionByIdParams} [options]
  * @returns {Promise<unknown>}
  */
-export default function openDiscussionById(options: OpenDiscussionByIdParams & ContactOption<unknown>) : Promise<unknown> {
+export default function openDiscussionById(
+  options: OpenDiscussionByIdParams & ContactOption<unknown>,
+): Promise<unknown> {
   const { success, fail, ...args } = options;
   return core.exec<OpenDiscussionByIdParams, unknown, unknown>(
     WORKPLUS_CONTACT,

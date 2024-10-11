@@ -1,13 +1,12 @@
-
 export interface OpenDiscussionByIdParams {
   discussionId: string;
-  newWindow?:boolean;
+  newWindow?: boolean;
 }
 
 export interface ShowUserChatViewByUserParams {
   userId: string;
   domainId: string;
-  newWindow?:boolean;
+  newWindow?: boolean;
 }
 
 export interface ContactOption<R> {
@@ -16,7 +15,7 @@ export interface ContactOption<R> {
 }
 
 export interface SingleContactParams {
-  hideMe?: false
+  hideMe?: false;
 }
 
 export interface SingleContactRes {

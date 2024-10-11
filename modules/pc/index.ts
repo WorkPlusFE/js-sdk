@@ -3,5 +3,5 @@ import contact from './contact/index';
 
 export default {
   contact,
-  session
+  session,
 };

@@ -1,5 +1,5 @@
 import * as core from '../../core';
-import { ContactOption,SingleContactRes, SingleContactParams } from '../types/contact';
+import { ContactOption, SingleContactRes, SingleContactParams } from '../types/contact';
 import { WORKPLUS_CONTACT } from '../../constants';
 
 /**
@@ -13,7 +13,7 @@ export default function getSingleContact(
   options?: SingleContactParams & ContactOption<SingleContactRes>,
 ): Promise<SingleContactRes> {
   const args: SingleContactParams = {
-    hideMe: options?.hideMe || false
+    hideMe: options?.hideMe || false,
   };
   return core.exec<SingleContactParams, SingleContactRes, unknown>(
     WORKPLUS_CONTACT,
