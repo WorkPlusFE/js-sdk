@@ -17,7 +17,7 @@ export default function getSingleContact(
   };
   return core.exec<SingleContactParams, SingleContactRes, unknown>(
     WORKPLUS_CONTACT,
-    'getSingleContact',
+    'getContact',
     [args],
     options?.success,
     options?.fail,

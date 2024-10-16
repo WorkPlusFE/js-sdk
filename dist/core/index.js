@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.execSync = exports.exec = exports.logger = exports.error = exports.deviceready = exports.init = void 0;
+exports.execSync = exports.exec = exports.logger = exports.error = exports.isPCPlatform = exports.deviceready = exports.init = void 0;
 var platform_1 = require("../shared/platform");
 var is_1 = require("../shared/is");
 var logger_1 = require("./logger");
@@ -102,6 +102,14 @@ var Core = /** @class */ (function () {
             _this._errorCallback = fn;
         };
     }
+    Core.prototype.isPCPlatform = function () {
+        var ua = window.navigator.userAgent;
+        if (ua.indexOf('workplus-pc') > -1 || ua.indexOf('wp-buildNo') > -1) {
+            return true;
+        }
+        return false;
+    };
+    ;
     /**
      * 执行error回调函数
      * @param {unknown} error 错误对象
@@ -155,6 +163,7 @@ var Core = /** @class */ (function () {
 var core = new Core();
 exports.init = core.init;
 exports.deviceready = core.deviceready;
+exports.isPCPlatform = core.isPCPlatform();
 exports.error = core.error;
 exports.logger = core.logger;
 /**

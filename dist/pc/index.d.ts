@@ -7,5 +7,8 @@ declare const _default: {
         openDiscussionById: typeof import("./session/openDiscussionById").default;
         createDiscussionChat: typeof import("./session/createDiscussionChat").default;
     };
+    device: {
+        getDeviceInfo: typeof import("./device/getDeviceInfo").default;
+    };
 };
 export default _default;

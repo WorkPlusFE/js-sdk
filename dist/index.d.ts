@@ -112,6 +112,9 @@ export declare const pc: {
         openDiscussionById: typeof import("./pc/session/openDiscussionById").default;
         createDiscussionChat: typeof import("./pc/session/createDiscussionChat").default;
     };
+    device: {
+        getDeviceInfo: typeof import("./pc/device/getDeviceInfo").default;
+    };
 };
 /** WrokPlus SDK 初始化配置 */
 export declare const init: (options?: CoreOptions | undefined) => void;
@@ -128,5 +131,6 @@ export declare const exec: typeof core.exec;
 export declare const execSync: typeof core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 export declare const error: (fn: (err: unknown) => void) => void;
+export declare const isPCPlatform: boolean;
 /** Vue Plugin install function */
 export declare const install: (Vue: any, options?: CoreOptions | undefined, globalMode?: boolean | undefined) => void;

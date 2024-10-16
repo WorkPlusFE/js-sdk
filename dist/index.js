@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.install = exports.error = exports.execSync = exports.exec = exports.checkApi = exports.ready = exports.config = exports.deviceready = exports.init = exports.pc = exports.pay = exports.video = exports.record = exports.storage = exports.dialog = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
+exports.install = exports.isPCPlatform = exports.error = exports.execSync = exports.exec = exports.checkApi = exports.ready = exports.config = exports.deviceready = exports.init = exports.pc = exports.pay = exports.video = exports.record = exports.storage = exports.dialog = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
 var core = require("./core");
 var image_1 = require("./image");
 var Contact = require("./contact");
@@ -87,6 +87,7 @@ exports.exec = core.exec;
 exports.execSync = core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 exports.error = core.error;
+exports.isPCPlatform = core.isPCPlatform;
 /** Vue Plugin install function */
 /*eslint @typescript-eslint/no-explicit-any: 0*/
 exports.install = function (Vue, options, globalMode) {
@@ -124,6 +125,7 @@ exports.install = function (Vue, options, globalMode) {
         record: exports.record,
         video: exports.video,
         pay: exports.pay,
+        isPCPlatform: exports.isPCPlatform
     };
     /* eslint no-param-reassign: 0 */
     if (Vue.prototype) {

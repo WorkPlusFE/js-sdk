@@ -2,6 +2,7 @@ import { CoreOptions } from '../types/core';
 import Logger from './logger';
 export declare const init: (options?: CoreOptions | undefined) => void;
 export declare const deviceready: (fn?: Function | undefined) => Promise<void>;
+export declare const isPCPlatform: boolean;
 export declare const error: (fn: (err: unknown) => void) => void;
 export declare const logger: Logger;
 /**

@@ -11,8 +11,8 @@ var constants_1 = require("../../constants");
  */
 function getSingleContact(options) {
     var args = {
-        hideMe: (options === null || options === void 0 ? void 0 : options.hideMe) || false
+        hideMe: (options === null || options === void 0 ? void 0 : options.hideMe) || false,
     };
-    return core.exec(constants_1.WORKPLUS_CONTACT, 'getSingleContact', [args], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail, false);
+    return core.exec(constants_1.WORKPLUS_CONTACT, 'getContact', [args], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail, false);
 }
 exports.default = getSingleContact;
