@@ -207,7 +207,7 @@ export interface CurrentEmployeeInfoRes {
 export interface ShowUserChatViewByUserParams {
   userId: string;
   domainId: string;
-  newWindow?:boolean;
+  newWindow?: boolean;
 }
 
 export interface GetUserInfoByUserIdParams {
@@ -238,7 +238,7 @@ export interface ShowUserInfoByUsernameParams {
 
 export interface OpenDiscussionByIdParams {
   discussionId: string;
-  newWindow?:boolean;
+  newWindow?: boolean;
   body_type?: string;
   body?: Body;
 }
