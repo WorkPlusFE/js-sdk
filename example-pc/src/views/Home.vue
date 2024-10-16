@@ -2,7 +2,7 @@
   <div class="demo-pages">
     <div class="demo">
       <img class="demo__logo" src="@/assets/logo.png" />
-      <h2 class="demo__title">WorkPlus PC-JS-SDK 功能展示</h2>
+      <h2 class="demo__title">WorkPlus PC JS-SDK 功能展示</h2>
       <p class="demo__desc">
         本应用只是对相关接口功能进行展示，具体的参数和说明详见<a href="https://open.workplus.io/js-sdk/overview/usage.html">官方开发文档</a>。
       </p>
