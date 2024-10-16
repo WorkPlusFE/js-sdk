@@ -51,16 +51,18 @@ class Core {
       return;
     }
 
-    // 鉴权提示
-    this._logger.warn(`SDK 已${options?.auth ? '开启' : '关闭'}接口鉴权`);
+    if (!this.isPCPlatform()) {
+      // 鉴权提示
+      this._logger.warn(`SDK 已${options?.auth ? '开启' : '关闭'}接口鉴权`);
 
-    // 若非鉴权模式，需要主动注入 cordova.js
-    if (!options?.auth && !this.isPCPlatform()) {
       // 若非鉴权模式，需要主动注入 cordova.js
-      if (!window.cordova && !this.isDeviceReady && !this._inject) {
-        // 注入 Cordova
-        injectCordova(options?.cordovajs, options?.useHttp);
-        this._inject = true;
+      if (!options?.auth) {
+        // 若非鉴权模式，需要主动注入 cordova.js
+        if (!window.cordova && !this.isDeviceReady && !this._inject) {
+          // 注入 Cordova
+          injectCordova(options?.cordovajs, options?.useHttp);
+          this._inject = true;
+        }
       }
     }
 
