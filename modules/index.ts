@@ -99,7 +99,7 @@ export const execSync = core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 export const error = core.error;
 
-export const isPCPlatform = core.isPCPlatform
+export const isPCPlatform = core.isPCPlatform;
 
 /** Vue Plugin install function */
 /*eslint @typescript-eslint/no-explicit-any: 0*/
@@ -139,7 +139,7 @@ export const install = (Vue: any, options?: CoreOptions, globalMode?: boolean) =
     record,
     video,
     pay,
-    isPCPlatform
+    isPCPlatform,
   };
 
   /* eslint no-param-reassign: 0 */

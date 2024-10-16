@@ -29,7 +29,6 @@ class Core {
   /** error 回调函数 */
   private _errorCallback!: Function;
 
-
   /**
    * 初始化配置项
    * @param {CoreOptions} [options]
@@ -79,17 +78,15 @@ class Core {
       this._logger.error('请在 WorkPlus APP 内打开应用');
       return;
     }
-
   };
 
   public isPCPlatform() {
     const ua = window.navigator.userAgent;
     if (ua.indexOf('workplus-pc') > -1 || ua.indexOf('wp-buildNo') > -1) {
-      return true
+      return true;
     }
     return false;
-  };
-
+  }
 
   /**
    * 在 Cordova 准备就绪时触发，api的调用需要保证在该回调函数触发后调用
@@ -231,12 +228,12 @@ export function exec<A, S, F>(
     const callAPI = `${service}.${action}`;
     const timer = setTimer
       ? setTimeout((err = '接口调用超时') => {
-        logger.warn(`${callAPI} 接口调用响应超时，请重试`);
-        if (fail && isFunction(fail)) {
-          fail(err);
-        }
-        reject(err);
-      }, core.timeout)
+          logger.warn(`${callAPI} 接口调用响应超时，请重试`);
+          if (fail && isFunction(fail)) {
+            fail(err);
+          }
+          reject(err);
+        }, core.timeout)
       : 0;
     const removeTimer = (): void => {
       timer && clearTimeout(timer);
@@ -245,7 +242,7 @@ export function exec<A, S, F>(
     const execFn = (): void => {
       logger.log(`准备调用 ${callAPI}`);
       cordova.exec(
-        function (res: S) {
+        function(res: S) {
           removeTimer();
           const response = jsonParser(res);
           logger.log(`${callAPI} 调用成功: ${JSON.stringify(response, null, 4)}`);
@@ -254,7 +251,7 @@ export function exec<A, S, F>(
           }
           return resolve(response);
         },
-        function (err: F) {
+        function(err: F) {
           removeTimer();
           logger.error(`${callAPI} 接口调用失败`);
           core.onError(`${callAPI} 调用失败: ${err}`);
@@ -301,10 +298,10 @@ export function execSync<A>(service: string, action: string, args: Array<A>): vo
   logger.log(`同步调用 ${callAPI}`);
   const execSyncFn = (): void => {
     cordova.exec(
-      function (data) {
+      function(data) {
         logger.log(JSON.stringify(data, null, 4));
       },
-      function (err) {
+      function(err) {
         logger.error(JSON.stringify(err, null, 4));
         core.onError(`${callAPI} 调用失败: ${err}`);
       },
