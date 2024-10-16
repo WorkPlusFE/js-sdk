@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.install = exports.isPCPlatform = exports.error = exports.execSync = exports.exec = exports.checkApi = exports.ready = exports.config = exports.deviceready = exports.init = exports.pc = exports.pay = exports.video = exports.record = exports.storage = exports.dialog = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
+exports.install = exports.isPCPlatform = exports.error = exports.execSync = exports.exec = exports.checkApi = exports.ready = exports.config = exports.deviceready = exports.init = exports.pay = exports.video = exports.record = exports.storage = exports.dialog = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
 var core = require("./core");
 var image_1 = require("./image");
 var Contact = require("./contact");
@@ -24,7 +24,6 @@ var Storage = require("./storage");
 var record_1 = require("./record");
 var video_1 = require("./video");
 var pay_1 = require("./pay");
-var pc_1 = require("./pc");
 /** WorkPlus SDK 版本 */
 exports.version = '__VERSION__';
 exports.native = {};
@@ -71,7 +70,6 @@ exports.video = video_1.default;
 /** Pay */
 exports.pay = pay_1.default;
 /** pc */
-exports.pc = pc_1.default;
 /** WrokPlus SDK 初始化配置 */
 exports.init = core.init;
 exports.deviceready = core.deviceready;
@@ -95,7 +93,6 @@ exports.install = function (Vue, options, globalMode) {
         core.init(options);
     }
     var w6s = {
-        pc: exports.pc,
         version: exports.version,
         image: exports.image,
         contact: exports.contact,
@@ -125,7 +122,7 @@ exports.install = function (Vue, options, globalMode) {
         record: exports.record,
         video: exports.video,
         pay: exports.pay,
-        isPCPlatform: exports.isPCPlatform
+        isPCPlatform: exports.isPCPlatform,
     };
     /* eslint no-param-reassign: 0 */
     if (Vue.prototype) {

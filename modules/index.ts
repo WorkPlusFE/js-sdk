@@ -22,7 +22,6 @@ import * as Storage from './storage';
 import Record from './record';
 import Video from './video';
 import Pay from './pay';
-import Pc from './pc';
 
 /** WorkPlus SDK 版本 */
 export const version = '__VERSION__';
@@ -79,7 +78,6 @@ export const video = Video;
 /** Pay */
 export const pay = Pay;
 /** pc */
-export const pc = Pc;
 
 /** WrokPlus SDK 初始化配置 */
 export const init = core.init;
@@ -109,7 +107,6 @@ export const install = (Vue: any, options?: CoreOptions, globalMode?: boolean) =
   }
 
   const w6s = {
-    pc,
     version,
     image,
     contact,

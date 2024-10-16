@@ -103,19 +103,6 @@ export declare const pay: {
     chooseAliInvoice: typeof import("./pay/chooseAliInvoice").default;
 };
 /** pc */
-export declare const pc: {
-    contact: {
-        getSingleContact: typeof import("./pc/contact/getSingleContact").default;
-    };
-    session: {
-        showUserChatViewByUser: typeof import("./pc/session/showUserChatViewByUser").default;
-        openDiscussionById: typeof import("./pc/session/openDiscussionById").default;
-        createDiscussionChat: typeof import("./pc/session/createDiscussionChat").default;
-    };
-    device: {
-        getDeviceInfo: typeof import("./pc/device/getDeviceInfo").default;
-    };
-};
 /** WrokPlus SDK 初始化配置 */
 export declare const init: (options?: CoreOptions | undefined) => void;
 export declare const deviceready: (fn?: Function | undefined) => Promise<void>;

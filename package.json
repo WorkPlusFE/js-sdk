@@ -16,7 +16,6 @@
     "build": "rimraf dist && npm run build:common && npm run build:prod && cp ./README.md ./dist/ && cp ./scripts/package.json ./dist/",
     "watch": "rollup -c -w",
     "demo": "npm run build && cd example && npm run serve",
-    "demo-pc": "npm run build && cd example-pc && npm run serve",
     "demo:notbuild": "cd example && npm run serve",
     "release": "bash scripts/release.sh",
     "release:note": "node scripts/genReleaseNote.js",

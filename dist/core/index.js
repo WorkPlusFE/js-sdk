@@ -109,7 +109,6 @@ var Core = /** @class */ (function () {
         }
         return false;
     };
-    ;
     /**
      * 执行error回调函数
      * @param {unknown} error 错误对象
