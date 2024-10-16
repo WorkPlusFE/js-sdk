@@ -237,8 +237,8 @@ export interface ShowUserInfoByUsernameParams {
 
 export interface OpenDiscussionByIdParams {
   discussionId: string;
-  body_type: string;
-  body: Body;
+  body_type?: string;
+  body?: Body;
 }
 
 export interface ShowAppChatViewParams {

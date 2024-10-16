@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title>WorkPlus-PC JS-SDK </title>
+    <script>
+      window.onWorkplusShake = function() {
+        alert('Shake Shake Shake');
+      };
+
+      window.leftButtonBackEvent = function() {
+        alert('你点击了返回！关闭后，返回上一页。');
+        history.go(-1);
+      };
+
+      window.rightButtonsEvent = function() {
+        alert('你点击了我！');
+      }; 
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but example doesn't work properly without JavaScript enabled. Please enable it
+        to continue.</strong
+      >
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
