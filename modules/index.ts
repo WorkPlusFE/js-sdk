@@ -83,7 +83,7 @@ export const pay = Pay;
 export const init = core.init;
 export const deviceready = core.deviceready;
 
-/** 鉴权完成 */
+/** 鉴权 */
 export const config = Config.config;
 /** 鉴权完成 */
 export const ready = Config.ready;
@@ -96,8 +96,8 @@ export const exec = core.exec;
 export const execSync = core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 export const error = core.error;
-
-export const isPCPlatform = core.isPCPlatform;
+/** 平台属性 */
+export const platform = { isPC: core.isPCPlatform };
 
 /** Vue Plugin install function */
 /*eslint @typescript-eslint/no-explicit-any: 0*/
@@ -136,7 +136,7 @@ export const install = (Vue: any, options?: CoreOptions, globalMode?: boolean) =
     record,
     video,
     pay,
-    isPCPlatform,
+    platform,
   };
 
   /* eslint no-param-reassign: 0 */

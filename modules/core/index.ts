@@ -82,7 +82,7 @@ class Core {
 
   public isPCPlatform() {
     const ua = window.navigator.userAgent;
-    if (ua.indexOf('workplus-pc') > -1 || ua.indexOf('wp-buildNo') > -1) {
+    if (ua.indexOf('workplus-pc') > -1 && ua.indexOf('wp-buildNo/') > -1) {
       return true;
     }
     return false;
