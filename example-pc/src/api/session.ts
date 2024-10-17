@@ -16,7 +16,7 @@ export default {
     },
     {
       title: '打开群组聊天页面',
-      description: '通过"群组id"打开该群组的聊天页面，并且可以自定义发送应用所支持的消息。',
+      description: '通过"群组id"打开该群组的聊天页面。',
       action: 'openDiscussionById',
       params: {
         discussionId: '0629aad170784c9e810985c443fb0bd6',

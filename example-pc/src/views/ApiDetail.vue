@@ -75,7 +75,6 @@ export default class ExampleList extends Vue {
   mounted() {
     const init = () => {
       this.setOptions(this.action);
-      sdk.header.setTitle(this.options.title);
     };
 
     // @ts-ignore

@@ -1,6 +1,7 @@
 import Session from './session';
 import Contact from './contact';
 import device from './device';
+import image from './image';
 
 
 interface ApiModule {
@@ -19,7 +20,8 @@ interface ApiItem {
 }
 
 export default [
-  Session,
   Contact,
+  Session,
+  image,
   device,
 ] as ApiModule[];

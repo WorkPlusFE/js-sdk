@@ -42,15 +42,10 @@ export default class ExampleList extends Vue {
   /** data */
   options = {
     title: '打开用户聊天页面',
-    description: '传入userId、domianId，打开到 WorkPlus 与该用户的聊天页面。',
+    description: '传入 userId、domianId，打开到 WorkPlus 与该用户的聊天页面。',
   };
 
   user = null;
-
-  /** life cycle */
-  mounted() {
-    sdk.header.setTitle(this.options.title);
-  }
 
   /** method */
   private handleGetUser(): void {
@@ -66,7 +61,7 @@ export default class ExampleList extends Vue {
       const user = this.user || { user_id: '', domain_id: '' };
       sdk.session.showUserChatViewByUser({
         userId: user.user_id,
-        domainId: user.domain_id
+        domainId: user.domain_id,
       });
     }
   }

@@ -8,7 +8,7 @@
         <p class="api-detail__desc">{{ options.description }}</p>
       </van-panel>
       <van-field v-model="discussionId" label="群Id" placeholder="输入群ID" />
-      <van-button v-if="discussionId" class="api-detail__exec" type="info" block @click="handleOpenChat">
+       <van-button v-if="discussionId" class="api-detail__exec" type="info" block @click="handleOpenChat">
         打开群聊天窗口
       </van-button>
     </div>
@@ -40,21 +40,15 @@ export default class ExampleList extends Vue {
   /** data */
   options = {
     title: '打开群聊天页面',
-    description: '通过"群组id"打开该群组的聊天页面，并且可以自定义发送应用所支持的消息。',
+    description: '通过"群组id"打开该群组的聊天页面',
   };
 
   discussionId = '';
 
-  /** life cycle */
-  mounted() {
-    sdk.header.setTitle(this.options.title);
-  }
-
-
   private handleOpenChat(): void {
     if (this.discussionId !== null) {
       sdk.session.openDiscussionById({
-        discussionId: this.discussionId
+        discussionId: this.discussionId,
       });
     }
   }

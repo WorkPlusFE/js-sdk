@@ -8,7 +8,7 @@ export default {
   apis: [
     {
       title: '单选联系人',
-      description: '打开当前组织的联系人列表，单选一个联系人(兼容2.0数据)。',
+      description: '打开当前组织的联系人列表，单选一个联系人。',
       action: 'getSingleContact',
       params: {
       },

@@ -1,7 +1,7 @@
 <template>
   <div class="not-in-workplus">
     <img src="@/assets/workplus.png" alt="">
-    <h3>请使用 WorkPlus APP 访问应用！</h3>
+    <h3>请使用 WorkPlus PC 访问应用！</h3>
     <a href="https://workplus.io">前往官网</a>
   </div>
 </template>
