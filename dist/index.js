@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.install = exports.isPCPlatform = exports.error = exports.execSync = exports.exec = exports.checkApi = exports.ready = exports.config = exports.deviceready = exports.init = exports.pay = exports.video = exports.record = exports.storage = exports.dialog = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
+exports.install = exports.platform = exports.error = exports.execSync = exports.exec = exports.checkApi = exports.ready = exports.config = exports.deviceready = exports.init = exports.pay = exports.video = exports.record = exports.storage = exports.dialog = exports.event = exports.auth = exports.email = exports.network = exports.file = exports.eventlog = exports.device = exports.location = exports.util = exports.header = exports.webview = exports.app = exports.session = exports.user = exports.contact = exports.image = exports.native = exports.version = void 0;
 var core = require("./core");
 var image_1 = require("./image");
 var Contact = require("./contact");
@@ -73,7 +73,7 @@ exports.pay = pay_1.default;
 /** WrokPlus SDK 初始化配置 */
 exports.init = core.init;
 exports.deviceready = core.deviceready;
-/** 鉴权完成 */
+/** 鉴权 */
 exports.config = Config.config;
 /** 鉴权完成 */
 exports.ready = Config.ready;
@@ -85,7 +85,8 @@ exports.exec = core.exec;
 exports.execSync = core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 exports.error = core.error;
-exports.isPCPlatform = core.isPCPlatform;
+/** 平台属性 */
+exports.platform = { isPC: core.isPCPlatform };
 /** Vue Plugin install function */
 /*eslint @typescript-eslint/no-explicit-any: 0*/
 exports.install = function (Vue, options, globalMode) {
@@ -122,7 +123,7 @@ exports.install = function (Vue, options, globalMode) {
         record: exports.record,
         video: exports.video,
         pay: exports.pay,
-        isPCPlatform: exports.isPCPlatform,
+        platform: exports.platform,
     };
     /* eslint no-param-reassign: 0 */
     if (Vue.prototype) {

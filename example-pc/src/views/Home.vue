@@ -16,11 +16,15 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ExampleList from '@/components/ExampleList.vue';
+import * as sdk from '../../../dist';
 
 @Component({
   name: 'Home',
   components: {
     ExampleList,
+  },
+  mounted() {
+    console.log(`in PC platform: ${sdk.platform.isPC}`);
   },
 })
 export default class Home extends Vue {

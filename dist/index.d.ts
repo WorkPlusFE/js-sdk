@@ -106,7 +106,7 @@ export declare const pay: {
 /** WrokPlus SDK 初始化配置 */
 export declare const init: (options?: CoreOptions | undefined) => void;
 export declare const deviceready: (fn?: Function | undefined) => Promise<void>;
-/** 鉴权完成 */
+/** 鉴权 */
 export declare const config: typeof Config.config;
 /** 鉴权完成 */
 export declare const ready: typeof Config.ready;
@@ -118,6 +118,9 @@ export declare const exec: typeof core.exec;
 export declare const execSync: typeof core.execSync;
 /** WorkPlus SDK 监听错误回调 */
 export declare const error: (fn: (err: unknown) => void) => void;
-export declare const isPCPlatform: boolean;
+/** 平台属性 */
+export declare const platform: {
+    isPC: boolean;
+};
 /** Vue Plugin install function */
 export declare const install: (Vue: any, options?: CoreOptions | undefined, globalMode?: boolean | undefined) => void;

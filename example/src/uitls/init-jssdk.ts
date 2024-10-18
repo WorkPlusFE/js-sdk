@@ -33,7 +33,7 @@ export default {
       sdk.init({ debug: true, auth: authMode, useHttp: false });
 
       // 非鉴权模式自动返回成功
-      if (!authMode || sdk.isPCPlatform) {
+      if (!authMode || sdk.platform.isPC) {
         return resolve({ code: 0 });
       }
 

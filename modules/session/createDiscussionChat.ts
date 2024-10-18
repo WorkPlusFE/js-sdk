@@ -10,6 +10,6 @@ import { WORKPLUS_CONTACT } from '../constants';
  * @returns {void}
  */
 export default function createDiscussionChat({ newWindow }: { newWindow?: boolean }): void {
-  const options = core.isPCPlatform && typeof newWindow !== 'undefined' ? [ { newWindow }] : [];
+  const options = core.isPCPlatform && typeof newWindow !== 'undefined' ? [{ newWindow }] : [];
   return core.execSync(WORKPLUS_CONTACT, 'createDiscussionChat', options);
 }

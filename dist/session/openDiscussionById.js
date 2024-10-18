@@ -10,6 +10,9 @@ var constants_1 = require("../constants");
  * @returns {Promise<unknown>}
  */
 function openDiscussionById(options) {
+    if (!core.isPCPlatform) {
+        delete options.newWindow;
+    }
     return core.execSync(constants_1.WORKPLUS_CONTACT, 'openDiscussionById', [options]);
 }
 exports.default = openDiscussionById;

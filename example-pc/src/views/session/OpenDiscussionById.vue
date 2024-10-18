@@ -49,6 +49,7 @@ export default class ExampleList extends Vue {
     if (this.discussionId !== null) {
       sdk.session.openDiscussionById({
         discussionId: this.discussionId,
+        newWindow: false,
       });
     }
   }

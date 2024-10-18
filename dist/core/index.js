@@ -41,15 +41,17 @@ var Core = /** @class */ (function () {
                 _this._logger.error('不支持非浏览器环境');
                 return;
             }
-            // 鉴权提示
-            _this._logger.warn("SDK \u5DF2" + ((options === null || options === void 0 ? void 0 : options.auth) ? '开启' : '关闭') + "\u63A5\u53E3\u9274\u6743");
-            // 若非鉴权模式，需要主动注入 cordova.js
-            if (!(options === null || options === void 0 ? void 0 : options.auth)) {
+            if (!_this.isPCPlatform()) {
+                // 鉴权提示
+                _this._logger.warn("SDK \u5DF2" + ((options === null || options === void 0 ? void 0 : options.auth) ? '开启' : '关闭') + "\u63A5\u53E3\u9274\u6743");
                 // 若非鉴权模式，需要主动注入 cordova.js
-                if (!window.cordova && !_this.isDeviceReady && !_this._inject) {
-                    // 注入 Cordova
-                    import_cordova_1.default(options === null || options === void 0 ? void 0 : options.cordovajs, options === null || options === void 0 ? void 0 : options.useHttp);
-                    _this._inject = true;
+                if (!(options === null || options === void 0 ? void 0 : options.auth)) {
+                    // 若非鉴权模式，需要主动注入 cordova.js
+                    if (!window.cordova && !_this.isDeviceReady && !_this._inject) {
+                        // 注入 Cordova
+                        import_cordova_1.default(options === null || options === void 0 ? void 0 : options.cordovajs, options === null || options === void 0 ? void 0 : options.useHttp);
+                        _this._inject = true;
+                    }
                 }
             }
             // 设置超时
@@ -104,7 +106,7 @@ var Core = /** @class */ (function () {
     }
     Core.prototype.isPCPlatform = function () {
         var ua = window.navigator.userAgent;
-        if (ua.indexOf('workplus-pc') > -1 || ua.indexOf('wp-buildNo') > -1) {
+        if (ua.indexOf('workplus-pc') > -1 && ua.indexOf('wp-buildNo/') > -1) {
             return true;
         }
         return false;

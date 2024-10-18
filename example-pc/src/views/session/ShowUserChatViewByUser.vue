@@ -62,6 +62,7 @@ export default class ExampleList extends Vue {
       sdk.session.showUserChatViewByUser({
         userId: user.user_id,
         domainId: user.domain_id,
+        newWindow: true,
       });
     }
   }
