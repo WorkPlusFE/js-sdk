@@ -14,6 +14,9 @@ export default function showUserChatViewByUser(
   options: ShowUserChatViewByUserParams & ContactOption<unknown>,
 ): Promise<unknown> {
   const { success, fail, ...args } = options;
+  if (!core.isPCPlatform) {
+    delete args.newWindow;
+  }
   return core.exec<ShowUserChatViewByUserParams, unknown, unknown>(
     WORKPLUS_CONTACT,
     'showUserChatViewByUser',

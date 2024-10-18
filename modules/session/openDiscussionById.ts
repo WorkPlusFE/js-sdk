@@ -11,5 +11,8 @@ import { WORKPLUS_CONTACT } from '../constants';
  * @returns {Promise<unknown>}
  */
 export default function openDiscussionById(options: OpenDiscussionByIdParams): void {
+  if (!core.isPCPlatform) {
+    delete options.newWindow;
+  }
   return core.execSync<OpenDiscussionByIdParams>(WORKPLUS_CONTACT, 'openDiscussionById', [options]);
 }

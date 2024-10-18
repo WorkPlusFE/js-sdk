@@ -207,6 +207,7 @@ export interface CurrentEmployeeInfoRes {
 export interface ShowUserChatViewByUserParams {
   userId: string;
   domainId: string;
+  /** 仅对 PC 客户端有效 */
   newWindow?: boolean;
 }
 
@@ -238,6 +239,7 @@ export interface ShowUserInfoByUsernameParams {
 
 export interface OpenDiscussionByIdParams {
   discussionId: string;
+  /** 仅对 PC 客户端有效 */
   newWindow?: boolean;
   body_type?: string;
   body?: Body;
