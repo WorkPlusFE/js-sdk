@@ -1,7 +1,9 @@
 import Session from './session';
 import Contact from './contact';
-import device from './device';
-import image from './image';
+import Device from './device';
+import Image from './image';
+import Auth from './auth';
+import User from './user';
 
 
 interface ApiModule {
@@ -20,8 +22,10 @@ interface ApiItem {
 }
 
 export default [
+  Auth,
+  User,
   Contact,
   Session,
-  image,
-  device,
+  Image,
+  Device,
 ] as ApiModule[];
