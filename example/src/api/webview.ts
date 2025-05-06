@@ -37,7 +37,7 @@ export default {
         cover_media_id: '',
         scope: 0,
         summary: '点击打开 WorkPlus 官网',
-        // dicrectly: '',
+        directly: 'w6s_contact',
       },
     },
     {

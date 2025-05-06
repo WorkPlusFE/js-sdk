@@ -15,7 +15,7 @@ import * as Config from './config';
 import * as Dialog from './dialog';
 import * as Storage from './storage';
 /** WorkPlus SDK 版本 */
-export declare const version = "2.0.3";
+export declare const version = "__VERSION__";
 export declare const native: {};
 /** 图像接口 */
 export declare const image: {

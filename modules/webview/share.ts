@@ -17,7 +17,7 @@ function share(options: Share): void {
     cover_url: options?.coverUrl || '',
     scope: options.scope,
     summary: options.summary,
-    dicrectly: options?.dicrectly || '',
+    directly: options?.directly || '',
     direct_session: options?.directSession,
   };
   return core.execSync<ShareParams>(WORKPLUS_WEBVIEW, 'share', [args]);

@@ -63,7 +63,7 @@ export interface ShareParams {
     /** 分享链接的摘要 */
     summary: string;
     /** 直接执行分享操作, w6s_contact对应"分享弹出窗"的"发送给", 为App内部的联系人等列表, 后期扩展更多直接分享的类型, 敬请期待;当dicrectly存在值时, scope参数无意义, 请忽略, 默认dicrectly为空, 也即该接口会显示"分享弹出框"*/
-    dicrectly?: 'w6s_contact' | 'w6s_current_session' | '';
+    directly?: 'w6s_contact' | 'w6s_current_session' | '';
     /** 会话参数 */
     direct_session?: {
         /** 会话的id */
@@ -86,7 +86,7 @@ export interface Share {
     /** 分享链接的摘要 */
     summary: string;
     /** 直接执行分享操作, w6s_contact对应"分享弹出窗"的"发送给", 为App内部的联系人等列表, 后期扩展更多直接分享的类型, 敬请期待;当dicrectly存在值时, scope参数无意义, 请忽略, 默认dicrectly为空, 也即该接口会显示"分享弹出框"*/
-    dicrectly?: 'w6s_contact' | 'w6s_current_session' | '';
+    directly?: 'w6s_contact' | 'w6s_current_session' | '';
     /** 会话参数 */
     directSession?: {
         /** 会话的id */
