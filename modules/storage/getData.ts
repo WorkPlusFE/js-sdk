@@ -1,6 +1,9 @@
 import * as core from '../core';
 import { WORKPLUS_DATA } from '../constants';
+import { ExecOptions } from '../types/core';
 import { DataParams, GetDataRes } from '../types/data';
+
+export type DataOptions = DataParams & ExecOptions<GetDataRes, unknown>;
 
 /**
  * GetData
@@ -9,6 +12,13 @@ import { DataParams, GetDataRes } from '../types/data';
  * @module data
  * @returns {GetDataRes}
  */
-export function getData(options: DataParams): Promise<GetDataRes> {
-  return core.exec(WORKPLUS_DATA, 'getData', [{ ...options }]);
+export function getData(options: DataOptions): Promise<GetDataRes> {
+  const { success, fail, ...args } = options;
+  return core.exec<DataParams, GetDataRes, unknown>(
+    WORKPLUS_DATA,
+    'getData',
+    [args],
+    success,
+    fail,
+  );
 }

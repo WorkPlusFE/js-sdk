@@ -12,12 +12,13 @@ export type Options = GenerateBarcodeParams & ExecOptions<GenerateBarcodeRes, vo
  * @returns {Promise<GenerateBarcodeRes>}
  */
 function generateBarcode(options: Options): Promise<GenerateBarcodeRes> {
+  const { success, fail, ...args } = options;
   return core.exec<GenerateBarcodeParams, GenerateBarcodeRes, void>(
     WORKPLUS_SCAN,
     'generateBarcode',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
     false,
   );
 }

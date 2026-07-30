@@ -1,4 +1,15 @@
 "use strict";
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authRequest = exports.request = void 0;
 var core = require("../core");
@@ -11,7 +22,8 @@ var constants_1 = require("../constants");
  * @returns {RequestRes}
  */
 function request(options) {
-    return core.exec(constants_1.WORKPLUS_NETWORK, 'request', [options], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail);
+    var success = options.success, fail = options.fail, args = __rest(options, ["success", "fail"]);
+    return core.exec(constants_1.WORKPLUS_NETWORK, 'request', [args], success, fail);
 }
 exports.request = request;
 /**
@@ -22,6 +34,7 @@ exports.request = request;
  * @returns {RequestRes}
  */
 function authRequest(options) {
-    return core.exec(constants_1.WORKPLUS_NETWORK, 'authRequest', [options], options === null || options === void 0 ? void 0 : options.success, options === null || options === void 0 ? void 0 : options.fail);
+    var success = options.success, fail = options.fail, args = __rest(options, ["success", "fail"]);
+    return core.exec(constants_1.WORKPLUS_NETWORK, 'authRequest', [args], success, fail);
 }
 exports.authRequest = authRequest;

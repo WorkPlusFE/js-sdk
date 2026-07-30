@@ -12,12 +12,13 @@ export type Options = PlayVideoParams & ExecOptions<PlayVideoRes, void>;
  * @returns {PlayVideoRes}
  */
 export default function playVideo(options: Options): Promise<PlayVideoRes> {
+  const { success, fail, ...args } = options;
   return core.exec<PlayVideoParams, PlayVideoRes, void>(
     WORKPLUS_AUDIO_AND_VIDEO,
     'playVideo',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
     false,
   );
 }

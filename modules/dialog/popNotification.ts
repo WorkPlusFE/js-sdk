@@ -12,12 +12,13 @@ export type Options = PopNotificationParams & ExecOptions<PopNotificationRes, vo
  * @returns {PopNotificationRes}
  */
 export function popNotification(options: Options): Promise<PopNotificationRes> {
+  const { success, fail, ...args } = options;
   return core.exec<PopNotificationParams, PopNotificationRes, void>(
     WORKPLUS_NOTIFICATION,
     'pop',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
     false,
   );
 }

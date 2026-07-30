@@ -13,12 +13,13 @@ export type Options = ActionSheetParams & ExecOptions<ActionSheetRes, void>;
  * @returns {ActionSheetRes}
  */
 export function showActionSheet(options: Options): Promise<ActionSheetRes> {
+  const { success, fail, ...args } = options;
   return core.exec<ActionSheetParams, ActionSheetRes, void>(
     WORKPLUS_DIALOG,
     'showActionSheet',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
     false,
   );
 }

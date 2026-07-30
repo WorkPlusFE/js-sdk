@@ -12,12 +12,13 @@ export type Options = StartVideoRecoderParams & ExecOptions<StartVideoRecoderRes
  * @returns {voiceRecordRes}
  */
 export default function startVideoRecoder(options: Options): Promise<StartVideoRecoderRes> {
+  const { success, fail, ...args } = options;
   return core.exec<StartVideoRecoderParams, StartVideoRecoderRes, void>(
     WORKPLUS_AUDIO_AND_VIDEO,
     'startVideoRecoder',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
     false,
   );
 }

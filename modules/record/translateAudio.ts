@@ -12,12 +12,13 @@ export type Options = TranslateAudiodParams & ExecOptions<TranslateAudiodRes, vo
  * @returns {voiceRecordRes}
  */
 export default function translateAudio(options: Options): Promise<TranslateAudiodRes> {
+  const { success, fail, ...args } = options;
   return core.exec<TranslateAudiodParams, TranslateAudiodRes, void>(
     WORKPLUS_AUDIO_AND_VIDEO,
     'translateAudio',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
     false,
   );
 }

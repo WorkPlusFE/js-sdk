@@ -26,12 +26,13 @@ export type AssembleAuthUrlOptions = AssembleAuthUrlParams &
  * @returns 转换后的链接
  */
 function assembleAuthUrl(options: AssembleAuthUrlOptions): Promise<AssembleAuthUrlRes> {
+  const { success, fail, ...args } = options;
   return core.exec<AssembleAuthUrlParams, AssembleAuthUrlRes, CommonApiRes>(
     WORKPLUS_NETWORK,
     'assembleAuthUrl',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
   );
 }
 

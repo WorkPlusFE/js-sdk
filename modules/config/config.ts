@@ -13,12 +13,13 @@ export type ConfigOptions = ConfigAuthParams & ExecOptions<ConfigAuthRes, Config
  * @returns {ConfigAuthRes}
  */
 export default function config(options: ConfigOptions): Promise<ConfigAuthRes> {
+  const { success, fail, ...args } = options;
   return core.exec<ConfigAuthParams, ConfigAuthRes, ConfigAuthRes>(
     WORKPLUS_CONFIG,
     'config',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
     false,
   );
 }

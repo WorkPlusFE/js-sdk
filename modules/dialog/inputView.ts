@@ -13,12 +13,13 @@ export type Options = ModalParams & ExecOptions<ModalRes, void>;
  * @returns {ModalRes}
  */
 export function showInputView(options: Options): Promise<ModalRes> {
+  const { success, fail, ...args } = options;
   return core.exec<ModalParams, ModalRes, void>(
     WORKPLUS_DIALOG,
     'showInputView',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
     false,
   );
 }

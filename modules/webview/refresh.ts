@@ -23,12 +23,13 @@ export type EndPullRefreshResOptions = ExecOptions<EndPullRefreshRes, void>;
 export function configPullRefresh(
   options: configPullRefreshOptions,
 ): Promise<ConfigPullRefreshRes> {
+  const { success, fail, ...args } = options;
   return core.exec<ConfigPullRefreshParams, ConfigPullRefreshRes, void>(
     WORKPLUS_WEBVIEW,
     'configPullRefresh',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
     false,
   );
 }

@@ -19,11 +19,12 @@ export type CheckApiOptions = CheckApiParams & ExecOptions<CommonApiRes, void>;
  * @returns {CommonApiRes}
  */
 export default function checkApi(options: CheckApiOptions): Promise<CommonApiRes> {
+  const { success, fail, ...args } = options;
   return core.exec<CheckApiParams, CommonApiRes, void>(
     WORKPLUS_CONFIG,
     'checkApi',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
   );
 }

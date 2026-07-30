@@ -12,12 +12,13 @@ export type Options = GenerateQrcodeParams & ExecOptions<GenerateQrcodeRes, void
  * @returns {Promise<GenerateQrcodeRes>}
  */
 function generateQrcode(options: Options): Promise<GenerateQrcodeRes> {
+  const { success, fail, ...args } = options;
   return core.exec<GenerateQrcodeParams, GenerateQrcodeRes, void>(
     WORKPLUS_SCAN,
     'generateQrcode',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
     false,
   );
 }

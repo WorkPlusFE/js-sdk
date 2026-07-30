@@ -34,12 +34,13 @@ export type RequestOptions = RequestParams & ExecOptions<RequestRes, RequestRes>
  * @returns {RequestRes}
  */
 export function request(options: RequestOptions): Promise<RequestRes> {
+  const { success, fail, ...args } = options;
   return core.exec<RequestParams, RequestRes, RequestRes>(
     WORKPLUS_NETWORK,
     'request',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
   );
 }
 
@@ -51,11 +52,12 @@ export function request(options: RequestOptions): Promise<RequestRes> {
  * @returns {RequestRes}
  */
 export function authRequest(options: RequestOptions): Promise<RequestRes> {
+  const { success, fail, ...args } = options;
   return core.exec<RequestParams, RequestRes, RequestRes>(
     WORKPLUS_NETWORK,
     'authRequest',
-    [options],
-    options?.success,
-    options?.fail,
+    [args],
+    success,
+    fail,
   );
 }
